@@ -1,0 +1,22 @@
+
+body {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+button {
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  outline: 0px;
+}
+
+.map-base-layer-awmc {
+  filter: grayscale(0.85)
+}
+
+.map-base-layer-osm {
+  filter: grayscale(0.5)
+}
+
+.map-base-layer {
+  opacity: 0.8
+}
