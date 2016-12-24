@@ -4,6 +4,19 @@ let defaultBounds = [[0, -30], [60, 60]];
 let defaultKeppBuffer = 20;
 
 var MapBaseLayers = {
+  'IMPERIUM': {
+    url: 'http://pelagios.org/tilesets/imperium/{z}/{x}/{y}.png',
+    className: 'map-base-layer map-base-layer-osm',
+    attribution: '<a href="http://dare.ht.lu.se/">Digital Atlas of the Roman Empire (DARE)</a>',
+    minZoom: 2,
+    id: 'imperium',
+    maxZoom: 11,
+    opacity: 1,
+    bounds: defaultBounds,
+    keepBuffer: defaultKeppBuffer,
+    name: 'Imperium'
+  },
+
   'AWMC': {
     url: 'http://a.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png',
     className: 'map-base-layer map-base-layer-awmc',
@@ -16,10 +29,11 @@ var MapBaseLayers = {
     keepBuffer: defaultKeppBuffer,
     name: 'Ancient World Mapping Center'
   },
+
   'OSM': {
-    url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    url: 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',
     className: 'map-base-layer map-base-layer-osm',
-    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
     minZoom: 2,
     id: 'osm',
     maxZoom: 15,
@@ -28,6 +42,13 @@ var MapBaseLayers = {
     keepBuffer: defaultKeppBuffer,
     name: 'Open Street Maps'
   },
+
+  'ESRIWORLD': {
+    url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+	  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+    id: 'esri',
+    name: 'WorldImagery ESRI',
+  }
 
 }
 

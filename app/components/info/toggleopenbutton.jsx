@@ -2,9 +2,7 @@ import React from 'react'
 import Styles from '../../enums/styles'
 import MapTopics from '../../enums/maptopics'
 
-import RaisedButton from 'material-ui/RaisedButton';
-import {fullWhite} from 'material-ui/styles/colors';
-import ActionAndroid from 'material-ui/svg-icons/action/android';
+import FlatButton from 'material-ui/FlatButton'
 import FontIcon from 'material-ui/FontIcon';
 
 export default class InfoToggleOpenButton extends React.Component {
@@ -15,13 +13,14 @@ export default class InfoToggleOpenButton extends React.Component {
         position: 'fixed',
         right: '30px',
         top: Styles['MENU_HEIGHT'],
+        marginTop: '10px',
         color: Styles['COLOR_WHITE'],
         backgroundColor: Styles['COLOR_BLACK1'],
       })
     }
 
 
-    toggleButtonText () {
+    toggleButtonIcon () {
       if (this.props.open) {
         return 'keyboard_arrow_down'
       } else {
@@ -29,14 +28,25 @@ export default class InfoToggleOpenButton extends React.Component {
       }
     }
 
+    toggleButtonLabel () {
+      if (this.props.open) {
+        return 'more info'
+      } else {
+        return 'less info'
+      }
+    }
+
 
     render () {
       var that = this;
       return (
-        <RaisedButton
+        <FlatButton
           onClick={this.props.handleClick}
           style={this.toggleButtonStyle()}
-          icon={<FontIcon className="material-icons" >{that.toggleButtonText()}</FontIcon>}
+          label={this.toggleButtonLabel()}
+          icon={
+            <FontIcon className="material-icons md-48" >{this.toggleButtonIcon()}</FontIcon>
+          }
         />
       );
     }

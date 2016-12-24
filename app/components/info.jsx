@@ -3,14 +3,17 @@ import Styles from '../enums/styles'
 
 import MapTopics from '../enums/maptopics'
 import Actions from '../enums/actions'
+import Base from '../base'
 
 import InfoToggleOpenButton from './info/toggleopenbutton'
+import InfoText from './info/text'
+import InfoHeading from './info/heading'
 
 
 export default class InfoContainer extends React.Component {
 
     infoStyle (open) {
-      let map = this.props.app.getActiveMap();
+      let map = Base.getActiveMapTopic();
       return ({
         position: 'absolute',
         left: Styles['PANEL_WIDTH'],
@@ -29,8 +32,11 @@ export default class InfoContainer extends React.Component {
 
 
     render () {
+      console.log(Base.getActiveMapTopic())
       return (
         <div className='info-wrapper' style={this.infoStyle(this.props.appState.infoOpen)}>
+          <InfoHeading headingText={Base.getActiveMapTopic().infoHeading} />
+          <InfoText text={Base.getActiveMapTopic().infoText} />
           <InfoToggleOpenButton handleClick={this.toggleInfoPanel.bind(this)} open={this.props.appState.infoOpen} />
         </div>
       );

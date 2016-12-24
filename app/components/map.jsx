@@ -4,6 +4,7 @@ import { Map, TileLayer } from 'react-leaflet';
 
 import Styles from '../enums/styles';
 import MapBaseLayers from '../enums/mapbaselayers.js'
+import Base from '../base'
 
 export default class MapContainer extends React.Component {
 
@@ -44,8 +45,8 @@ export default class MapContainer extends React.Component {
 
     refresh () {
       this.map.setView(
-        this.props.app.getActiveMap().originLatLng,
-        this.props.app.getActiveMap().originZoom
+        Base.getActiveMapTopic().originLatLng,
+        Base.getActiveMapTopic().originZoom
       );
 
       this.refreshMapTiles();
@@ -78,7 +79,7 @@ export default class MapContainer extends React.Component {
           <Map
             minZoom = {2}
             maxBounds = {[[0, -30], [60, 60]]}
-            maxZoom = {20} 
+            maxZoom = {10} 
             center = {[0, 0]}
             style = {this.mapStyle()}
             zoom = {5}

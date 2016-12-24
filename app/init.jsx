@@ -12,7 +12,7 @@ window['dispatcher'] = dispatcher
 window['appUpdate'] = null
 window['appState'] = {
   infoOpen: true,
-  activeBaseLayer: 'awmc',
+  activeBaseLayer: 'imperium',
   activeMapTopic: MapTopics.OVERVIEW.label
 }
 

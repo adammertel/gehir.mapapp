@@ -39,23 +39,6 @@ export default class App extends React.Component {
     console.log('newstate', (appState))
     this.setState(appState)
   }
-  
-  getActiveMap () {
-    let that = this;
-    let mapName = Object.keys(MapTopics).find(function (mapName, mi) {
-      let map = MapTopics[mapName];
-      return that.state.activeMapTopic == map.label
-    })
-    return MapTopics[mapName];
-  }
-
-  changeMap (map) {
-    this.setState(
-      {
-        activeMap: map.label
-      }
-    )
-  }
 
   render () {
     return (

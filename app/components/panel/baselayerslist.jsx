@@ -56,7 +56,7 @@ export default class PanelBaseLayersList extends React.Component {
                     <RadioButton
                       value={mapTile.id}
                       label={mapTile.name}
-                      onClick={that.props.container.changeBaseMap.bind(that.props.app, mapTile.name)}
+                      onClick={that.props.container.changeBaseMap.bind(that.props.app, mapTile.id)}
                       key={mapTileKey}  
                     />
                   );

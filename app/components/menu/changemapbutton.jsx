@@ -10,7 +10,7 @@ export default class MenuChangeMapButton extends React.Component {
       let buttonFontColor = Styles['COLOR_WHITE'];
       
       if (appState.activeMapTopic === map.label) {
-        buttonColor = map['color2'];
+        //buttonColor = map['color2'];
         buttonFontColor = Styles['COLOR_BLACK'];
       }
 
