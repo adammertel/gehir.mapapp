@@ -32,7 +32,6 @@ export default class InfoContainer extends React.Component {
 
 
     render () {
-      console.log(Base.getActiveMapTopic())
       return (
         <div className='info-wrapper' style={this.infoStyle(this.props.appState.infoOpen)}>
           <InfoHeading headingText={Base.getActiveMapTopic().infoHeading} />

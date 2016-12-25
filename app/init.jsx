@@ -13,7 +13,9 @@ window['appUpdate'] = null
 window['appState'] = {
   infoOpen: true,
   activeBaseLayer: 'imperium',
-  activeMapTopic: MapTopics.OVERVIEW.label
+  activeMapTopic: MapTopics.OVERVIEW.label,
+  mapCenter: [20, 20],
+  mapZoom: 5
 }
 
 ReactDOM.render(

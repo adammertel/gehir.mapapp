@@ -50,12 +50,10 @@ export default class PanelContainer extends React.Component {
       var that = this;
       return (
         <div className='panel-wrapper' style={this.panelStyle()}>
-          <h3>LAYERS</h3>
           <PanelBaseLayersList 
             container={this} 
             activeBaseLayer={this.props.appState.activeBaseLayer} 
           />
-          <h4>Other Layers:</h4>
         </div>
       );
     }

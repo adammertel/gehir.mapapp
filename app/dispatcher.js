@@ -1,4 +1,6 @@
 import Actions from './enums/actions.js'
+import Base from './base.js'
+
 
 module.exports = {
     dispatch: function (action, data) {
@@ -13,10 +15,20 @@ module.exports = {
 
             case Actions['MAPTOPICCHANGE']:
                 changes.activeMapTopic = data.newMapMode
+
+                var activeMapTopic = Base.getMapTopicById(data.newMapMode)
+                changes.mapZoom = activeMapTopic.originZoom
+                changes.mapCenter = activeMapTopic.originLatLng
                 break
 
             case Actions['MAPBASELAYERCHANGE']:
                 changes.activeBaseLayer = data.newBaseLayer
+                break
+            case Actions['MAPCHANGEZOOM']:
+                changes.mapZoom = data.newMapZoom
+                break
+            case Actions['MAPCHANGECENTER']:
+                changes.mapCenter = data.newMapCenter
                 break
         }
 

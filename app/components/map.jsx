@@ -2,11 +2,25 @@ import L from 'leaflet';
 import React from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 
+import Actions from '../enums/actions';
 import Styles from '../enums/styles';
 import MapBaseLayers from '../enums/mapbaselayers.js'
 import Base from '../base'
 
 export default class MapContainer extends React.Component {
+
+    componentDidMount () {
+      this.lEl = this.refs.map.leafletElement;
+      this.afterRender()
+    }
+    
+    componentDidUpdate () {
+      this.afterRender();
+    }
+    
+    afterRender () {
+      //this.lEl.setZoom(Math.random() * 10, true);
+    }
 
     refreshMapTiles () {
       let that = this;
@@ -52,6 +66,18 @@ export default class MapContainer extends React.Component {
       this.refreshMapTiles();
     }
 
+    moveEndHandle () {
+      var centerLL = this.lEl.getCenter();
+      dispatcher.dispatch(Actions['MAPCHANGECENTER'], {newMapCenter: centerLL})
+    }
+
+    zoomEndHandle () {
+      var zoom = this.lEl.getZoom();
+      dispatcher.dispatch(Actions['MAPCHANGEZOOM'], {newMapZoom: zoom})
+    }
+
+
+
     renderBaseLayers () {
       let baseLayers = []
       let context = this.props.appState
@@ -77,12 +103,15 @@ export default class MapContainer extends React.Component {
       return (
         <div className='map-wrapper' style={this.wrapperStyle()}>
           <Map
+            ref="map" 
             minZoom = {2}
             maxBounds = {[[0, -30], [60, 60]]}
             maxZoom = {10} 
-            center = {[0, 0]}
+            center = {appState.mapCenter}
             style = {this.mapStyle()}
-            zoom = {5}
+            zoom = {appState.mapZoom}
+            onMoveEnd = {this.moveEndHandle.bind(this)}
+            onZoomEnd = {this.zoomEndHandle.bind(this)}
           >
             { this.renderBaseLayers() }
           </Map>
