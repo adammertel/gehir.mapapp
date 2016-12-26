@@ -3,7 +3,11 @@ import Styles from '../../enums/styles'
 
 import MapBaseLayers from '../../enums/mapbaselayers'
 
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
+import FlatButton from 'material-ui/FlatButton'
+
+import FontIcon from 'material-ui/FontIcon';
+import IconButton from 'material-ui/IconButton';
 
 export default class PanelBaseLayersList extends React.Component {
 
@@ -40,29 +44,63 @@ export default class PanelBaseLayersList extends React.Component {
       })
     }
 
+    divButtonStyle () {
+      return (
+        {
+          display: 'table-row'
+        }
+      )
+    }
+
+    helpButtonStyle () {
+      return (
+        {
+          float: 'right',
+          marginRight: '20px',
+          display: 'table-cell',
+          cursor: 'pointer'
+        }
+      )
+    }
+
+    inlineButtonStyle () {
+      return (
+        {
+          display: 'table-cell'
+        }
+      )
+    }
+
 
     render () {
       var that = this;
+
       return (
         <div>
           <h4>Base Layers:</h4>
             <div className="panel-baselayers-list">
-              <RadioButtonGroup name="shipSpeed" defaultSelected={this.props.activeBaseLayer}>
               {
                 Object.keys(MapBaseLayers).map(function(mapTileKey) {
                   let mapTile = MapBaseLayers[mapTileKey];
 
                   return(
-                    <RadioButton
-                      value={mapTile.id}
-                      label={mapTile.name}
-                      onClick={that.props.container.changeBaseMap.bind(that.props.app, mapTile.id)}
-                      key={mapTileKey}  
-                    />
+                    <div key={mapTileKey} style={that.divButtonStyle()}>
+                      <RadioButton
+                        value={mapTile.id}
+                        label={mapTile.name}
+                        checked={appState.activeBaseLayer == mapTile.id}
+                        onClick={that.props.handleChangeBaseLayer.bind(this, mapTile.id)}
+                        style={that.inlineButtonStyle()}                        
+                      />
+                      <FontIcon 
+                        style={that.helpButtonStyle()} 
+                        className="material-icons md-48" >
+                        help
+                      </FontIcon>
+                    </div>
                   );
                 })
               }
-              </RadioButtonGroup>
             </div>
           </div>
       );

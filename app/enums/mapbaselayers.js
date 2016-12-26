@@ -27,7 +27,7 @@ var MapBaseLayers = {
     opacity: 1,
     bounds: defaultBounds,
     keepBuffer: defaultKeppBuffer,
-    name: 'Ancient World Mapping Center'
+    name: 'AWMC'
   },
 
   'OSM': {

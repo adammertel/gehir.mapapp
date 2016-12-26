@@ -1,25 +1,38 @@
 import L from 'leaflet';
 import React from 'react';
-import { Map, TileLayer } from 'react-leaflet';
+import { Map, LayerGroup, TileLayer, WMSTileLayer, GeoJSON } from 'react-leaflet';
+
+import Base from '../base'
 
 import Actions from '../enums/actions';
 import Styles from '../enums/styles';
+import MapTopics from '../enums/maptopics';
 import MapBaseLayers from '../enums/mapbaselayers.js'
-import Base from '../base'
+import MapOverlays from '../enums/mapoverlays.js'
+
 
 export default class MapContainer extends React.Component {
 
     componentDidMount () {
       this.lEl = this.refs.map.leafletElement;
+      this.lastTopic = appState.activeMapTopic;
       this.afterRender()
     }
-    
+
     componentDidUpdate () {
       this.afterRender();
     }
-    
+
     afterRender () {
-      //this.lEl.setZoom(Math.random() * 10, true);
+      if (this.lastTopic != this.props.appState.activeMapTopic) {
+        this.lastTopic = this.props.appState.activeMapTopic
+        this.topicChanged()
+      }
+    }
+
+    topicChanged () {
+      console.log('map topic changed')
+      visualiseTopic()
     }
 
     refreshMapTiles () {
@@ -90,11 +103,54 @@ export default class MapContainer extends React.Component {
             <TileLayer 
               key={mapIndex}
               url={mapTile.url}
+              zIndex={1}
             />
           )
         }
       })
       return baseLayers;
+    }
+
+    renderOverlays () {
+      let overlayLayers = []
+      let context = this.props.appState
+
+      Object.keys(MapOverlays).map(function(mapOverlayKey, mapIndex) {
+        let mapOverlay = MapOverlays[mapOverlayKey]
+
+        if (context.activeOverlays.indexOf(mapOverlay.id) != -1) {
+          if (mapOverlay.type == 'wms') {
+
+            overlayLayers.push(
+              <WMSTileLayer 
+                url={mapOverlay.url}
+                key={mapIndex}
+                layers={mapOverlay.layers}
+                format={mapOverlay.format}
+                transparent={mapOverlay.transparent}
+                attribution={mapOverlay.attribution}
+                zIndex={2}
+              />
+            )
+          }
+          if (mapOverlay.type == 'geojson') {
+            overlayLayers.push(
+              <GeoJSON 
+                data={mapOverlay.json.ne_50m}
+                key={mapIndex}
+                style={
+                  {
+                    fill: false,
+                    weight: 1,
+                    color: 'black'
+                  }
+                }
+              />
+            )
+          }
+        }
+      })
+      return overlayLayers;
     }
 
     render () {
@@ -113,9 +169,47 @@ export default class MapContainer extends React.Component {
             onMoveEnd = {this.moveEndHandle.bind(this)}
             onZoomEnd = {this.zoomEndHandle.bind(this)}
           >
-            { this.renderBaseLayers() }
+            <LayerGroup>
+              { this.renderBaseLayers() }
+            </LayerGroup>
+            <LayerGroup>
+              { this.renderOverlays() }
+            </LayerGroup>
           </Map>
         </div>
       );
     }
+
+
+    visualiseTopic (topic) {
+      var topic = this.props.appState.activeMapTopic
+      switch (topic) {
+
+        // overview
+        case MapTopics['OVERVIEW'].label:
+          break
+        
+        
+        // overview
+        case MapTopics['ISIS'].label:
+          break
+        
+        
+        // marluc
+        case MapTopics['MARLUC'].label:
+          break
+
+
+        // christrome
+        case MapTopics['CHRISTROME'].label:
+          break
+
+
+        // mithorig
+        case MapTopics['MITHORIG'].label:
+          break
+
+      }  
+    }
 }
+

@@ -7,7 +7,7 @@ module.exports = {
         console.log('dispatching', action)
 
         let changes = {}
-        
+
         switch (action) {
             case Actions['INFOTOGGLE']:
                 changes.infoOpen = !appState.infoOpen
@@ -24,9 +24,22 @@ module.exports = {
             case Actions['MAPBASELAYERCHANGE']:
                 changes.activeBaseLayer = data.newBaseLayer
                 break
+
+            case Actions['MAPOVERLAYTOGGLE']:
+                changes.activeOverlays = appState.activeOverlays.slice()
+                let overlayIndex = changes.activeOverlays.indexOf(data.overlayToToggle)
+
+                if (overlayIndex == -1) {
+                    changes.activeOverlays.push(data.overlayToToggle)
+                } else {
+                    changes.activeOverlays.splice(overlayIndex, 1);
+                }
+                break
+
             case Actions['MAPCHANGEZOOM']:
                 changes.mapZoom = data.newMapZoom
                 break
+
             case Actions['MAPCHANGECENTER']:
                 changes.mapCenter = data.newMapCenter
                 break

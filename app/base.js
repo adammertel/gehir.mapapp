@@ -17,7 +17,8 @@ var Base = {
       return id == map.label
     })
     return MapTopics[mapKey];
-  }
+  },
+
 }
 
 module.exports = Base

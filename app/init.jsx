@@ -15,7 +15,8 @@ window['appState'] = {
   activeBaseLayer: 'imperium',
   activeMapTopic: MapTopics.OVERVIEW.label,
   mapCenter: [20, 20],
-  mapZoom: 5
+  mapZoom: 5,
+  activeOverlays: [],
 }
 
 ReactDOM.render(
