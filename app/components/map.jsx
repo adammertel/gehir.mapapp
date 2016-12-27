@@ -48,28 +48,6 @@ export default class MapContainer extends React.Component {
       })
     }
 
-
-    wrapperStyle () {
-      let mapH = Styles['INFO_MENU_HEIGHT'](this.props.appState.infoOpen);
-
-      return ({
-        position: 'absolute',
-        left: Styles['PANEL_WIDTH'],
-        right: '0px',
-        top: mapH,
-        bottom: '0px',
-        overflow: 'hidden'
-      })
-    }
-
-    mapStyle () {
-      return ({
-        width: '100%',
-        height: '100%',
-        overflow: 'hidden'
-      })
-    }
-
     refresh () {
       this.map.setView(
         Base.getActiveMapTopic().originLatLng,
@@ -88,8 +66,6 @@ export default class MapContainer extends React.Component {
       var zoom = this.lEl.getZoom();
       dispatcher.dispatch(Actions['MAPCHANGEZOOM'], {newMapZoom: zoom})
     }
-
-
 
     renderBaseLayers () {
       let baseLayers = []
@@ -157,17 +133,17 @@ export default class MapContainer extends React.Component {
       var that = this
 
       return (
-        <div className='map-wrapper' style={this.wrapperStyle()}>
+        <div className='map-wrapper' style={Styles['MAP_WRAPPER'](this.props.appState.infoOpen)}>
           <Map
             ref="map" 
-            minZoom = {2}
-            maxBounds = {[[0, -30], [60, 60]]}
-            maxZoom = {10} 
-            center = {appState.mapCenter}
-            style = {this.mapStyle()}
-            zoom = {appState.mapZoom}
-            onMoveEnd = {this.moveEndHandle.bind(this)}
-            onZoomEnd = {this.zoomEndHandle.bind(this)}
+            minZoom={2}
+            maxBounds={[[0, -30], [60, 60]]}
+            maxZoom={10} 
+            center={appState.mapCenter}
+            style={Styles['MAP']()}
+            zoom={appState.mapZoom}
+            onMoveEnd={this.moveEndHandle.bind(this)}
+            onZoomEnd={this.zoomEndHandle.bind(this)}
           >
             <LayerGroup>
               { this.renderBaseLayers() }

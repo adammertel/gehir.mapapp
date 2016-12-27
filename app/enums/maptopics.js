@@ -1,10 +1,10 @@
-import Styles from './styles'
+import StyleVariables from './stylevariables'
 
 var MapTopics = {
   'OVERVIEW': {
     label: 'overview',
-    color1: Styles['COLOR_GREY'],
-    color2: Styles['COLOR_GREY'],
+    color1: StyleVariables['COLOR_GREY'],
+    color2: StyleVariables['COLOR_GREY'],
     originLatLng: [40,20],
     originZoom: 4,
     infoHeading: 'Overview',
@@ -12,8 +12,8 @@ var MapTopics = {
   },
   'ISIS': {
     label: 'isis',
-    color1: Styles['COLOR_1A'],
-    color2: Styles['COLOR_1B'],
+    color1: StyleVariables['COLOR_1A'],
+    color2: StyleVariables['COLOR_1B'],
     originLatLng: [40,30],
     originZoom: 5,
     infoHeading: 'Temples of egyptian gods - concentric circles',
@@ -21,8 +21,8 @@ var MapTopics = {
   },
   'MARLUC': {
     label: 'marluc',
-    color1: Styles['COLOR_2A'],
-    color2: Styles['COLOR_2B'],
+    color1: StyleVariables['COLOR_2A'],
+    color2: StyleVariables['COLOR_2B'],
     originLatLng: [20,40],
     originZoom: 6,
     infoHeading: 'MARLUC',
@@ -30,8 +30,8 @@ var MapTopics = {
   },
   'CHRISTROME': {
     label: 'christrome',
-    color1: Styles['COLOR_3A'],
-    color2: Styles['COLOR_3B'],
+    color1: StyleVariables['COLOR_3A'],
+    color2: StyleVariables['COLOR_3B'],
     originLatLng: [20,20],
     originZoom: 5,
     infoHeading: 'CHRISTROME',
@@ -39,8 +39,8 @@ var MapTopics = {
   },
   'MITHORIG': {
     label: 'mithorig',
-    color1: Styles['COLOR_4A'],
-    color2: Styles['COLOR_4B'],
+    color1: StyleVariables['COLOR_4A'],
+    color2: StyleVariables['COLOR_4B'],
     originLatLng: [20,20],
     originZoom: 5,
     infoHeading: 'MITHORIG',

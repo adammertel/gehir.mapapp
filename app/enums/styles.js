@@ -1,33 +1,134 @@
+import StyleVariables from './stylevariables'
+import Base from '../base'
+
 var Styles = {
-  'MENU_HEIGHT': '80px',
-  'PANEL_WIDTH': '300px',
-  'MENU_BUTTON_WIDTH': '150px',
-  'INFO_HEIGHT': '150px',
-  'INFO_HIDDEN_HEIGHT': '50px',
-  'INFO_MENU_HEIGHT': function (hidden) {
-    if (hidden) {
-      return parseInt(this['MENU_HEIGHT']) + parseInt(this['INFO_HIDDEN_HEIGHT'])
-    } else {
-      return parseInt(this['MENU_HEIGHT']) + parseInt(this['INFO_HEIGHT'])
+  'PANEL_WRAPPER': () => {
+    return {
+      position: 'absolute',
+      left: '0px',
+      width: parseInt(StyleVariables['PANEL_WIDTH']) - 20 + 'px',
+      top: StyleVariables['MENU_HEIGHT'],
+      bottom: '0px',
+      overflow: 'hidden',
+      backgroundColor: StyleVariables['COLOR_BLACK1'],
+      color: StyleVariables['COLOR_WHITE'],
+      padding: '10px'
     }
   },
 
-  'COLOR_ORANGE': '#e74c3c',
-  'COLOR_WHITE': 'white',
-  'COLOR_BLACK1': '#333',
-  'COLOR_BLACK2': '#666',
-  'COLOR_GREY': '#e1e1e1',
+  'MAP_WRAPPER': (infoOpen) => {
+    let mapH = StyleVariables['INFO_MENU_HEIGHT'](infoOpen)
+    return {
+      position: 'absolute',
+      left: StyleVariables['PANEL_WIDTH'],
+      right: '0px', 
+      top: mapH,
+      bottom: '0px',
+      overflow: 'hidden'
+    }
+  },
 
-  'COLOR_1A': '#a6cee3',
-  'COLOR_1B': '#1f78b4',
-  'COLOR_2A': '#b2df8a',
-  'COLOR_2B': '#33a02c',
-  'COLOR_3A': '#fb9a99',
-  'COLOR_3B': '#e31a1c',
-  'COLOR_4A': '#fdbf6f',
-  'COLOR_4B': '#ff7f00',
+  'MAP': () => {
+    return {
+      width: '100%',
+      height: '100%',
+      overflow: 'hidden'
+    }
+  },
 
-  'FONT': '"Montserrat", sans-serif',
+
+  'MENU_WRAPPER': () => {
+    return {
+      position: 'absolute',
+      left: '0px',
+      width: '100%',
+      height: StyleVariables['MENU_HEIGHT'],
+      top: '0px',
+      overflow: 'hidden',
+      backgroundColor: StyleVariables['COLOR_BLACK1']
+    }
+  },
+
+  'MENU_BUTTONS_WRAPPER': () => {
+    return {
+      position: 'absolute',
+      left: StyleVariables['PANEL_WIDTH']
+    }
+  },
+  'MENU_BUTTON': (map) => {
+    let buttonColor = map['color1'];
+    console.log(map)
+    let buttonFontColor = StyleVariables['COLOR_WHITE'];
+    
+    if (appState.activeMapTopic === map.label) {
+      //buttonColor = map['color2'];
+      buttonFontColor = StyleVariables['COLOR_BLACK'];
+    }
+
+    return ({
+      backgroundColor: buttonColor,
+      height: StyleVariables['MENU_HEIGHT'],
+      borderColor: StyleVariables['COLOR_BLACK2'],
+      borderWidth: '0px 3px 0px 0px',
+      color: buttonFontColor,
+      width: StyleVariables['MENU_BUTTON_WIDTH'],
+    })
+  },
+
+  'INFO_WRAPPER': (open, map) => {
+    return {
+      position: 'absolute',
+      left: StyleVariables['PANEL_WIDTH'],
+      right: '0px',
+      top: StyleVariables['MENU_HEIGHT'],
+      height:  StyleVariables['INFO_HEIGHT'],
+      overflow: 'hidden',
+      backgroundColor: map.color1,
+    }
+  },
+  'INFO_TOGGLE_BUTTON': () => {
+    return {
+      position: 'fixed',
+      right: '30px',
+      top: StyleVariables['MENU_HEIGHT'],
+      marginTop: '10px',
+      color: StyleVariables['COLOR_WHITE'],
+      backgroundColor: StyleVariables['COLOR_BLACK1'],
+    }
+  },
+
+  'LOGO_WRAPPER': () => {
+    return {
+      height: StyleVariables['MENU_HEIGHT'],
+      width: StyleVariables['PANEL_WIDTH'],
+      top: '0px',
+      left: '0px',
+      position: 'absolute',
+      backgroundColor: StyleVariables['COLOR_ORANGE'],
+      margin: '-4px',
+      borderWidth: '2px',
+      borderStyle: 'solid',
+      borderColor: StyleVariables['COLOR_BLACK1'],
+    }
+  },
+  'LOGO': () => {
+    return {
+      top: '15px',
+      left: '15px',
+      position: 'absolute',
+      color: StyleVariables['COLOR_WHITE'],
+      fontSize: '38px',
+    }
+  },
+  'LOGO_SUB': () => {
+    return {
+      position: 'absolute',
+      fontSize: '10px',
+      top: '20px',
+      left: '140px',
+      color: StyleVariables['COLOR_BLACK1']
+    }
+  },
 }
 
 module.exports = Styles

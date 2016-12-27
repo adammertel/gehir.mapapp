@@ -12,28 +12,15 @@ import InfoHeading from './info/heading'
 
 export default class InfoContainer extends React.Component {
 
-    infoStyle (open) {
-      let map = Base.getActiveMapTopic();
-      return ({
-        position: 'absolute',
-        left: Styles['PANEL_WIDTH'],
-        right: '0px',
-        top: Styles['MENU_HEIGHT'],
-        height:  Styles['INFO_HEIGHT'],
-        overflow: 'hidden',
-        backgroundColor: map.color1,
-      })
-    }
-
-
     toggleInfoPanel () {
       dispatcher.dispatch(Actions['INFOTOGGLE'], {})
     } 
 
-
     render () {
+      let open = appState.infoOpen
+      let aMap = Base.getActiveMapTopic()
       return (
-        <div className='info-wrapper' style={this.infoStyle(this.props.appState.infoOpen)}>
+        <div className='info-wrapper' style={Styles['INFO_WRAPPER'](open, aMap)}>
           <InfoHeading headingText={Base.getActiveMapTopic().infoHeading} />
           <InfoText text={Base.getActiveMapTopic().infoText} />
           <InfoToggleOpenButton handleClick={this.toggleInfoPanel.bind(this)} open={this.props.appState.infoOpen} />

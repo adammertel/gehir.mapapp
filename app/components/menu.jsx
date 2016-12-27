@@ -11,26 +11,6 @@ export default class MenuContainer extends React.Component {
     componentDidMount () {
     }
 
-    menuStyle () {
-
-      return ({
-        position: 'absolute',
-        left: '0px',
-        width: '100%',
-        height: Styles['MENU_HEIGHT'],
-        top: '0px',
-        overflow: 'hidden',
-        backgroundColor: Styles['COLOR_BLACK1']
-      })
-    }
-
-    buttonsWrapperStyle () {
-      return ({
-        position: 'absolute',
-        left: Styles['PANEL_WIDTH']
-      })
-    }
-
     changeMap (newMapName) {
       console.log(newMapName)
       dispatcher.dispatch(Actions['MAPTOPICCHANGE'], {newMapMode: newMapName})
@@ -40,9 +20,9 @@ export default class MenuContainer extends React.Component {
     render () {
       var that = this
       return (
-        <div className="menu-wrapper" style={this.menuStyle()}>
+        <div className="menu-wrapper" style={Styles['MENU_WRAPPER']()}>
           <MenuLogo />
-          <span style={this.buttonsWrapperStyle()}>
+          <span style={Styles['MENU_BUTTONS_WRAPPER']()}>
             {
               Object.keys(MapTopics).map(function (mapKey, mi) {
                 let mapMode = MapTopics[mapKey];

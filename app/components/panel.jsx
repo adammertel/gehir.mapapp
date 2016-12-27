@@ -11,21 +11,6 @@ export default class PanelContainer extends React.Component {
     componentDidMount () {
     }
 
-    panelStyle () {
-      return ({
-        position: 'absolute',
-        left: '0px',
-        width: Styles['PANEL_WIDTH'],
-        top: Styles['MENU_HEIGHT'],
-        bottom: '0px',
-        overflow: 'hidden',
-        backgroundColor: Styles['COLOR_BLACK1'],
-        color: Styles['COLOR_WHITE'],
-        padding: '10px'
-      })
-    }
-
-
     changeBaseMap (baseMapId) {
       dispatcher.dispatch(Actions['MAPBASELAYERCHANGE'], {newBaseLayer: baseMapId})
     }
@@ -34,27 +19,11 @@ export default class PanelContainer extends React.Component {
       dispatcher.dispatch(Actions['MAPOVERLAYTOGGLE'], {overlayToToggle: overlayMapId})
     }
 
-
-    styleBaseLayerLabel (tile) {
-      let fWeight = '300';
-      let fDecorator = 'line-through';
-
-      if (tile.active) {
-        fWeight = '800';
-        fDecorator = '';
-      }
-      return ({
-        fontWeight: fWeight,
-        textDecoration: fDecorator,
-        cursor: 'pointer'
-      })
-    }
-
     render () {
-      var that = this;
+      var that = this
 
       return (
-        <div className='panel-wrapper' style={this.panelStyle()}>
+        <div className='panel-wrapper' style={Styles['PANEL_WRAPPER']()}>
           <PanelBaseLayersList 
             handleChangeBaseLayer={this.changeBaseMap} 
             activeBaseLayer={this.props.appState.activeBaseLayer}
