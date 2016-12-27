@@ -15,6 +15,24 @@ var Styles = {
       padding: '10px'
     }
   },
+  'PANEL_HELP_BUTTON': () => {
+    return {
+      float: 'right',
+      marginRight: '20px',
+      display: 'table-cell',
+      cursor: 'pointer'
+    }
+  },
+  'PANEL_BUTTON_ROW': () => {
+    return {
+      display: 'table-row'
+    }
+  },  
+  'PANEL_BUTTON_CELL': () => {
+    return {
+      display: 'table-cell'
+    }
+  },  
 
   'MAP_WRAPPER': (infoOpen) => {
     let mapH = StyleVariables['INFO_MENU_HEIGHT'](infoOpen)
@@ -27,7 +45,6 @@ var Styles = {
       overflow: 'hidden'
     }
   },
-
   'MAP': () => {
     return {
       width: '100%',
@@ -35,7 +52,6 @@ var Styles = {
       overflow: 'hidden'
     }
   },
-
 
   'MENU_WRAPPER': () => {
     return {
@@ -59,7 +75,7 @@ var Styles = {
     let buttonColor = map['color1'];
     console.log(map)
     let buttonFontColor = StyleVariables['COLOR_WHITE'];
-    
+
     if (appState.activeMapTopic === map.label) {
       //buttonColor = map['color2'];
       buttonFontColor = StyleVariables['COLOR_BLACK'];

@@ -12,11 +12,11 @@ export default class PanelContainer extends React.Component {
     }
 
     changeBaseMap (baseMapId) {
-      dispatcher.dispatch(Actions['MAPBASELAYERCHANGE'], {newBaseLayer: baseMapId})
+      dispatcher.dispatch(Actions['MAP_BASE_LAYER_CHANGE'], {newBaseLayer: baseMapId})
     }
 
     toggleOverlay (overlayMapId) {
-      dispatcher.dispatch(Actions['MAPOVERLAYTOGGLE'], {overlayToToggle: overlayMapId})
+      dispatcher.dispatch(Actions['MAP_OVERLAY_TOGGLE'], {overlayToToggle: overlayMapId})
     }
 
     render () {

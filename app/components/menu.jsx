@@ -6,6 +6,7 @@ import MapTopics from '../enums/maptopics'
 import MenuChangeMapButton from './menu/changemapbutton'
 import MenuLogo from './menu/logo'
 
+
 export default class MenuContainer extends React.Component {
 
     componentDidMount () {
@@ -13,9 +14,8 @@ export default class MenuContainer extends React.Component {
 
     changeMap (newMapName) {
       console.log(newMapName)
-      dispatcher.dispatch(Actions['MAPTOPICCHANGE'], {newMapMode: newMapName})
+      dispatcher.dispatch(Actions['MAP_TOPIC_CHANGE'], {newMapMode: newMapName})
     }
-
 
     render () {
       var that = this

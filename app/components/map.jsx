@@ -59,12 +59,12 @@ export default class MapContainer extends React.Component {
 
     moveEndHandle () {
       var centerLL = this.lEl.getCenter();
-      dispatcher.dispatch(Actions['MAPCHANGECENTER'], {newMapCenter: centerLL})
+      dispatcher.dispatch(Actions['MAP_CHANGE_CENTER'], {newMapCenter: centerLL})
     }
 
     zoomEndHandle () {
       var zoom = this.lEl.getZoom();
-      dispatcher.dispatch(Actions['MAPCHANGEZOOM'], {newMapZoom: zoom})
+      dispatcher.dispatch(Actions['MAP_CHANGE_ZOOM'], {newMapZoom: zoom})
     }
 
     renderBaseLayers () {

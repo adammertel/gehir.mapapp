@@ -9,11 +9,11 @@ module.exports = {
         let changes = {}
 
         switch (action) {
-            case Actions['INFOTOGGLE']:
+            case Actions['INFO_TOGGLE']:
                 changes.infoOpen = !appState.infoOpen
                 break
 
-            case Actions['MAPTOPICCHANGE']:
+            case Actions['MAP_TOPIC_CHANGE']:
                 changes.activeMapTopic = data.newMapMode
 
                 var activeMapTopic = Base.getMapTopicById(data.newMapMode)
@@ -21,11 +21,11 @@ module.exports = {
                 changes.mapCenter = activeMapTopic.originLatLng
                 break
 
-            case Actions['MAPBASELAYERCHANGE']:
+            case Actions['MAP_BASE_LAYER_CHANGE']:
                 changes.activeBaseLayer = data.newBaseLayer
                 break
 
-            case Actions['MAPOVERLAYTOGGLE']:
+            case Actions['MAP_OVERLAY_TOGGLE']:
                 changes.activeOverlays = appState.activeOverlays.slice()
                 let overlayIndex = changes.activeOverlays.indexOf(data.overlayToToggle)
 
@@ -36,11 +36,11 @@ module.exports = {
                 }
                 break
 
-            case Actions['MAPCHANGEZOOM']:
+            case Actions['MAP_CHANGE_ZOOM']:
                 changes.mapZoom = data.newMapZoom
                 break
 
-            case Actions['MAPCHANGECENTER']:
+            case Actions['MAP_CHANGE_CENTER']:
                 changes.mapCenter = data.newMapCenter
                 break
         }

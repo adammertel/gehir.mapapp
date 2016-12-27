@@ -13,7 +13,7 @@ import InfoHeading from './info/heading'
 export default class InfoContainer extends React.Component {
 
     toggleInfoPanel () {
-      dispatcher.dispatch(Actions['INFOTOGGLE'], {})
+      dispatcher.dispatch(Actions['INFO_TOGGLE'], {})
     } 
 
     render () {

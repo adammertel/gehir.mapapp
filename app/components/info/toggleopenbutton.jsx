@@ -5,6 +5,7 @@ import MapTopics from '../../enums/maptopics'
 import FlatButton from 'material-ui/FlatButton'
 import FontIcon from 'material-ui/FontIcon'
 
+
 export default class InfoToggleOpenButton extends React.Component {
 
     toggleButtonIcon () {
