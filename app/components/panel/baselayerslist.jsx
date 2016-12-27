@@ -4,7 +4,6 @@ import Styles from '../../enums/styles'
 import MapBaseLayers from '../../enums/mapbaselayers'
 
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
-import FlatButton from 'material-ui/FlatButton'
 import FontIcon from 'material-ui/FontIcon'
 
 

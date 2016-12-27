@@ -1,21 +1,12 @@
 import React from 'react'
+import Styles from '../../enums/styles'
 
 export default class InfoText extends React.Component {
-
-    infoTextStyle () {
-      return ({
-        fontWeight: 200,
-        position: 'relative',
-        top: '50px',
-        marginLeft: '10px'
-      })
-    }
-
 
     render () {
       var that = this;
       return (
-        <div style={this.infoTextStyle()}>
+        <div style={Styles['INFO_TEXT']()}>
           {this.props.text}
         </div>
       );

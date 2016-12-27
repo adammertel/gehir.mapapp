@@ -112,6 +112,22 @@ var Styles = {
       backgroundColor: StyleVariables['COLOR_BLACK1'],
     }
   },
+  'INFO_TEXT': () => {
+    return {
+      fontWeight: 200,
+      position: 'relative',
+      top: '50px',
+      marginLeft: '10px'
+    }
+  },
+  'INFO_HEADING': () => {
+    return {
+      marginLeft: '10px',
+      fontWeight: 400,
+      position: 'relative',
+      top: '15px'
+    }
+  },
 
   'LOGO_WRAPPER': () => {
     return {

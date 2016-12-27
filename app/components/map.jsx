@@ -156,7 +156,6 @@ export default class MapContainer extends React.Component {
       );
     }
 
-
     visualiseTopic (topic) {
       var topic = this.props.appState.activeMapTopic
       switch (topic) {
@@ -164,13 +163,13 @@ export default class MapContainer extends React.Component {
         // overview
         case MapTopics['OVERVIEW'].label:
           break
-        
-        
+
+
         // overview
         case MapTopics['ISIS'].label:
           break
-        
-        
+
+
         // marluc
         case MapTopics['MARLUC'].label:
           break
@@ -185,7 +184,8 @@ export default class MapContainer extends React.Component {
         case MapTopics['MITHORIG'].label:
           break
 
-      }  
+
+      }
     }
 }
 

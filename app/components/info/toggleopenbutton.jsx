@@ -10,17 +10,17 @@ export default class InfoToggleOpenButton extends React.Component {
 
     toggleButtonIcon () {
       if (this.props.open) {
-        return 'keyboard_arrow_down'
-      } else {
         return 'keyboard_arrow_up'
+      } else {
+        return 'keyboard_arrow_down'
       }
     }
 
     toggleButtonLabel () {
       if (this.props.open) {
-        return 'more info'
-      } else {
         return 'less info'
+      } else {
+        return 'more info'
       }
     }
 

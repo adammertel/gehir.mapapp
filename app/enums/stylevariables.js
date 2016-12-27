@@ -4,11 +4,11 @@ var StyleVariables = {
   'MENU_BUTTON_WIDTH': '150px',
   'INFO_HEIGHT': '150px',
   'INFO_HIDDEN_HEIGHT': '50px',
-  'INFO_MENU_HEIGHT': function (hidden) {
-    if (hidden) {
-      return parseInt(this['MENU_HEIGHT']) + parseInt(this['INFO_HIDDEN_HEIGHT'])
-    } else {
+  'INFO_MENU_HEIGHT': function (open) {
+    if (open) {
       return parseInt(this['MENU_HEIGHT']) + parseInt(this['INFO_HEIGHT'])
+    } else {
+      return parseInt(this['MENU_HEIGHT']) + parseInt(this['INFO_HIDDEN_HEIGHT'])
     }
   },
 

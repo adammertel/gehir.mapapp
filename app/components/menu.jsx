@@ -36,7 +36,6 @@ export default class MenuContainer extends React.Component {
               })
             }
           </span>
-
         </div>
       );
     }
