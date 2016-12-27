@@ -50,7 +50,6 @@ export default class PanelContainer extends React.Component {
       })
     }
 
-
     render () {
       var that = this;
 
@@ -58,12 +57,12 @@ export default class PanelContainer extends React.Component {
         <div className='panel-wrapper' style={this.panelStyle()}>
           <PanelBaseLayersList 
             handleChangeBaseLayer={this.changeBaseMap} 
-            activeBaseLayer={this.props.appState.activeBaseLayer} 
+            activeBaseLayer={this.props.appState.activeBaseLayer}
           />
           <OverlaysList 
             container={this} 
             handleChangeOverlays={this.toggleOverlay} 
-            activeBaseLayer={this.props.appState.activeBaseLayer} 
+            activeBaseLayer={this.props.appState.activeBaseLayer}
           />
         </div>
       );

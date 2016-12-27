@@ -8,7 +8,7 @@ import InfoContainer from './components/info'
 import MapTopics from './enums/maptopics'
 import MapBaseLayers from './enums/mapbaselayers'
 
-
+import ReactTooltip from 'react-tooltip'
 
 require('./App.css');
 
@@ -22,7 +22,7 @@ const muiTheme = getMuiTheme({
   },
   appBar: {
     height: 50,
-  },
+  }
 });
 
 export default class App extends React.Component {
@@ -48,6 +48,7 @@ export default class App extends React.Component {
           <PanelContainer appState={this.state} app={this} />
           <InfoContainer appState={this.state} app={this} />
           <MapContainer appState={this.state} app={this} />
+          <ReactTooltip place="right" type="dark" effect="solid"/>
         </div>
       </MuiThemeProvider>
     );

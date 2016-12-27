@@ -32,7 +32,7 @@ export default class MapContainer extends React.Component {
 
     topicChanged () {
       console.log('map topic changed')
-      visualiseTopic()
+      this.visualiseTopic()
     }
 
     refreshMapTiles () {

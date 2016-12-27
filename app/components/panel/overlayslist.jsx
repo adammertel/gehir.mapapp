@@ -3,7 +3,8 @@ import Styles from '../../enums/styles'
 
 import MapOverlays from '../../enums/mapoverlays'
 
-import Checkbox from 'material-ui/Checkbox';
+import Checkbox from 'material-ui/Checkbox'
+import FontIcon from 'material-ui/FontIcon'
 
 export default class OverlaysList extends React.Component {
 
@@ -41,6 +42,33 @@ export default class OverlaysList extends React.Component {
     }
 
 
+    divButtonStyle () {
+      return (
+        {
+          display: 'table-row'
+        }
+      )
+    }
+
+    helpButtonStyle () {
+      return (
+        {
+          float: 'right',
+          marginRight: '20px',
+          display: 'table-cell',
+          cursor: 'pointer'
+        }
+      )
+    }
+
+    inlineButtonStyle () {
+      return (
+        {
+          display: 'table-cell'
+        }
+      )
+    }
+
     render () {
       var that = this;
       return (
@@ -51,14 +79,23 @@ export default class OverlaysList extends React.Component {
               Object.keys(MapOverlays).map(function(mapOverlayKey) {
                 let mapOverlay = MapOverlays[mapOverlayKey];
                 return(
-                  <Checkbox
-                    label={mapOverlay.name}
-                    onClick={that.props.handleChangeOverlays.bind(this, mapOverlay.id)}
-                    key={mapOverlayKey}  
-                    checked={appState.activeOverlays.indexOf(mapOverlay.id) != -1}
-                  />
+                  <div key={mapOverlayKey} style={that.divButtonStyle()}>
+                    <Checkbox
+                      label={mapOverlay.name}
+                      onClick={that.props.handleChangeOverlays.bind(this, mapOverlay.id)}
+                      checked={appState.activeOverlays.indexOf(mapOverlay.id) != -1}
+                      style={that.inlineButtonStyle()} 
+                    />
+                    <FontIcon
+                      data-tip={mapOverlay.info}
+                      style={that.helpButtonStyle()} 
+                      className="material-icons md-48"
+                    >
+                      help
+                    </FontIcon>
+                  </div>
                 );
-              })
+             })
             }
           </div>
         </div>

@@ -5,9 +5,7 @@ import MapBaseLayers from '../../enums/mapbaselayers'
 
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
 import FlatButton from 'material-ui/FlatButton'
-
-import FontIcon from 'material-ui/FontIcon';
-import IconButton from 'material-ui/IconButton';
+import FontIcon from 'material-ui/FontIcon'
 
 export default class PanelBaseLayersList extends React.Component {
 
@@ -93,8 +91,10 @@ export default class PanelBaseLayersList extends React.Component {
                         style={that.inlineButtonStyle()}                        
                       />
                       <FontIcon 
+                        data-tip={mapTile.info}
                         style={that.helpButtonStyle()} 
-                        className="material-icons md-48" >
+                        className="material-icons md-48" 
+                      >
                         help
                       </FontIcon>
                     </div>

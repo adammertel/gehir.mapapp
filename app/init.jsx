@@ -5,11 +5,11 @@ import MapTopics from './enums/maptopics.js'
 import dispatcher from './dispatcher.js'
 
 
-
 // initial app state
 console.log(dispatcher)
 window['dispatcher'] = dispatcher
 window['appUpdate'] = null
+
 window['appState'] = {
   infoOpen: true,
   activeBaseLayer: 'imperium',

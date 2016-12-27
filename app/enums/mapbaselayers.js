@@ -14,7 +14,8 @@ var MapBaseLayers = {
     opacity: 1,
     bounds: defaultBounds,
     keepBuffer: defaultKeppBuffer,
-    name: 'Imperium'
+    name: 'Imperium',
+    info: 'http://dare.ht.lu.se/',
   },
 
   'AWMC': {
@@ -27,7 +28,8 @@ var MapBaseLayers = {
     opacity: 1,
     bounds: defaultBounds,
     keepBuffer: defaultKeppBuffer,
-    name: 'AWMC'
+    name: 'AWMC',
+    info: 'Ancient World Mapping Center',
   },
 
   'OSM': {
@@ -40,7 +42,8 @@ var MapBaseLayers = {
     opacity: 1,
     bounds: defaultBounds,
     keepBuffer: defaultKeppBuffer,
-    name: 'Open Street Maps'
+    name: 'Open Street Maps',
+    info: 'http://openstreetmap.org',
   },
 
   'ESRIWORLD': {
@@ -48,6 +51,7 @@ var MapBaseLayers = {
 	  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
     id: 'esri',
     name: 'WorldImagery ESRI',
+    info: 'WorldImagery ESRI ArcGIS Online WMS',
   }
 
 }
