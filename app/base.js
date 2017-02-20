@@ -3,12 +3,41 @@ import MapTopics from './enums/maptopics'
 
 var Base = {
 
+  doRequest (url, next) {
+    console.log('request: ' + url)
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == XMLHttpRequest.DONE) {
+        next(xhr.responseText)
+      }
+    }
+    xhr.open('GET', url, true)
+    xhr.send(null)
+  },
+
+  doRequestSync (url) {
+    let xhr = new XMLHttpRequest()
+    xhr.open('GET', url, false)
+    xhr.send(null)
+
+    if (xhr.status === 200) {
+      return xhr.responseText
+    } else {
+      return {}
+    }
+  },
+
+  requestDataFile (dataName) {
+    const dataPath = './data/' + dataName
+    return JSON.parse(this.doRequestSync(dataPath))
+  },
+
   getActiveMapTopic: function () {
     let mapName = Object.keys(MapTopics).find(function (mapName, mi) {
       let map = MapTopics[mapName]
       return appState.activeMapTopic == map.label
     })
-    return MapTopics[mapName];
+    return MapTopics[mapName]
   },
 
   getMapTopicById: function (id) {
@@ -16,7 +45,7 @@ var Base = {
       let map = MapTopics[mapName]
       return id == map.label
     })
-    return MapTopics[mapKey];
+    return MapTopics[mapKey]
   },
 
 }
