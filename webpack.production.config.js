@@ -38,6 +38,7 @@ module.exports = {
       { from: './app/index.html', to: 'index.html' },
       { from: './app/main.css', to: 'main.css' },
       { from: './app/ext', to: 'ext' }
+      { from: './app/data', to: 'data' }
     ]),
   ]
 };
