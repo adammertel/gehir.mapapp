@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import MapContainer from './components/map'
 import PanelContainer from './components/panel'
@@ -10,11 +10,11 @@ import MapBaseLayers from './enums/mapbaselayers'
 
 import ReactTooltip from 'react-tooltip'
 
-require('./App.css');
+require('./App.css')
 
-import {cyan500} from 'material-ui/styles/colors';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import {cyan500} from 'material-ui/styles/colors'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -23,7 +23,7 @@ const muiTheme = getMuiTheme({
   appBar: {
     height: 50,
   }
-});
+})
 
 export default class App extends React.Component {
   constructor(props) {
@@ -51,6 +51,6 @@ export default class App extends React.Component {
           <ReactTooltip place="right" type="dark" effect="solid"/>
         </div>
       </MuiThemeProvider>
-    );
+    )
   }
 }

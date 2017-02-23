@@ -153,11 +153,11 @@ export default class MapContainer extends React.Component {
             </LayerGroup>
           </Map>
         </div>
-      );
+      )
     }
 
     visualiseTopic (topic) {
-      var topic = this.props.appState.activeMapTopic
+      var topic = this.props.appState.activpeMapTopic
       switch (topic) {
 
         // overview
@@ -165,8 +165,9 @@ export default class MapContainer extends React.Component {
           break
 
 
-        // overview
+        // isis
         case MapTopics['ISIS'].label:
+
           break
 
 

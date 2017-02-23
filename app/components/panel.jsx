@@ -34,6 +34,6 @@ export default class PanelContainer extends React.Component {
             activeBaseLayer={this.props.appState.activeBaseLayer}
           />
         </div>
-      );
+      )
     }
 }

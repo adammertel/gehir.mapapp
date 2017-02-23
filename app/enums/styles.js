@@ -72,13 +72,12 @@ var Styles = {
     }
   },
   'MENU_BUTTON': (map) => {
-    let buttonColor = map['color1'];
-    console.log(map)
-    let buttonFontColor = StyleVariables['COLOR_WHITE'];
+    let buttonColor = map['color1']
+    let buttonFontColor = StyleVariables['COLOR_WHITE']
 
     if (appState.activeMapTopic === map.label) {
-      //buttonColor = map['color2'];
-      buttonFontColor = StyleVariables['COLOR_BLACK'];
+      //buttonColor = map['color2']
+      buttonFontColor = StyleVariables['COLOR_BLACK']
     }
 
     return ({

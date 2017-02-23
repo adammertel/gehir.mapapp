@@ -25,7 +25,7 @@ export default class MenuContainer extends React.Component {
           <span style={Styles['MENU_BUTTONS_WRAPPER']()}>
             {
               Object.keys(MapTopics).map(function (mapKey, mi) {
-                let mapMode = MapTopics[mapKey];
+                let mapMode = MapTopics[mapKey]
                 return (
                   <MenuChangeMapButton 
                     key={mi} 
@@ -37,6 +37,6 @@ export default class MenuContainer extends React.Component {
             }
           </span>
         </div>
-      );
+      )
     }
 }

@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
 import MapTopics from './enums/maptopics'
 import dispatcher from './dispatcher'
 import Base from './base'
@@ -13,9 +13,9 @@ window['appUpdate'] = null
 window['data'] = {}
 
 window['appState'] = {
-  infoOpen: true,
+  infoOpen: false,
   activeBaseLayer: 'imperium',
-  activeMapTopic: MapTopics.OVERVIEW.label,
+  activeMapTopic: MapTopics.ISIS.label,
   mapCenter: [20, 20],
   mapZoom: 5,
   activeOverlays: [],

@@ -5,7 +5,7 @@ var Base = {
 
   doRequest (url, next) {
     console.log('async request: ' + url)
-    let xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function() {
       if (xhr.readyState == XMLHttpRequest.DONE) {
         next(xhr.responseText)

@@ -1,7 +1,7 @@
-var webpack = require('webpack');
-var path = require('path');
-var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+var webpack = require('webpack')
+var path = require('path')
+var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   devtool: 'cheap-source-map',
@@ -41,4 +41,4 @@ module.exports = {
       { from: './app/data', to: 'data' }
     ]),
   ]
-};
+}

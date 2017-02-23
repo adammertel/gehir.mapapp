@@ -25,6 +25,6 @@ export default class InfoContainer extends React.Component {
           <InfoText text={Base.getActiveMapTopic().infoText} />
           <InfoToggleOpenButton handleClick={this.toggleInfoPanel.bind(this)} open={this.props.appState.infoOpen} />
         </div>
-      );
+      )
     }
 }
