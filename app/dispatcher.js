@@ -33,7 +33,7 @@ module.exports = {
                 if (overlayIndex == -1) {
                     changes.activeOverlays.push(data.overlayToToggle)
                 } else {
-                    changes.activeOverlays.splice(overlayIndex, 1);
+                    changes.activeOverlays.splice(overlayIndex, 1)
                 }
                 break
 

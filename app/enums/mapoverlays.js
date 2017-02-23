@@ -1,7 +1,7 @@
 import L from 'leaflet'
 import ne_50m from '../data/ne_50m_admin'
 
-let defaultBounds = [[0, -30], [60, 60]];
+let defaultBounds = [[0, -30], [60, 60]]
 let defaultKeppBuffer = 20
 
 var MapOverlays = {
