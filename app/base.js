@@ -4,7 +4,7 @@ import MapTopics from './enums/maptopics'
 var Base = {
 
   doRequest (url, next) {
-    console.log('request: ' + url)
+    console.log('async request: ' + url)
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -16,6 +16,7 @@ var Base = {
   },
 
   doRequestSync (url) {
+    console.log('sync request: ' + url)
     let xhr = new XMLHttpRequest()
     xhr.open('GET', url, false)
     xhr.send(null)
