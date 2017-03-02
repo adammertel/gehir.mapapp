@@ -1,26 +1,34 @@
-import L from 'leaflet';
-import React from 'react';
-import { Map, LayerGroup, TileLayer, WMSTileLayer, GeoJSON } from 'react-leaflet';
+import L from 'leaflet'
+import React from 'react'
+import { Map, LayerGroup, TileLayer, WMSTileLayer, GeoJSON } from 'react-leaflet'
 
 import Base from '../base'
 
-import Actions from '../enums/actions';
-import Styles from '../enums/styles';
-import MapTopics from '../enums/maptopics';
+import Actions from '../enums/actions'
+import Styles from '../enums/styles'
+import MapTopics from '../enums/maptopics'
 import MapBaseLayers from '../enums/mapbaselayers.js'
 import MapOverlays from '../enums/mapoverlays.js'
+import 'leaflet-semicircle'
+import 'leaflet-carousel'
 
 
 export default class MapContainer extends React.Component {
 
     componentDidMount () {
-      this.lEl = this.refs.map.leafletElement;
-      this.lastTopic = appState.activeMapTopic;
+      this.lEl = this.refs.map.leafletElement
+      this.lastTopic = appState.activeMapTopic
+      window['map'] = this.lEl
+
+      this.dataLayer = L.featureGroup()
+      this.dataLayer.addTo(map)
+      
       this.afterRender()
+      this.topicChanged()
     }
 
     componentDidUpdate () {
-      this.afterRender();
+      this.afterRender()
     }
 
     afterRender () {
@@ -156,8 +164,12 @@ export default class MapContainer extends React.Component {
       )
     }
 
-    visualiseTopic (topic) {
-      var topic = this.props.appState.activpeMapTopic
+    visualiseTopic () {
+      const topic = this.props.appState.activeMapTopic
+      console.log(topic)
+
+      this.dataLayer.clearLayers()
+      
       switch (topic) {
 
         // overview
@@ -167,6 +179,27 @@ export default class MapContainer extends React.Component {
 
         // isis
         case MapTopics['ISIS'].label:
+
+          const options = {
+            maxDist: 60000,
+            noSteps: 5,
+            circleSegmentAngle: 15,
+            colors: {
+              'Sarapis': '#ff7f00',
+              'Isis': '#377eb8',
+              'Apis': '#4daf4a',
+              'Anubis': '#e41a1c' 
+            },
+            propertyName: 'deities'
+          }
+
+          const carouselGroup = L.carouselMarkerGroup(options)
+
+          const templesJson = L.geoJSON(data.isis_temples)
+          const templeLayers = templesJson.getLayers()
+
+          carouselGroup.addLayers(templeLayers)
+          this.dataLayer.addLayer(carouselGroup)
 
           break
 

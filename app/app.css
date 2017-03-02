@@ -24,3 +24,8 @@ button {
 .__react_component_tooltip {
   z-index: 9999 !important;
 }
+
+.carousel-sequence {
+  stroke-width: 0;
+  stroke-opacity: 0.25
+}
