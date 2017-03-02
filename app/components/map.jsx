@@ -22,7 +22,7 @@ export default class MapContainer extends React.Component {
 
       this.dataLayer = L.featureGroup()
       this.dataLayer.addTo(map)
-      
+
       this.afterRender()
       this.topicChanged()
     }
@@ -166,7 +166,6 @@ export default class MapContainer extends React.Component {
 
     visualiseTopic () {
       const topic = this.props.appState.activeMapTopic
-      console.log(topic)
 
       this.dataLayer.clearLayers()
       
@@ -180,26 +179,48 @@ export default class MapContainer extends React.Component {
         // isis
         case MapTopics['ISIS'].label:
 
-          const options = {
-            maxDist: 60000,
-            noSteps: 5,
-            circleSegmentAngle: 15,
-            colors: {
-              'Sarapis': '#ff7f00',
-              'Isis': '#377eb8',
-              'Apis': '#4daf4a',
-              'Anubis': '#e41a1c' 
-            },
-            propertyName: 'deities'
+          const isisColors = {
+            'Isis': '#1f78b4',
+            'Sarapis': '#33a02c',
+            'Apis': '#e31a1c',
+            'Anubis': '#ff7f00',
+            'Osiris': '#6a3d9a',
+            'Horus': '#b15928',
+            'Arsinoe II': '#b15928',
+            'Harpocrates': '#b15928',
           }
 
-          const carouselGroup = L.carouselMarkerGroup(options)
-
+          // temples
+          const templeOptions = {
+            maxDist: 80000,
+            noSteps: 10,
+            circleSegmentAngle: 30,
+            colors: isisColors,
+            propertyName: 'deities'
+          }
+          const temples = L.carouselMarkerGroup(templeOptions)
           const templesJson = L.geoJSON(data.isis_temples)
           const templeLayers = templesJson.getLayers()
 
-          carouselGroup.addLayers(templeLayers)
-          this.dataLayer.addLayer(carouselGroup)
+          temples.addLayers(templeLayers)
+
+          // artefacts
+          const artefactsOptions = {
+            maxDist: 30000,
+            noSteps: 4,
+            circleSegmentAngle: 30,
+            colors: isisColors,
+            propertyName: 'deities'
+          }
+          const artefacts = L.carouselMarkerGroup(artefactsOptions)
+          const artefactsJson = L.geoJSON(data.isis_artefacts)
+          const artefactLayers = artefactsJson.getLayers()
+
+          artefacts.addLayers(artefactLayers)
+
+          
+          this.dataLayer.addLayer(artefacts)
+          this.dataLayer.addLayer(temples)
 
           break
 
