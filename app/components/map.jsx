@@ -169,7 +169,6 @@ export default class MapContainer extends React.Component {
 
     visualiseTopic () {
       const topic = this.props.appState.activeMapTopic
-
       this.dataLayer.clearLayers()
       
       switch (topic) {
@@ -182,21 +181,21 @@ export default class MapContainer extends React.Component {
         case MapTopics['ISIS'].label:
 
           const isisColors = {
-            'Isis': '#1f78b4',
-            'Sarapis': '#33a02c',
-            'Apis': '#e31a1c',
-            'Anubis': '#ff7f00',
-            'Osiris': '#6a3d9a',
-            'Horus': '#b15928',
-            'Arsinoe II': '#b15928',
-            'Harpocrates': '#b15928',
+            'Isis': '#377eb8',
+            'Sarapis': '#4daf4a',
+            'Apis': '#e41a1c',
+            'Anubis': '#e41a1c',
+            'Osiris': '#e41a1c',
+            'Horus': '#e41a1c',
+            'Arsinoe II': '#e41a1c',
+            'Harpocrates': '#e41a1c',
           }
 
           // temples
           const templeOptions = {
             maxDist: 80000,
-            noSteps: 5,
-            circleSegmentAngle: 30,
+            noSteps: 8,
+            circleSegmentAngle: 20,
             colors: isisColors,
             propertyName: 'deities'
           }
@@ -209,9 +208,9 @@ export default class MapContainer extends React.Component {
 
           // artefacts
           const artefactsOptions = {
-            maxDist: 30000,
-            noSteps: 3,
-            circleSegmentAngle: 30,
+            maxDist: 40000,
+            noSteps: 4,
+            circleSegmentAngle: 20,
             colors: isisColors,
             propertyName: 'deities'
           }

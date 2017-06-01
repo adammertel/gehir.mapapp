@@ -14,7 +14,7 @@ button {
 }
 
 .map-base-layer-imperium {
-  filter: grayscale(90%) brightness(80%) contrast(150%) sepia(60%) saturate(70%);
+  filter: grayscale(20%) contrast(90%) sepia(70%) saturate(130%)
 }
 
 .map-base-layer-osm {
