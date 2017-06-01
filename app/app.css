@@ -14,7 +14,7 @@ button {
 }
 
 .map-base-layer-imperium {
-  filter: grayscale(80%) brightness(90%) contrast(135%) sepia(70%);
+  filter: grayscale(90%) brightness(80%) contrast(150%) sepia(60%) saturate(70%);
 }
 
 .map-base-layer-osm {
@@ -31,5 +31,12 @@ button {
 
 .carousel-sequence {
   stroke-width: 0;
-  stroke-opacity: 0.25
+  mix-blend-mode: saturation;
+}
+
+.points-artefacts{
+  stroke-width: 10;
+  stroke-opacity: 0;
+  fill-opacity: 1;
+  fill: black;
 }

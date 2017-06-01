@@ -113,7 +113,7 @@ export default class MapContainer extends React.Component {
                 key={mapIndex}
                 layers={mapOverlay.layers}
                 format={mapOverlay.format}
-                opacity={mapTile.opacity}
+                opacity={mapOverlay.opacity}
                 transparent={mapOverlay.transparent}
                 attribution={mapOverlay.attribution}
                 zIndex={2}
@@ -195,7 +195,7 @@ export default class MapContainer extends React.Component {
           // temples
           const templeOptions = {
             maxDist: 80000,
-            noSteps: 10,
+            noSteps: 5,
             circleSegmentAngle: 30,
             colors: isisColors,
             propertyName: 'deities'
@@ -210,7 +210,7 @@ export default class MapContainer extends React.Component {
           // artefacts
           const artefactsOptions = {
             maxDist: 30000,
-            noSteps: 4,
+            noSteps: 3,
             circleSegmentAngle: 30,
             colors: isisColors,
             propertyName: 'deities'
@@ -220,10 +220,25 @@ export default class MapContainer extends React.Component {
           const artefactLayers = artefactsJson.getLayers()
 
           artefacts.addLayers(artefactLayers)
-
           
           this.dataLayer.addLayer(artefacts)
           this.dataLayer.addLayer(temples)
+
+          this.dataLayer.addLayer(
+            L.geoJSON(data.isis_artefacts, {
+              pointToLayer: (point, ll) => L.circleMarker(ll, 
+                {radius: 1.5, className: 'points-artefacts'}
+              )
+            }).bindTooltip( (layer) => layer.feature.properties.label)
+          )
+
+          this.dataLayer.addLayer(
+            L.geoJSON(data.isis_temples, {
+              pointToLayer: (point, ll) => L.circleMarker(ll, 
+                {radius: 1.5, className: 'points-artefacts'}
+              )
+            }).bindTooltip( (layer) => layer.feature.properties.label)
+          )
 
           break
 

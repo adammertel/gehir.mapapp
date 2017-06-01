@@ -14,7 +14,7 @@ window['data'] = {}
 
 window['appState'] = {
   infoOpen: false,
-  activeBaseLayer: 'imperium',
+  activeBaseLayer: 'awmc',
   activeMapTopic: MapTopics.ISIS.label,
   mapCenter: [20, 20],
   mapZoom: 5,

@@ -4,19 +4,6 @@ let defaultBounds = [[0, -30], [60, 60]];
 let defaultKeppBuffer = 20;
 
 var MapBaseLayers = {
-  'IMPERIUM': {
-    url: 'http://pelagios.org/tilesets/imperium/{z}/{x}/{y}.png',
-    className: 'map-base-layer map-base-layer-imperium',
-    attribution: '<a href="http://dare.ht.lu.se/">Digital Atlas of the Roman Empire (DARE)</a>',
-    minZoom: 2,
-    id: 'imperium',
-    maxZoom: 11,
-    opacity: 1,
-    bounds: defaultBounds,
-    keepBuffer: defaultKeppBuffer,
-    name: 'Imperium',
-    info: 'http://dare.ht.lu.se/',
-  },
 
   'AWMC': {
     url: 'http://a.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png',
@@ -44,6 +31,20 @@ var MapBaseLayers = {
     keepBuffer: defaultKeppBuffer,
     name: 'Open Street Maps',
     info: 'http://openstreetmap.org',
+  },
+  
+  'IMPERIUM': {
+    url: 'http://pelagios.org/tilesets/imperium/{z}/{x}/{y}.png',
+    className: 'map-base-layer map-base-layer-imperium',
+    attribution: '<a href="http://dare.ht.lu.se/">Digital Atlas of the Roman Empire (DARE)</a>',
+    minZoom: 2,
+    id: 'imperium',
+    maxZoom: 11,
+    opacity: 0.7,
+    bounds: defaultBounds,
+    keepBuffer: defaultKeppBuffer,
+    name: 'Imperium',
+    info: 'http://dare.ht.lu.se/',
   },
 
   'ESRIWORLD': {
