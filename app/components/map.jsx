@@ -88,6 +88,8 @@ export default class MapContainer extends React.Component {
               key={mapIndex}
               url={mapTile.url}
               zIndex={1}
+              opacity={mapTile.opacity}
+              className={mapTile.className}
             />
           )
         }
@@ -111,6 +113,7 @@ export default class MapContainer extends React.Component {
                 key={mapIndex}
                 layers={mapOverlay.layers}
                 format={mapOverlay.format}
+                opacity={mapTile.opacity}
                 transparent={mapOverlay.transparent}
                 attribution={mapOverlay.attribution}
                 zIndex={2}
@@ -175,7 +178,6 @@ export default class MapContainer extends React.Component {
         case MapTopics['OVERVIEW'].label:
           break
 
-
         // isis
         case MapTopics['ISIS'].label:
 
@@ -203,6 +205,7 @@ export default class MapContainer extends React.Component {
           const templeLayers = templesJson.getLayers()
 
           temples.addLayers(templeLayers)
+
 
           // artefacts
           const artefactsOptions = {

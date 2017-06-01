@@ -6,7 +6,7 @@ let defaultKeppBuffer = 20;
 var MapBaseLayers = {
   'IMPERIUM': {
     url: 'http://pelagios.org/tilesets/imperium/{z}/{x}/{y}.png',
-    className: 'map-base-layer map-base-layer-osm',
+    className: 'map-base-layer map-base-layer-imperium',
     attribution: '<a href="http://dare.ht.lu.se/">Digital Atlas of the Roman Empire (DARE)</a>',
     minZoom: 2,
     id: 'imperium',
@@ -25,7 +25,7 @@ var MapBaseLayers = {
     id: 'awmc',
     minZoom: 2,
     maxZoom: 15,
-    opacity: 1,
+    opacity: .7,
     bounds: defaultBounds,
     keepBuffer: defaultKeppBuffer,
     name: 'AWMC',
@@ -39,7 +39,7 @@ var MapBaseLayers = {
     minZoom: 2,
     id: 'osm',
     maxZoom: 15,
-    opacity: 1,
+    opacity: 0.8,
     bounds: defaultBounds,
     keepBuffer: defaultKeppBuffer,
     name: 'Open Street Maps',
@@ -48,8 +48,10 @@ var MapBaseLayers = {
 
   'ESRIWORLD': {
     url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    className: 'map-base-layer map-base-layer-esri',
 	  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
     id: 'esri',
+    opacity: 0.9,
     name: 'WorldImagery ESRI',
     info: 'WorldImagery ESRI ArcGIS Online WMS',
   }

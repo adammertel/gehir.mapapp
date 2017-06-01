@@ -10,15 +10,19 @@ button {
 }
 
 .map-base-layer-awmc {
-  filter: grayscale(0.85)
+  filter: grayscale(90%) sepia(50%) brightness(105%);
+}
+
+.map-base-layer-imperium {
+  filter: grayscale(80%) brightness(90%) contrast(135%) sepia(70%);
 }
 
 .map-base-layer-osm {
   filter: grayscale(0.5)
 }
 
-.map-base-layer {
-  opacity: 0.8
+.map-base-layer-esri{
+  filter: grayscale(50%) brightness(200%) contrast(50%) sepia(70%);
 }
 
 .__react_component_tooltip {
