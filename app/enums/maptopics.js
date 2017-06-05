@@ -31,7 +31,7 @@ var MapTopics = {
     infoHeading: 'MARLUC',
     infoText: 'Nullam id bibendum ligula. Vivamus posuere tortor lorem, a hendrerit ipsum luctus sit amet. Etiam lectus tortor, posuere eu tortor non, blandit vehicula lacus. Mauris urna quam, semper ut ex quis, pharetra vulputate velit. Integer et augue ut arcu convallis ultricies. Vestibulum fermentum ornare nisi, vel lacinia eros convallis vel. Proin tristique metus id nisl convallis, lobortis accumsan sem vehicula. Ut varius massa at ligula ullamcorper, ut fringilla leo egestas.',
     label: 'marluc',
-    originLatLng: [20,40],
+    originLatLng: [20,20],
     originZoom: 6,
   },
   'CHRISTROME': {
@@ -47,12 +47,15 @@ var MapTopics = {
   'MITHORIG': {
     color1: StyleVariables['COLOR_4A'],
     color2: StyleVariables['COLOR_4B'],
-    dataFiles: [],
+    dataFiles: [
+      {path: 'forts', type: 'geojson', name: 'forts'},
+      {path: 'mithrea', type: 'geojson', name: 'mithrea'}
+    ],
     infoHeading: 'MITHORIG',
     infoText: 'Quisque ut pulvinar dui. Phasellus a orci faucibus, consectetur est ac, facilisis nisi. Duis scelerisque, nisi nec tempor interdum, erat justo lacinia tellus, at iaculis libero odio vitae velit. Integer lobortis congue faucibus. Donec luctus eros vel justo dignissim ornare. In in commodo mi, quis ultrices purus. Nunc rutrum porttitor ex eget malesuada. Proin molestie venenatis porta. Aliquam metus mi, mollis a arcu a, dictum gravida erat. Maecenas enim lacus, accumsan quis pulvinar ut, cursus non felis. Fusce sit amet semper nisl.',
     label: 'mithorig',
-    originLatLng: [20,20],
-    originZoom: 5,
+    originLatLng: [40,20],
+    originZoom: 4,
   },
 }
 

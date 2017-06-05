@@ -1,5 +1,6 @@
 import L from 'leaflet'
 import React from 'react'
+import turf from 'turf'
 import { Map, LayerGroup, TileLayer, WMSTileLayer, GeoJSON } from 'react-leaflet'
 
 import Base from '../base'
@@ -11,6 +12,7 @@ import MapBaseLayers from '../enums/mapbaselayers.js'
 import MapOverlays from '../enums/mapoverlays.js'
 import 'leaflet-semicircle'
 import 'leaflet-carousel'
+import 'leaflet-regular-grid-cluster'
 
 
 export default class MapContainer extends React.Component {
@@ -254,7 +256,113 @@ export default class MapContainer extends React.Component {
 
         // mithorig
         case MapTopics['MITHORIG'].label:
-          break
+
+          // forts
+          const fortRules = {
+            grid: {
+                "fillColor": {
+                    "method": "count",
+                    "attribute": "",
+                    "scale": "quantile",
+                    "style": ['#ffffd4','#fed98e','#fe9929','#d95f0e','#993404']
+                },
+                "color": "black",
+                "fillOpacity": {
+                    "method": "count",
+                    "attribute": "",
+                    "scale": "continuous",
+                    "style": [0, 0.5]
+                },
+                "weight": 0
+            },
+            markers: false,
+            texts: {}
+        }
+
+        const fortGrid = L.regularGridCluster(
+            {
+                rules: fortRules,
+                gridMode: 'hexagon',
+                showCells: true,
+                showMarkers: false,
+                showTexts: false,
+                zoomShowElements: 5,
+                zoomHideGrid: 8,
+                cellSize: 5000,
+            }
+        );
+
+        const fortPoints = data.forts.features.map( fort => {
+          return {
+            marker: L.circleMarker(turf.flip(fort.geometry).coordinates, {radius: 0.2, color: 'black'}),
+            properties: {}
+          }
+        })
+
+        fortGrid.addLayers(fortPoints)
+        this.dataLayer.addLayer(fortGrid)
+
+        // mithrea
+
+        const mithreaRules = {
+            markers: {
+                "radius": {
+                    "method": "count",
+                    "attribute": "",
+                    "scale": "continuous",
+                    "style": [3,10]
+                },
+                "color": 'black',
+                "weight": 1,
+                "fillOpacity": {
+                    "method": "mean",
+                    "attribute": "p",
+                    "scale": "continuous",
+                    "style": [0, 0.8]
+                },
+                "fillColor": {
+                    "method": "mean",
+                    "attribute": "p",
+                    "scale": "quantile",
+                    "style": ['red', 'green']               
+                }
+            },
+            grid: {},
+            texts: {}
+        }
+
+        const mithreaGrid = L.regularGridCluster(
+            {
+                rules: mithreaRules,
+                gridMode: 'hexagon',
+                showCells: false,
+                showMarkers: true,
+                showTexts: false,
+                zoomShowElements: 5,
+                zoomHideGrid: 7,
+                cellSize: 5000,
+            }
+        );
+
+        const weightProbability = (probability) => {
+          if (probability === 'definitive') return 1
+          else if (probability === 'probable') return 0.7
+          else if (probability === 'dubious') return 0.3
+          else return 1
+        }
+
+        const mithreaPoints = data.mithrea.features.map( mithrea => {
+          return {
+            marker: L.circleMarker(
+              turf.flip(mithrea.geometry).coordinates, {radius: 0.2, color: 'red'}
+            ),
+            properties: {p: weightProbability(mithrea.properties.c)}
+          }
+        })
+        mithreaGrid.addLayers(mithreaPoints)
+        this.dataLayer.addLayer(mithreaGrid)
+
+        break
 
 
       }

@@ -4,6 +4,7 @@ import App from './App'
 import MapTopics from './enums/maptopics'
 import dispatcher from './dispatcher'
 import Base from './base'
+import Actions from './enums/actions.js'
 
 
 // initial app state
@@ -15,7 +16,7 @@ window['data'] = {}
 window['appState'] = {
   infoOpen: false,
   activeBaseLayer: 'awmc',
-  activeMapTopic: MapTopics.ISIS.label,
+  activeMapTopic: MapTopics.OVERVIEW.label,
   mapCenter: [20, 20],
   mapZoom: 5,
   activeOverlays: [],
@@ -32,3 +33,5 @@ ReactDOM.render(
   <App />,
   document.body.appendChild(document.createElement('div'))
 )
+
+dispatcher.dispatch(Actions['MAP_TOPIC_CHANGE'], {newMapMode: MapTopics.MITHORIG.label})
