@@ -259,37 +259,53 @@ export default class MapContainer extends React.Component {
 
           // forts
           const fortRules = {
-            grid: {
+            cells: {
                 "fillColor": {
                     "method": "count",
                     "attribute": "",
                     "scale": "quantile",
-                    "style": ['#ffffd4','#fed98e','#fe9929','#d95f0e','#993404']
+                    "range": ['#ffffcc','#a1dab4','#41b6c4','#225ea8']
                 },
                 "color": "black",
-                "fillOpacity": {
+                "fillOpacity": 0.4,
+                "weight": 0
+            }
+        }
+
+        const mithreaRules = {
+            markers: {
+                "radius": {
                     "method": "count",
                     "attribute": "",
                     "scale": "continuous",
-                    "style": [0, 0.5]
+                    "range": [3,10]
                 },
-                "weight": 0
-            },
-            markers: false,
-            texts: {}
+                "color": 'black',
+                "weight": 1,
+                "fillOpacity": 0.8,
+                "fillColor": {
+                    "method": "mean",
+                    "attribute": "p",
+                    "scale": "continuous",
+                    "domain": [0, 1],
+                    "range": ['#fc8d59','#ffffbf','#91cf60']               
+                }
+            }
         }
 
-        const fortGrid = L.regularGridCluster(
-            {
-                rules: fortRules,
-                gridMode: 'hexagon',
-                showCells: true,
-                showMarkers: false,
-                showTexts: false,
-                zoomShowElements: 5,
-                zoomHideGrid: 8,
-                cellSize: 5000,
-            }
+        const gridOptions = {
+            gridMode: 'hexagon',
+            showTexts: false,
+            showMarkers: false,
+            showCells: false,
+            zoomShowElements: 8,
+            gridOrigin: {lat: 20, lng: -10},
+            zoomHideGrid: 8,
+            zoneSize: 2500,
+        }
+
+        const fortGrid = L.regularGridCluster( 
+          Object.assign(gridOptions, {showCells: true, rules: fortRules})
         );
 
         const fortPoints = data.forts.features.map( fort => {
@@ -303,45 +319,8 @@ export default class MapContainer extends React.Component {
         this.dataLayer.addLayer(fortGrid)
 
         // mithrea
-
-        const mithreaRules = {
-            markers: {
-                "radius": {
-                    "method": "count",
-                    "attribute": "",
-                    "scale": "continuous",
-                    "style": [3,10]
-                },
-                "color": 'black',
-                "weight": 1,
-                "fillOpacity": {
-                    "method": "mean",
-                    "attribute": "p",
-                    "scale": "continuous",
-                    "style": [0, 0.8]
-                },
-                "fillColor": {
-                    "method": "mean",
-                    "attribute": "p",
-                    "scale": "quantile",
-                    "style": ['red', 'green']               
-                }
-            },
-            grid: {},
-            texts: {}
-        }
-
         const mithreaGrid = L.regularGridCluster(
-            {
-                rules: mithreaRules,
-                gridMode: 'hexagon',
-                showCells: false,
-                showMarkers: true,
-                showTexts: false,
-                zoomShowElements: 5,
-                zoomHideGrid: 7,
-                cellSize: 5000,
-            }
+          Object.assign(gridOptions, {showMarkers: true, rules: mithreaRules})
         );
 
         const weightProbability = (probability) => {
