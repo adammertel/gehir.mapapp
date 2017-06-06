@@ -262,6 +262,58 @@ export default class MapContainer extends React.Component {
 
         // marluc
         case MapTopics['MARLUC'].label:
+          const synagogueRules = {
+            cells: {
+                "fillColor": {
+                    "method": "min",
+                    "attribute": "date",
+                    "scale": "size",
+                    "range": ['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026']
+                },
+                "fillOpacity": 0.4,
+                "weight": 0
+            },
+            markers: {
+                "radius": {
+                    "method": "count",
+                    "attribute": "",
+                    "scale": "continuous",
+                    "range": [3, 10]
+                },
+                "fillOpacity": .7,
+                "weight": 1,
+                "color": "black",
+                "fillColor": "red",
+            }
+          }
+
+          const synagogueOptions = {
+              rules: synagogueRules,
+              gridMode: 'hexagon',
+              showTexts: false,
+              showMarkers: true,
+              showCells: true,
+              zoomShowElements: 8,
+              gridOrigin: {lat: 20, lng: -10},
+              zoomHideGrid: 8,
+              zoneSize: 6000,
+          }
+
+          const synagogueGrid = L.regularGridCluster( 
+            Object.assign(synagogueOptions, {showCells: true, rules: synagogueRules})
+          );
+
+          const synagoguePoints = data.synagogues.features.map( synagogue => {
+            return {
+              marker: L.circleMarker(turf.flip(synagogue.geometry).coordinates, {radius: 0.2, color: 'black'}),
+              properties: {date: synagogue.properties.date}
+            }
+          })
+
+          synagogueGrid.addLayers(synagoguePoints)
+          this.dataLayers.push(synagogueGrid)
+
+
           break
 
 

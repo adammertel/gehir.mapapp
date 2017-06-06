@@ -33,4 +33,4 @@ ReactDOM.render(
   document.body.appendChild(document.createElement('div'))
 )
 
-dispatcher.dispatch(Actions['MAP_TOPIC_CHANGE'], {newMapMode: MapTopics.MITHORIG.label})
+dispatcher.dispatch(Actions['MAP_TOPIC_CHANGE'], {newMapMode: MapTopics.MARLUC.label})

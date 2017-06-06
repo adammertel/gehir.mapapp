@@ -27,12 +27,14 @@ var MapTopics = {
   'MARLUC': {
     color1: StyleVariables['COLOR_2A'],
     color2: StyleVariables['COLOR_2B'],
-    dataFiles: [],
+    dataFiles: [
+      {path: 'synagogues', type: 'geojson', name: 'synagogues'}
+    ],
     infoHeading: 'MARLUC',
     infoText: 'Nullam id bibendum ligula. Vivamus posuere tortor lorem, a hendrerit ipsum luctus sit amet. Etiam lectus tortor, posuere eu tortor non, blandit vehicula lacus. Mauris urna quam, semper ut ex quis, pharetra vulputate velit. Integer et augue ut arcu convallis ultricies. Vestibulum fermentum ornare nisi, vel lacinia eros convallis vel. Proin tristique metus id nisl convallis, lobortis accumsan sem vehicula. Ut varius massa at ligula ullamcorper, ut fringilla leo egestas.',
     label: 'marluc',
-    originLatLng: [20,20],
-    originZoom: 6,
+    originLatLng: [35,27],
+    originZoom: 5,
   },
   'CHRISTROME': {
     color1: StyleVariables['COLOR_3A'],
