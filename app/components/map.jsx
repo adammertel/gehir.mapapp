@@ -22,8 +22,7 @@ export default class MapContainer extends React.Component {
       this.lastTopic = appState.activeMapTopic
       window['map'] = this.lEl
 
-      this.dataLayer = L.featureGroup()
-      this.dataLayer.addTo(map)
+      this.dataLayers = [];
 
       this.afterRender()
       this.topicChanged()
@@ -169,9 +168,26 @@ export default class MapContainer extends React.Component {
       )
     }
 
+
+    drawLayers () {
+      this.dataLayers.map(layer => layer.addTo(map));
+    }
+
+    clearDataLayer () {
+      this.dataLayers.map(layer => {
+        if (layer.unregister) {
+          layer.unregister()
+        }
+        layer.clearLayers()
+
+        map.removeLayer(layer)
+      })
+      this.dataLayers = []
+    }
+
     visualiseTopic () {
       const topic = this.props.appState.activeMapTopic
-      this.dataLayer.clearLayers()
+      this.clearDataLayer()
       
       switch (topic) {
 
@@ -222,10 +238,10 @@ export default class MapContainer extends React.Component {
 
           artefacts.addLayers(artefactLayers)
           
-          this.dataLayer.addLayer(artefacts)
-          this.dataLayer.addLayer(temples)
+          this.dataLayers.push(artefacts)
+          this.dataLayers.push(temples)
 
-          this.dataLayer.addLayer(
+          this.dataLayers.push(
             L.geoJSON(data.isis_artefacts, {
               pointToLayer: (point, ll) => L.circleMarker(ll, 
                 {radius: 1.5, className: 'points-artefacts'}
@@ -233,7 +249,7 @@ export default class MapContainer extends React.Component {
             }).bindTooltip( (layer) => layer.feature.properties.label)
           )
 
-          this.dataLayer.addLayer(
+          this.dataLayers.push(
             L.geoJSON(data.isis_temples, {
               pointToLayer: (point, ll) => L.circleMarker(ll, 
                 {radius: 1.5, className: 'points-artefacts'}
@@ -264,87 +280,89 @@ export default class MapContainer extends React.Component {
                     "method": "count",
                     "attribute": "",
                     "scale": "quantile",
-                    "range": ['#ffffcc','#a1dab4','#41b6c4','#225ea8']
+                    "range": ['#eff3ff','#bdd7e7','#6baed6','#2171b5']
                 },
-                "color": "black",
                 "fillOpacity": 0.4,
                 "weight": 0
             }
-        }
+          }
 
-        const mithreaRules = {
+          const mithreaRules = {
             markers: {
-                "radius": {
-                    "method": "count",
-                    "attribute": "",
-                    "scale": "continuous",
-                    "range": [3,10]
-                },
-                "color": 'black',
-                "weight": 1,
-                "fillOpacity": 0.8,
-                "fillColor": {
-                    "method": "mean",
-                    "attribute": "p",
-                    "scale": "continuous",
-                    "domain": [0, 1],
-                    "range": ['#fc8d59','#ffffbf','#91cf60']               
-                }
+              "radius": {
+                  "method": "count",
+                  "attribute": "",
+                  "scale": "continuous",
+                  "range": [3,10]
+              },
+              "color": 'black',
+              "weight": 1,
+              "fillOpacity": 0.8,
+              "fillColor": {
+                  "method": "mean",
+                  "attribute": "p",
+                  "scale": "continuous",
+                  "domain": [0, 1],
+                  "range": ['#fc8d59','#ffffbf','#91cf60']               
+              }
             }
-        }
-
-        const gridOptions = {
-            gridMode: 'hexagon',
-            showTexts: false,
-            showMarkers: false,
-            showCells: false,
-            zoomShowElements: 8,
-            gridOrigin: {lat: 20, lng: -10},
-            zoomHideGrid: 8,
-            zoneSize: 2500,
-        }
-
-        const fortGrid = L.regularGridCluster( 
-          Object.assign(gridOptions, {showCells: true, rules: fortRules})
-        );
-
-        const fortPoints = data.forts.features.map( fort => {
-          return {
-            marker: L.circleMarker(turf.flip(fort.geometry).coordinates, {radius: 0.2, color: 'black'}),
-            properties: {}
           }
-        })
 
-        fortGrid.addLayers(fortPoints)
-        this.dataLayer.addLayer(fortGrid)
+          const gridOptions = {
+              gridMode: 'hexagon',
+              showTexts: false,
+              showMarkers: false,
+              showCells: false,
+              zoomShowElements: 8,
+              gridOrigin: {lat: 20, lng: -10},
+              zoomHideGrid: 8,
+              zoneSize: 2500,
+          }
 
-        // mithrea
-        const mithreaGrid = L.regularGridCluster(
-          Object.assign(gridOptions, {showMarkers: true, rules: mithreaRules})
-        );
+          const fortGrid = L.regularGridCluster( 
+            Object.assign(gridOptions, {showCells: true, rules: fortRules})
+          );
 
-        const weightProbability = (probability) => {
-          if (probability === 'definitive') return 1
-          else if (probability === 'probable') return 0.7
-          else if (probability === 'dubious') return 0.3
-          else return 1
+          const fortPoints = data.forts.features.map( fort => {
+            return {
+              marker: L.circleMarker(turf.flip(fort.geometry).coordinates, {radius: 0.2, color: 'black'}),
+              properties: {}
+            }
+          })
+
+          fortGrid.addLayers(fortPoints)
+          this.dataLayers.push(fortGrid)
+
+          // mithrea
+          const mithreaGrid = L.regularGridCluster(
+            Object.assign(gridOptions, {showMarkers: true, rules: mithreaRules})
+          );
+
+          const weightProbability = (probability) => {
+            if (probability === 'definitive') return 1
+            else if (probability === 'probable') return 0.7
+            else if (probability === 'dubious') return 0.3
+            else return 1
+          }
+
+          const mithreaPoints = data.mithrea.features.map( mithrea => {
+            return {
+              marker: L.circleMarker(
+                turf.flip(mithrea.geometry).coordinates, {radius: 0.2, color: 'red'}
+              ),
+              properties: {p: weightProbability(mithrea.properties.c)}
+            }
+          })
+          mithreaGrid.addLayers(mithreaPoints)
+          this.dataLayers.push(mithreaGrid)
+
+          break
+
+
         }
 
-        const mithreaPoints = data.mithrea.features.map( mithrea => {
-          return {
-            marker: L.circleMarker(
-              turf.flip(mithrea.geometry).coordinates, {radius: 0.2, color: 'red'}
-            ),
-            properties: {p: weightProbability(mithrea.properties.c)}
-          }
-        })
-        mithreaGrid.addLayers(mithreaPoints)
-        this.dataLayer.addLayer(mithreaGrid)
+        this.drawLayers()
 
-        break
-
-
-      }
     }
 }
 

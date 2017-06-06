@@ -8,7 +8,6 @@ import Actions from './enums/actions.js'
 
 
 // initial app state
-console.log(dispatcher)
 window['dispatcher'] = dispatcher
 window['appUpdate'] = null
 window['data'] = {}
