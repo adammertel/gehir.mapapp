@@ -1,6 +1,7 @@
 import L from 'leaflet'
 import React from 'react'
 import turf from 'turf'
+import dissolve from '@turf/dissolve'
 import { Map, LayerGroup, TileLayer, WMSTileLayer, GeoJSON } from 'react-leaflet'
 
 import Base from '../base'
@@ -263,36 +264,43 @@ export default class MapContainer extends React.Component {
         // marluc
         case MapTopics['MARLUC'].label:
           const synagogueRules = {
-            cells: {
-                "fillColor": {
-                    "method": "min",
-                    "attribute": "date",
-                    "scale": "size",
-                    "range": ['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026']
-                },
-                "fillOpacity": 0.4,
-                "weight": 0
-            },
             markers: {
                 "radius": {
                     "method": "count",
                     "attribute": "",
                     "scale": "continuous",
-                    "range": [3, 10]
+                    "range": [4, 13]
                 },
                 "fillOpacity": .7,
                 "weight": 1,
                 "color": "black",
-                "fillColor": "red",
+                "fillColor": {
+                    "method": "min",
+                    "attribute": "date",
+                    "scale": "size",
+                    "range": ['#c51b8a', '#fa9fb5', '#fde0dd']
+                },
             }
           }
+          const congregatesRules = {
+            cells: {
+                "fillColor": {
+                    "method": "count",
+                    "attribute": "",
+                    "scale": "size",
+                    "range": ['#ffffd4','#fed98e','#fe9929','#cc4c02']
+                },
+                "fillOpacity": 0.4,
+                "weight": 1,
+                "color": 'black'
+            },
+          }
 
-          const synagogueOptions = {
-              rules: synagogueRules,
-              gridMode: 'hexagon',
+          const marlucOptions = {
+              gridMode: 'square',
               showTexts: false,
-              showMarkers: true,
-              showCells: true,
+              showMarkers: false,
+              showCells: false,
               zoomShowElements: 8,
               gridOrigin: {lat: 20, lng: -10},
               zoomHideGrid: 8,
@@ -300,7 +308,11 @@ export default class MapContainer extends React.Component {
           }
 
           const synagogueGrid = L.regularGridCluster( 
-            Object.assign(synagogueOptions, {showCells: true, rules: synagogueRules})
+            Object.assign(marlucOptions, {showMarkers: true, rules: synagogueRules})
+          );
+
+          const congregatesGrid = L.regularGridCluster( 
+            Object.assign(marlucOptions, {showCells: true, rules: congregatesRules})
           );
 
           const synagoguePoints = data.synagogues.features.map( synagogue => {
@@ -310,8 +322,17 @@ export default class MapContainer extends React.Component {
             }
           })
 
+          const congregatesPoints = data.congregates.features.map( congregate => {
+            return {
+              marker: L.circleMarker(turf.flip(congregate.geometry).coordinates, {radius: 0.2, color: 'black'}),
+              properties: {}
+            }
+          })
+
           synagogueGrid.addLayers(synagoguePoints)
+          congregatesGrid.addLayers(congregatesPoints)
           this.dataLayers.push(synagogueGrid)
+          this.dataLayers.push(congregatesGrid)
 
 
           break
@@ -319,6 +340,92 @@ export default class MapContainer extends React.Component {
 
         // christrome
         case MapTopics['CHRISTROME'].label:
+          
+          const churchesGroups = [
+            {
+              id: 1,
+              time: [313],
+              items: [],
+              color: 'yellow'
+            },
+            {
+              id: 2,
+              time: [350],
+              items: [],
+              color: 'orange'
+            },
+            {
+              id: 3,
+              time: [600],
+              items: [],
+              color: 'red'
+            }
+          ]
+          const regions = Object.assign({}, data.regions)
+          data.churches.features.map(church => {
+            const date = church.properties.date
+            if (date) {
+              churchesGroups.map(group => {
+                if (group.time > date) {
+                  if (church.geometry) {
+                    group.items.push(church)
+                  } else {
+                    console.log(church)
+                  }
+                }
+              })
+            }
+          })
+
+          churchesGroups.map(group => {
+            const fc = turf.featureCollection(group.items)
+            group.buffer = dissolve(turf.buffer(fc, 50, 'kilometers'))
+            console.log(group.buffer)
+            // this.dataLayers.push(
+            //   L.geoJSON(group.buffer, {style: () => {
+            //     console.log(group.color)
+            //     return {fillColor: group.color}
+            //   }})
+            // )
+          })
+
+          regions.features.map(region => {
+            region.properties.time = [];
+            const regionBbox = L.geoJSON(region).getBounds()
+            //console.log(regionBbox)
+
+            churchesGroups.map(group => {
+              const intersects = group.buffer.features.find(buffer => {
+                return L.geoJSON(buffer).getBounds().intersects(regionBbox) && !!(turf.intersect(buffer, region))
+              })
+              if (intersects) {
+                region.properties.time.push(group.id)
+              }
+            })
+          })
+
+
+
+          this.dataLayers.push(L.geoJSON(regions, {
+            style: (feature) => {
+              let color = 'white'
+              if (feature.properties.time.indexOf(1) > -1) {
+                color = 'red'
+              } else if (feature.properties.time.indexOf(2) > -1) {
+                color = 'orange'
+              } else if (feature.properties.time.indexOf(3) > -1) {
+                color = 'yellow'
+              }
+              return {
+                opacity: 1, 
+                weight: 1, 
+                color: 'white', 
+                fillColor: color
+              }
+            } 
+          }))
+
+
           break
 
 

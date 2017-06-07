@@ -28,7 +28,8 @@ var MapTopics = {
     color1: StyleVariables['COLOR_2A'],
     color2: StyleVariables['COLOR_2B'],
     dataFiles: [
-      {path: 'synagogues', type: 'geojson', name: 'synagogues'}
+      {path: 'synagogues', type: 'geojson', name: 'synagogues'},
+      {path: 'congregates', type: 'geojson', name: 'congregates'}
     ],
     infoHeading: 'MARLUC',
     infoText: 'Nullam id bibendum ligula. Vivamus posuere tortor lorem, a hendrerit ipsum luctus sit amet. Etiam lectus tortor, posuere eu tortor non, blandit vehicula lacus. Mauris urna quam, semper ut ex quis, pharetra vulputate velit. Integer et augue ut arcu convallis ultricies. Vestibulum fermentum ornare nisi, vel lacinia eros convallis vel. Proin tristique metus id nisl convallis, lobortis accumsan sem vehicula. Ut varius massa at ligula ullamcorper, ut fringilla leo egestas.',
@@ -39,7 +40,10 @@ var MapTopics = {
   'CHRISTROME': {
     color1: StyleVariables['COLOR_3A'],
     color2: StyleVariables['COLOR_3B'],
-    dataFiles: [],
+    dataFiles: [
+      {path: 'regions', type: 'geojson', name: 'regions'},
+      {path: 'churches', type: 'geojson', name: 'churches'},
+    ],
     infoHeading: 'CHRISTROME',
     infoText: 'Ut tempus est ipsum, ut elementum enim commodo sit amet. Proin eget metus at augue tempus hendrerit. Aenean vitae est pellentesque, vehicula elit et, convallis quam. Phasellus sed metus sollicitudin arcu ultricies rhoncus. Curabitur ut velit a velit tempus sollicitudin. Nulla ac enim euismod, ornare purus eu, lacinia quam. Duis quis pretium orci. Proin accumsan congue pretium. Phasellus est purus, ultrices ut tortor eu, dapibus venenatis sem. Vivamus ut lorem egestas, pharetra lectus sed, imperdiet justo. Nullam a est velit. Vestibulum sed felis eu tellus molestie luctus ut efficitur lectus. Duis id est sagittis, lobortis magna sit amet, consectetur justo. Maecenas pretium libero et sem mollis fermentum. Aenean vel maximus nibh.',
     label: 'christrome',
