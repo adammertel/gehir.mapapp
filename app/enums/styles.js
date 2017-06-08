@@ -65,7 +65,7 @@ var Styles = {
     }
   },
 
-  'INFO_WRAPPER': (open, map) => {
+  'INFO_WRAPPER': (open) => {
     return {
       position: 'absolute',
       left: StyleVariables['PANEL_WIDTH'],
@@ -73,15 +73,15 @@ var Styles = {
       bottom: 0,
       height:  StyleVariables['INFO_MENU_HEIGHT'](open),
       overflow: 'hidden',
-      backgroundColor: map.color1,
+      backgroundColor: StyleVariables['COLOR_WHITE'],
       paddingLeft: 15,
       paddingRight: 15
     }
   },
   'INFO_TOGGLE_BUTTON': () => {
     return {
-      backgroundColor: StyleVariables['COLOR_WHITE'],
-      color: StyleVariables['COLOR_1B'],
+      backgroundColor: StyleVariables['COLOR_GREY'],
+      color: StyleVariables['COLOR_BLACK1'],
     }
   },
   'INFO_TEXT': () => {

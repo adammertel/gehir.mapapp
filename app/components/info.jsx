@@ -19,17 +19,17 @@ export default class InfoContainer extends React.Component {
     }
 
     render () {
-      let open = appState.infoOpen
-      let aMap = Base.getActiveMapTopic()
+      const open = appState.infoOpen
+      const activeTopic = Base.getActiveMapTopic()
       return (
-        <div className='info-wrapper' style={Styles['INFO_WRAPPER'](open, aMap)}>
+        <div className='info-wrapper' style={Styles['INFO_WRAPPER'](open)}>
           <div style={{display: 'flex', marginTop: 10}} >
             <InfoToggleOpenButton handleClick={this.toggleInfoPanel.bind(this)} open={this.props.appState.infoOpen} />
-            <InfoHeading headingText={Base.getActiveMapTopic().infoHeading} />
-            <InfoSubHeading subheadingText={Base.getActiveMapTopic().infoSubHeading} />
+            <InfoHeading headingText={activeTopic.infoHeading} />
+            <InfoSubHeading subheadingText={activeTopic.infoSubHeading} />
           </div>
-          <InfoLegend topic={Base.getActiveMapTopic()} />
-          <InfoText text={Base.getActiveMapTopic().infoText} />
+          <InfoLegend topic={activeTopic} />
+          <InfoText text={activeTopic.infoText} />
         </div>
       )
     }
