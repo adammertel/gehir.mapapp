@@ -2,8 +2,8 @@ var StyleVariables = {
   'MENU_HEIGHT': 80,
   'PANEL_WIDTH': 300,
   'MENU_BUTTON_WIDTH': 150,
-  'INFO_HEIGHT': 250,
-  'INFO_HIDDEN_HEIGHT': 150,
+  'INFO_HEIGHT': 350,
+  'INFO_HIDDEN_HEIGHT': 200,
   'INFO_MENU_HEIGHT': function (open) {
     if (open) {
       return this['INFO_HEIGHT']

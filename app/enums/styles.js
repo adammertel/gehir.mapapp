@@ -115,6 +115,11 @@ var Styles = {
       margin: '10px 0px'
     }
   },
+  'HEADER4': () => {
+    return {
+      marginBottom: 0
+    }
+  },
 
   'LOGO_WRAPPER': () => {
     return {
