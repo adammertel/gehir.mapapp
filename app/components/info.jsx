@@ -14,16 +14,18 @@ export default class InfoContainer extends React.Component {
 
     toggleInfoPanel () {
       dispatcher.dispatch(Actions['INFO_TOGGLE'], {})
-    } 
+    }
 
     render () {
       let open = appState.infoOpen
       let aMap = Base.getActiveMapTopic()
       return (
         <div className='info-wrapper' style={Styles['INFO_WRAPPER'](open, aMap)}>
-          <InfoHeading headingText={Base.getActiveMapTopic().infoHeading} />
+          <div style={{display: 'flex'}} >
+            <InfoToggleOpenButton handleClick={this.toggleInfoPanel.bind(this)} open={this.props.appState.infoOpen} />
+            <InfoHeading headingText={Base.getActiveMapTopic().infoHeading} />
+          </div>
           <InfoText text={Base.getActiveMapTopic().infoText} />
-          <InfoToggleOpenButton handleClick={this.toggleInfoPanel.bind(this)} open={this.props.appState.infoOpen} />
         </div>
       )
     }

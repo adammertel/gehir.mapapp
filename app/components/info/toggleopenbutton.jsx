@@ -9,19 +9,11 @@ import FontIcon from 'material-ui/FontIcon'
 export default class InfoToggleOpenButton extends React.Component {
 
     toggleButtonIcon () {
-      if (this.props.open) {
-        return 'keyboard_arrow_up'
-      } else {
-        return 'keyboard_arrow_down'
-      }
+      return this.props.open ? 'keyboard_arrow_down' : 'keyboard_arrow_up'
     }
 
     toggleButtonLabel () {
-      if (this.props.open) {
-        return 'less info'
-      } else {
-        return 'more info'
-      }
+      return this.props.open ? 'less info' : 'more info'
     }
 
     render () {

@@ -1,9 +1,9 @@
 var StyleVariables = {
   'MENU_HEIGHT': '80px',
   'PANEL_WIDTH': '300px',
-  'MENU_BUTTON_WIDTH': '150px',
-  'INFO_HEIGHT': '150px',
-  'INFO_HIDDEN_HEIGHT': '50px',
+  'MENU_BUTTON_WIDTH': 150,
+  'INFO_HEIGHT': 200,
+  'INFO_HIDDEN_HEIGHT': 70,
   'INFO_MENU_HEIGHT': function (open) {
     if (open) {
       return parseInt(this['MENU_HEIGHT']) + parseInt(this['INFO_HEIGHT'])

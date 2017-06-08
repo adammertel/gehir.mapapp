@@ -35,13 +35,13 @@ var Styles = {
   },  
 
   'MAP_WRAPPER': (infoOpen) => {
-    let mapH = StyleVariables['INFO_MENU_HEIGHT'](infoOpen)
+    let mapBottom = StyleVariables['INFO_MENU_HEIGHT'](infoOpen)
     return {
       position: 'absolute',
       left: StyleVariables['PANEL_WIDTH'],
       right: '0px', 
-      top: mapH,
-      bottom: '0px',
+      top: '0px',
+      bottom: mapBottom,
       overflow: 'hidden'
     }
   },
@@ -58,7 +58,7 @@ var Styles = {
       position: 'absolute',
       left: '0px',
       width: '100%',
-      height: StyleVariables['MENU_HEIGHT'],
+      bottom: StyleVariables['MENU_HEIGHT'],
       top: '0px',
       overflow: 'hidden',
       backgroundColor: StyleVariables['COLOR_BLACK1']
@@ -70,18 +70,15 @@ var Styles = {
       position: 'absolute',
       left: StyleVariables['PANEL_WIDTH'],
       right: '0px',
-      top: StyleVariables['MENU_HEIGHT'],
-      height:  StyleVariables['INFO_HEIGHT'],
+      bottom: '0px',
+      height:  StyleVariables['INFO_MENU_HEIGHT'](open),
       overflow: 'hidden',
       backgroundColor: map.color1,
     }
   },
   'INFO_TOGGLE_BUTTON': () => {
     return {
-      position: 'fixed',
-      right: '30px',
-      top: StyleVariables['MENU_HEIGHT'],
-      marginTop: '10px',
+      margin: '10px',
       color: StyleVariables['COLOR_WHITE'],
       backgroundColor: StyleVariables['COLOR_BLACK1'],
     }
@@ -96,10 +93,12 @@ var Styles = {
   },
   'INFO_HEADING': () => {
     return {
-      marginLeft: '10px',
-      fontWeight: 400,
-      position: 'relative',
-      top: '15px'
+      marginLeft: 10,
+      fontWeight: 600,
+      fontSize: 23,
+      position: 'absolute',
+      right: 20,
+      top: 10
     }
   },
 
