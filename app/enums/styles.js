@@ -5,14 +5,14 @@ var Styles = {
   'PANEL_WRAPPER': () => {
     return {
       position: 'absolute',
-      left: '0px',
-      width: parseInt(StyleVariables['PANEL_WIDTH']) - 20 + 'px',
+      left: 0,
+      width: parseInt(StyleVariables['PANEL_WIDTH']) - 20,
       top: StyleVariables['MENU_HEIGHT'],
-      bottom: '0px',
+      bottom: 0,
       overflow: 'hidden',
       backgroundColor: StyleVariables['COLOR_BLACK1'],
       color: StyleVariables['COLOR_WHITE'],
-      padding: '10px'
+      padding: 10
     }
   },
   'PANEL_HELP_BUTTON': () => {
@@ -39,8 +39,8 @@ var Styles = {
     return {
       position: 'absolute',
       left: StyleVariables['PANEL_WIDTH'],
-      right: '0px', 
-      top: '0px',
+      right: 0, 
+      top: 0,
       bottom: mapBottom,
       overflow: 'hidden'
     }
@@ -56,10 +56,10 @@ var Styles = {
   'MENU_WRAPPER': () => {
     return {
       position: 'absolute',
-      left: '0px',
+      left: 0,
       width: '100%',
       bottom: StyleVariables['MENU_HEIGHT'],
-      top: '0px',
+      top: 0,
       overflow: 'hidden',
       backgroundColor: StyleVariables['COLOR_BLACK1']
     }
@@ -69,16 +69,17 @@ var Styles = {
     return {
       position: 'absolute',
       left: StyleVariables['PANEL_WIDTH'],
-      right: '0px',
-      bottom: '0px',
+      right: 0,
+      bottom: 0,
       height:  StyleVariables['INFO_MENU_HEIGHT'](open),
       overflow: 'hidden',
       backgroundColor: map.color1,
+      paddingLeft: 15,
+      paddingRight: 15
     }
   },
   'INFO_TOGGLE_BUTTON': () => {
     return {
-      margin: '10px',
       backgroundColor: StyleVariables['COLOR_WHITE'],
       color: StyleVariables['COLOR_1B'],
     }
@@ -86,9 +87,6 @@ var Styles = {
   'INFO_TEXT': () => {
     return {
       fontWeight: 200,
-      position: 'relative',
-      top: '50px',
-      marginLeft: '10px'
     }
   },
   'INFO_HEADING': () => {
@@ -113,7 +111,8 @@ var Styles = {
   },
   'INFO_LEGEND': () => {
     return {
-      height: StyleVariables['INFO_HIDDEN_HEIGHT'] - 40
+      height: StyleVariables['INFO_HIDDEN_HEIGHT'] - 40,
+      margin: '10px 0px'
     }
   },
 
@@ -121,31 +120,31 @@ var Styles = {
     return {
       height: StyleVariables['MENU_HEIGHT'],
       width: StyleVariables['PANEL_WIDTH'],
-      top: '0px',
-      left: '0px',
+      top: 0,
+      left: 0,
       position: 'absolute',
       backgroundColor: StyleVariables['COLOR_ORANGE'],
-      margin: '-4px',
-      borderWidth: '2px',
+      margin: -4,
+      borderWidth: 2,
       borderStyle: 'solid',
       borderColor: StyleVariables['COLOR_BLACK1'],
     }
   },
   'LOGO': () => {
     return {
-      top: '15px',
-      left: '15px',
+      top: 15,
+      left: 15,
       position: 'absolute',
       color: StyleVariables['COLOR_WHITE'],
-      fontSize: '38px',
+      fontSize: 38,
     }
   },
   'LOGO_SUB': () => {
     return {
       position: 'absolute',
-      fontSize: '10px',
-      top: '20px',
-      left: '140px',
+      fontSize: 10,
+      top: 20,
+      left: 140,
       color: StyleVariables['COLOR_BLACK1']
     }
   },
