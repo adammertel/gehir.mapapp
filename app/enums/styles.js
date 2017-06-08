@@ -65,31 +65,6 @@ var Styles = {
     }
   },
 
-  'MENU_BUTTONS_WRAPPER': () => {
-    return {
-      position: 'absolute',
-      left: StyleVariables['PANEL_WIDTH']
-    }
-  },
-  'MENU_BUTTON': (map) => {
-    let buttonColor = map['color1']
-    let buttonFontColor = StyleVariables['COLOR_WHITE']
-
-    if (appState.activeMapTopic === map.label) {
-      //buttonColor = map['color2']
-      buttonFontColor = StyleVariables['COLOR_BLACK']
-    }
-
-    return ({
-      backgroundColor: buttonColor,
-      height: StyleVariables['MENU_HEIGHT'],
-      borderColor: StyleVariables['COLOR_BLACK2'],
-      borderWidth: '0px 3px 0px 0px',
-      color: buttonFontColor,
-      width: StyleVariables['MENU_BUTTON_WIDTH'],
-    })
-  },
-
   'INFO_WRAPPER': (open, map) => {
     return {
       position: 'absolute',

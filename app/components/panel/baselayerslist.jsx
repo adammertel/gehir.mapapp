@@ -13,14 +13,12 @@ export default class PanelBaseLayersList extends React.Component {
     }
 
     render () {
-      var that = this;
-
       return (
         <div>
           <h4>Base Layers:</h4>
             <div className="panel-baselayers-list">
               {
-                Object.keys(MapBaseLayers).map(function(mapTileKey) {
+                Object.keys(MapBaseLayers).map( mapTileKey => {
                   let mapTile = MapBaseLayers[mapTileKey];
 
                   return(
@@ -29,7 +27,7 @@ export default class PanelBaseLayersList extends React.Component {
                         value={mapTile.id}
                         label={mapTile.name}
                         checked={appState.activeBaseLayer == mapTile.id}
-                        onClick={that.props.handleChangeBaseLayer.bind(this, mapTile.id)}
+                        onClick={this.props.handleChangeBaseLayer.bind(this, mapTile.id)}
                         style={Styles['PANEL_BUTTON_CELL']()}                        
                       />
                       <FontIcon 

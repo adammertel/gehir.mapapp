@@ -14,9 +14,9 @@ module.exports = {
                 break
 
             case Actions['MAP_TOPIC_CHANGE']:
-                changes.activeMapTopic = data.newMapMode
+                changes.activeMapTopic = data.newTopic
 
-                var activeMapTopic = Base.getMapTopicById(data.newMapMode)
+                var activeMapTopic = Base.getMapTopicById(data.newTopic)
                 changes.mapZoom = activeMapTopic.originZoom
                 changes.mapCenter = activeMapTopic.originLatLng
                 changes.infoOpen = false

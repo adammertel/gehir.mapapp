@@ -3,7 +3,8 @@ import Styles from '../enums/styles'
 import Actions from '../enums/actions'
 
 import PanelBaseLayersList from './panel/baselayerslist'
-import OverlaysList from './panel/overlayslist'
+import PanelOverlaysList from './panel/overlayslist'
+import PanelTopicsList from './panel/topicslist'
 import MapBaseLayers from '../enums/mapbaselayers'
 
 export default class PanelContainer extends React.Component {
@@ -19,17 +20,24 @@ export default class PanelContainer extends React.Component {
       dispatcher.dispatch(Actions['MAP_OVERLAY_TOGGLE'], {overlayToToggle: overlayMapId})
     }
 
+    changeTopic (topicName) {
+      dispatcher.dispatch(Actions['MAP_TOPIC_CHANGE'], {newTopic: topicName})
+    }
+
     render () {
       var that = this
 
       return (
         <div className='panel-wrapper' style={Styles['PANEL_WRAPPER']()}>
+          <PanelTopicsList 
+            handleChangeTopic={this.changeTopic} 
+            activeMapTopic={this.props.appState.activeMapTopic}
+          />
           <PanelBaseLayersList 
             handleChangeBaseLayer={this.changeBaseMap} 
             activeBaseLayer={this.props.appState.activeBaseLayer}
           />
-          <OverlaysList 
-            container={this} 
+          <PanelOverlaysList 
             handleChangeOverlays={this.toggleOverlay} 
             activeBaseLayer={this.props.appState.activeBaseLayer}
           />
