@@ -41,7 +41,6 @@ export default class MapContainer extends React.Component {
     }
 
     topicChanged () {
-      console.log('map topic changed')
       this.visualiseTopic()
     }
 
@@ -189,6 +188,8 @@ export default class MapContainer extends React.Component {
     visualiseTopic () {
       const topic = this.props.appState.activeMapTopic
       this.clearDataLayer()
+
+      const t1 = new Date()
       
       switch (topic) {
 
@@ -196,332 +197,347 @@ export default class MapContainer extends React.Component {
         case MapTopics['OVERVIEW'].label:
           break
 
-        // isis
         case MapTopics['ISIS'].label:
-
-          const isisColors = {
-            'Isis': '#377eb8',
-            'Sarapis': '#4daf4a',
-            'Apis': '#e41a1c',
-            'Anubis': '#e41a1c',
-            'Osiris': '#e41a1c',
-            'Horus': '#e41a1c',
-            'Arsinoe II': '#e41a1c',
-            'Harpocrates': '#e41a1c',
-          }
-
-          // temples
-          const templeOptions = {
-            maxDist: 80000,
-            noSteps: 8,
-            circleSegmentAngle: 20,
-            colors: isisColors,
-            propertyName: 'deities'
-          }
-          const temples = L.carouselMarkerGroup(templeOptions)
-          const templesJson = L.geoJSON(data.isis_temples)
-          const templeLayers = templesJson.getLayers()
-
-          temples.addLayers(templeLayers)
-
-
-          // artefacts
-          const artefactsOptions = {
-            maxDist: 40000,
-            noSteps: 4,
-            circleSegmentAngle: 20,
-            colors: isisColors,
-            propertyName: 'deities'
-          }
-          const artefacts = L.carouselMarkerGroup(artefactsOptions)
-          const artefactsJson = L.geoJSON(data.isis_artefacts)
-          const artefactLayers = artefactsJson.getLayers()
-
-          artefacts.addLayers(artefactLayers)
-          
-          this.dataLayers.push(artefacts)
-          this.dataLayers.push(temples)
-
-          this.dataLayers.push(
-            L.geoJSON(data.isis_artefacts, {
-              pointToLayer: (point, ll) => L.circleMarker(ll, 
-                {radius: 1.5, className: 'points-artefacts'}
-              )
-            }).bindTooltip( (layer) => layer.feature.properties.label)
-          )
-
-          this.dataLayers.push(
-            L.geoJSON(data.isis_temples, {
-              pointToLayer: (point, ll) => L.circleMarker(ll, 
-                {radius: 1.5, className: 'points-artefacts'}
-              )
-            }).bindTooltip( (layer) => layer.feature.properties.label)
-          )
-
+          this.visualiseIsis()
           break
 
-
-        // marluc
         case MapTopics['MARLUC'].label:
-          const synagogueRules = {
-            markers: {
-                "radius": {
-                    "method": "count",
-                    "attribute": "",
-                    "scale": "continuous",
-                    "range": [4, 13]
-                },
-                "fillOpacity": .7,
-                "weight": 1,
-                "color": "black",
-                "fillColor": {
-                    "method": "min",
-                    "attribute": "date",
-                    "scale": "size",
-                    "range": ['#c51b8a', '#fa9fb5', '#fde0dd']
-                },
-            }
-          }
-          const congregatesRules = {
-            cells: {
-                "fillColor": {
-                    "method": "count",
-                    "attribute": "",
-                    "scale": "size",
-                    "range": ['#ffffd4','#fed98e','#fe9929','#cc4c02']
-                },
-                "fillOpacity": 0.4,
-                "weight": 1,
-                "color": 'black'
-            },
-          }
-
-          const marlucOptions = {
-              gridMode: 'square',
-              showTexts: false,
-              showMarkers: false,
-              showCells: false,
-              zoomShowElements: 8,
-              gridOrigin: {lat: 20, lng: -10},
-              zoomHideGrid: 8,
-              zoneSize: 6000,
-          }
-
-          const synagogueGrid = L.regularGridCluster( 
-            Object.assign(marlucOptions, {showMarkers: true, rules: synagogueRules})
-          );
-
-          const congregatesGrid = L.regularGridCluster( 
-            Object.assign(marlucOptions, {showCells: true, rules: congregatesRules})
-          );
-
-          const synagoguePoints = data.synagogues.features.map( synagogue => {
-            return {
-              marker: L.circleMarker(turf.flip(synagogue.geometry).coordinates, {radius: 0.2, color: 'black'}),
-              properties: {date: synagogue.properties.date}
-            }
-          })
-
-          const congregatesPoints = data.congregates.features.map( congregate => {
-            return {
-              marker: L.circleMarker(turf.flip(congregate.geometry).coordinates, {radius: 0.2, color: 'black'}),
-              properties: {}
-            }
-          })
-
-          synagogueGrid.addLayers(synagoguePoints)
-          congregatesGrid.addLayers(congregatesPoints)
-          this.dataLayers.push(synagogueGrid)
-          this.dataLayers.push(congregatesGrid)
-
-
+          this.visualiseMarluc()
           break
 
-
-        // christrome
         case MapTopics['CHRISTROME'].label:
-          
-          const churchesGroups = [
-            {
-              id: 1,
-              time: [313],
-              items: [],
-              color: 'yellow'
-            },
-            {
-              id: 2,
-              time: [350],
-              items: [],
-              color: 'orange'
-            },
-            {
-              id: 3,
-              time: [600],
-              items: [],
-              color: 'red'
-            }
-          ]
-          const regions = Object.assign({}, data.regions)
-          data.churches.features.map(church => {
-            const date = church.properties.date
-            if (date) {
-              churchesGroups.map(group => {
-                if (group.time > date) {
-                  if (church.geometry) {
-                    group.items.push(church)
-                  } else {
-                    console.log(church)
-                  }
-                }
-              })
-            }
-          })
-
-          churchesGroups.map(group => {
-            const fc = turf.featureCollection(group.items)
-            group.buffer = dissolve(turf.buffer(fc, 50, 'kilometers'))
-            console.log(group.buffer)
-            // this.dataLayers.push(
-            //   L.geoJSON(group.buffer, {style: () => {
-            //     console.log(group.color)
-            //     return {fillColor: group.color}
-            //   }})
-            // )
-          })
-
-          regions.features.map(region => {
-            region.properties.time = [];
-            const regionBbox = L.geoJSON(region).getBounds()
-            //console.log(regionBbox)
-
-            churchesGroups.map(group => {
-              const intersects = group.buffer.features.find(buffer => {
-                return L.geoJSON(buffer).getBounds().intersects(regionBbox) && !!(turf.intersect(buffer, region))
-              })
-              if (intersects) {
-                region.properties.time.push(group.id)
-              }
-            })
-          })
-
-
-
-          this.dataLayers.push(L.geoJSON(regions, {
-            style: (feature) => {
-              let color = 'white'
-              if (feature.properties.time.indexOf(1) > -1) {
-                color = 'red'
-              } else if (feature.properties.time.indexOf(2) > -1) {
-                color = 'orange'
-              } else if (feature.properties.time.indexOf(3) > -1) {
-                color = 'yellow'
-              }
-              return {
-                opacity: 1, 
-                weight: 1, 
-                color: 'white', 
-                fillColor: color
-              }
-            } 
-          }))
-
-
+          this.visualiseChristrome()
           break
 
-
-        // mithorig
         case MapTopics['MITHORIG'].label:
-
-          // forts
-          const fortRules = {
-            cells: {
-                "fillColor": {
-                    "method": "count",
-                    "attribute": "",
-                    "scale": "quantile",
-                    "range": ['#eff3ff','#bdd7e7','#6baed6','#2171b5']
-                },
-                "fillOpacity": 0.4,
-                "weight": 0
-            }
-          }
-
-          const mithreaRules = {
-            markers: {
-              "radius": {
-                  "method": "count",
-                  "attribute": "",
-                  "scale": "continuous",
-                  "range": [3,10]
-              },
-              "color": 'black',
-              "weight": 1,
-              "fillOpacity": 0.8,
-              "fillColor": {
-                  "method": "mean",
-                  "attribute": "p",
-                  "scale": "continuous",
-                  "domain": [0, 1],
-                  "range": ['#fc8d59','#ffffbf','#91cf60']               
-              }
-            }
-          }
-
-          const gridOptions = {
-              gridMode: 'hexagon',
-              showTexts: false,
-              showMarkers: false,
-              showCells: false,
-              zoomShowElements: 8,
-              gridOrigin: {lat: 20, lng: -10},
-              zoomHideGrid: 8,
-              zoneSize: 2500,
-          }
-
-          const fortGrid = L.regularGridCluster( 
-            Object.assign(gridOptions, {showCells: true, rules: fortRules})
-          );
-
-          const fortPoints = data.forts.features.map( fort => {
-            return {
-              marker: L.circleMarker(turf.flip(fort.geometry).coordinates, {radius: 0.2, color: 'black'}),
-              properties: {}
-            }
-          })
-
-          fortGrid.addLayers(fortPoints)
-          this.dataLayers.push(fortGrid)
-
-          // mithrea
-          const mithreaGrid = L.regularGridCluster(
-            Object.assign(gridOptions, {showMarkers: true, rules: mithreaRules})
-          );
-
-          const weightProbability = (probability) => {
-            if (probability === 'definitive') return 1
-            else if (probability === 'probable') return 0.7
-            else if (probability === 'dubious') return 0.3
-            else return 1
-          }
-
-          const mithreaPoints = data.mithrea.features.map( mithrea => {
-            return {
-              marker: L.circleMarker(
-                turf.flip(mithrea.geometry).coordinates, {radius: 0.2, color: 'red'}
-              ),
-              properties: {p: weightProbability(mithrea.properties.c)}
-            }
-          })
-          mithreaGrid.addLayers(mithreaPoints)
-          this.dataLayers.push(mithreaGrid)
-
+          this.visualiseMithorig()
           break
-
-
         }
 
         this.drawLayers()
 
+        // time
+        const t2 = new Date()
+        console.log('')
+        console.log('topic', topic, 'drawn after', (t2.valueOf() - t1.valueOf()), 'ms')
+        console.log('')
+    }
+
+
+    /*
+      ISIS TOPIC
+    */
+    visualiseIsis () {
+      const isisColors = {
+        'Isis': '#377eb8',
+        'Sarapis': '#4daf4a',
+        'Apis': '#e41a1c',
+        'Anubis': '#e41a1c',
+        'Osiris': '#e41a1c',
+        'Horus': '#e41a1c',
+        'Arsinoe II': '#e41a1c',
+        'Harpocrates': '#e41a1c',
+      }
+
+      // temples
+      const templeOptions = {
+        maxDist: 80000,
+        noSteps: 8,
+        circleSegmentAngle: 20,
+        colors: isisColors,
+        propertyName: 'deities'
+      }
+      const temples = L.carouselMarkerGroup(templeOptions)
+      const templesJson = L.geoJSON(data.isis_temples)
+      const templeLayers = templesJson.getLayers()
+
+      temples.addLayers(templeLayers)
+
+
+      // artefacts
+      const artefactsOptions = {
+        maxDist: 40000,
+        noSteps: 4,
+        circleSegmentAngle: 20,
+        colors: isisColors,
+        propertyName: 'deities'
+      }
+      const artefacts = L.carouselMarkerGroup(artefactsOptions)
+      const artefactsJson = L.geoJSON(data.isis_artefacts)
+      const artefactLayers = artefactsJson.getLayers()
+
+      artefacts.addLayers(artefactLayers)
+      
+      this.dataLayers.push(artefacts)
+      this.dataLayers.push(temples)
+
+      this.dataLayers.push(
+        L.geoJSON(data.isis_artefacts, {
+          pointToLayer: (point, ll) => L.circleMarker(ll, 
+            {radius: 1.5, className: 'points-artefacts'}
+          )
+        }).bindTooltip( (layer) => layer.feature.properties.label)
+      )
+
+      this.dataLayers.push(
+        L.geoJSON(data.isis_temples, {
+          pointToLayer: (point, ll) => L.circleMarker(ll, 
+            {radius: 1.5, className: 'points-artefacts'}
+          )
+        }).bindTooltip( (layer) => layer.feature.properties.label)
+      )
+    }
+
+
+
+    /* 
+      CHRISTROME TOPIC
+    */
+    visualiseChristrome() {
+      const churchesGroups = [
+        {
+          id: 1,
+          time: [313],
+          items: [],
+          color: 'yellow'
+        },
+        {
+          id: 2,
+          time: [350],
+          items: [],
+          color: 'orange'
+        },
+        {
+          id: 3,
+          time: [600],
+          items: [],
+          color: 'red'
+        }
+      ]
+      const regions = Object.assign({}, data.regions)
+      data.churches.features.map(church => {
+        const date = church.properties.date
+        if (date) {
+          churchesGroups.map(group => {
+            if (group.time > date) {
+              church.geometry ? group.items.push(church) : null;
+            }
+          })
+        }
+      })
+
+      churchesGroups.map(group => {
+        const fc = turf.featureCollection(group.items)
+        group.buffer = dissolve(turf.buffer(fc, 50, 'kilometers'))
+        // this.dataLayers.push(
+        //   L.geoJSON(group.buffer, {style: () => {
+        //     console.log(group.color)
+        //     return {fillColor: group.color}
+        //   }})
+        // )
+      })
+
+      regions.features.map(region => {
+        region.properties.time = [];
+        const regionBbox = L.geoJSON(region).getBounds()
+        //console.log(regionBbox)
+
+        churchesGroups.map(group => {
+          const intersects = group.buffer.features.find(buffer => {
+            return L.geoJSON(buffer).getBounds().intersects(regionBbox) && !!(turf.intersect(buffer, region))
+          })
+          if (intersects) {
+            region.properties.time.push(group.id)
+          }
+        })
+      })
+
+      this.dataLayers.push(L.geoJSON(regions, {
+        style: (feature) => {
+          let color = 'white'
+          if (feature.properties.time.indexOf(1) > -1) {
+            color = 'red'
+          } else if (feature.properties.time.indexOf(2) > -1) {
+            color = 'orange'
+          } else if (feature.properties.time.indexOf(3) > -1) {
+            color = 'yellow'
+          }
+          return {
+            opacity: 1, 
+            weight: 1, 
+            color: 'white', 
+            fillColor: color
+          }
+        } 
+      }))
+    }
+
+
+
+    /* 
+      MARLUC TOPIC
+    */
+    visualiseMarluc() {
+      const synagogueRules = {
+        markers: {
+            "radius": {
+                "method": "count",
+                "attribute": "",
+                "scale": "continuous",
+                "range": [4, 13]
+            },
+            "fillOpacity": .7,
+            "weight": 1,
+            "color": "black",
+            "fillColor": {
+                "method": "min",
+                "attribute": "date",
+                "scale": "size",
+                "range": ['#c51b8a', '#fa9fb5', '#fde0dd']
+            },
+        }
+      }
+      const congregatesRules = {
+        cells: {
+            "fillColor": {
+                "method": "count",
+                "attribute": "",
+                "scale": "size",
+                "range": ['#ffffd4','#fed98e','#fe9929','#cc4c02']
+            },
+            "fillOpacity": 0.4,
+            "weight": 1,
+            "color": 'black'
+        },
+      }
+
+      const marlucOptions = {
+          gridMode: 'square',
+          showTexts: false,
+          showMarkers: false,
+          showCells: false,
+          zoomShowElements: 8,
+          gridOrigin: {lat: 20, lng: -10},
+          zoomHideGrid: 8,
+          zoneSize: 6000,
+      }
+
+      const synagogueGrid = L.regularGridCluster( 
+        Object.assign(marlucOptions, {showMarkers: true, rules: synagogueRules})
+      );
+
+      const congregatesGrid = L.regularGridCluster( 
+        Object.assign(marlucOptions, {showCells: true, rules: congregatesRules})
+      );
+
+      const synagoguePoints = data.synagogues.features.map( synagogue => {
+        return {
+          marker: L.circleMarker(turf.flip(synagogue.geometry).coordinates, {radius: 0.2, color: 'black'}),
+          properties: {date: synagogue.properties.date}
+        }
+      })
+
+      const congregatesPoints = data.congregates.features.map( congregate => {
+        return {
+          marker: L.circleMarker(turf.flip(congregate.geometry).coordinates, {radius: 0.2, color: 'black'}),
+          properties: {}
+        }
+      })
+
+      synagogueGrid.addLayers(synagoguePoints)
+      congregatesGrid.addLayers(congregatesPoints)
+      this.dataLayers.push(synagogueGrid)
+      this.dataLayers.push(congregatesGrid)
+    }
+
+
+
+    /* 
+      MITHORIG TOPIC
+    */
+    visualiseMithorig() {
+      // forts
+      const fortRules = {
+        cells: {
+            "fillColor": {
+                "method": "count",
+                "attribute": "",
+                "scale": "quantile",
+                "range": ['#eff3ff','#bdd7e7','#6baed6','#2171b5']
+            },
+            "fillOpacity": 0.4,
+            "weight": 0
+        }
+      }
+
+      const mithreaRules = {
+        markers: {
+          "radius": {
+              "method": "count",
+              "attribute": "",
+              "scale": "continuous",
+              "range": [3,10]
+          },
+          "color": 'black',
+          "weight": 1,
+          "fillOpacity": 0.8,
+          "fillColor": {
+              "method": "mean",
+              "attribute": "p",
+              "scale": "continuous",
+              "domain": [0, 1],
+              "range": ['#fc8d59','#ffffbf','#91cf60']               
+          }
+        }
+      }
+
+      const gridOptions = {
+          gridMode: 'hexagon',
+          showTexts: false,
+          showMarkers: false,
+          showCells: false,
+          zoomShowElements: 8,
+          gridOrigin: {lat: 20, lng: -10},
+          zoomHideGrid: 8,
+          zoneSize: 2500,
+      }
+
+      const fortGrid = L.regularGridCluster( 
+        Object.assign(gridOptions, {showCells: true, rules: fortRules})
+      );
+
+      const fortPoints = data.forts.features.map( fort => {
+        return {
+          marker: L.circleMarker(turf.flip(fort.geometry).coordinates, {radius: 0.2, color: 'black'}),
+          properties: {}
+        }
+      })
+
+      fortGrid.addLayers(fortPoints)
+      this.dataLayers.push(fortGrid)
+
+      // mithrea
+      const mithreaGrid = L.regularGridCluster(
+        Object.assign(gridOptions, {showMarkers: true, rules: mithreaRules})
+      );
+
+      const weightProbability = (probability) => {
+        if (probability === 'definitive') return 1
+        else if (probability === 'probable') return 0.7
+        else if (probability === 'dubious') return 0.3
+        else return 1
+      }
+
+      const mithreaPoints = data.mithrea.features.map( mithrea => {
+        return {
+          marker: L.circleMarker(
+            turf.flip(mithrea.geometry).coordinates, {radius: 0.2, color: 'red'}
+          ),
+          properties: {p: weightProbability(mithrea.properties.c)}
+        }
+      })
+      mithreaGrid.addLayers(mithreaPoints)
+      this.dataLayers.push(mithreaGrid)
     }
 }
 
