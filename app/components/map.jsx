@@ -22,6 +22,7 @@ export default class MapContainer extends React.Component {
       this.lEl = this.refs.map.leafletElement
       this.lastTopic = appState.activeMapTopic
       window['map'] = this.lEl
+      L.Util.setOptions(map, {maxBoundsViscosity: 1})
 
       this.dataLayers = [];
 
@@ -149,8 +150,8 @@ export default class MapContainer extends React.Component {
           <Map
             ref="map" 
             minZoom={2}
-            maxBounds={[[0, -30], [60, 60]]}
-            maxZoom={10} 
+            maxBounds={[[10, -30], [60, 60]]}
+            maxZoom={11} 
             center={appState.mapCenter}
             style={Styles['MAP']()}
             zoom={appState.mapZoom}
