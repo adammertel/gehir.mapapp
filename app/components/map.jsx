@@ -272,13 +272,13 @@ export default class MapContainer extends React.Component {
       this.dataLayers.push(temples)
 
       const points = []
-      data.isis_artefacts.features.filter(artefact => artefact.geometry).map( artefact => {
+      data.isis_artefacts.features.filter(artefact => artefact.geometry && artefact.properties.deities.length).map( artefact => {
         const isThere = points.find( point => point.coordinates[0] === artefact.geometry.coordinates[0])
         const item = {type: 'artefact', label: artefact.properties.label, deities: artefact.properties.deities}
         isThere ? isThere.items.push(item) : points.push({items: [item], coordinates: artefact.geometry.coordinates})
       })
 
-      data.isis_temples.features.filter(temple => temple.geometry).map( temple => {
+      data.isis_temples.features.filter(temple => temple.geometry && temple.properties.deities.length).map( temple => {
         const isThere = points.find( point => point.coordinates[0] === temple.geometry.coordinates[0])
         const item = {type: 'temple', label: temple.properties.label, deities: temple.properties.deities}
         isThere ? isThere.items.push(item) : points.push({ items: [item], coordinates: temple.geometry.coordinates})
@@ -294,7 +294,7 @@ export default class MapContainer extends React.Component {
             }).join('<br/ >'))
         })   
       )
-      
+
       this.dataLayers.push(pointsLayer)
     }
 
