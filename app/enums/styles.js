@@ -79,8 +79,8 @@ var Styles = {
   'INFO_TOGGLE_BUTTON': () => {
     return {
       margin: '10px',
-      color: StyleVariables['COLOR_WHITE'],
-      backgroundColor: StyleVariables['COLOR_BLACK1'],
+      backgroundColor: StyleVariables['COLOR_WHITE'],
+      color: StyleVariables['COLOR_1B'],
     }
   },
   'INFO_TEXT': () => {
@@ -99,6 +99,21 @@ var Styles = {
       position: 'absolute',
       right: 20,
       top: 10
+    }
+  },
+  'INFO_SUBHEADING': () => {
+    return {
+      marginLeft: 10,
+      fontWeight: 500,
+      fontSize: 20,
+      position: 'absolute',
+      right: 20,
+      top: 40
+    }
+  },
+  'INFO_LEGEND': () => {
+    return {
+      height: StyleVariables['INFO_HIDDEN_HEIGHT'] - 40
     }
   },
 

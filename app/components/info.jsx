@@ -8,6 +8,8 @@ import Base from '../base'
 import InfoToggleOpenButton from './info/toggleopenbutton'
 import InfoText from './info/text'
 import InfoHeading from './info/heading'
+import InfoSubHeading from './info/subheading'
+import InfoLegend from './info/legend'
 
 
 export default class InfoContainer extends React.Component {
@@ -24,7 +26,9 @@ export default class InfoContainer extends React.Component {
           <div style={{display: 'flex'}} >
             <InfoToggleOpenButton handleClick={this.toggleInfoPanel.bind(this)} open={this.props.appState.infoOpen} />
             <InfoHeading headingText={Base.getActiveMapTopic().infoHeading} />
+            <InfoSubHeading subheadingText={Base.getActiveMapTopic().infoSubHeading} />
           </div>
+          <InfoLegend topic={Base.getActiveMapTopic()} />
           <InfoText text={Base.getActiveMapTopic().infoText} />
         </div>
       )

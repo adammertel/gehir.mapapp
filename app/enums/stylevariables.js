@@ -1,14 +1,14 @@
 var StyleVariables = {
-  'MENU_HEIGHT': '80px',
-  'PANEL_WIDTH': '300px',
+  'MENU_HEIGHT': 80,
+  'PANEL_WIDTH': 300,
   'MENU_BUTTON_WIDTH': 150,
-  'INFO_HEIGHT': 200,
-  'INFO_HIDDEN_HEIGHT': 70,
+  'INFO_HEIGHT': 250,
+  'INFO_HIDDEN_HEIGHT': 150,
   'INFO_MENU_HEIGHT': function (open) {
     if (open) {
-      return parseInt(this['MENU_HEIGHT']) + parseInt(this['INFO_HEIGHT'])
+      return this['INFO_HEIGHT']
     } else {
-      return parseInt(this['MENU_HEIGHT']) + parseInt(this['INFO_HIDDEN_HEIGHT'])
+      return this['INFO_HIDDEN_HEIGHT']
     }
   },
 
