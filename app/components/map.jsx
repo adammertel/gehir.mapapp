@@ -254,7 +254,6 @@ export default class MapContainer extends React.Component {
 
       temples.addLayers(templeLayers)
 
-
       // artefacts
       const artefactsOptions = {
         maxDist: 40000,
@@ -272,21 +271,31 @@ export default class MapContainer extends React.Component {
       this.dataLayers.push(artefacts)
       this.dataLayers.push(temples)
 
-      this.dataLayers.push(
-        L.geoJSON(data.isis_artefacts, {
-          pointToLayer: (point, ll) => L.circleMarker(ll, 
-            {radius: 1.5, className: 'points-artefacts'}
-          )
-        }).bindTooltip( (layer) => layer.feature.properties.label)
-      )
+      const points = []
+      data.isis_artefacts.features.filter(artefact => artefact.geometry).map( artefact => {
+        const isThere = points.find( point => point.coordinates[0] === artefact.geometry.coordinates[0])
+        const item = {type: 'artefact', label: artefact.properties.label, deities: artefact.properties.deities}
+        isThere ? isThere.items.push(item) : points.push({items: [item], coordinates: artefact.geometry.coordinates})
+      })
 
-      this.dataLayers.push(
-        L.geoJSON(data.isis_temples, {
-          pointToLayer: (point, ll) => L.circleMarker(ll, 
-            {radius: 1.5, className: 'points-artefacts'}
-          )
-        }).bindTooltip( (layer) => layer.feature.properties.label)
+      data.isis_temples.features.filter(temple => temple.geometry).map( temple => {
+        const isThere = points.find( point => point.coordinates[0] === temple.geometry.coordinates[0])
+        const item = {type: 'temple', label: temple.properties.label, deities: temple.properties.deities}
+        isThere ? isThere.items.push(item) : points.push({ items: [item], coordinates: temple.geometry.coordinates})
+      })
+
+      const pointsLayer = L.featureGroup(
+        points.map(point => {
+          return L.circleMarker([point.coordinates[1], point.coordinates[0]], {radius: 2, className: 'map-points'})
+            .bindTooltip(point.items.map( item => {
+              return item.type + 
+                ' <b>' + item.label + '</b>' + 
+                ' (' + item.deities.join() + ')'
+            }).join('<br/ >'))
+        })   
       )
+      
+      this.dataLayers.push(pointsLayer)
     }
 
 

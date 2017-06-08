@@ -34,7 +34,7 @@ button {
   mix-blend-mode: saturation;
 }
 
-.points-artefacts{
+.map-points{
   stroke-width: 10;
   stroke-opacity: 0;
   fill-opacity: 1;
