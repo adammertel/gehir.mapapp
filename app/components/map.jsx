@@ -300,24 +300,31 @@ export default class MapContainer extends React.Component {
       CHRISTROME TOPIC
     */
     visualiseChristrome() {
+
       const churchesGroups = [
         {
-          id: 1,
+          id: 3,
           time: [313],
           items: [],
-          color: 'yellow'
+          color: '#f03b20'
         },
         {
           id: 2,
           time: [350],
           items: [],
-          color: 'orange'
+          color: '#feb24c'
         },
         {
-          id: 3,
+          id: 1,
           time: [600],
           items: [],
-          color: 'red'
+          color: '#ffeda0'
+        },
+        {
+          id: 0,
+          time: [],
+          items: [],
+          color: 'lightgrey'
         }
       ]
 
@@ -325,11 +332,11 @@ export default class MapContainer extends React.Component {
       const regions = Object.assign({}, data.regions)
       data.churches.features.map(church => {
         const date = church.properties.date
-        church.properties.time = []
+        church.properties.time = 0
         if (date) {
-          churchesGroups.map(group => {
+          churchesGroups.filter(g => g.id !== 0).map(group => {
             if (group.time > date) {
-              church.properties.time.push(group.id)
+              church.properties.time = Math.max(...[church.properties.time, group.id])
               church.geometry ? group.items.push(church) : null;
             }
           })
@@ -338,26 +345,25 @@ export default class MapContainer extends React.Component {
 
       const time2 = Base.now()
       //console.log(time2 - time1, 'ms to FILTER CHURCHES')
-      churchesGroups.map(group => {
+      churchesGroups.filter(g => g.id !== 0).map(group => {
         const fc = turf.featureCollection(group.items)
-        const buffer = turf.simplify(dissolve(turf.buffer(fc, 70, 'kilometers')), 0.1)
-        group.buffer = buffer
+        
+        group.buffer = turf.simplify(dissolve(turf.buffer(fc, 70, 'kilometers')), 0.1)
         group.buffer.features.map(buffer => buffer.bounds = L.geoJSON(buffer).getBounds())
       })
 
       const time3 = Base.now()
       //console.log(time3 - time2, 'ms to BUFFER CHURCHES')
       regions.features.map(region => {
-        region.properties.time = [];
+        region.properties.time = 0;
         const regionBbox = L.geoJSON(region).getBounds()
-        //console.log(regionBbox)
 
-        churchesGroups.map(group => {
+        churchesGroups.filter(g => g.id !== 0).map(group => {
           const intersects = group.buffer.features.find(buffer => {
             return buffer.bounds.intersects(regionBbox) && !!(turf.intersect(buffer, region))
           })
           if (intersects) {
-            region.properties.time.push(group.id)
+            region.properties.time = Math.max(...[region.properties.time, group.id])
           }
         })
       })
@@ -365,23 +371,11 @@ export default class MapContainer extends React.Component {
       const time4 = Base.now()
       //console.log(time4 - time3, 'ms to ASSIGN BUFFERS')
 
-      const christianColors = {
-        0: 'lightgrey',
-        1: '#f03b20',
-        2: '#feb24c',
-        3: '#ffeda0'
-      }
+      // drawing regions
       this.dataLayers.push(
         L.geoJSON(regions, {
-          style: (feature) => {
-            let color = christianColors[0]
-            if (feature.properties.time.indexOf(1) > -1) {
-              color = christianColors[1]
-            } else if (feature.properties.time.indexOf(2) > -1) {
-              color = christianColors[2]
-            } else if (feature.properties.time.indexOf(3) > -1) {
-              color = christianColors[3]
-            }
+          style: (region) => {
+            const color = churchesGroups.find(g => g.id === region.properties.time).color
             return {
               opacity: 1, 
               fillOpacity: .6, 
@@ -392,21 +386,15 @@ export default class MapContainer extends React.Component {
           }
         }).bindPopup( layer => '<div><span>region:<span><b>' + layer.feature.properties.n + '<b></div>')
       )
+
+      // drawing churches
       this.dataLayers.push(
         L.geoJSON(data.churches, {
           pointToLayer: (church, ll) => {
-            let fillColor = christianColors[0]
             const date = church.properties.date
-            console.log(date)
+
             if (date) {
-              if (church.properties.time.indexOf(1) > -1) {
-                fillColor = christianColors[1]
-              } else if (church.properties.time.indexOf(2) > -1) {
-                fillColor = christianColors[2]
-              } else if (church.properties.time.indexOf(3) > -1) {
-                fillColor = christianColors[3]
-              }
-              console.log(fillColor)
+              const fillColor = churchesGroups.find(g => g.id === church.properties.time).color
               return L.circleMarker(ll, {
                   opacity: 1, 
                   fillOpacity: 1, 
@@ -422,6 +410,11 @@ export default class MapContainer extends React.Component {
       )
 
       const time5 = Base.now()
+
+      // drawing radii
+      churchesGroups.filter(g => g.id !== 0).reverse().map(group => {
+        this.dataLayers.push(L.geoJSON(group.buffer, {fillOpacity: 0.4, color: group.color, fillColor: group.color}))
+      })
 
       console.log(time5 - time4, 'ms to DRAW REGIONS')
     }
