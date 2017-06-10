@@ -316,7 +316,7 @@ export default class MapContainer extends React.Component {
         },
         {
           id: 1,
-          time: [600],
+          time: [800],
           items: [],
           color: '#ffeda0'
         },
@@ -387,27 +387,7 @@ export default class MapContainer extends React.Component {
         }).bindPopup( layer => '<div><span>region:<span><b>' + layer.feature.properties.n + '<b></div>')
       )
 
-      // drawing churches
-      this.dataLayers.push(
-        L.geoJSON(data.churches, {
-          pointToLayer: (church, ll) => {
-            const date = church.properties.date
 
-            if (date) {
-              const fillColor = churchesGroups.find(g => g.id === church.properties.time).color
-              return L.circleMarker(ll, {
-                  opacity: 1, 
-                  fillOpacity: 1, 
-                  weight: 1, 
-                  color: 'black', 
-                  fillColor: fillColor,
-                  radius: 3
-                }
-              )
-            }
-          }
-        }).bindTooltip( layer => '<div><span>church:<span><b>' + layer.feature.properties.n + '<b> (' + layer.feature.properties.date + ')</div>')
-      )
 
       const time5 = Base.now()
 
@@ -415,6 +395,24 @@ export default class MapContainer extends React.Component {
       churchesGroups.filter(g => g.id !== 0).reverse().map(group => {
         this.dataLayers.push(L.geoJSON(group.buffer, {fillOpacity: 0.4, color: group.color, fillColor: group.color}))
       })
+
+      // drawing churches
+      const uniqueChurches = []
+      
+      data.churches.features.filter(ch => ch.geometry && ch.properties.date).map(church => {
+        const cs = church.geometry.coordinates
+        const isThere = uniqueChurches.find(uch => uch.cs[0] === cs[0])
+        isThere ? isThere.items.push(church.properties) : uniqueChurches.push({cs: cs, items:[church.properties]})
+      })
+
+      this.dataLayers.push(
+        L.featureGroup(
+          uniqueChurches.map( church => {
+            return L.circleMarker([church.cs[1], church.cs[0]], {radius: 2, className: 'map-churches'})
+              .bindTooltip(church.items.map( item => 'church <b>' + item.n + '</b> (' + item.date + ')').join('<br/ >'))
+          })   
+        )
+      )
 
       console.log(time5 - time4, 'ms to DRAW REGIONS')
     }

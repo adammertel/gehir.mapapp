@@ -40,3 +40,10 @@ button {
   fill-opacity: 1;
   fill: black;
 }
+
+.map-churches{
+  stroke-width: 10;
+  stroke-opacity: 0;
+  fill-opacity: 1;
+  fill: black;
+}
