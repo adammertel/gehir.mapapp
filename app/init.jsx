@@ -11,14 +11,21 @@ import Actions from './enums/actions.js'
 window['dispatcher'] = dispatcher
 window['appUpdate'] = null
 window['data'] = {}
+window['newwRefreshMap'] = false
 
 window['appState'] = {
   infoOpen: false,
   activeBaseLayer: 'awmc',
-  activeMapTopic: MapTopics.MITHORIG.label,
+  activeMapTopic: MapTopics.ISIS.label,
   mapCenter: [40,25],
   mapZoom: 5,
   activeOverlays: [],
+  controlOptions: {
+    isis: {
+      artefactDistance: 40000,
+      templeDistance: 80000,
+    }
+  }
 }
 
 Object.keys(MapTopics).map( mapTopicKey => {

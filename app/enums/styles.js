@@ -109,12 +109,38 @@ var Styles = {
       top: 40
     }
   },
-  'INFO_LEGEND': () => {
+  'INFO_VISIBLE': () => {
     return {
+      width: '100%',
+      display: 'inline-flex',
       height: StyleVariables['INFO_HIDDEN_HEIGHT'] - 40,
-      margin: '10px 0px'
     }
   },
+  'INFO_HIDDEN': () => {
+    return {
+      display: 'inline-flex' 
+
+    }
+  },
+  'INFO_LEGEND': () => {
+    return {
+      margin: '10px 20px 0px 10px',
+      width: '50%'
+    }
+  },
+  'INFO_CONTROL': () => {
+    return {
+      margin: '10px 20px 0px 10px',
+      width: '50%'
+    }
+  },
+
+  'INFO_CONTROL_INPUT': () => {
+    return {
+      marginRight: '25px' 
+    }
+  },
+
   'HEADER4': () => {
     return {
       marginBottom: 0

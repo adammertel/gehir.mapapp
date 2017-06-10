@@ -44,6 +44,13 @@ module.exports = {
             case Actions['MAP_CHANGE_CENTER']:
                 changes.mapCenter = data.newMapCenter
                 break
+
+            case Actions['CONTROL_CHANGE']:
+                console.log()
+                changes.controlOptions = appState.controlOptions
+                changes.controlOptions[data.topic][data.option] = data.value
+                window['newwRefreshMap'] = true
+                break
         }
 
         this.setAppState(changes)

@@ -39,6 +39,10 @@ export default class MapContainer extends React.Component {
         this.lastTopic = this.props.appState.activeMapTopic
         this.topicChanged()
       }
+      if (window['newwRefreshMap']){
+        this.topicChanged()
+        window['newwRefreshMap'] = false
+      } 
     }
 
     topicChanged () {
@@ -190,7 +194,7 @@ export default class MapContainer extends React.Component {
       const topic = this.props.appState.activeMapTopic
       this.clearDataLayer()
 
-      const t1 = new Date()
+      const t1 = Base.now()
       
       switch (topic) {
 
@@ -214,9 +218,8 @@ export default class MapContainer extends React.Component {
         this.drawLayers()
 
         // time
-        const t2 = new Date()
         console.log('')
-        console.log('topic', topic, 'drawn after', (t2.valueOf() - t1.valueOf()), 'ms')
+        console.log('topic', topic, 'drawn after', (Base.now() - t1), 'ms')
         console.log('')
     }
 
@@ -238,7 +241,7 @@ export default class MapContainer extends React.Component {
 
       // temples
       const templeOptions = {
-        maxDist: 80000,
+        maxDist: appState.controlOptions.isis.templeDistance,
         noSteps: 8,
         circleSegmentAngle: 20,
         colors: isisColors,
@@ -252,7 +255,7 @@ export default class MapContainer extends React.Component {
 
       // artefacts
       const artefactsOptions = {
-        maxDist: 40000,
+        maxDist: appState.controlOptions.isis.artefactDistance,
         noSteps: 4,
         circleSegmentAngle: 20,
         colors: isisColors,
