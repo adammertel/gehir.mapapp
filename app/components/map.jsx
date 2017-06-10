@@ -267,31 +267,31 @@ export default class MapContainer extends React.Component {
       this.dataLayers.push(artefacts)
       this.dataLayers.push(temples)
 
-      const points = []
+      const isis_points = []
       data.isis_artefacts.features.filter(artefact => artefact.geometry && artefact.properties.deities.length).map( artefact => {
-        const isThere = points.find( point => point.coordinates[0] === artefact.geometry.coordinates[0])
+        const isThere = isis_points.find( point => point.cs[0] === artefact.geometry.coordinates[0])
         const item = {type: 'artefact', label: artefact.properties.label, deities: artefact.properties.deities}
-        isThere ? isThere.items.push(item) : points.push({items: [item], coordinates: artefact.geometry.coordinates})
+        isThere ? isThere.items.push(item) : isis_points.push({items: [item], cs: artefact.geometry.coordinates})
       })
 
       data.isis_temples.features.filter(temple => temple.geometry && temple.properties.deities.length).map( temple => {
-        const isThere = points.find( point => point.coordinates[0] === temple.geometry.coordinates[0])
+        const isThere = isis_points.find( point => point.cs[0] === temple.geometry.coordinates[0])
         const item = {type: 'temple', label: temple.properties.label, deities: temple.properties.deities}
-        isThere ? isThere.items.push(item) : points.push({ items: [item], coordinates: temple.geometry.coordinates})
+        isThere ? isThere.items.push(item) : isis_points.push({ items: [item], cs: temple.geometry.coordinates})
       })
 
-      const pointsLayer = L.featureGroup(
-        points.map(point => {
-          return L.circleMarker([point.coordinates[1], point.coordinates[0]], {radius: 2, className: 'map-points'})
-            .bindTooltip(point.items.map( item => {
-              return item.type + 
-                ' <b>' + item.label + '</b>' + 
-                ' (' + item.deities.join() + ')'
-            }).join('<br/ >'))
-        })   
+      this.dataLayers.push(
+        L.featureGroup(
+          isis_points.map(point => {
+            return L.circleMarker([point.cs[1], point.cs[0]], {radius: 2, className: 'map-isis'})
+              .bindTooltip(point.items.map( item => {
+                return item.type + 
+                  ' <b>' + item.label + '</b>' + 
+                  ' (' + item.deities.join() + ')'
+              }).join('<br/ >'))
+          })   
+        )
       )
-
-      this.dataLayers.push(pointsLayer)
     }
 
 
