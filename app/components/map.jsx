@@ -335,18 +335,16 @@ export default class MapContainer extends React.Component {
       })
 
       const time2 = Base.now()
+      //console.log(time2 - time1, 'ms to FILTER CHURCHES')
       churchesGroups.map(group => {
         const fc = turf.featureCollection(group.items)
-        group.buffer = dissolve(turf.buffer(fc, 50, 'kilometers'))
-        // this.dataLayers.push(
-        //   L.geoJSON(group.buffer, {style: () => {
-        //     console.log(group.color)
-        //     return {fillColor: group.color}
-        //   }})
-        // )
+        const buffer = turf.simplify(dissolve(turf.buffer(fc, 50, 'kilometers')), 0.1)
+        group.buffer = buffer
+        group.buffer.features.map(buffer => buffer.bounds = L.geoJSON(buffer).getBounds())
       })
 
       const time3 = Base.now()
+      //console.log(time3 - time2, 'ms to BUFFER CHURCHES')
       regions.features.map(region => {
         region.properties.time = [];
         const regionBbox = L.geoJSON(region).getBounds()
@@ -354,7 +352,7 @@ export default class MapContainer extends React.Component {
 
         churchesGroups.map(group => {
           const intersects = group.buffer.features.find(buffer => {
-            return L.geoJSON(buffer).getBounds().intersects(regionBbox) && !!(turf.intersect(buffer, region))
+            return buffer.bounds.intersects(regionBbox) && !!(turf.intersect(buffer, region))
           })
           if (intersects) {
             region.properties.time.push(group.id)
@@ -363,19 +361,28 @@ export default class MapContainer extends React.Component {
       })
 
       const time4 = Base.now()
+      //console.log(time4 - time3, 'ms to ASSIGN BUFFERS')
+
+      const christianColors = {
+        0: 'white',
+        1: '#f03b20',
+        2: '#feb24c',
+        3: '#ffeda0'
+      }
       this.dataLayers.push(L.geoJSON(regions, {
         style: (feature) => {
-          let color = 'white'
+          let color = christianColors[0]
           if (feature.properties.time.indexOf(1) > -1) {
-            color = 'red'
+            color = christianColors[1]
           } else if (feature.properties.time.indexOf(2) > -1) {
-            color = 'orange'
+            color = christianColors[2]
           } else if (feature.properties.time.indexOf(3) > -1) {
-            color = 'yellow'
+            color = christianColors[3]
           }
           return {
             opacity: 1, 
-            weight: 1, 
+            fillOpacity: .6, 
+            weight: .5, 
             color: 'white', 
             fillColor: color
           }
@@ -383,10 +390,7 @@ export default class MapContainer extends React.Component {
       }))
       const time5 = Base.now()
 
-      console.log(time2 - time1, 'ms to FILTER CHURCHES')
-      console.log(time3 - time2, 'ms to BUFFER CHURCHES')
-      console.log(time4 - time3, 'ms to ASSIGN BUFFERS')
-      console.log(time5 - time4, 'ms to DRAW REGIONS')
+      //console.log(time5 - time4, 'ms to DRAW REGIONS')
     }
 
 

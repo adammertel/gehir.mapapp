@@ -52,6 +52,10 @@ var Base = {
   now () {
     const date = new Date()
     return date.valueOf()
+  },
+
+  average (arr) {
+    arr.reduce( ( p, c ) => p + c, 0 ) / arr.length
   }
 
 }
