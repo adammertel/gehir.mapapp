@@ -33,7 +33,7 @@ var Base = {
     return JSON.parse(this.doRequestSync(dataPath))
   },
 
-  getActiveMapTopic: function () {
+  getActiveMapTopic () {
     let mapName = Object.keys(MapTopics).find(function (mapName, mi) {
       let map = MapTopics[mapName]
       return appState.activeMapTopic == map.label
@@ -41,13 +41,18 @@ var Base = {
     return MapTopics[mapName]
   },
 
-  getMapTopicById: function (id) {
+  getMapTopicById (id) {
     let mapKey = Object.keys(MapTopics).find(function (mapName, mi) {
       let map = MapTopics[mapName]
       return id == map.label
     })
     return MapTopics[mapKey]
   },
+
+  now () {
+    const date = new Date()
+    return date.valueOf()
+  }
 
 }
 

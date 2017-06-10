@@ -320,6 +320,8 @@ export default class MapContainer extends React.Component {
           color: 'red'
         }
       ]
+
+      const time1 = Base.now()
       const regions = Object.assign({}, data.regions)
       data.churches.features.map(church => {
         const date = church.properties.date
@@ -332,9 +334,10 @@ export default class MapContainer extends React.Component {
         }
       })
 
+      const time2 = Base.now()
       churchesGroups.map(group => {
         const fc = turf.featureCollection(group.items)
-        group.buffer = turf.simplify(dissolve(turf.buffer(fc, 50, 'kilometers')))
+        group.buffer = dissolve(turf.buffer(fc, 50, 'kilometers'))
         // this.dataLayers.push(
         //   L.geoJSON(group.buffer, {style: () => {
         //     console.log(group.color)
@@ -343,6 +346,7 @@ export default class MapContainer extends React.Component {
         // )
       })
 
+      const time3 = Base.now()
       regions.features.map(region => {
         region.properties.time = [];
         const regionBbox = L.geoJSON(region).getBounds()
@@ -358,6 +362,7 @@ export default class MapContainer extends React.Component {
         })
       })
 
+      const time4 = Base.now()
       this.dataLayers.push(L.geoJSON(regions, {
         style: (feature) => {
           let color = 'white'
@@ -376,6 +381,12 @@ export default class MapContainer extends React.Component {
           }
         } 
       }))
+      const time5 = Base.now()
+
+      console.log(time2 - time1, 'ms to FILTER CHURCHES')
+      console.log(time3 - time2, 'ms to BUFFER CHURCHES')
+      console.log(time4 - time3, 'ms to ASSIGN BUFFERS')
+      console.log(time5 - time4, 'ms to DRAW REGIONS')
     }
 
 
