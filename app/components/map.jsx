@@ -429,7 +429,7 @@ export default class MapContainer extends React.Component {
                 "method": "count",
                 "attribute": "",
                 "scale": "continuous",
-                "range": [4, 13]
+                "range": [5, 15]
             },
             "fillOpacity": .7,
             "weight": 1,
@@ -438,7 +438,7 @@ export default class MapContainer extends React.Component {
                 "method": "min",
                 "attribute": "date",
                 "scale": "size",
-                "range": ['#c51b8a', '#fa9fb5', '#fde0dd']
+                "range": ['#feb24c','#fd8d3c','#f03b20','#bd0026']
             },
         }
       }
@@ -448,11 +448,11 @@ export default class MapContainer extends React.Component {
                 "method": "count",
                 "attribute": "",
                 "scale": "size",
-                "range": ['#ffffd4','#fed98e','#fe9929','#cc4c02']
+                "range": ['#bdc9e1','#67a9cf','#1c9099','#016c59']
             },
-            "fillOpacity": 0.4,
+            "fillOpacity": 0.35,
             "weight": 1,
-            "color": 'black'
+            "color": 'white'
         },
       }
 
@@ -461,36 +461,52 @@ export default class MapContainer extends React.Component {
           showTexts: false,
           showMarkers: false,
           showCells: false,
-          zoomShowElements: 8,
+          zoomShowElements: 7,
           gridOrigin: {lat: 20, lng: -10},
           zoomHideGrid: 8,
           zoneSize: 6000,
       }
 
-      const synagogueGrid = L.regularGridCluster( 
-        Object.assign(marlucOptions, {showMarkers: true, rules: synagogueRules})
-      );
-
       const congregatesGrid = L.regularGridCluster( 
         Object.assign(marlucOptions, {showCells: true, rules: congregatesRules})
       );
 
+      const synagogueGrid = L.regularGridCluster( 
+        Object.assign(marlucOptions, {showMarkers: true, rules: synagogueRules})
+      );
+
+
+
+
+
       const synagoguePoints = data.synagogues.features.map( synagogue => {
         return {
-          marker: L.circleMarker(turf.flip(synagogue.geometry).coordinates, {radius: 0.2, color: 'black'}),
+          marker: 
+            L.circleMarker(
+              turf.flip(synagogue.geometry).coordinates, 
+              {radius: 4, className: 'map-synagogues'}
+            ).bindTooltip(
+              'synagogue <b>' + synagogue.properties.n + '</b> (' + synagogue.properties.date + ')'
+            ),
           properties: {date: synagogue.properties.date}
         }
       })
 
       const congregatesPoints = data.congregates.features.map( congregate => {
         return {
-          marker: L.circleMarker(turf.flip(congregate.geometry).coordinates, {radius: 0.2, color: 'black'}),
+          marker: 
+            L.circleMarker(
+              turf.flip(congregate.geometry).coordinates, 
+              {radius: 3, className: 'map-congregates'}
+            ).bindTooltip(
+              'christian congregation <b>' + congregate.properties.n + '</b>'
+            ),
           properties: {}
         }
       })
 
-      synagogueGrid.addLayers(synagoguePoints)
       congregatesGrid.addLayers(congregatesPoints)
+      synagogueGrid.addLayers(synagoguePoints)
       this.dataLayers.push(synagogueGrid)
       this.dataLayers.push(congregatesGrid)
     }

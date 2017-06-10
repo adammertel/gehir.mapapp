@@ -41,6 +41,20 @@ button {
   fill: black;
 }
 
+.map-congregates{
+  stroke-width: 10;
+  stroke-opacity: 0;
+  fill-opacity: 1;
+  fill: #016c59;
+}
+
+.map-synagogues{
+  stroke-width: 10;
+  stroke-opacity: 0;
+  fill-opacity: 1;
+  fill: #bd0026;
+}
+
 .map-churches{
   stroke-width: 10;
   stroke-opacity: 0;
