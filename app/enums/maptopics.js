@@ -1,17 +1,6 @@
 import StyleVariables from './stylevariables'
 
 var MapTopics = {
-  'OVERVIEW': {
-    color1: StyleVariables['COLOR_GREY'],
-    color2: StyleVariables['COLOR_GREY'],
-    dataFiles: [],
-    infoHeading: 'Overview',
-    infoSubHeading: 'blablabla',
-    infoText: 'Nulla facilisi. In consectetur suscipit aliquet. Pellentesque tempus erat non tellus gravida porttitor. Pellentesque fermentum nibh nulla, vel venenatis purus condimentum non. Ut fringilla consectetur mi in laoreet. Nullam feugiat purus ut ipsum tristique rhoncus. Maecenas pulvinar efficitur lacus a dignissim. Proin quis ligula felis. Cras et nisl id lorem posuere volutpat. Suspendisse neque ligula, lacinia eu mi iaculis, lacinia pulvinar risus.',
-    label: 'overview',
-    originLatLng: [40,20],
-    originZoom: 4,
-  },
   'ISIS': {
     color1: StyleVariables['COLOR_1A'],
     color2: StyleVariables['COLOR_1B'],

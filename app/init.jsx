@@ -15,8 +15,8 @@ window['data'] = {}
 window['appState'] = {
   infoOpen: false,
   activeBaseLayer: 'awmc',
-  activeMapTopic: MapTopics.OVERVIEW.label,
-  mapCenter: [20, 20],
+  activeMapTopic: MapTopics.CHRISTROME.label,
+  mapCenter: [40,25],
   mapZoom: 5,
   activeOverlays: [],
 }
@@ -32,5 +32,3 @@ ReactDOM.render(
   <App />,
   document.body.appendChild(document.createElement('div'))
 )
-
-dispatcher.dispatch(Actions['MAP_TOPIC_CHANGE'], {newTopic: MapTopics.OVERVIEW.label})

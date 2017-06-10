@@ -194,10 +194,6 @@ export default class MapContainer extends React.Component {
       
       switch (topic) {
 
-        // overview
-        case MapTopics['OVERVIEW'].label:
-          break
-
         case MapTopics['ISIS'].label:
           this.visualiseIsis()
           break
@@ -338,7 +334,7 @@ export default class MapContainer extends React.Component {
 
       churchesGroups.map(group => {
         const fc = turf.featureCollection(group.items)
-        group.buffer = dissolve(turf.buffer(fc, 50, 'kilometers'))
+        group.buffer = turf.simplify(dissolve(turf.buffer(fc, 50, 'kilometers')))
         // this.dataLayers.push(
         //   L.geoJSON(group.buffer, {style: () => {
         //     console.log(group.color)
