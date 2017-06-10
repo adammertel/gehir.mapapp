@@ -627,7 +627,7 @@ export default class MapContainer extends React.Component {
             L.circleMarker(
               mith.cs, 
               {radius: 3 + mith.items.length * 0.3, className: 'map-mithraea', fillColor: colorProbability(mith.items.map(i => i.c))}
-            ).bindTooltip(mith.items.map( item => 'mithraeum <b>' + item.n + '</b>(' + item.c + ')').join('<br/ >')),
+            ).bindTooltip(mith.items.map( item => 'mithraeum <b>' + item.n + '</b> (' + item.c + ')').join('<br/ >')),
           properties: {p: weightProbability(mith.items.map(i => i.c))}
         }
       })

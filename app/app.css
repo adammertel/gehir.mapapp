@@ -75,3 +75,7 @@ button {
   fill-opacity: 1;
   fill: #54278f;
 }
+
+.leaflet-tooltip-pane, leaflet-popup-pane{
+  z-index: 1200 !important
+}
