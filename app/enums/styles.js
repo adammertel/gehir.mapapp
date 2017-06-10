@@ -135,11 +135,22 @@ var Styles = {
     }
   },
 
+  'INFO_CONTROL_INPUT_WRAPPER': () => {
+    return {
+    }
+  },
   'INFO_CONTROL_INPUT': () => {
     return {
       marginRight: '25px' 
     }
   },
+  'INFO_CONTROL_INPUT_LABEL': () => {
+    return {
+    }
+  },
+
+  
+
 
   'HEADER4': () => {
     return {

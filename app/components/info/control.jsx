@@ -16,6 +16,11 @@ export default class InfoLegend extends React.Component {
       }
     }
 
+    _getActualOptionValue (topic, option) {
+      const postponedValue = this.state.postponedChanges.find(change => change.topic === topic && change.option === option)
+      return postponedValue ? postponedValue.value : appState.controlOptions[topic][option]
+    }
+
     _addNewPosponedChange (topic, option, value) {
       const postponedC = this.state.postponedChanges.slice()
       const postponedCF = postponedC.filter(change => change.topic !== topic || change.option !== option)
@@ -66,18 +71,24 @@ export default class InfoLegend extends React.Component {
     visualiseIsis() {
       return (
         <div>
-          <Slider 
-            min={10000} max={100000} step={10000} 
-            value={appState.controlOptions.isis.artefactDistance} 
-            style={Styles['INFO_CONTROL_INPUT']()} 
-            onChange={this.handleChange.bind(this, 'isis', 'artefactDistance')}
-          />
-          <Slider 
-            min={10000} max={100000} step={10000} 
-            value={appState.controlOptions.isis.templeDistance}
-            style={Styles['INFO_CONTROL_INPUT']()} 
-            onChange={this.handleChange.bind(this, 'isis', 'templeDistance')}
-          />
+          <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
+            <Slider 
+              min={10000} max={100000} step={10000} 
+              value={appState.controlOptions.isis.artefactDistance} 
+              style={Styles['INFO_CONTROL_INPUT']()} 
+              onChange={this.handleChange.bind(this, 'isis', 'artefactDistance')}
+            />
+            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >{this._getActualOptionValue('isis', 'artefactDistance')}</div>
+          </div>
+          <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
+            <Slider 
+              min={10000} max={100000} step={10000} 
+              value={appState.controlOptions.isis.templeDistance}
+              style={Styles['INFO_CONTROL_INPUT']()} 
+              onChange={this.handleChange.bind(this, 'isis', 'templeDistance')}
+            />
+            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >{this._getActualOptionValue('isis', 'templeDistance')}</div>
+          </div>
         </div>
       )
     }
