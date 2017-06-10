@@ -283,7 +283,7 @@ export default class MapContainer extends React.Component {
       this.dataLayers.push(
         L.featureGroup(
           isis_points.map(point => {
-            return L.circleMarker([point.cs[1], point.cs[0]], {radius: 2, className: 'map-isis'})
+            return L.circleMarker([point.cs[1], point.cs[0]], {radius: 1.2 + point.items.length * 0.3, className: 'map-isis'})
               .bindTooltip(point.items.map( item => {
                 return item.type + 
                   ' <b>' + item.label + '</b>' + 
@@ -408,7 +408,7 @@ export default class MapContainer extends React.Component {
       this.dataLayers.push(
         L.featureGroup(
           uniqueChurches.map( church => {
-            return L.circleMarker([church.cs[1], church.cs[0]], {radius: 2, className: 'map-churches'})
+            return L.circleMarker([church.cs[1], church.cs[0]], {radius: 1.2 + church.items.length * 0.1, className: 'map-churches'})
               .bindTooltip(church.items.map( item => 'church <b>' + item.n + '</b> (' + item.date + ')').join('<br/ >'))
           })   
         )
@@ -475,10 +475,6 @@ export default class MapContainer extends React.Component {
         Object.assign(marlucOptions, {showMarkers: true, rules: synagogueRules})
       );
 
-
-
-
-
       const synagoguePoints = data.synagogues.features.map( synagogue => {
         return {
           marker: 
@@ -517,6 +513,8 @@ export default class MapContainer extends React.Component {
       MITHORIG TOPIC
     */
     visualiseMithorig() {
+
+      const mithraicColors = ['#d7191c','#fdae61','#a6d96a','#1a9641']
       // forts
       const fortRules = {
         cells: {
@@ -524,9 +522,9 @@ export default class MapContainer extends React.Component {
                 "method": "count",
                 "attribute": "",
                 "scale": "quantile",
-                "range": ['#eff3ff','#bdd7e7','#6baed6','#2171b5']
+                "range": ['#cbc9e2','#9e9ac8','#756bb1','#54278f']
             },
-            "fillOpacity": 0.4,
+            "fillOpacity": 0.35,
             "weight": 0
         }
       }
@@ -537,7 +535,7 @@ export default class MapContainer extends React.Component {
               "method": "count",
               "attribute": "",
               "scale": "continuous",
-              "range": [3,10]
+              "range": [3,8]
           },
           "color": 'black',
           "weight": 1,
@@ -547,7 +545,7 @@ export default class MapContainer extends React.Component {
               "attribute": "p",
               "scale": "continuous",
               "domain": [0, 1],
-              "range": ['#fc8d59','#ffffbf','#91cf60']               
+              "range": mithraicColors
           }
         }
       }
@@ -557,19 +555,33 @@ export default class MapContainer extends React.Component {
           showTexts: false,
           showMarkers: false,
           showCells: false,
-          zoomShowElements: 8,
+          zoomShowElements: 7,
           gridOrigin: {lat: 20, lng: -10},
-          zoomHideGrid: 8,
-          zoneSize: 2500,
+          zoomHideGrid: 7,
+          zoneSize: 3000,
       }
 
       const fortGrid = L.regularGridCluster( 
         Object.assign(gridOptions, {showCells: true, rules: fortRules})
       );
 
-      const fortPoints = data.forts.features.map( fort => {
+      // drawing forts
+      const uniqueForts = []
+      const fortDistanceThreshold = 10000
+
+      data.forts.features.filter(f => f.geometry).map(fort => {
+        const cs = L.latLng(fort.geometry.coordinates[1], fort.geometry.coordinates[0])
+        const isThere = uniqueForts.find(uf => uf.cs.distanceTo(cs) < fortDistanceThreshold)
+        isThere ? isThere.items.push(fort.properties) : uniqueForts.push({cs: cs, items:[fort.properties]})
+      })
+
+      const fortPoints = uniqueForts.map( fort => {
         return {
-          marker: L.circleMarker(turf.flip(fort.geometry).coordinates, {radius: 0.2, color: 'black'}),
+          marker: 
+            L.circleMarker(
+              fort.cs, 
+              {radius: 1.2 + fort.items.length * 0.2, className: 'map-forts'}
+            ).bindTooltip(fort.items.map( item => 'fort <b>' + item.n + '</b>').join('<br/ >')),
           properties: {}
         }
       })
@@ -578,27 +590,51 @@ export default class MapContainer extends React.Component {
       this.dataLayers.push(fortGrid)
 
       // mithrea
-      const mithreaGrid = L.regularGridCluster(
+      const mithraeaGrid = L.regularGridCluster(
         Object.assign(gridOptions, {showMarkers: true, rules: mithreaRules})
       );
 
-      const weightProbability = (probability) => {
-        if (probability === 'definitive') return 1
-        else if (probability === 'probable') return 0.7
-        else if (probability === 'dubious') return 0.3
-        else return 1
+      const weightProbability = (probabilities) => {
+        const weights = probabilities.map(pr => {
+          if (pr === 'definitive') return 1
+          else if (pr === 'probable') return 0.5
+          else if (pr === 'dubious') return 0
+          else return 1
+        })
+        return Base.average(weights)
+      }
+      const colorProbability = (probabilities) => {
+        const avgWeight = weightProbability(probabilities)
+        if (avgWeight > 0.66) return mithraicColors[2]
+        else if (avgWeight > 0.33) return mithraicColors[1]
+        else return mithraicColors[0]
       }
 
-      const mithreaPoints = data.mithrea.features.map( mithrea => {
+
+      // drawing mithraea
+      const uniqueMithraea = []
+      const mithraeaDistanceThreshold = 10000
+
+      data.mithraea.features.filter(m => m.geometry).map(mith => {
+        const cs = L.latLng(mith.geometry.coordinates[1], mith.geometry.coordinates[0])
+        const isThere = uniqueMithraea.find(uf => uf.cs.distanceTo(cs) < mithraeaDistanceThreshold)
+        isThere ? isThere.items.push(mith.properties) : uniqueMithraea.push({cs: cs, items:[mith.properties]})
+      })
+
+      const mithraeaPoints = uniqueMithraea.map( mith => {
         return {
-          marker: L.circleMarker(
-            turf.flip(mithrea.geometry).coordinates, {radius: 0.2, color: 'red'}
-          ),
-          properties: {p: weightProbability(mithrea.properties.c)}
+          marker: 
+            L.circleMarker(
+              mith.cs, 
+              {radius: 3 + mith.items.length * 0.3, className: 'map-mithraea', fillColor: colorProbability(mith.items.map(i => i.c))}
+            ).bindTooltip(mith.items.map( item => 'mithraeum <b>' + item.n + '</b>(' + item.c + ')').join('<br/ >')),
+          properties: {p: weightProbability(mith.items.map(i => i.c))}
         }
       })
-      mithreaGrid.addLayers(mithreaPoints)
-      this.dataLayers.push(mithreaGrid)
+
+
+      mithraeaGrid.addLayers(mithraeaPoints)
+      this.dataLayers.push(mithraeaGrid)
     }
 }
 

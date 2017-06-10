@@ -15,7 +15,7 @@ window['data'] = {}
 window['appState'] = {
   infoOpen: false,
   activeBaseLayer: 'awmc',
-  activeMapTopic: MapTopics.MARLUC.label,
+  activeMapTopic: MapTopics.MITHORIG.label,
   mapCenter: [40,25],
   mapZoom: 5,
   activeOverlays: [],

@@ -48,7 +48,7 @@ var MapTopics = {
     color2: StyleVariables['COLOR_4B'],
     dataFiles: [
       {path: 'forts', type: 'geojson', name: 'forts'},
-      {path: 'mithrea', type: 'geojson', name: 'mithrea'}
+      {path: 'mithraea', type: 'geojson', name: 'mithraea'}
     ],
     infoHeading: 'MITHORIG',
     infoSubHeading: 'mithrea with forts',

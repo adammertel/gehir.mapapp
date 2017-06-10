@@ -61,3 +61,17 @@ button {
   fill-opacity: 1;
   fill: black;
 }
+
+.map-mithraea{
+  stroke-width: 1;
+  stroke: black;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
+
+.map-forts{
+  stroke-width: 10;
+  stroke-opacity: 0;
+  fill-opacity: 1;
+  fill: #54278f;
+}

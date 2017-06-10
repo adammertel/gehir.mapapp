@@ -55,7 +55,7 @@ var Base = {
   },
 
   average (arr) {
-    arr.reduce( ( p, c ) => p + c, 0 ) / arr.length
+    return arr.reduce( ( p, c ) => p + c, 0 ) / arr.length
   }
 
 }
