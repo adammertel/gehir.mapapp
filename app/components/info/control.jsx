@@ -11,7 +11,6 @@ export default class InfoLegend extends React.Component {
       this.postponeTime = 1000
 
       this.state = {
-        postponedDispatch: false,
         postponedChanges: []
       }
     }
@@ -30,19 +29,15 @@ export default class InfoLegend extends React.Component {
 
     handleChange (topic, option, e, value) {
       this._addNewPosponedChange(topic, option, value)
+    }
 
-      if (this.state.postponedDispatch === false){
-        setTimeout( () => {
-          this.state.postponedChanges.map(change => {
-            dispatcher.dispatch(Actions['CONTROL_CHANGE'], change)
-            this.setState({
-              postponedChanges: [],
-              postponedDispatch: false
-            })
-          })
-        }, this.postponeTime)
-        this.setState({postponedDispatch: true}) 
-      }
+    handleRunChange () {
+      this.state.postponedChanges.map(change => {
+        dispatcher.dispatch(Actions['CONTROL_CHANGE'], change)
+        this.setState({
+          postponedChanges: []
+        })
+      })
     }
 
     renderTopic () {
@@ -80,6 +75,7 @@ export default class InfoLegend extends React.Component {
               value={appState.controlOptions.isis.artefactDistance} 
               style={Styles['INFO_CONTROL_INPUT']()} 
               onChange={this.handleChange.bind(this, 'isis', 'artefactDistance')}
+              onDragStop={this.handleRunChange.bind(this)}
             />
           </div>
           <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
@@ -91,6 +87,7 @@ export default class InfoLegend extends React.Component {
               value={appState.controlOptions.isis.templeDistance}
               style={Styles['INFO_CONTROL_INPUT']()} 
               onChange={this.handleChange.bind(this, 'isis', 'templeDistance')}
+              onDragStop={this.handleRunChange.bind(this)}
             />
           </div>
         </div>

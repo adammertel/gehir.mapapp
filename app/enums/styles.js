@@ -102,7 +102,6 @@ var Styles = {
   },
   'INFO_HEADING_WRAPPER': () => {
     return {
-      fontWeight: 600,
       position: 'absolute',
       left: 22,
       top: 15,
@@ -113,12 +112,14 @@ var Styles = {
   'INFO_HEADING_H1': () => {
     return {
       fontSize: 28,
+      fontWeight: 700,
     }
   },
   'INFO_HEADING_H2': () => {
     return {
       fontSize: 23,
-      margin: 6
+      margin: 6,
+      fontWeight: 500
     }
   },
 
@@ -127,7 +128,7 @@ var Styles = {
       width: '100%',
       display: 'inline-flex',
       position: 'absolute',
-      top: 50,
+      top: 40,
       height: StyleVariables['INFO_HIDDEN_HEIGHT'] - 40,
     }
   },
