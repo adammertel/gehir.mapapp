@@ -2,8 +2,8 @@ var StyleVariables = {
   'MENU_HEIGHT': 80,
   'PANEL_WIDTH': 300,
   'MENU_BUTTON_WIDTH': 150,
-  'INFO_HEIGHT': 350,
-  'INFO_HIDDEN_HEIGHT': 200,
+  'INFO_HEIGHT': 450,
+  'INFO_HIDDEN_HEIGHT': 250,
   'INFO_MENU_HEIGHT': function (open) {
     if (open) {
       return this['INFO_HEIGHT']
@@ -12,7 +12,7 @@ var StyleVariables = {
     }
   },
 
-  'COLOR_ORANGE': '#e74c3c',
+  'COLOR_ORANGE': '#D32F2F',
   'COLOR_WHITE': 'white',
   'COLOR_BLACK1': '#333',
   'COLOR_BLACK2': '#666',

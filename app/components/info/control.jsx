@@ -72,22 +72,26 @@ export default class InfoLegend extends React.Component {
       return (
         <div>
           <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
+            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()}>
+              {'artefacts range: '}<b>{this._getActualOptionValue('isis', 'artefactDistance')/1000}</b>{'km'}
+            </div>
             <Slider 
               min={10000} max={100000} step={10000} 
               value={appState.controlOptions.isis.artefactDistance} 
               style={Styles['INFO_CONTROL_INPUT']()} 
               onChange={this.handleChange.bind(this, 'isis', 'artefactDistance')}
             />
-            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >{this._getActualOptionValue('isis', 'artefactDistance')}</div>
           </div>
           <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
+            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
+              {'temples range: '}<b>{this._getActualOptionValue('isis', 'templeDistance')/1000}</b>{'km'}
+            </div>
             <Slider 
               min={10000} max={100000} step={10000} 
               value={appState.controlOptions.isis.templeDistance}
               style={Styles['INFO_CONTROL_INPUT']()} 
               onChange={this.handleChange.bind(this, 'isis', 'templeDistance')}
             />
-            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >{this._getActualOptionValue('isis', 'templeDistance')}</div>
           </div>
         </div>
       )

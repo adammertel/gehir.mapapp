@@ -10,8 +10,8 @@ var Styles = {
       top: StyleVariables['MENU_HEIGHT'],
       bottom: 0,
       overflow: 'hidden',
-      backgroundColor: StyleVariables['COLOR_BLACK1'],
-      color: StyleVariables['COLOR_WHITE'],
+      backgroundColor: StyleVariables['COLOR_WHITE'],
+      color: StyleVariables['COLOR_BLACK1'],
       padding: 10
     }
   },
@@ -106,7 +106,7 @@ var Styles = {
       fontSize: 20,
       position: 'absolute',
       right: 20,
-      top: 40
+      top: 35
     }
   },
   'INFO_VISIBLE': () => {
@@ -124,28 +124,33 @@ var Styles = {
   },
   'INFO_LEGEND': () => {
     return {
-      margin: '10px 20px 0px 10px',
+      margin: '0px 20px 0px 10px',
       width: '50%'
     }
   },
   'INFO_CONTROL': () => {
     return {
-      margin: '10px 20px 0px 10px',
+      margin: '0px 20px 0px 10px',
       width: '50%'
     }
   },
 
   'INFO_CONTROL_INPUT_WRAPPER': () => {
     return {
+      height: 50
     }
   },
   'INFO_CONTROL_INPUT': () => {
     return {
-      marginRight: '25px' 
+      marginRight: '25px',
+      top: '-15px',
+      position: 'relative'
     }
   },
   'INFO_CONTROL_INPUT_LABEL': () => {
     return {
+      position: 'relative',
+      top: 5
     }
   },
 
