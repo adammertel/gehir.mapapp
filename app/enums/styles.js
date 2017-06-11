@@ -6,7 +6,7 @@ var Styles = {
     return {
       position: 'absolute',
       left: 0,
-      width: parseInt(StyleVariables['PANEL_WIDTH']) - 20,
+      width: StyleVariables['PANEL_WIDTH'] - 20,
       top: StyleVariables['MENU_HEIGHT'],
       bottom: 0,
       overflow: 'hidden',
@@ -171,10 +171,8 @@ var Styles = {
       left: 0,
       position: 'absolute',
       backgroundColor: StyleVariables['COLOR_ORANGE'],
-      margin: -4,
-      borderWidth: 2,
-      borderStyle: 'solid',
-      borderColor: StyleVariables['COLOR_BLACK1'],
+      borderWidth: 0,
+      cursor: 'pointer'
     }
   },
   'LOGO': () => {
@@ -183,15 +181,16 @@ var Styles = {
       left: 15,
       position: 'absolute',
       color: StyleVariables['COLOR_WHITE'],
-      fontSize: 38,
+      fontSize: 43,
     }
   },
   'LOGO_SUB': () => {
     return {
       position: 'absolute',
-      fontSize: 10,
-      top: 20,
-      left: 140,
+      fontSize: 10.5,
+      fontWeight: 600,
+      top: 25,
+      left: 155,
       color: StyleVariables['COLOR_BLACK1']
     }
   },

@@ -26,7 +26,7 @@ export default class InfoContainer extends React.Component {
         <div className='info-wrapper' style={Styles['INFO_WRAPPER'](open)}>
           
           <div style={{display: 'flex', marginTop: 10}} >
-            <InfoToggleOpenButton handleClick={this.toggleInfoPanel.bind(this)} open={this.props.appState.infoOpen} />
+            <InfoToggleOpenButton handleClick={this.toggleInfoPanel.bind(this)} />
             <InfoHeading headingText={activeTopic.infoHeading} />
             <InfoSubHeading subheadingText={activeTopic.infoSubHeading} />
           </div>

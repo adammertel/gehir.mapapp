@@ -9,9 +9,6 @@ module.exports = {
         let changes = {}
 
         switch (action) {
-            case Actions['INFO_TOGGLE']:
-                changes.infoOpen = !appState.infoOpen
-                break
 
             case Actions['MAP_TOPIC_CHANGE']:
                 changes.activeMapTopic = data.newTopic
