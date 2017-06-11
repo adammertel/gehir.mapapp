@@ -24,6 +24,7 @@ window['appState'] = {
     isis: {
       artefactDistance: 40000,
       templeDistance: 80000,
+      opacityDecrease: 1
     }
   }
 }

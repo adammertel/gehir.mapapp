@@ -27,8 +27,9 @@ export default class InfoLegend extends React.Component {
       this.setState({postponedChanges: postponedCF})
     }
 
-    handleChange (topic, option, e, value) {
+    handleChange (topic, option, e, value, run = false) {
       this._addNewPosponedChange(topic, option, value)
+      if (run) this.handleRunChange()
     }
 
     handleRunChange () {
@@ -67,26 +68,40 @@ export default class InfoLegend extends React.Component {
       return (
         <div>
           <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
+            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
+              {'temples range: '}<b>{this._getActualOptionValue('isis', 'templeDistance')/1000}</b>{'km'}
+            </div>
+            <Slider 
+              min={30000} max={100000} step={10000} 
+              value={appState.controlOptions.isis.templeDistance}
+              style={Styles['INFO_CONTROL_INPUT']()} 
+              onChange={this.handleChange.bind(this, 'isis', 'templeDistance')}
+              onDragStop={this.handleRunChange.bind(this)}
+            />
+          </div>
+
+          <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
             <div style={Styles['INFO_CONTROL_INPUT_LABEL']()}>
               {'artefacts range: '}<b>{this._getActualOptionValue('isis', 'artefactDistance')/1000}</b>{'km'}
             </div>
             <Slider 
-              min={10000} max={100000} step={10000} 
+              min={0} max={70000} step={10000} 
               value={appState.controlOptions.isis.artefactDistance} 
               style={Styles['INFO_CONTROL_INPUT']()} 
               onChange={this.handleChange.bind(this, 'isis', 'artefactDistance')}
               onDragStop={this.handleRunChange.bind(this)}
             />
           </div>
+
           <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
             <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
-              {'temples range: '}<b>{this._getActualOptionValue('isis', 'templeDistance')/1000}</b>{'km'}
+              {'opacity-decrease coefficient: '}<b>{this._getActualOptionValue('isis', 'opacityDecrease')}</b>{}
             </div>
             <Slider 
-              min={10000} max={100000} step={10000} 
-              value={appState.controlOptions.isis.templeDistance}
+              min={0.5} max={1.5} step={0.1} 
+              value={appState.controlOptions.isis.opacityDecrease}
               style={Styles['INFO_CONTROL_INPUT']()} 
-              onChange={this.handleChange.bind(this, 'isis', 'templeDistance')}
+              onChange={this.handleChange.bind(this, 'isis', 'opacityDecrease')}
               onDragStop={this.handleRunChange.bind(this)}
             />
           </div>

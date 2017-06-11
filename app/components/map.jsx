@@ -239,14 +239,18 @@ export default class MapContainer extends React.Component {
         'Harpocrates': '#e41a1c',
       }
 
-      // temples
-      const templeOptions = {
-        maxDist: appState.controlOptions.isis.templeDistance,
-        noSteps: 8,
+      const isisOptions = {
         circleSegmentAngle: 20,
         colors: isisColors,
-        propertyName: 'deities'
+        propertyName: 'deities',
+        opacityDecrease: appState.controlOptions.isis.opacityDecrease
       }
+
+      // temples
+      const templeOptions = Object.assign(isisOptions, {
+        maxDist: appState.controlOptions.isis.templeDistance,
+        noSteps:  parseInt(appState.controlOptions.isis.templeDistance / 20000) + 1,
+      })
       const temples = L.carouselMarkerGroup(templeOptions)
       const templesJson = L.geoJSON(data.isis_temples)
       const templeLayers = templesJson.getLayers()
@@ -254,13 +258,10 @@ export default class MapContainer extends React.Component {
       temples.addLayers(templeLayers)
 
       // artefacts
-      const artefactsOptions = {
+      const artefactsOptions = Object.assign(isisOptions, {
         maxDist: appState.controlOptions.isis.artefactDistance,
-        noSteps: 4,
-        circleSegmentAngle: 20,
-        colors: isisColors,
-        propertyName: 'deities'
-      }
+        noSteps: parseInt(appState.controlOptions.isis.artefactDistance / 20000) + 1,
+      })
       const artefacts = L.carouselMarkerGroup(artefactsOptions)
       const artefactsJson = L.geoJSON(data.isis_artefacts)
       const artefactLayers = artefactsJson.getLayers()
