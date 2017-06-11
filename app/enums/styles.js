@@ -11,7 +11,6 @@ var Styles = {
       bottom: 0,
       overflow: 'hidden',
       backgroundColor: StyleVariables['COLOR_WHITE'],
-      color: StyleVariables['COLOR_BLACK1'],
       padding: 10
     }
   },

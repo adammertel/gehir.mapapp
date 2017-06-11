@@ -12,12 +12,13 @@ import ReactTooltip from 'react-tooltip'
 
 require('./App.css')
 
-import {red700} from 'material-ui/styles/colors'
+import {red700, grey800} from 'material-ui/styles/colors'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
 const muiTheme = getMuiTheme({
   palette: {
+    textColor: grey800,
     primary1Color: red700,
   },
   appBar: {
