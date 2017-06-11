@@ -80,8 +80,20 @@ var Styles = {
   },
   'INFO_TOGGLE_BUTTON': () => {
     return {
-      backgroundColor: StyleVariables['COLOR_GREY'],
-      color: StyleVariables['COLOR_BLACK1'],
+      position: 'absolute',
+      right: 20,
+      top: 20,
+      height: 26,
+    }
+  },
+  'INFO_TOGGLE_BUTTON_LABEL': () => {
+    return {
+      fontSize: 11
+    }
+  },
+  'INFO_TOGGLE_BUTTON_ICON': () => {
+    return {
+      fontSize: 20
     }
   },
   'INFO_TEXT': () => {
@@ -89,37 +101,35 @@ var Styles = {
       fontWeight: 200,
     }
   },
-  'INFO_HEADING': () => {
+  'INFO_HEADING_WRAPPER': () => {
     return {
-      marginLeft: 10,
       fontWeight: 600,
-      fontSize: 23,
       position: 'absolute',
-      right: 20,
-      top: 10
+      left: 22,
+      top: 15,
+      display: 'inline-flex',
+      marginRight: 150
     }
   },
-  'INFO_SUBHEADING': () => {
+  'INFO_HEADING_H1': () => {
     return {
-      marginLeft: 10,
-      fontWeight: 500,
-      fontSize: 20,
-      position: 'absolute',
-      right: 20,
-      top: 35
+      fontSize: 28,
     }
   },
-  'INFO_VISIBLE': () => {
+  'INFO_HEADING_H2': () => {
+    return {
+      fontSize: 23,
+      margin: 6
+    }
+  },
+
+  'INFO_CONTENT': () => {
     return {
       width: '100%',
       display: 'inline-flex',
+      position: 'absolute',
+      top: 50,
       height: StyleVariables['INFO_HIDDEN_HEIGHT'] - 40,
-    }
-  },
-  'INFO_HIDDEN': () => {
-    return {
-      display: 'inline-flex' 
-
     }
   },
   'INFO_LEGEND': () => {

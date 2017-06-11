@@ -5,18 +5,16 @@ import MapTopics from '../enums/maptopics'
 import Actions from '../enums/actions'
 import Base from '../base'
 
-import InfoToggleOpenButton from './info/toggleopenbutton'
-import InfoText from './info/text'
+import InfoHelpButton from './info/helpbutton'
 import InfoHeading from './info/heading'
-import InfoSubHeading from './info/subheading'
 import InfoLegend from './info/legend'
 import InfoControl from './info/control'
 
 
 export default class InfoContainer extends React.Component {
 
-    toggleInfoPanel () {
-      dispatcher.dispatch(Actions['INFO_TOGGLE'], {})
+    _handleHelpClick () {
+      console.log('help clicked')
     }
 
     render () {
@@ -26,18 +24,13 @@ export default class InfoContainer extends React.Component {
         <div className='info-wrapper' style={Styles['INFO_WRAPPER'](open)}>
           
           <div style={{display: 'flex', marginTop: 10}} >
-            <InfoToggleOpenButton handleClick={this.toggleInfoPanel.bind(this)} />
-            <InfoHeading headingText={activeTopic.infoHeading} />
-            <InfoSubHeading subheadingText={activeTopic.infoSubHeading} />
+            <InfoHeading />
+            <InfoHelpButton handleClick={this._handleHelpClick.bind(this)} />
           </div>
 
-          <div style={Styles['INFO_VISIBLE']()}>
+          <div style={Styles['INFO_CONTENT']()}>
             <InfoControl topic={activeTopic} />
             <InfoLegend topic={activeTopic} />
-          </div>
-    
-          <div style={Styles['INFO_HIDDEN']()}>
-            <InfoText text={activeTopic.infoText} />
           </div>
         </div>
       )
