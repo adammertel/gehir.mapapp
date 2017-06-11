@@ -111,7 +111,32 @@ export default class InfoLegend extends React.Component {
 
     visualiseMarluc() {
       return (
-        <div>ahoj</div>
+        <div>
+          <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
+            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
+              {'synagogues build after: '}<b>{this._getActualOptionValue('marluc', 'synagogueDateAfter')}</b>{' year'}
+            </div>
+            <Slider 
+              min={-200} max={400} step={10} 
+              value={appState.controlOptions.marluc.synagogueDateAfter}
+              style={Styles['INFO_CONTROL_INPUT']()} 
+              onChange={this.handleChange.bind(this, 'marluc', 'synagogueDateAfter')}
+              onDragStop={this.handleRunChange.bind(this)}
+            />
+          </div>
+          <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
+            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
+              {'synagogues build before: '}<b>{this._getActualOptionValue('marluc', 'synagogueDateBefore')}</b>{' year'}
+            </div>
+            <Slider 
+              min={-200} max={400} step={10} 
+              value={appState.controlOptions.marluc.synagogueDateBefore}
+              style={Styles['INFO_CONTROL_INPUT']()} 
+              onChange={this.handleChange.bind(this, 'marluc', 'synagogueDateBefore')}
+              onDragStop={this.handleRunChange.bind(this)}
+            />
+          </div>
+        </div>
       )
     }
 

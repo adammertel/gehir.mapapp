@@ -16,7 +16,7 @@ window['newwRefreshMap'] = false
 window['appState'] = {
   infoOpen: false,
   activeBaseLayer: 'awmc',
-  activeMapTopic: MapTopics.ISIS.label,
+  activeMapTopic: MapTopics.MARLUC.label,
   mapCenter: [40,25],
   mapZoom: 5,
   activeOverlays: [],
@@ -25,6 +25,10 @@ window['appState'] = {
       artefactDistance: 40000,
       templeDistance: 80000,
       opacityDecrease: 1
+    },
+    marluc: {
+      synagogueDateBefore: 400,
+      synagogueDateAfter: -200
     }
   }
 }

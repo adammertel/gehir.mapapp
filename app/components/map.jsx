@@ -433,6 +433,7 @@ export default class MapContainer extends React.Component {
                 "method": "count",
                 "attribute": "",
                 "scale": "continuous",
+                "domain": [1, 20],
                 "range": [5, 15]
             },
             "fillOpacity": .7,
@@ -442,6 +443,7 @@ export default class MapContainer extends React.Component {
                 "method": "min",
                 "attribute": "date",
                 "scale": "size",
+                "domain": [-200, 400],
                 "range": ['#feb24c','#fd8d3c','#f03b20','#bd0026']
             },
         }
@@ -467,7 +469,7 @@ export default class MapContainer extends React.Component {
           showCells: false,
           zoomShowElements: 7,
           gridOrigin: {lat: 20, lng: -10},
-          zoomHideGrid: 8,
+          zoomHideGrid: 7,
           zoneSize: 6000,
       }
 
@@ -479,7 +481,10 @@ export default class MapContainer extends React.Component {
         Object.assign(marlucOptions, {showMarkers: true, rules: synagogueRules})
       );
 
-      const synagoguePoints = data.synagogues.features.map( synagogue => {
+      const synagoguePoints = data.synagogues.features.filter(synagogue => {
+        const date = synagogue.properties.date
+        return appState.controlOptions.marluc.synagogueDateBefore > date && appState.controlOptions.marluc.synagogueDateAfter < date
+      }).map( synagogue => {
         return {
           marker: 
             L.circleMarker(
