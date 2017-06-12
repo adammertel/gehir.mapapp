@@ -3,6 +3,7 @@ import Styles from '../../enums/styles'
 import MapTopics from '../../enums/maptopics'
 import Actions from '../../enums/actions'
 import Slider from 'material-ui/Slider'
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 
 export default class InfoLegend extends React.Component {
     constructor (props) {
@@ -27,9 +28,13 @@ export default class InfoLegend extends React.Component {
       this.setState({postponedChanges: postponedCF})
     }
 
-    handleChange (topic, option, e, value, run = false) {
+    handleChange (topic, option, e, value) {
       this._addNewPosponedChange(topic, option, value)
-      if (run) this.handleRunChange()
+    }
+
+    handleChangeAndRun (topic, option, e, value) {
+      this._addNewPosponedChange(topic, option, value)
+      setTimeout( () => this.handleRunChange(), 100)
     }
 
     handleRunChange () {
@@ -142,13 +147,58 @@ export default class InfoLegend extends React.Component {
 
     visualiseChristrome() {
       return (
-        <div>ahoj</div>
+        <div>
+          <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
+            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
+              {'church radius: '}<b>{this._getActualOptionValue('christrome', 'churchRadius')}</b>{'km'}
+            </div>
+            <Slider 
+              min={30} max={120} step={10} 
+              value={appState.controlOptions.christrome.churchRadius}
+              style={Styles['INFO_CONTROL_INPUT']()} 
+              onChange={this.handleChange.bind(this, 'christrome', 'churchRadius')}
+              onDragStop={this.handleRunChange.bind(this)}
+            />
+          </div>
+          
+          <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
+              {'mode: '}<b></b>
+          </div>
+          <RadioButtonGroup 
+            style={Styles["INFO_CONTROL_RADIO_WRAPPER"]()} name="christromeMode" 
+            valueSelected={this._getActualOptionValue('christrome', 'mode')}
+            onChange={this.handleChangeAndRun.bind(this, 'christrome', 'mode')}
+          >
+            <RadioButton
+              value="regions"
+              label="regions"
+            />
+            <RadioButton
+              value="radii"
+              label="radii"
+            />
+          </RadioButtonGroup>
+
+        </div>
       )
     }
 
     visualiseMithorig() {
       return (
-        <div>ahoj</div>
+        <div>
+          <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
+            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
+              {'church radius: '}<b>{this._getActualOptionValue('christrome', 'churchRadius')}</b>{'km'}
+            </div>
+            <Slider 
+              min={30} max={120} step={10} 
+              value={appState.controlOptions.christrome.churchRadius}
+              style={Styles['INFO_CONTROL_INPUT']()} 
+              onChange={this.handleChange.bind(this, 'christrome', 'churchRadius')}
+              onDragStop={this.handleRunChange.bind(this)}
+            />
+          </div>
+        </div>
       )
     }
 

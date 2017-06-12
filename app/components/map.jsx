@@ -352,7 +352,7 @@ export default class MapContainer extends React.Component {
       churchesGroups.filter(g => g.id !== 0).map(group => {
         const fc = turf.featureCollection(group.items)
         
-        group.buffer = turf.simplify(dissolve(turf.buffer(fc, 70, 'kilometers')), 0.1)
+        group.buffer = turf.simplify(dissolve(turf.buffer(fc, appState.controlOptions.christrome.churchRadius, 'kilometers')), 0.1)
         group.buffer.features.map(buffer => buffer.bounds = L.geoJSON(buffer).getBounds())
       })
 
@@ -376,29 +376,42 @@ export default class MapContainer extends React.Component {
       //console.log(time4 - time3, 'ms to ASSIGN BUFFERS')
 
       // drawing regions
-      this.dataLayers.push(
-        L.geoJSON(regions, {
-          style: (region) => {
-            const color = churchesGroups.find(g => g.id === region.properties.time).color
-            return {
-              opacity: 1, 
-              fillOpacity: .6, 
-              weight: .5, 
-              color: 'white', 
-              fillColor: color
+      if (appState.controlOptions.christrome.mode === 'regions') {
+        this.dataLayers.push(
+          L.geoJSON(regions, {
+            style: (region) => {
+              const color = churchesGroups.find(g => g.id === region.properties.time).color
+              return {
+                opacity: 1, 
+                fillOpacity: .6, 
+                weight: .5, 
+                color: 'white', 
+                fillColor: color
+              }
             }
-          }
-        }).bindPopup( layer => '<div><span>region:<span><b>' + layer.feature.properties.n + '<b></div>')
-      )
+          }).bindPopup( layer => '<div><span>region:<span><b>' + layer.feature.properties.n + '<b></div>')
+        )
+      }
 
 
 
       const time5 = Base.now()
 
       // drawing radii
-      churchesGroups.filter(g => g.id !== 0).reverse().map(group => {
-        this.dataLayers.push(L.geoJSON(group.buffer, {fillOpacity: 0.4, color: group.color, fillColor: group.color}))
-      })
+      if (appState.controlOptions.christrome.mode === 'radii') {
+        churchesGroups.filter(g => g.id !== 0).reverse().map(group => {
+          this.dataLayers.push(
+            L.geoJSON(
+              group.buffer, {
+                fillOpacity: 0.4, 
+                color: group.color, 
+                fillColor: group.color,
+                weight: .5
+              }
+            )
+          )
+        })
+      }
 
       // drawing churches
       const uniqueChurches = []

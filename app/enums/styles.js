@@ -150,6 +150,12 @@ var Styles = {
       height: 50
     }
   },
+  'INFO_CONTROL_RADIO_WRAPPER': () => {
+    return {
+      height: 50,
+      marginTop: 10
+    }
+  },
   'INFO_CONTROL_INPUT': () => {
     return {
       marginRight: '25px',

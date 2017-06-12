@@ -16,7 +16,7 @@ window['newwRefreshMap'] = false
 window['appState'] = {
   infoOpen: false,
   activeBaseLayer: 'awmc',
-  activeMapTopic: MapTopics.MARLUC.label,
+  activeMapTopic: MapTopics.CHRISTROME.label,
   mapCenter: [40,25],
   mapZoom: 5,
   activeOverlays: [],
@@ -29,6 +29,10 @@ window['appState'] = {
     marluc: {
       synagogueDateBefore: 400,
       synagogueDateAfter: -200
+    },
+    christrome: {
+      churchRadius: 80,
+      mode: 'regions'
     }
   }
 }
