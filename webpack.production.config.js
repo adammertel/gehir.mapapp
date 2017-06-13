@@ -1,6 +1,5 @@
 var webpack = require('webpack')
 var path = require('path')
-var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
@@ -24,11 +23,6 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),
-    new uglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
@@ -37,7 +31,7 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: './app/index.html', to: 'index.html' },
       { from: './app/main.css', to: 'main.css' },
-      { from: './app/ext', to: 'ext' }
+      { from: './app/ext', to: 'ext' },
       { from: './app/data', to: 'data' }
     ]),
   ]

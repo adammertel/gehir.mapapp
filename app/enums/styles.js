@@ -14,6 +14,26 @@ var Styles = {
       padding: 10
     }
   },
+  PANEL_HEADER_ROW: () => {
+    return {
+      display: 'inline-flex',
+      cursor: 'pointer',
+      width: '100%',
+      marginBottom: '-22px'
+    }
+  },
+  PANEL_EXPAND_BUTTON: () => {
+    return {
+      position: 'absolute',
+      right: 27,
+      marginTop: 10
+    }
+  },
+  PANEL_HEADER_TITLE: () => {
+    return {
+      display: 'table-cell'
+    }
+  },
   'PANEL_HELP_BUTTON': () => {
     return {
       float: 'right',
@@ -164,6 +184,12 @@ var Styles = {
     }
   },
   'INFO_CONTROL_INPUT_LABEL': () => {
+    return {
+      position: 'relative',
+      top: 5
+    }
+  },
+  'INFO_CONTROL_CHECKBOX': () => {
     return {
       position: 'relative',
       top: 5

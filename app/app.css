@@ -64,8 +64,8 @@ button {
 }
 
 .map-mithraea{
-  stroke-width: 1;
-  stroke: black;
+  stroke-width: 0;
+  stroke: white;
   stroke-opacity: 1;
   fill-opacity: 1;
 }
