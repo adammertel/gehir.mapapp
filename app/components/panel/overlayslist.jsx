@@ -31,7 +31,7 @@ export default class PanelOverlaysList extends React.Component {
               style={Styles['PANEL_EXPAND_BUTTON']()} 
               className="material-icons md-48"
             >
-              help
+              keyboard_arrow_down
             </FontIcon>
           </div>
           {

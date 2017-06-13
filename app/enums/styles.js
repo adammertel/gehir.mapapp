@@ -19,14 +19,14 @@ var Styles = {
       display: 'inline-flex',
       cursor: 'pointer',
       width: '100%',
-      marginBottom: '-22px'
+      marginBottom: '-15px'
     }
   },
   PANEL_EXPAND_BUTTON: () => {
     return {
       position: 'absolute',
       right: 27,
-      marginTop: 10
+      marginTop: 15
     }
   },
   PANEL_HEADER_TITLE: () => {

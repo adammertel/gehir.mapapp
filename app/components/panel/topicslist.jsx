@@ -14,7 +14,9 @@ export default class PanelOverlaysList extends React.Component {
     render () {
       return (
         <div>
-          <h4>Topics:</h4>
+          <div style={Styles['PANEL_HEADER_ROW']()} >
+            <h4 style={Styles['PANEL_HEADER_TITLE']()}>Topics:</h4>
+          </div>
           <div className="panel-overlays-list">
             {
               Object.keys(MapTopics).map( mapTopicKey => {
