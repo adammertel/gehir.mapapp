@@ -150,7 +150,7 @@ export default class MapContainer extends React.Component {
       var that = this
 
       return (
-        <div className='map-wrapper' style={Styles['MAP_WRAPPER'](this.props.appState.infoOpen)}>
+        <div className='map-wrapper' style={Styles['MAP_WRAPPER']()}>
           <Map
             ref="map" 
             minZoom={2}

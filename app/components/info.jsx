@@ -21,7 +21,7 @@ export default class InfoContainer extends React.Component {
       const open = appState.infoOpen
       const activeTopic = Base.getActiveMapTopic()
       return (
-        <div className='info-wrapper' style={Styles['INFO_WRAPPER'](open)}>
+        <div className='info-wrapper' style={Styles['INFO_WRAPPER']()}>
           
           <div style={{display: 'flex', marginTop: 10}} >
             <InfoHeading />

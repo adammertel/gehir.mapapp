@@ -81,8 +81,7 @@ var Styles = {
     }
   },
 
-  'MAP_WRAPPER': (infoOpen) => {
-    let mapBottom = StyleVariables['INFO_MENU_HEIGHT'](infoOpen)
+  'MAP_WRAPPER': () => {
     return {
       position: 'absolute',
       left: 0,
@@ -100,13 +99,13 @@ var Styles = {
     }
   },
 
-  'INFO_WRAPPER': (open) => {
+  'INFO_WRAPPER': () => {
     return {
       position: 'absolute',
-      left: 0,
-      right: 0,
-      bottom: 0,
-      height:  StyleVariables['INFO_MENU_HEIGHT'](open),
+      left: StyleVariables['PANEL_GAP'],
+      right: StyleVariables['PANEL_GAP'],
+      bottom: StyleVariables['PANEL_GAP'],
+      height:  StyleVariables['INFO_HEIGHT'],
       overflow: 'hidden',
       backgroundColor: StyleVariables['COLOR_WHITE'],
       padding: '0px 30px',
@@ -166,8 +165,7 @@ var Styles = {
       width: '100%',
       display: 'inline-flex',
       position: 'absolute',
-      top: 40,
-      height: StyleVariables['INFO_HIDDEN_HEIGHT'] - 40,
+      top: 40
     }
   },
   'INFO_LEGEND': () => {
