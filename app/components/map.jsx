@@ -557,7 +557,8 @@ export default class MapContainer extends React.Component {
               "method": "count",
               "attribute": "",
               "scale": "continuous",
-              "range": [3,8]
+              "range": [3,8],
+              "domain": [0, 15],
           },
           "color": 'black',
           "weight": 1,
@@ -565,8 +566,8 @@ export default class MapContainer extends React.Component {
           "fillColor": {
               "method": "mean",
               "attribute": "p",
-              "scale": "continuous",
-              "domain": [0, 1],
+              "scale": "size",
+              "domain": [-0.1, 1.1],
               "range": mithraicColors
           }
         }
@@ -580,7 +581,7 @@ export default class MapContainer extends React.Component {
           zoomShowElements: 7,
           gridOrigin: {lat: 20, lng: -10},
           zoomHideGrid: 7,
-          zoneSize: 3000,
+          zoneSize: appState.controlOptions.mithorig.gridSize,
       }
 
       const fortGrid = L.regularGridCluster( 
@@ -621,8 +622,9 @@ export default class MapContainer extends React.Component {
           if (pr === 'definitive') return 1
           else if (pr === 'probable') return 0.5
           else if (pr === 'dubious') return 0
-          else return 1
+          else return 0
         })
+
         return Base.average(weights)
       }
       const colorProbability = (probabilities) => {
@@ -637,11 +639,18 @@ export default class MapContainer extends React.Component {
       const uniqueMithraea = []
       const mithraeaDistanceThreshold = 10000
 
-      data.mithraea.features.filter(m => m.geometry).map(mith => {
-        const cs = L.latLng(mith.geometry.coordinates[1], mith.geometry.coordinates[0])
-        const isThere = uniqueMithraea.find(uf => uf.cs.distanceTo(cs) < mithraeaDistanceThreshold)
-        isThere ? isThere.items.push(mith.properties) : uniqueMithraea.push({cs: cs, items:[mith.properties]})
-      })
+      console.log(appState.controlOptions.mithorig)
+
+      data.mithraea.features
+        .filter(m => m.geometry)
+        .filter(m => appState.controlOptions.mithorig[m.properties.c])
+        .map(mith => {
+          const cs = L.latLng(mith.geometry.coordinates[1], mith.geometry.coordinates[0])
+          const isThere = uniqueMithraea.find(uf => uf.cs.distanceTo(cs) < mithraeaDistanceThreshold)
+          isThere ? isThere.items.push(mith.properties) : uniqueMithraea.push({cs: cs, items:[mith.properties]})
+        })
+
+      console.log(uniqueMithraea)
 
       const mithraeaPoints = uniqueMithraea.map( mith => {
         return {

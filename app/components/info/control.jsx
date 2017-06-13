@@ -4,6 +4,7 @@ import MapTopics from '../../enums/maptopics'
 import Actions from '../../enums/actions'
 import Slider from 'material-ui/Slider'
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import Checkbox from 'material-ui/Checkbox';
 
 export default class InfoLegend extends React.Component {
     constructor (props) {
@@ -188,16 +189,38 @@ export default class InfoLegend extends React.Component {
         <div>
           <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
             <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
-              {'church radius: '}<b>{this._getActualOptionValue('christrome', 'churchRadius')}</b>{'km'}
+              {'grid cell size: '}<b>{this._getActualOptionValue('mithorig', 'gridSize')}</b>{'km'}
             </div>
             <Slider 
-              min={30} max={120} step={10} 
-              value={appState.controlOptions.christrome.churchRadius}
+              min={3000} max={10000} step={1000} 
+              value={appState.controlOptions.mithorig.gridSize}
               style={Styles['INFO_CONTROL_INPUT']()} 
-              onChange={this.handleChange.bind(this, 'christrome', 'churchRadius')}
+              onChange={this.handleChange.bind(this, 'mithorig', 'gridSize')}
               onDragStop={this.handleRunChange.bind(this)}
             />
           </div>
+          
+          <Checkbox
+            label="Dubious"
+            checked={appState.controlOptions.mithorig.dubious}
+            labelPosition="left"
+            style={Styles['INFO_CONTROL_CHECKBOX']()}
+            onCheck={this.handleChangeAndRun.bind(this, 'mithorig', 'dubious')}
+          />
+          <Checkbox
+            label="Probable"
+            labelPosition="left"
+            style={Styles['INFO_CONTROL_CHECKBOX']()}
+            checked={appState.controlOptions.mithorig.probable}
+            onCheck={this.handleChangeAndRun.bind(this, 'mithorig', 'probable')}
+          />
+          <Checkbox
+            label="Definitive"
+            labelPosition="left"
+            style={Styles['INFO_CONTROL_CHECKBOX']()}
+            checked={appState.controlOptions.mithorig.definitive}
+            onCheck={this.handleChangeAndRun.bind(this, 'mithorig', 'definitive')}
+          />
         </div>
       )
     }
