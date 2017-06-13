@@ -5,15 +5,30 @@ var Styles = {
   'PANEL_WRAPPER': () => {
     return {
       position: 'absolute',
-      left: 0,
-      width: StyleVariables['PANEL_WIDTH'] - 20,
-      top: StyleVariables['MENU_HEIGHT'],
-      bottom: 0,
+      right:  StyleVariables['PANEL_GAP'],
+      opacity: StyleVariables['PANEL_OPACITY'],
+      width: StyleVariables['PANEL_WIDTH'],
+      top: StyleVariables['PANEL_GAP'],
       overflow: 'hidden',
       backgroundColor: StyleVariables['COLOR_WHITE'],
-      padding: 10
+      zIndex: 1500
     }
   },
+
+  PANEL_LIST: () => {
+    return {
+      padding: '0px 10px'
+    }
+  },
+
+  'MENU_WRAPPER': () => {
+    return {
+      width: '100%',
+      height: StyleVariables['MENU_HEIGHT'],
+      overflow: 'hidden'
+    }
+  },
+
   PANEL_HEADER_ROW: () => {
     return {
       display: 'inline-flex',
@@ -58,7 +73,7 @@ var Styles = {
     let mapBottom = StyleVariables['INFO_MENU_HEIGHT'](infoOpen)
     return {
       position: 'absolute',
-      left: StyleVariables['PANEL_WIDTH'],
+      left: 0,
       right: 0, 
       top: 0,
       bottom: mapBottom,
@@ -73,29 +88,16 @@ var Styles = {
     }
   },
 
-  'MENU_WRAPPER': () => {
-    return {
-      position: 'absolute',
-      left: 0,
-      width: '100%',
-      bottom: StyleVariables['MENU_HEIGHT'],
-      top: 0,
-      overflow: 'hidden',
-      backgroundColor: StyleVariables['COLOR_BLACK1']
-    }
-  },
-
   'INFO_WRAPPER': (open) => {
     return {
       position: 'absolute',
-      left: StyleVariables['PANEL_WIDTH'],
+      left: 0,
       right: 0,
       bottom: 0,
       height:  StyleVariables['INFO_MENU_HEIGHT'](open),
       overflow: 'hidden',
       backgroundColor: StyleVariables['COLOR_WHITE'],
-      paddingLeft: 15,
-      paddingRight: 15
+      padding: '0px 30px',
     }
   },
   'INFO_TOGGLE_BUTTON': () => {
@@ -124,7 +126,7 @@ var Styles = {
   'INFO_HEADING_WRAPPER': () => {
     return {
       position: 'absolute',
-      left: 22,
+      left: 38,
       top: 15,
       display: 'inline-flex',
       marginRight: 150

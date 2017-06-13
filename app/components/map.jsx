@@ -2,7 +2,7 @@ import L from 'leaflet'
 import React from 'react'
 import turf from 'turf'
 import dissolve from '@turf/dissolve'
-import { Map, LayerGroup, TileLayer, WMSTileLayer, GeoJSON } from 'react-leaflet'
+import { Map, ZoomControl, LayerGroup, TileLayer, WMSTileLayer, GeoJSON } from 'react-leaflet'
 
 import Base from '../base'
 

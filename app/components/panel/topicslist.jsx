@@ -13,7 +13,7 @@ export default class PanelOverlaysList extends React.Component {
 
     render () {
       return (
-        <div>
+        <div style={Styles['PANEL_LIST']()}>
           <div style={Styles['PANEL_HEADER_ROW']()} >
             <h4 style={Styles['PANEL_HEADER_TITLE']()}>Topics:</h4>
           </div>

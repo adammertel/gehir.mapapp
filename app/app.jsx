@@ -2,7 +2,6 @@ import React from 'react'
 
 import MapContainer from './components/map'
 import PanelContainer from './components/panel'
-import MenuContainer from './components/menu'
 import InfoContainer from './components/info'
 
 import MapTopics from './enums/maptopics'
@@ -45,7 +44,6 @@ export default class App extends React.Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-          <MenuContainer appState={this.state} app={this} />
           <PanelContainer appState={this.state} app={this} />
           <InfoContainer appState={this.state} app={this} />
           <MapContainer appState={this.state} app={this} />

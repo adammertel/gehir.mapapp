@@ -3,6 +3,9 @@ var StyleVariables = {
   'PANEL_WIDTH': 300,
   'MENU_BUTTON_WIDTH': 150,
   'INFO_HEIGHT': 450,
+  'PANEL_GAP': 20,
+  'PANEL_PAD': 10,
+  'PANEL_OPACITY': .9,
   'INFO_HIDDEN_HEIGHT': 250,
   'INFO_MENU_HEIGHT': function (open) {
     if (open) {

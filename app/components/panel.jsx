@@ -6,6 +6,7 @@ import PanelBaseLayersList from './panel/baselayerslist'
 import PanelOverlaysList from './panel/overlayslist'
 import PanelTopicsList from './panel/topicslist'
 import MapBaseLayers from '../enums/mapbaselayers'
+import MenuContainer from './menu'
 
 export default class PanelContainer extends React.Component {
 
@@ -29,6 +30,7 @@ export default class PanelContainer extends React.Component {
 
       return (
         <div className='panel-wrapper' style={Styles['PANEL_WRAPPER']()}>
+          <MenuContainer />
           <PanelTopicsList 
             handleChangeTopic={this.changeTopic} 
             activeMapTopic={this.props.appState.activeMapTopic}

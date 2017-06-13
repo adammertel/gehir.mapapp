@@ -27,7 +27,7 @@ button {
 }
 
 .__react_component_tooltip {
-  z-index: 9999 !important;
+  z-index: 99999 !important;
 }
 
 .carousel-sequence {

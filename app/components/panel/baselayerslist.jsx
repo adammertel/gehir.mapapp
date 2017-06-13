@@ -25,7 +25,7 @@ export default class PanelBaseLayersList extends React.Component {
 
     render () {
       return (
-        <div>
+        <div style={Styles['PANEL_LIST']()} >
           <div style={Styles['PANEL_HEADER_ROW']()} onClick={this._handleExpand.bind(this)}>
             <h4 style={Styles['PANEL_HEADER_TITLE']()}>Base Layers:</h4>
             <FontIcon
