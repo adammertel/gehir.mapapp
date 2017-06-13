@@ -16,7 +16,7 @@ window['newwRefreshMap'] = false
 window['appState'] = {
   infoOpen: false,
   activeBaseLayer: 'awmc',
-  activeMapTopic: MapTopics.MITHORIG.label,
+  activeMapTopic: MapTopics.CHRISTROME.label,
   mapCenter: [40,25],
   mapZoom: 5,
   activeOverlays: [],

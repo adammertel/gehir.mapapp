@@ -44,7 +44,8 @@ var Styles = {
   },
   'PANEL_BUTTON_ROW': () => {
     return {
-      display: 'table-row'
+      display: 'table-row',
+      
     }
   },  
   'PANEL_BUTTON_CELL': () => {

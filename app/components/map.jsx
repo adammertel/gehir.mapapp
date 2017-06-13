@@ -422,14 +422,20 @@ export default class MapContainer extends React.Component {
         isThere ? isThere.items.push(church.properties) : uniqueChurches.push({cs: cs, items:[church.properties]})
       })
 
-      this.dataLayers.push(
-        L.featureGroup(
-          uniqueChurches.map( church => {
-            return L.circleMarker([church.cs[1], church.cs[0]], {radius: 1.2 + church.items.length * 0.1, className: 'map-churches'})
-              .bindTooltip(church.items.map( item => 'church <b>' + item.n + '</b> (' + item.date + ')').join('<br/ >'))
-          })   
-        )
-      )
+      const churchesSigns = uniqueChurches.map( church => {
+        const radius = 1.2 +  church.items.length * 0.1
+        return L.circleMarker([church.cs[1], church.cs[0]], {radius: radius, className: 'map-churches'})
+          .bindTooltip(church.items.map( item => 'church <b>' + item.n + '</b> (' + item.date + ')').join('<br/ >'))
+      })
+
+      const churchesAuxSigns = uniqueChurches.filter(ch => ch.items.length > 1)
+        .map( church => {
+        const radius = 2.5 +  church.items.length * 0.1
+        return L.circleMarker([church.cs[1], church.cs[0]], {radius: radius, className: 'map-churches-aux'})
+      })   
+
+      this.dataLayers.push(L.featureGroup(churchesAuxSigns))
+      this.dataLayers.push(L.featureGroup(churchesSigns))
 
       console.log(time5 - time4, 'ms to DRAW REGIONS')
     }
