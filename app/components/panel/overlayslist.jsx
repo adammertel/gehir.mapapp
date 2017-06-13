@@ -47,15 +47,9 @@ export default class PanelOverlaysList extends React.Component {
                           label={mapOverlay.name}
                           onClick={this.props.handleChangeOverlays.bind(this, mapOverlay.id)}
                           checked={appState.activeOverlays.indexOf(mapOverlay.id) != -1}
-                          style={Styles['PANEL_BUTTON_CELL']()}   
+                          style={Styles['PANEL_BUTTON_CELL']()}
+                          labelStyle={Styles['PANEL_BUTTON_CELL_LABEL']()}
                         />
-                        <FontIcon
-                          data-tip={mapOverlay.info}
-                          style={Styles['PANEL_HELP_BUTTON']()} 
-                          className="material-icons md-48"
-                        >
-                          help
-                        </FontIcon>
                       </div>
                     );
                 })

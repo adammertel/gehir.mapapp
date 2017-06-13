@@ -27,7 +27,8 @@ export default class PanelOverlaysList extends React.Component {
                       label={mapTopic.label}
                       onClick={this.props.handleChangeTopic.bind(this, mapTopic.label)}
                       checked={this.props.activeMapTopic === mapTopic.label}
-                      style={Styles['PANEL_BUTTON_CELL']()}   
+                      style={Styles['PANEL_BUTTON_CELL']()}
+                      labelStyle={Styles['PANEL_BUTTON_CELL_LABEL']()}
                     />
                   </div>
                 );

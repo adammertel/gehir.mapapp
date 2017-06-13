@@ -163,7 +163,7 @@ export default class InfoLegend extends React.Component {
           </div>
           
           <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
-              {'mode: '}<b></b>
+              {'church influence mode: '}<b></b>
           </div>
           <RadioButtonGroup 
             style={Styles["INFO_CONTROL_RADIO_WRAPPER"]()} name="christromeMode" 
@@ -172,11 +172,11 @@ export default class InfoLegend extends React.Component {
           >
             <RadioButton
               value="regions"
-              label="regions"
+              label="voronoi polygons"
             />
             <RadioButton
               value="radii"
-              label="radii"
+              label="church radii"
             />
           </RadioButtonGroup>
 
@@ -200,23 +200,27 @@ export default class InfoLegend extends React.Component {
             />
           </div>
           
+          <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
+            {'confidence categories of mithraeic places: '}<b></b>
+            {'confidence categories of mithraeic places: '}<b></b>
+          </div>
           <Checkbox
             label="Dubious"
             checked={appState.controlOptions.mithorig.dubious}
-            labelPosition="left"
+            labelPosition="right"
             style={Styles['INFO_CONTROL_CHECKBOX']()}
             onCheck={this.handleChangeAndRun.bind(this, 'mithorig', 'dubious')}
           />
           <Checkbox
             label="Probable"
-            labelPosition="left"
+            labelPosition="right"
             style={Styles['INFO_CONTROL_CHECKBOX']()}
             checked={appState.controlOptions.mithorig.probable}
             onCheck={this.handleChangeAndRun.bind(this, 'mithorig', 'probable')}
           />
           <Checkbox
             label="Definitive"
-            labelPosition="left"
+            labelPosition="right"
             style={Styles['INFO_CONTROL_CHECKBOX']()}
             checked={appState.controlOptions.mithorig.definitive}
             onCheck={this.handleChangeAndRun.bind(this, 'mithorig', 'definitive')}
@@ -229,10 +233,9 @@ export default class InfoLegend extends React.Component {
       var that = this;
       return (
         <div style={Styles['INFO_CONTROL']()}>
-          <h4 style={Styles['HEADER4']()}>CONTROL</h4>
-            {
-              this.renderTopic()
-            }
+          {
+            this.renderTopic()
+          }
         </div>
       );
     }

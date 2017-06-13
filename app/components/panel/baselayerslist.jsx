@@ -50,15 +50,9 @@ export default class PanelBaseLayersList extends React.Component {
                         label={mapTile.name}
                         checked={appState.activeBaseLayer == mapTile.id}
                         onClick={this.props.handleChangeBaseLayer.bind(this, mapTile.id)}
-                        style={Styles['PANEL_BUTTON_CELL']()}                        
+                        style={Styles['PANEL_BUTTON_CELL']()}  
+                        labelStyle={Styles['PANEL_BUTTON_CELL_LABEL']()}
                       />
-                      <FontIcon 
-                        data-tip={mapTile.info}
-                        style={Styles['PANEL_HELP_BUTTON']()} 
-                        className="material-icons md-48" 
-                      >
-                        help
-                      </FontIcon>
                     </div>
                   );
                 })

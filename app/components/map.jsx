@@ -645,8 +645,6 @@ export default class MapContainer extends React.Component {
       const uniqueMithraea = []
       const mithraeaDistanceThreshold = 10000
 
-      console.log(appState.controlOptions.mithorig)
-
       data.mithraea.features
         .filter(m => m.geometry)
         .filter(m => appState.controlOptions.mithorig[m.properties.c])
@@ -655,8 +653,6 @@ export default class MapContainer extends React.Component {
           const isThere = uniqueMithraea.find(uf => uf.cs.distanceTo(cs) < mithraeaDistanceThreshold)
           isThere ? isThere.items.push(mith.properties) : uniqueMithraea.push({cs: cs, items:[mith.properties]})
         })
-
-      console.log(uniqueMithraea)
 
       const mithraeaPoints = uniqueMithraea.map( mith => {
         return {

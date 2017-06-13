@@ -5,7 +5,7 @@ var StyleVariables = {
   'INFO_HEIGHT': 450,
   'PANEL_GAP': 20,
   'PANEL_PAD': 10,
-  'PANEL_OPACITY': .9,
+  'PANEL_OPACITY': .8,
   'INFO_HIDDEN_HEIGHT': 250,
   'INFO_MENU_HEIGHT': function (open) {
     if (open) {
@@ -17,6 +17,7 @@ var StyleVariables = {
 
   'COLOR_ORANGE': '#D32F2F',
   'COLOR_WHITE': 'white',
+  'COLOR_BLACK': 'black',
   'COLOR_BLACK1': '#333',
   'COLOR_BLACK2': '#666',
   'COLOR_GREY': '#e1e1e1',

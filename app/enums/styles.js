@@ -15,9 +15,9 @@ var Styles = {
     }
   },
 
-  PANEL_LIST: () => {
+  'PANEL_LIST': () => {
     return {
-      padding: '0px 10px'
+      padding: '5px 10px'
     }
   },
 
@@ -29,7 +29,7 @@ var Styles = {
     }
   },
 
-  PANEL_HEADER_ROW: () => {
+  'PANEL_HEADER_ROW': () => {
     return {
       display: 'inline-flex',
       cursor: 'pointer',
@@ -37,16 +37,19 @@ var Styles = {
       marginBottom: '-15px'
     }
   },
-  PANEL_EXPAND_BUTTON: () => {
+  'PANEL_EXPAND_BUTTON': () => {
     return {
       position: 'absolute',
       right: 27,
-      marginTop: 15
+      marginTop: 5
     }
   },
-  PANEL_HEADER_TITLE: () => {
+  'PANEL_HEADER_TITLE': () => {
     return {
-      display: 'table-cell'
+      display: 'table-cell',
+      marginBottom: 10,
+      paddingBottom: 10,
+      marginTop: 10
     }
   },
   'PANEL_HELP_BUTTON': () => {
@@ -54,7 +57,8 @@ var Styles = {
       float: 'right',
       marginRight: '20px',
       display: 'table-cell',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      marginTop: '-5px'
     }
   },
   'PANEL_BUTTON_ROW': () => {
@@ -65,9 +69,17 @@ var Styles = {
   },  
   'PANEL_BUTTON_CELL': () => {
     return {
-      display: 'table-cell'
+      display: 'table-cell',
     }
   },  
+
+  'PANEL_BUTTON_CELL_LABEL': () => {
+    return {
+      width: '100%',
+      marginLeft: -8,
+      marginTop: 1.5
+    }
+  },
 
   'MAP_WRAPPER': (infoOpen) => {
     let mapBottom = StyleVariables['INFO_MENU_HEIGHT'](infoOpen)
@@ -76,7 +88,7 @@ var Styles = {
       left: 0,
       right: 0, 
       top: 0,
-      bottom: mapBottom,
+      bottom: 0,
       overflow: 'hidden'
     }
   },
@@ -98,6 +110,8 @@ var Styles = {
       overflow: 'hidden',
       backgroundColor: StyleVariables['COLOR_WHITE'],
       padding: '0px 30px',
+      zIndex: 1500,
+      opacity: StyleVariables['PANEL_OPACITY'],
     }
   },
   'INFO_TOGGLE_BUTTON': () => {
@@ -127,7 +141,7 @@ var Styles = {
     return {
       position: 'absolute',
       left: 38,
-      top: 15,
+      top: 30,
       display: 'inline-flex',
       marginRight: 150
     }
@@ -136,12 +150,13 @@ var Styles = {
     return {
       fontSize: 28,
       fontWeight: 700,
+      textDecoration: 'underline'
     }
   },
   'INFO_HEADING_H2': () => {
     return {
       fontSize: 23,
-      margin: 6,
+      margin: '4px 8px',
       fontWeight: 500
     }
   },
@@ -157,13 +172,13 @@ var Styles = {
   },
   'INFO_LEGEND': () => {
     return {
-      margin: '0px 20px 0px 10px',
+      margin: '35px 20px 0px 10px',
       width: '50%'
     }
   },
   'INFO_CONTROL': () => {
     return {
-      margin: '0px 20px 0px 10px',
+      margin: '35px 20px 0px 10px',
       width: '50%'
     }
   },
@@ -199,8 +214,6 @@ var Styles = {
     }
   },
 
-  
-
 
   'HEADER4': () => {
     return {
@@ -226,7 +239,7 @@ var Styles = {
       left: 15,
       position: 'absolute',
       color: StyleVariables['COLOR_WHITE'],
-      fontSize: 43,
+      fontSize: 48,
     }
   },
   'LOGO_SUB': () => {
@@ -234,9 +247,10 @@ var Styles = {
       position: 'absolute',
       fontSize: 10.5,
       fontWeight: 600,
-      top: 25,
-      left: 155,
-      color: StyleVariables['COLOR_BLACK1']
+      top: 24,
+      left: 173,
+      color: StyleVariables['COLOR_BLACK'],
+      opacity: 1
     }
   },
 }
