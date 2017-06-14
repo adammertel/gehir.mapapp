@@ -11,6 +11,7 @@ import Styles from '../enums/styles'
 import MapTopics from '../enums/maptopics'
 import MapBaseLayers from '../enums/mapbaselayers.js'
 import MapOverlays from '../enums/mapoverlays.js'
+import MapStyles from '../enums/mapstyles.js'
 import 'leaflet-semicircle'
 import 'leaflet-carousel'
 import 'leaflet-regular-grid-cluster'
@@ -181,7 +182,11 @@ export default class MapContainer extends React.Component {
     clearDataLayer () {
       this.dataLayers.map(layer => {
         if (layer.unregister) {
-          layer.unregister()
+          try {
+            layer.unregister()
+          } catch (e) {
+            console.log(e)
+          }
         }
         layer.clearLayers()
 
@@ -228,20 +233,10 @@ export default class MapContainer extends React.Component {
       ISIS TOPIC
     */
     visualiseIsis () {
-      const isisColors = {
-        'Isis': '#377eb8',
-        'Sarapis': '#4daf4a',
-        'Apis': '#e41a1c',
-        'Anubis': '#e41a1c',
-        'Osiris': '#e41a1c',
-        'Horus': '#e41a1c',
-        'Arsinoe II': '#e41a1c',
-        'Harpocrates': '#e41a1c',
-      }
 
       const isisOptions = {
         circleSegmentAngle: 20,
-        colors: isisColors,
+        colors: MapStyles.isis.deitiesColors,
         propertyName: 'deities',
         opacityDecrease: appState.controlOptions.isis.opacityDecrease
       }
@@ -314,29 +309,28 @@ export default class MapContainer extends React.Component {
           id: 3,
           time: [313],
           items: [],
-          color: '#f03b20'
+          color: MapStyles.christrome.colors[3]
         },
         {
           id: 2,
           time: [350],
           items: [],
-          color: '#feb24c'
+          color: MapStyles.christrome.colors[2]
         },
         {
           id: 1,
           time: [800],
           items: [],
-          color: '#ffeda0'
+          color: MapStyles.christrome.colors[1]
         },
         {
           id: 0,
           time: [],
           items: [],
-          color: 'lightgrey'
+          color: MapStyles.christrome.colors[0]
         }
       ]
 
-      const time1 = Base.now()
       const regions = Object.assign({}, data.regions)
       data.churches.features.map(church => {
         const date = church.properties.date
@@ -351,8 +345,7 @@ export default class MapContainer extends React.Component {
         }
       })
 
-      const time2 = Base.now()
-      //console.log(time2 - time1, 'ms to FILTER CHURCHES')
+      // buffering groups
       churchesGroups.filter(g => g.id !== 0).map(group => {
         const fc = turf.featureCollection(group.items)
         
@@ -360,59 +353,38 @@ export default class MapContainer extends React.Component {
         group.buffer.features.map(buffer => buffer.bounds = L.geoJSON(buffer).getBounds())
       })
 
-      const time3 = Base.now()
-      //console.log(time3 - time2, 'ms to BUFFER CHURCHES')
-      regions.features.map(region => {
-        region.properties.time = 0;
-        const regionBbox = L.geoJSON(region).getBounds()
-
-        churchesGroups.filter(g => g.id !== 0).map(group => {
-          const intersects = group.buffer.features.find(buffer => {
-            return buffer.bounds.intersects(regionBbox) && !!(turf.intersect(buffer, region))
-          })
-          if (intersects) {
-            region.properties.time = Math.max(...[region.properties.time, group.id])
-          }
-        })
-      })
-
-      const time4 = Base.now()
-      //console.log(time4 - time3, 'ms to ASSIGN BUFFERS')
 
       // drawing regions
       if (appState.controlOptions.christrome.mode === 'regions') {
+        regions.features.map(region => {
+          region.properties.time = 0;
+          const regionBbox = L.geoJSON(region).getBounds()
+
+          churchesGroups.filter(g => g.id !== 0).map(group => {
+            const intersects = group.buffer.features.find(buffer => {
+              return buffer.bounds.intersects(regionBbox) && !!(turf.intersect(buffer, region))
+            })
+            if (intersects) {
+              region.properties.time = Math.max(...[region.properties.time, group.id])
+            }
+          })
+        })
+
         this.dataLayers.push(
           L.geoJSON(regions, {
             style: (region) => {
               const color = churchesGroups.find(g => g.id === region.properties.time).color
-              return {
-                opacity: 1, 
-                fillOpacity: .6, 
-                weight: .5, 
-                color: 'white', 
-                fillColor: color
-              }
+              return MapStyles.christrome.region(color)
             }
-          }).bindPopup( layer => '<div><span>region:<span><b>' + layer.feature.properties.n + '<b></div>')
+          }).bindPopup( l => '<div><span>region:<span><b>' + l.feature.properties.n + '<b></div>')
         )
       }
-
-
-
-      const time5 = Base.now()
 
       // drawing radii
       if (appState.controlOptions.christrome.mode === 'radii') {
         churchesGroups.filter(g => g.id !== 0).reverse().map(group => {
           this.dataLayers.push(
-            L.geoJSON(
-              group.buffer, {
-                fillOpacity: 0.4, 
-                color: group.color, 
-                fillColor: group.color,
-                weight: .5
-              }
-            )
+            L.geoJSON(group.buffer, MapStyles.christrome.buffer(group))
           )
         })
       }
@@ -439,8 +411,6 @@ export default class MapContainer extends React.Component {
 
       this.dataLayers.push(L.featureGroup(churchesAuxSigns))
       this.dataLayers.push(L.featureGroup(churchesSigns))
-
-      console.log(time5 - time4, 'ms to DRAW REGIONS')
     }
 
 
@@ -466,7 +436,7 @@ export default class MapContainer extends React.Component {
                 "attribute": "date",
                 "scale": "size",
                 "domain": [-200, 400],
-                "range": ['#feb24c','#fd8d3c','#f03b20','#bd0026']
+                "range": MapStyles.marluc.synagogueColors
             },
         }
       }
@@ -476,7 +446,7 @@ export default class MapContainer extends React.Component {
                 "method": "count",
                 "attribute": "",
                 "scale": "size",
-                "range": ['#bdc9e1','#67a9cf','#1c9099','#016c59']
+                "range": MapStyles.marluc.congregateColors
             },
             "fillOpacity": 0.35,
             "weight": 1,
@@ -545,7 +515,7 @@ export default class MapContainer extends React.Component {
     */
     visualiseMithorig() {
 
-      const mithraicColors = ['#d7191c','#fdae61','#a6d96a','#1a9641']
+      const mithraicColors = MapStyles.mithorig.mithraicColors
       // forts
       const fortRules = {
         cells: {
@@ -553,7 +523,7 @@ export default class MapContainer extends React.Component {
                 "method": "count",
                 "attribute": "",
                 "scale": "quantile",
-                "range": ['#cbc9e2','#9e9ac8','#756bb1','#54278f']
+                "range": MapStyles.mithorig.fortColors
             },
             "fillOpacity": 0.35,
             "weight": 0
@@ -604,7 +574,9 @@ export default class MapContainer extends React.Component {
       data.forts.features.filter(f => f.geometry).map(fort => {
         const cs = L.latLng(fort.geometry.coordinates[1], fort.geometry.coordinates[0])
         const isThere = uniqueForts.find(uf => uf.cs.distanceTo(cs) < fortDistanceThreshold)
-        isThere ? isThere.items.push(fort.properties) : uniqueForts.push({cs: cs, items:[fort.properties]})
+        isThere ? 
+          isThere.items.push(fort.properties) : 
+          uniqueForts.push({cs: cs, items:[fort.properties]})
       })
 
       const fortPoints = uniqueForts.map( fort => {
@@ -613,7 +585,7 @@ export default class MapContainer extends React.Component {
             L.circleMarker(
               fort.cs, 
               {radius: 1.2 + fort.items.length * 0.2, className: 'map-forts'}
-            ).bindTooltip(fort.items.map( item => 'fort <b>' + item.n + '</b>').join('<br/ >')),
+            ).bindTooltip(fort.items.map(item => 'fort <b>' + item.n + '</b>').join('<br/ >')),
           properties: {}
         }
       })
@@ -661,9 +633,14 @@ export default class MapContainer extends React.Component {
         return {
           marker: 
             L.circleMarker(
-              mith.cs, 
-              {radius: 3 + mith.items.length * 0.3, className: 'map-mithraea', fillColor: colorProbability(mith.items.map(i => i.c))}
-            ).bindTooltip(mith.items.map( item => 'mithraeum <b>' + item.n + '</b> (' + item.c + ')').join('<br/ >')),
+              mith.cs, {
+                radius: 3 + mith.items.length * 0.3, 
+                className: 'map-mithraea', 
+                fillColor: colorProbability(mith.items.map(i => i.c))
+              }
+            ).bindTooltip(
+              mith.items.map(i => 'mithraeum <b>' + i.n + '</b> (' + i.c + ')').join('<br/ >')
+            ),
           properties: {p: weightProbability(mith.items.map(i => i.c))}
         }
       })
