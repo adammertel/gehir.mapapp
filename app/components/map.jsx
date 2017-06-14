@@ -155,7 +155,7 @@ export default class MapContainer extends React.Component {
             ref="map" 
             minZoom={2}
             maxBounds={[[10, -30], [60, 60]]}
-            maxZoom={11} 
+            maxZoom={7} 
             center={appState.mapCenter}
             style={Styles['MAP']()}
             zoom={appState.mapZoom}
@@ -271,31 +271,35 @@ export default class MapContainer extends React.Component {
       this.dataLayers.push(artefacts)
       this.dataLayers.push(temples)
 
-      const isis_points = []
+      const uniqueIsis = []
       data.isis_artefacts.features.filter(artefact => artefact.geometry && artefact.properties.deities.length).map( artefact => {
-        const isThere = isis_points.find( point => point.cs[0] === artefact.geometry.coordinates[0])
+        const isThere = uniqueIsis.find( point => point.cs[0] === artefact.geometry.coordinates[0])
         const item = {type: 'artefact', label: artefact.properties.label, deities: artefact.properties.deities}
-        isThere ? isThere.items.push(item) : isis_points.push({items: [item], cs: artefact.geometry.coordinates})
+        isThere ? isThere.items.push(item) : uniqueIsis.push({items: [item], cs: artefact.geometry.coordinates})
       })
 
       data.isis_temples.features.filter(temple => temple.geometry && temple.properties.deities.length).map( temple => {
-        const isThere = isis_points.find( point => point.cs[0] === temple.geometry.coordinates[0])
+        const isThere = uniqueIsis.find( point => point.cs[0] === temple.geometry.coordinates[0])
         const item = {type: 'temple', label: temple.properties.label, deities: temple.properties.deities}
-        isThere ? isThere.items.push(item) : isis_points.push({ items: [item], cs: temple.geometry.coordinates})
+        isThere ? isThere.items.push(item) : uniqueIsis.push({ items: [item], cs: temple.geometry.coordinates})
       })
 
-      this.dataLayers.push(
-        L.featureGroup(
-          isis_points.map(point => {
-            return L.circleMarker([point.cs[1], point.cs[0]], {radius: 1.2 + point.items.length * 0.3, className: 'map-isis'})
-              .bindTooltip(point.items.map( item => {
-                return item.type + 
-                  ' <b>' + item.label + '</b>' + 
-                  ' (' + item.deities.join() + ')'
-              }).join('<br/ >'))
-          })   
-        )
-      )
+      const isisSigns = uniqueIsis.map(point => {
+        return L.circleMarker([point.cs[1], point.cs[0]], {radius: 1 + point.items.length * 0.1, className: 'map-isis'})
+          .bindTooltip(point.items.map( item => {
+            return item.type + 
+              ' <b>' + item.label + '</b>' + 
+              ' (' + item.deities.join() + ')'
+          }).join('<br/ >'))
+      })
+
+      // aux circles
+      const isisAuxSigns = uniqueIsis.filter(i => i.items.length > 1)
+        .map( i =>  L.circleMarker([i.cs[1], i.cs[0]], {radius: 2.2 +  i.items.length * 0.1, className: 'map-aux'})
+      )  
+
+      this.dataLayers.push(L.featureGroup(isisAuxSigns))
+      this.dataLayers.push(L.featureGroup(isisSigns))
     }
 
 
@@ -428,11 +432,10 @@ export default class MapContainer extends React.Component {
           .bindTooltip(church.items.map( item => 'church <b>' + item.n + '</b> (' + item.date + ')').join('<br/ >'))
       })
 
+      // draw auxiliary
       const churchesAuxSigns = uniqueChurches.filter(ch => ch.items.length > 1)
-        .map( church => {
-        const radius = 2.5 +  church.items.length * 0.1
-        return L.circleMarker([church.cs[1], church.cs[0]], {radius: radius, className: 'map-churches-aux'})
-      })   
+        .map( ch =>  L.circleMarker([ch.cs[1], ch.cs[0]], {radius: 2.5 +  ch.items.length * 0.1, className: 'map-aux'})
+      )   
 
       this.dataLayers.push(L.featureGroup(churchesAuxSigns))
       this.dataLayers.push(L.featureGroup(churchesSigns))
@@ -665,8 +668,8 @@ export default class MapContainer extends React.Component {
         }
       })
 
-
       mithraeaGrid.addLayers(mithraeaPoints)
+      this.dataLayers.push(mithraeaGrid)
       this.dataLayers.push(mithraeaGrid)
     }
 }

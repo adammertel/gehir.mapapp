@@ -201,8 +201,7 @@ export default class InfoLegend extends React.Component {
           </div>
           
           <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
-            {'confidence categories of mithraeic places: '}<b></b>
-            {'confidence categories of mithraeic places: '}<b></b>
+            {'confidence categories of mithraeic places: '}
           </div>
           <Checkbox
             label="Dubious"
