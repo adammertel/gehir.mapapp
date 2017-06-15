@@ -87,3 +87,8 @@ button {
 .leaflet-tooltip-pane, leaflet-popup-pane{
   z-index: 1200 !important
 }
+
+.leaflet-control-attribution{
+  bottom: 276px;
+  right: 20px;
+}

@@ -14,7 +14,6 @@ import InfoControl from './info/control'
 export default class InfoContainer extends React.Component {
 
     _handleOpenModal = () => {
-      console.log('opening modal')
       dispatcher.dispatch(Actions['MODAL_OPEN'], {})
     }
 
