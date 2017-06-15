@@ -43,10 +43,17 @@ module.exports = {
                 break
 
             case Actions['CONTROL_CHANGE']:
-                console.log()
                 changes.controlOptions = appState.controlOptions
                 changes.controlOptions[data.topic][data.option] = data.value
                 window['newwRefreshMap'] = true
+                break
+
+            case Actions['MODAL_CLOSE']:
+                changes.modal = false
+                break
+
+            case Actions['MODAL_OPEN']:
+                changes.modal = true
                 break
         }
 

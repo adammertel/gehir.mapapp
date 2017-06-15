@@ -33,15 +33,15 @@ export default class PanelContainer extends React.Component {
           <MenuContainer />
           <PanelTopicsList 
             handleChangeTopic={this.changeTopic} 
-            activeMapTopic={this.props.appState.activeMapTopic}
+            activeMapTopic={appState.activeMapTopic}
           />
           <PanelBaseLayersList 
             handleChangeBaseLayer={this.changeBaseMap} 
-            activeBaseLayer={this.props.appState.activeBaseLayer}
+            activeBaseLayer={appState.activeBaseLayer}
           />
           <PanelOverlaysList 
             handleChangeOverlays={this.toggleOverlay} 
-            activeBaseLayer={this.props.appState.activeBaseLayer}
+            activeBaseLayer={appState.activeBaseLayer}
           />
         </div>
       )

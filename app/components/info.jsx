@@ -13,19 +13,21 @@ import InfoControl from './info/control'
 
 export default class InfoContainer extends React.Component {
 
-    _handleHelpClick () {
-      console.log('help clicked')
+    _handleOpenModal = () => {
+      console.log('opening modal')
+      dispatcher.dispatch(Actions['MODAL_OPEN'], {})
     }
 
     render () {
       const open = appState.infoOpen
       const activeTopic = Base.getActiveMapTopic()
+
       return (
         <div className='info-wrapper' style={Styles['INFO_WRAPPER']()}>
           
           <div style={{display: 'flex', marginTop: 10}} >
             <InfoHeading />
-            <InfoHelpButton handleClick={this._handleHelpClick.bind(this)} />
+            <InfoHelpButton handleClick={this._handleOpenModal} />
           </div>
 
           <div style={Styles['INFO_CONTENT']()}>

@@ -219,6 +219,33 @@ var Styles = {
     }
   },
 
+  'MODAL_WRAPPER': () => {
+    return {
+    }
+  },
+  'MODAL_TITLE': () => {
+    return {
+      paddingBottom: 0
+    }
+  },
+  'MODAL': () => {
+    return {
+    }
+  },
+  
+  'MODAL_WELCOMETEXT': () => {
+    return {
+      paddingTop: 10
+    }
+  },
+
+
+  'LINK': () => {
+    return {
+      color: StyleVariables['COLOR_ORANGE']
+    }
+  },
+
   'LOGO_WRAPPER': () => {
     return {
       height: StyleVariables['MENU_HEIGHT'],

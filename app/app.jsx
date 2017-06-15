@@ -3,6 +3,7 @@ import React from 'react'
 import MapContainer from './components/map'
 import PanelContainer from './components/panel'
 import InfoContainer from './components/info'
+import ModalContainer from './components/modal'
 
 import MapTopics from './enums/maptopics'
 import MapBaseLayers from './enums/mapbaselayers'
@@ -44,9 +45,12 @@ export default class App extends React.Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-          <PanelContainer appState={this.state} app={this} />
-          <InfoContainer appState={this.state} app={this} />
-          <MapContainer appState={this.state} app={this} />
+          {
+            appState.modal ? (<ModalContainer />) : null
+          }
+          <PanelContainer />
+          <InfoContainer />
+          <MapContainer />
           <ReactTooltip place="right" type="dark" effect="solid"/>
         </div>
       </MuiThemeProvider>

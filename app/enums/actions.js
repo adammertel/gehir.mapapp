@@ -5,6 +5,8 @@ var Actions = {
     'MAP_CHANGE_CENTER': 'mapChangeCenter',
     'MAP_CHANGE_ZOOM': 'mapChchangeZoom',
     'CONTROL_CHANGE': 'controlChange',
+    'MODAL_CLOSE': 'closeModal',
+    'MODAL_OPEN': 'openModal',
 }
 
 module.exports = Actions

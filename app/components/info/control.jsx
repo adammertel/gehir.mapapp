@@ -229,7 +229,6 @@ export default class InfoLegend extends React.Component {
     }
 
     render () {
-      var that = this;
       return (
         <div style={Styles['INFO_CONTROL']()}>
           {

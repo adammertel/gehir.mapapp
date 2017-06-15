@@ -8,11 +8,15 @@ import FontIcon from 'material-ui/FontIcon'
 
 export default class InfoHelpButton extends React.Component {
 
+    constructor (props) {
+      super(props)
+    }
+    
     render () {
-      var that = this;
       return (
         <RaisedButton
           onTouchTap={this.props.handleClick}
+          onClick={this.props.handleClick}
           labelPosition="before"
           style={Styles['INFO_TOGGLE_BUTTON']()}
           labelStyle={Styles['INFO_TOGGLE_BUTTON_LABEL']()}

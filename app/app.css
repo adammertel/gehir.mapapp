@@ -45,14 +45,14 @@ button {
 .map-congregates{
   stroke-width: 10;
   stroke-opacity: 0;
-  fill-opacity: 1;
+  fill-opacity: .7;
   fill: #016c59;
 }
 
 .map-synagogues{
   stroke-width: 10;
   stroke-opacity: 0;
-  fill-opacity: 1;
+  fill-opacity: .7;
   fill: #bd0026;
 }
 
@@ -61,12 +61,6 @@ button {
   stroke-opacity: 0;
   fill-opacity: 1;
   fill: black;
-}
-.map-aux{
-  stroke-width: 1;
-  stroke-opacity: 1;
-  fill-opacity: 0;
-  stroke: black;
 }
 
 .map-mithraea{
@@ -81,6 +75,13 @@ button {
   stroke-opacity: 0;
   fill-opacity: 1;
   fill: #54278f;
+}
+
+.map-aux{
+  stroke-width: 1;
+  stroke-opacity: 1;
+  fill-opacity: 0;
+  stroke: black;
 }
 
 .leaflet-tooltip-pane, leaflet-popup-pane{

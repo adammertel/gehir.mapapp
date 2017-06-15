@@ -36,8 +36,8 @@ export default class MapContainer extends React.Component {
     }
 
     afterRender () {
-      if (this.lastTopic != this.props.appState.activeMapTopic) {
-        this.lastTopic = this.props.appState.activeMapTopic
+      if (this.lastTopic != appState.activeMapTopic) {
+        this.lastTopic = appState.activeMapTopic
         this.topicChanged()
       }
       if (window['newwRefreshMap']){
@@ -53,7 +53,7 @@ export default class MapContainer extends React.Component {
     refreshMapTiles () {
       let that = this;
 
-      Object.keys(this.props.appState.MapBaseLayers).map(function(mapTileKey) {
+      Object.keys(appState.MapBaseLayers).map(function(mapTileKey) {
         let mapTile = that.props.appState.MapBaseLayers[mapTileKey];
         if (mapTile.active) {
           mapTile.layer.addTo(that.map);
@@ -84,12 +84,11 @@ export default class MapContainer extends React.Component {
 
     renderBaseLayers () {
       let baseLayers = []
-      let context = this.props.appState
 
       Object.keys(MapBaseLayers).map(function(mapTileKey, mapIndex) {
         let mapTile = MapBaseLayers[mapTileKey]
 
-        if (mapTile.id === context.activeBaseLayer) {
+        if (mapTile.id === appState.activeBaseLayer) {
           baseLayers.push(
             <TileLayer 
               key={mapIndex}
@@ -106,12 +105,11 @@ export default class MapContainer extends React.Component {
 
     renderOverlays () {
       let overlayLayers = []
-      let context = this.props.appState
 
       Object.keys(MapOverlays).map(function(mapOverlayKey, mapIndex) {
         let mapOverlay = MapOverlays[mapOverlayKey]
 
-        if (context.activeOverlays.indexOf(mapOverlay.id) != -1) {
+        if (appState.activeOverlays.indexOf(mapOverlay.id) != -1) {
           if (mapOverlay.type == 'wms') {
 
             overlayLayers.push(
@@ -196,7 +194,7 @@ export default class MapContainer extends React.Component {
     }
 
     visualiseTopic () {
-      const topic = this.props.appState.activeMapTopic
+      const topic = appState.activeMapTopic
       this.clearDataLayer()
 
       const t1 = Base.now()
@@ -489,7 +487,7 @@ export default class MapContainer extends React.Component {
         }
       })
 
-      const congregatesPoints = data.congregates.features.map( congregate => {
+      const congregatesPoints = data.congregates.features.map(congregate => {
         return {
           marker: 
             L.circleMarker(

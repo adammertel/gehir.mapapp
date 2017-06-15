@@ -19,6 +19,7 @@ window['appState'] = {
   activeMapTopic: MapTopics.ISIS.label,
   mapCenter: [40,25],
   mapZoom: 5,
+  modal: 'welcome',
   activeOverlays: [],
   controlOptions: {
     isis: {
