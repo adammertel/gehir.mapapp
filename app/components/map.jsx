@@ -375,7 +375,7 @@ export default class MapContainer extends React.Component {
               const color = churchesGroups.find(g => g.id === region.properties.time).color
               return MapStyles.christrome.region(color)
             }
-          }).bindPopup( l => '<div><span>region:<span><b>' + l.feature.properties.n + '<b></div>')
+          }).bindPopup( l => '<div><span>region: <span><b>' + l.feature.properties.n + '<b></div>')
         )
       }
 
@@ -449,7 +449,7 @@ export default class MapContainer extends React.Component {
             },
             "fillOpacity": MapStyles.marluc.congregateOpacity,
             "weight": 1,
-            "color": 'white'
+            "color": 'grey'
         },
       }
 

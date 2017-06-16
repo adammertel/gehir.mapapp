@@ -112,7 +112,7 @@ export default class InfoLegend extends React.Component {
       this.ctx.restore()
       this.ctx.save()
       
-      this._textHead('possesion to cult', ox - 10, oy - 25)
+      this._textHead('pertinence to cult', ox - 10, oy - 25)
       this._text('isis', ox - 10, oy - 5)
       this._text('sarapis', w + ox - 10, oy - 5)
       this._text('other cults', w/2 + ox - 25, h + oy + 10)
@@ -144,7 +144,7 @@ export default class InfoLegend extends React.Component {
       // isis symbols
       this.ctx.textAlign='right' 
       this._text('temple/artefact', 450, 130)
-      this._circleStroke(470, 125, 2, 'black', 'black')
+      this._circleStroke(470, 125, 1, 'black', 'black')
       this._text('more temples/artefacts', 450, 150)
       this._circleStroke(470, 145, 5, 'white', 'black')
       this._circleStroke(470, 145, 2, 'black', 'black')
@@ -165,14 +165,12 @@ export default class InfoLegend extends React.Component {
 
       // number of synagogues
       const ny = 65
-      this._textBold('number of synagogues in cell', 30, ny - 30)
       this._circleStroke(x, ny, 10, 'grey', 'black')
       this._circleStroke(x + 30, ny, 15, 'grey', 'black')
       this._circleStroke(x + 70, ny, 20, 'grey', 'black')
 
       // oldest synagogues
       const ty = 135
-      this._textBold('the oldest synagogue in cell', 30, ty - 20)
       this._circleStroke(x, ty, 10, colorsS[0], 'black')
       this._circleStroke(x + 30, ty, 10, colorsS[1], 'black')
       this._circleStroke(x + 60, ty, 10, colorsS[2], 'black')
@@ -186,16 +184,16 @@ export default class InfoLegend extends React.Component {
       this._text('lot', x + 80, ny + 30)
 
       // congregates
-      this.ctx.globalAlpha = MapStyles.marluc.congregateOpacity * 1.2
+      this.ctx.globalAlpha = 0.8
       const xc = 300
-      this.ctx.strokeStyle = 'white'
+      this.ctx.strokeStyle = 'grey'
       this.ctx.fillStyle = colorsC[0]
       this.ctx.fillRect(xc + 10, hy + 30, 40, 40)
       this.ctx.strokeRect(xc + 10, hy + 30, 40, 40)
       this.ctx.fillStyle = colorsC[1]
       this.ctx.fillRect(xc + 70, hy + 30, 40, 40)
       this.ctx.strokeRect(xc + 70, hy + 30, 40, 40)
-      this.ctx.fillStyle = colorsC[2]
+      this.ctx.fillStyle = colorsC[3]
       this.ctx.fillRect(xc + 130, hy + 30, 40, 40)
       this.ctx.strokeRect(xc + 130, hy + 30, 40, 40)
 
@@ -205,6 +203,8 @@ export default class InfoLegend extends React.Component {
       this._textBold('number of congregates in cell', xc, ny - 30)
       this._text('few', xc -20, ny)
       this._text('lot', xc + 180, ny)
+      this._textBold('the oldest synagogue in cell', 30, ty - 20)
+      this._textBold('number of synagogues in cell', 30, ny - 30)
 
       // symbols
       if (map) {
@@ -277,10 +277,12 @@ export default class InfoLegend extends React.Component {
 
       // church symbols
       this._text('church', 350, 100)
-      this._circleStroke(370, 95, 2, 'black', 'black')
+      this._circleStroke(370, 95, 1, 'black', 'black')
       this._text('more churches', 350, 120)
-      this._circleStroke(370, 115, 5, 'white', 'black')
-      this._circleStroke(370, 115, 2, 'black', 'black')
+      this._circleStroke(370, 115, 4, 'white', 'black')
+      this._circleStroke(370, 115, 1.5, 'black', 'black')
+      this._circleStroke(390, 115, 7, 'white', 'black')
+      this._circleStroke(390, 115, 3, 'black', 'black')
 
     }
 
@@ -292,17 +294,17 @@ export default class InfoLegend extends React.Component {
       // sizes
       const sy = 65
       this.ctx.globalAlpha = MapStyles.mithorig.placeOpacity * 1.2
-      this._circleStroke(x1 + 25, sy, 10, 'grey', 'black')
-      this._circleStroke(x1 + 60, sy, 15, 'grey', 'black')
-      this._circleStroke(x1 + 105, sy, 20, 'grey', 'black')
+      this._circleStroke(x1 + 50, sy, 3, 'grey', 'black')
+      this._circleStroke(x1 + 75, sy, 7, 'grey', 'black')
+      this._circleStroke(x1 + 105, sy, 10, 'grey', 'black')
 
       // confidence
       const colorsC = MapStyles.mithorig.mithraicColors
       const cy = 130
-      this._circleStroke(x1 + 45, cy, 11, colorsC[0], 'black')
-      this._circleStroke(x1 + 75, cy, 11, colorsC[1], 'black')
-      this._circleStroke(x1 + 105, cy, 11, colorsC[2], 'black')
-      this._circleStroke(x1 + 135, cy, 11, colorsC[3], 'black')
+      this._circleStroke(x1 + 45, cy, 10, colorsC[0], 'black')
+      this._circleStroke(x1 + 75, cy, 10, colorsC[1], 'black')
+      this._circleStroke(x1 + 105, cy, 10, colorsC[2], 'black')
+      this._circleStroke(x1 + 135, cy, 10, colorsC[3], 'black')
 
       // forts
       const colorsF = MapStyles.mithorig.fortColors

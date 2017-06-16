@@ -43,7 +43,7 @@ var MapStyles = {
     },
     marluc: {
         synagogueColors: ['#feb24c','#fd8d3c','#f03b20','#bd0026'],
-        congregateColors: ['#bdc9e1','#67a9cf','#1c9099','#016c59'],
+        congregateColors: ['#ffffcc','#c2e699','#78c679','#238443'],
         congregateOpacity: 0.35,
         synagogueOpacity: 0.7,
     },
