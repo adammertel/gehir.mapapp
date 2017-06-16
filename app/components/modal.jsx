@@ -55,7 +55,6 @@ export default class ModalContainer extends React.Component {
     }
 
     render () {
-      console.log(appState.modal)
       const actions = [
         <FlatButton
           label="Close"
@@ -67,7 +66,6 @@ export default class ModalContainer extends React.Component {
 
       const title = this._title()
       const content = this._content()
-      console.log(content)
       return (
         <div style={Styles['MODAL_WRAPPER']()}>
           <RaisedButton label="Alert" onTouchTap={this.handleOpen} />

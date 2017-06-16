@@ -143,6 +143,7 @@ export default class InfoLegend extends React.Component {
 
       this.ctx.globalAlpha = MapStyles.marluc.synagogueOpacity * 1.2
       const x = 70
+
       // number of synagogues
       const ny = 65
       this._textBold('number of synagogues in cell', 30, ny - 30)
@@ -185,9 +186,7 @@ export default class InfoLegend extends React.Component {
       this._text('few', x - 20, ny + 30)
       this._text('lot', x + 80, ny + 30)
 
-
       // congregates
-
       this.ctx.globalAlpha = MapStyles.marluc.congregateOpacity * 1.2
       const xc = 300
       this.ctx.strokeStyle = 'white'
@@ -201,7 +200,6 @@ export default class InfoLegend extends React.Component {
       this.ctx.fillRect(xc + 130, hy + 30, 40, 40)
       this.ctx.strokeRect(xc + 130, hy + 30, 40, 40)
 
-
       this.ctx.globalAlpha = 1
       this.ctx.fillStyle = 'black'
       this._textHead('christian congregates', xc, hy)
@@ -213,10 +211,96 @@ export default class InfoLegend extends React.Component {
 
     _visualiseChristrome () {
 
+
     }
 
     _visualiseMithorig () {
+      const hy = 15
+      // mithraic places
+      const x1 = 20
 
+      // sizes
+      const sy = 65
+      this.ctx.globalAlpha = MapStyles.mithorig.placeOpacity * 1.2
+      this.ctx.fillStyle = 'grey'
+      this.ctx.strokeStyle = 'black'
+      this.ctx.beginPath()
+      this.ctx.arc(x1 + 25, sy, 10, 0, Math.PI * 2, true)
+      this.ctx.fill()
+      this.ctx.stroke()
+      this.ctx.beginPath()
+      this.ctx.arc(x1 + 60, sy, 15, 0, Math.PI * 2, true)
+      this.ctx.fill()
+      this.ctx.stroke()
+      this.ctx.beginPath()
+      this.ctx.arc(x1 + 105, sy, 20, 0, Math.PI * 2, true)
+      this.ctx.fill()
+      this.ctx.stroke()
+
+      // confidence
+      const colorsC = MapStyles.mithorig.mithraicColors
+      const cy = 130
+      this.ctx.strokeStyle = 'black'
+      this.ctx.beginPath()
+      this.ctx.arc(x1 + 45, cy, 11, 0, Math.PI * 2, true)
+      this.ctx.fillStyle = colorsC[0]
+      this.ctx.fill()
+      this.ctx.stroke()
+      this.ctx.beginPath()
+      this.ctx.arc(x1 + 75, cy, 11, 0, Math.PI * 2, true)
+      this.ctx.fillStyle = colorsC[1]
+      this.ctx.fill()
+      this.ctx.stroke()
+      this.ctx.beginPath()
+      this.ctx.arc(x1 + 105, cy, 11, 0, Math.PI * 2, true)
+      this.ctx.fillStyle = colorsC[2]
+      this.ctx.fill()
+      this.ctx.stroke()
+      this.ctx.beginPath()
+      this.ctx.arc(x1 + 135, cy, 11, 0, Math.PI * 2, true)
+      this.ctx.fillStyle = colorsC[3]
+      this.ctx.fill()
+      this.ctx.stroke()
+
+      // forts
+      const colorsF = MapStyles.mithorig.fortColors
+      const x2 = 300
+      const yf = 60
+
+      const hex = (x, y, size) => {
+        this.ctx.beginPath()
+        this.ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
+        for (let side = 0; side < 7; side++) {
+          this.ctx.lineTo(x + size * Math.sin(side * 2 * Math.PI / 6), y + size * Math.cos(side * 2 * Math.PI / 6));
+        }
+        
+        this.ctx.fill()
+      }
+
+      this.ctx.globalAlpha = MapStyles.mithorig.fortOpacity * 1.2
+      this.ctx.fillStyle = colorsF[0]
+      hex(x2 + 20, yf, 20)
+      this.ctx.fillStyle = colorsF[1]
+      hex(x2 + 65, yf, 20)
+      this.ctx.fillStyle = colorsF[2]
+      hex(x2 + 110, yf, 20)
+      this.ctx.fillStyle = colorsF[3]
+      hex(x2 + 155, yf, 20)
+
+
+      this.ctx.globalAlpha = 1
+      this.ctx.fillStyle = 'black'
+      this._textHead('mithraic places', x1, hy)
+      this._textHead('forts', x2, hy)
+      this._textBold('number of mithraic places', x1, sy - 30)
+      this._textBold('number of forts', x2, sy - 30)
+      this._textBold('confidence level', x1, cy - 20)
+      this._text('few', x1 - 10, sy + 20)
+      this._text('lot', x1 + 135, sy + 20)
+      this._text('few', x2 - 20, yf + 20)
+      this._text('lot', x2 + 180, yf + 20)
+      this._text('dubious', x1 - 10, cy + 20)
+      this._text('definitive', x1 + 145, cy + 20)
     }
 
     render () {

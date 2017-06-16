@@ -523,7 +523,7 @@ export default class MapContainer extends React.Component {
                 "scale": "quantile",
                 "range": MapStyles.mithorig.fortColors
             },
-            "fillOpacity": 0.35,
+            "fillOpacity": MapStyles.mithorig.fortOpacity,
             "weight": 0
         }
       }
@@ -539,7 +539,7 @@ export default class MapContainer extends React.Component {
           },
           "color": 'black',
           "weight": 1,
-          "fillOpacity": 0.8,
+          "fillOpacity": MapStyles.mithorig.placeOpacity,
           "fillColor": {
               "method": "mean",
               "attribute": "p",
