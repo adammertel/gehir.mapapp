@@ -11,7 +11,7 @@ var MapTopics = {
     historicalContext: 'Ut tempus est ipsum, ut elementum enim commodo sit amet. Proin eget metus at augue tempus hendrerit. Aenean vitae est pellentesque, vehicula elit et, convallis quam. Phasellus sed metus sollicitudin arcu ultricies rhoncus. Curabitur ut velit a velit tempus sollicitudin. Nulla ac enim euismod, ornare purus eu, lacinia quam. Duis quis pretium orci. Proin accumsan congue pretium. Phasellus est purus, ultrices ut tortor eu, dapibus venenatis sem. Vivamus ut lorem egestas, pharetra lectus sed, imperdiet justo. Nullam a est velit. Vestibulum sed felis eu tellus molestie luctus ut efficitur lectus. Duis id est sagittis, lobortis magna sit amet, consectetur justo. Maecenas pretium libero et sem mollis fermentum. Aenean vel maximus nibh.',
     cartographicContext: 'Ut tempus est ipsum, ut elementum enim commodo sit amet. Proin eget metus at augue tempus hendrerit. Aenean vitae est pellentesque, vehicula elit et, convallis quam. Phasellus sed metus sollicitudin arcu ultricies rhoncus. Curabitur ut velit a velit tempus sollicitudin. Nulla ac enim euismod, ornare purus eu, lacinia quam. Duis quis pretium orci. Proin accumsan congue pretium. Phasellus est purus, ultrices ut tortor eu, dapibus venenatis sem. Vivamus ut lorem egestas, pharetra lectus sed, imperdiet justo. Nullam a est velit. Vestibulum sed felis eu tellus molestie luctus ut efficitur lectus. Duis id est sagittis, lobortis magna sit amet, consectetur justo. Maecenas pretium libero et sem mollis fermentum. Aenean vel maximus nibh.',
     label: 'christrome',
-    originLatLng: [41,17],
+    originLatLng: [35,17],
     originZoom: 5,
   },
   'MITHORIG': {
@@ -37,7 +37,7 @@ var MapTopics = {
     infoSubHeading: 'Temples of egyptian gods - concentric circles',
     historicalContext: 'Aliquam congue dolor vitae velit imperdiet, at pharetra nisl fermentum. Curabitur vitae justo nunc. Mauris imperdiet tellus sapien, vitae dictum lacus maximus non. Suspendisse volutpat bibendum nunc nec facilisis. Etiam quis ipsum posuere, semper diam rutrum, aliquet orci. Vivamus dictum ullamcorper orci. Duis molestie ante in enim ornare mollis. Integer congue pharetra nunc id porta. Suspendisse placerat congue nisi, vel semper nulla mattis in. Ut commodo sit amet ipsum sed tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sed hendrerit ligula. Praesent euismod diam nunc, tristique iaculis leo auctor id. Mauris eu dolor volutpat, laoreet mi ac, venenatis lacus. Donec rutrum justo at consectetur scelerisque.',
     cartographicContext: 'Aliquam congue dolor vitae velit imperdiet, at pharetra nisl fermentum. Curabitur vitae justo nunc. Mauris imperdiet tellus sapien, vitae dictum lacus maximus non. Suspendisse volutpat bibendum nunc nec facilisis. Etiam quis ipsum posuere, semper diam rutrum, aliquet orci. Vivamus dictum ullamcorper orci. Duis molestie ante in enim ornare mollis. Integer congue pharetra nunc id porta. Suspendisse placerat congue nisi, vel semper nulla mattis in. Ut commodo sit amet ipsum sed tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sed hendrerit ligula. Praesent euismod diam nunc, tristique iaculis leo auctor id. Mauris eu dolor volutpat, laoreet mi ac, venenatis lacus. Donec rutrum justo at consectetur scelerisque.',
-    originLatLng: [40,25],
+    originLatLng: [35,25],
     originZoom: 6,
   },
   'MARLUC': {
