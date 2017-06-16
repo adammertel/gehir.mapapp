@@ -14,12 +14,14 @@ window['data'] = {}
 window['map'] = false
 window['newwRefreshMap'] = false
 
+const initTopic = MapTopics.CHRISTROME
+
 window['appState'] = {
   infoOpen: false,
   activeBaseLayer: 'awmc',
-  activeMapTopic: MapTopics.CHRISTROME.label,
-  mapCenter: [40,25],
-  mapZoom: 5,
+  activeMapTopic: initTopic.label,
+  mapCenter: initTopic.originLatLng,
+  mapZoom: initTopic.originZoom,
   modal: 'welcome',
   activeOverlays: [],
   controlOptions: {
