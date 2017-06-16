@@ -92,3 +92,8 @@ button {
   bottom: 276px;
   right: 20px;
 }
+
+.leaflet-control-scale{
+  bottom: 276px;
+  left: 20px;
+}
