@@ -459,7 +459,7 @@ export default class MapContainer extends React.Component {
           showCells: false,
           zoomShowElements: 7,
           gridOrigin: {lat: 20, lng: -10},
-          zoomHideGrid: 7,
+          zoomHideGrid: 8,
           zoneSize: 6000,
       }
 

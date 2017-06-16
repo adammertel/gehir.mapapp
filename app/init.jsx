@@ -11,12 +11,13 @@ import Actions from './enums/actions.js'
 window['dispatcher'] = dispatcher
 window['appUpdate'] = null
 window['data'] = {}
+window['map'] = false
 window['newwRefreshMap'] = false
 
 window['appState'] = {
   infoOpen: false,
   activeBaseLayer: 'awmc',
-  activeMapTopic: MapTopics.CHRISTROME.label,
+  activeMapTopic: MapTopics.MARLUC.label,
   mapCenter: [40,25],
   mapZoom: 5,
   modal: 'welcome',
@@ -33,7 +34,7 @@ window['appState'] = {
     },
     christrome: {
       churchRadius: 80,
-      mode: 'regions'
+      mode: 'radii'
     },
     mithorig: {
       gridSize: 5000,

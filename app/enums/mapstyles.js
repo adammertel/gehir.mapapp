@@ -12,6 +12,11 @@ var MapStyles = {
         }
     },
     christrome: {
+        regionOpacity: .6,
+        radiusOpacity: .4,
+        contourOpacity: 1,
+        contourWeight: .5,
+        contourColor: 'white',
         colors: {
             1: '#ffeda0', 
             2: '#feb24c',
@@ -20,18 +25,18 @@ var MapStyles = {
         },
         buffer: (group) => {
             return {
-                fillOpacity: 0.4, 
+                fillOpacity: MapStyles.christrome.radiusOpacity, 
                 color: group.color, 
                 fillColor: group.color,
-                weight: 0.5
+                weight: MapStyles.christrome.contourWeight
             }
         },
         region: (color) => {
             return {
-                opacity: 1, 
-                fillOpacity: .6, 
-                weight: .5, 
-                color: 'white', 
+                opacity: MapStyles.christrome.contourOpacity, 
+                fillOpacity: MapStyles.christrome.regionOpacity, 
+                weight: MapStyles.christrome.contourWeight, 
+                color: MapStyles.christrome.contourColor, 
                 fillColor: color
             }
         } 

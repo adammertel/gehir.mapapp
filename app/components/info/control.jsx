@@ -176,7 +176,7 @@ export default class InfoLegend extends React.Component {
             />
             <RadioButton
               value="radii"
-              label="church radii"
+              label="regular church radii"
             />
           </RadioButtonGroup>
 

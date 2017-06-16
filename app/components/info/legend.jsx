@@ -64,6 +64,16 @@ export default class InfoLegend extends React.Component {
       this.ctx.fillText(text, x, y)
     }
 
+    _circleStroke (x, y, r, fillColor, strokeColor) {
+      this.ctx.beginPath()
+      this.ctx.arc(x, y, r, 0, Math.PI * 2, true)
+      this.ctx.fillStyle = fillColor
+      this.ctx.strokeStyle = strokeColor
+      this.ctx.fill()
+      this.ctx.stroke()
+      this.ctx.fillStyle = 'black'
+    }
+
     _visualiseIsis () {
 
       // triangle
@@ -130,9 +140,18 @@ export default class InfoLegend extends React.Component {
       this._textHead('cult infulence', 300, oy - 25)
       this._text('temple', 250, oy)
       this._text('artefact', 350, oy)
+
+      // isis symbols
       this.ctx.textAlign='right' 
+      this._text('temple/artefact', 450, 130)
+      this._circleStroke(470, 125, 2, 'black', 'black')
+      this._text('more temples/artefacts', 450, 150)
+      this._circleStroke(470, 145, 5, 'white', 'black')
+      this._circleStroke(470, 145, 2, 'black', 'black')
 
     }
+
+    
 
     _visualiseMarluc () {
       const colorsS = MapStyles.marluc.synagogueColors.slice()
@@ -147,42 +166,22 @@ export default class InfoLegend extends React.Component {
       // number of synagogues
       const ny = 65
       this._textBold('number of synagogues in cell', 30, ny - 30)
-      this.ctx.beginPath()
-      this.ctx.arc(x, ny, 10, 0, Math.PI * 2, true)
-      this.ctx.fill()
-      this.ctx.stroke()
-      this.ctx.beginPath()
-      this.ctx.arc(x + 30, ny, 15, 0, Math.PI * 2, true)
-      this.ctx.fill()
-      this.ctx.stroke()
-      this.ctx.beginPath()
-      this.ctx.arc(x + 70, ny, 20, 0, Math.PI * 2, true)
-      this.ctx.fill()
-      this.ctx.stroke()
+      this._circleStroke(x, ny, 10, 'grey', 'black')
+      this._circleStroke(x + 30, ny, 15, 'grey', 'black')
+      this._circleStroke(x + 70, ny, 20, 'grey', 'black')
 
-      // number of synagogues
+      // oldest synagogues
       const ty = 135
       this._textBold('the oldest synagogue in cell', 30, ty - 20)
-      this.ctx.beginPath()
-      this.ctx.arc(x + 5, ty, 13, 0, Math.PI * 2, true)
-      this.ctx.fillStyle = colorsS[0]
-      this.ctx.fill()
-      this.ctx.stroke()
-      this.ctx.beginPath()
-      this.ctx.arc(x + 35, ty, 13, 0, Math.PI * 2, true)
-      this.ctx.fillStyle = colorsS[1]
-      this.ctx.fill()
-      this.ctx.stroke()
-      this.ctx.beginPath()
-      this.ctx.arc(x + 65, ty, 13, 0, Math.PI * 2, true)
-      this.ctx.fillStyle = colorsS[2]
-      this.ctx.fill()
-      this.ctx.stroke()
+      this._circleStroke(x, ty, 10, colorsS[0], 'black')
+      this._circleStroke(x + 30, ty, 10, colorsS[1], 'black')
+      this._circleStroke(x + 60, ty, 10, colorsS[2], 'black')
+      this._circleStroke(x + 90, ty, 10, colorsS[3], 'black')
 
       this.ctx.globalAlpha = 1
       this.ctx.fillStyle = 'black'
       this._text('200BC', x - 45, ty + 20)
-      this._text('400AD', x + 75, ty + 20)
+      this._text('400AD', x + 95, ty + 20)
       this._text('few', x - 20, ny + 30)
       this._text('lot', x + 80, ny + 30)
 
@@ -207,10 +206,81 @@ export default class InfoLegend extends React.Component {
       this._text('few', xc -20, ny)
       this._text('lot', xc + 180, ny)
 
+      // symbols
+      if (map) {
+        if (map.getZoom() > 6) {
+          this.ctx.textAlign='right' 
+          this._text('synagogue', 350, 120)
+          this._circleStroke(370, 115, 5, '#bd0026', '#bd0026')
+          this._text('christian congregate', 350, 140)
+          this._circleStroke(370, 135, 3, '#016c59', '#016c59')
+        }
+      }
     }
 
     _visualiseChristrome () {
+      const xi = 20
+      const yi = 20
+      const line = 30
+      const colors = MapStyles.christrome.colors
 
+      if (appState.controlOptions.christrome.mode === 'regions') {
+        // regions
+        this._textHead('regions under the church influence', xi, yi)
+
+        this.ctx.globalAlpha = MapStyles.christrome.regionOpacity * 1.2
+        const xr = xi + 115
+        const yr = yi -15
+        this.ctx.strokeStyle = MapStyles.christrome.contourColor
+        this.ctx.fillStyle = colors[1]
+        this.ctx.fillRect(xr, yr + 1 * line, 40, 20)
+        this.ctx.strokeRect(xr, yr + 1 * line, 40, 20)
+        this.ctx.fillStyle = colors[2]
+        this.ctx.fillRect(xr, yr + 2 * line, 40, 20)
+        this.ctx.strokeRect(xr, yr + 2 * line, 40, 20)
+        this.ctx.fillStyle = colors[3]
+        this.ctx.fillRect(xr, yr + 3 * line, 40, 20)
+        this.ctx.strokeRect(xr, yr + 3 * line, 40, 20)
+        this.ctx.fillStyle = colors[0]
+        this.ctx.fillRect(xr, yr + 4 * line, 40, 20)
+        this.ctx.strokeRect(xr, yr + 4 * line, 40, 20)
+
+
+      } else {
+        // radii
+        this._textHead('areas under the church influence', xi, yi)
+
+        this.ctx.globalAlpha = MapStyles.christrome.radiusOpacity * 1.5
+        const xr = xi + 125
+        const yr = yi - 5
+
+        this._circleStroke(xr, yr + 1 * line, 13, colors[1], colors[1])
+
+        this._circleStroke(xr, yr + 2 * line, 13, colors[1], colors[1])
+        this._circleStroke(xr, yr + 2 * line, 13, colors[2], colors[2])
+        
+        this._circleStroke(xr, yr + 3 * line, 13, colors[1], colors[1])
+        this._circleStroke(xr, yr + 3 * line, 13, colors[2], colors[2])
+        this._circleStroke(xr, yr + 3 * line, 13, colors[3], colors[3])
+      
+    }
+
+      this.ctx.globalAlpha = 1
+      this.ctx.fillStyle = 'black'
+      this.ctx.textAlign='right' 
+      this._text('before 313AD', xi + 100, yi + 1 * line)
+      this._text('before 350AD', xi + 100, yi + 2 * line)
+      this._text('after 350AD', xi + 100, yi + 3 * line)
+      if (appState.controlOptions.christrome.mode === 'regions'){
+        this._text('without influence', xi + 100, yi + 4 * line)
+      }
+
+      // church symbols
+      this._text('church', 350, 100)
+      this._circleStroke(370, 95, 2, 'black', 'black')
+      this._text('more churches', 350, 120)
+      this._circleStroke(370, 115, 5, 'white', 'black')
+      this._circleStroke(370, 115, 2, 'black', 'black')
 
     }
 
@@ -222,45 +292,17 @@ export default class InfoLegend extends React.Component {
       // sizes
       const sy = 65
       this.ctx.globalAlpha = MapStyles.mithorig.placeOpacity * 1.2
-      this.ctx.fillStyle = 'grey'
-      this.ctx.strokeStyle = 'black'
-      this.ctx.beginPath()
-      this.ctx.arc(x1 + 25, sy, 10, 0, Math.PI * 2, true)
-      this.ctx.fill()
-      this.ctx.stroke()
-      this.ctx.beginPath()
-      this.ctx.arc(x1 + 60, sy, 15, 0, Math.PI * 2, true)
-      this.ctx.fill()
-      this.ctx.stroke()
-      this.ctx.beginPath()
-      this.ctx.arc(x1 + 105, sy, 20, 0, Math.PI * 2, true)
-      this.ctx.fill()
-      this.ctx.stroke()
+      this._circleStroke(x1 + 25, sy, 10, 'grey', 'black')
+      this._circleStroke(x1 + 60, sy, 15, 'grey', 'black')
+      this._circleStroke(x1 + 105, sy, 20, 'grey', 'black')
 
       // confidence
       const colorsC = MapStyles.mithorig.mithraicColors
       const cy = 130
-      this.ctx.strokeStyle = 'black'
-      this.ctx.beginPath()
-      this.ctx.arc(x1 + 45, cy, 11, 0, Math.PI * 2, true)
-      this.ctx.fillStyle = colorsC[0]
-      this.ctx.fill()
-      this.ctx.stroke()
-      this.ctx.beginPath()
-      this.ctx.arc(x1 + 75, cy, 11, 0, Math.PI * 2, true)
-      this.ctx.fillStyle = colorsC[1]
-      this.ctx.fill()
-      this.ctx.stroke()
-      this.ctx.beginPath()
-      this.ctx.arc(x1 + 105, cy, 11, 0, Math.PI * 2, true)
-      this.ctx.fillStyle = colorsC[2]
-      this.ctx.fill()
-      this.ctx.stroke()
-      this.ctx.beginPath()
-      this.ctx.arc(x1 + 135, cy, 11, 0, Math.PI * 2, true)
-      this.ctx.fillStyle = colorsC[3]
-      this.ctx.fill()
-      this.ctx.stroke()
+      this._circleStroke(x1 + 45, cy, 11, colorsC[0], 'black')
+      this._circleStroke(x1 + 75, cy, 11, colorsC[1], 'black')
+      this._circleStroke(x1 + 105, cy, 11, colorsC[2], 'black')
+      this._circleStroke(x1 + 135, cy, 11, colorsC[3], 'black')
 
       // forts
       const colorsF = MapStyles.mithorig.fortColors
@@ -301,6 +343,22 @@ export default class InfoLegend extends React.Component {
       this._text('lot', x2 + 180, yf + 20)
       this._text('dubious', x1 - 10, cy + 20)
       this._text('definitive', x1 + 145, cy + 20)
+
+
+      // symbols
+      if (map) {
+        if (map.getZoom() > 6) {
+          this.ctx.textAlign='right' 
+          this._text('fort', 350, 120)
+          this._circleStroke(370, 115, 2, '#54278f', '#54278f')
+          this._text('mithraic place', 350, 140)
+          this._circleStroke(370, 135, 5, colorsC[0], 'white')
+          this._circleStroke(380, 135, 5, colorsC[1], 'white')
+          this._circleStroke(390, 135, 5, colorsC[2], 'white')
+          this._circleStroke(400, 135, 5, colorsC[3], 'white')
+        }
+      }
+        
     }
 
     render () {
