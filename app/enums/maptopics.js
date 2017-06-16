@@ -1,32 +1,6 @@
 import StyleVariables from './stylevariables'
 
 var MapTopics = {
-  'ISIS': {
-    dataFiles: [
-      {path: 'isis_temples', type: 'geojson', name: 'isis_temples'},
-      {path: 'isis_artefacts', type: 'geojson', name: 'isis_artefacts'},
-    ],
-    label: 'isiscu',
-    infoHeading: 'ISIS',
-    infoSubHeading: 'Temples of egyptian gods - concentric circles',
-    historicalContext: 'Aliquam congue dolor vitae velit imperdiet, at pharetra nisl fermentum. Curabitur vitae justo nunc. Mauris imperdiet tellus sapien, vitae dictum lacus maximus non. Suspendisse volutpat bibendum nunc nec facilisis. Etiam quis ipsum posuere, semper diam rutrum, aliquet orci. Vivamus dictum ullamcorper orci. Duis molestie ante in enim ornare mollis. Integer congue pharetra nunc id porta. Suspendisse placerat congue nisi, vel semper nulla mattis in. Ut commodo sit amet ipsum sed tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sed hendrerit ligula. Praesent euismod diam nunc, tristique iaculis leo auctor id. Mauris eu dolor volutpat, laoreet mi ac, venenatis lacus. Donec rutrum justo at consectetur scelerisque.',
-    cartographicContext: 'Aliquam congue dolor vitae velit imperdiet, at pharetra nisl fermentum. Curabitur vitae justo nunc. Mauris imperdiet tellus sapien, vitae dictum lacus maximus non. Suspendisse volutpat bibendum nunc nec facilisis. Etiam quis ipsum posuere, semper diam rutrum, aliquet orci. Vivamus dictum ullamcorper orci. Duis molestie ante in enim ornare mollis. Integer congue pharetra nunc id porta. Suspendisse placerat congue nisi, vel semper nulla mattis in. Ut commodo sit amet ipsum sed tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sed hendrerit ligula. Praesent euismod diam nunc, tristique iaculis leo auctor id. Mauris eu dolor volutpat, laoreet mi ac, venenatis lacus. Donec rutrum justo at consectetur scelerisque.',
-    originLatLng: [40,25],
-    originZoom: 6,
-  },
-  'MARLUC': {
-    dataFiles: [
-      {path: 'synagogues', type: 'geojson', name: 'synagogues'},
-      {path: 'congregates', type: 'geojson', name: 'congregates'}
-    ],
-    infoHeading: 'MARLUC',
-    infoSubHeading: 'synagogues and congregates',
-    historicalContext: 'Nullam id bibendum ligula. Vivamus posuere tortor lorem, a hendrerit ipsum luctus sit amet. Etiam lectus tortor, posuere eu tortor non, blandit vehicula lacus. Mauris urna quam, semper ut ex quis, pharetra vulputate velit. Integer et augue ut arcu convallis ultricies. Vestibulum fermentum ornare nisi, vel lacinia eros convallis vel. Proin tristique metus id nisl convallis, lobortis accumsan sem vehicula. Ut varius massa at ligula ullamcorper, ut fringilla leo egestas.',
-    cartographicContext: 'Nullam id bibendum ligula. Vivamus posuere tortor lorem, a hendrerit ipsum luctus sit amet. Etiam lectus tortor, posuere eu tortor non, blandit vehicula lacus. Mauris urna quam, semper ut ex quis, pharetra vulputate velit. Integer et augue ut arcu convallis ultricies. Vestibulum fermentum ornare nisi, vel lacinia eros convallis vel. Proin tristique metus id nisl convallis, lobortis accumsan sem vehicula. Ut varius massa at ligula ullamcorper, ut fringilla leo egestas.',
-    label: 'marluc',
-    originLatLng: [39,23],
-    originZoom: 6,
-  },
   'CHRISTROME': {
     dataFiles: [
       {path: 'regions', type: 'geojson', name: 'regions'},
@@ -52,6 +26,32 @@ var MapTopics = {
     label: 'mithorig',
     originLatLng: [40,20],
     originZoom: 5,
+  },
+  'ISIS': {
+    dataFiles: [
+      {path: 'isis_temples', type: 'geojson', name: 'isis_temples'},
+      {path: 'isis_artefacts', type: 'geojson', name: 'isis_artefacts'},
+    ],
+    label: 'isiscu',
+    infoHeading: 'ISIS',
+    infoSubHeading: 'Temples of egyptian gods - concentric circles',
+    historicalContext: 'Aliquam congue dolor vitae velit imperdiet, at pharetra nisl fermentum. Curabitur vitae justo nunc. Mauris imperdiet tellus sapien, vitae dictum lacus maximus non. Suspendisse volutpat bibendum nunc nec facilisis. Etiam quis ipsum posuere, semper diam rutrum, aliquet orci. Vivamus dictum ullamcorper orci. Duis molestie ante in enim ornare mollis. Integer congue pharetra nunc id porta. Suspendisse placerat congue nisi, vel semper nulla mattis in. Ut commodo sit amet ipsum sed tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sed hendrerit ligula. Praesent euismod diam nunc, tristique iaculis leo auctor id. Mauris eu dolor volutpat, laoreet mi ac, venenatis lacus. Donec rutrum justo at consectetur scelerisque.',
+    cartographicContext: 'Aliquam congue dolor vitae velit imperdiet, at pharetra nisl fermentum. Curabitur vitae justo nunc. Mauris imperdiet tellus sapien, vitae dictum lacus maximus non. Suspendisse volutpat bibendum nunc nec facilisis. Etiam quis ipsum posuere, semper diam rutrum, aliquet orci. Vivamus dictum ullamcorper orci. Duis molestie ante in enim ornare mollis. Integer congue pharetra nunc id porta. Suspendisse placerat congue nisi, vel semper nulla mattis in. Ut commodo sit amet ipsum sed tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sed hendrerit ligula. Praesent euismod diam nunc, tristique iaculis leo auctor id. Mauris eu dolor volutpat, laoreet mi ac, venenatis lacus. Donec rutrum justo at consectetur scelerisque.',
+    originLatLng: [40,25],
+    originZoom: 6,
+  },
+  'MARLUC': {
+    dataFiles: [
+      {path: 'synagogues', type: 'geojson', name: 'synagogues'},
+      {path: 'congregates', type: 'geojson', name: 'congregates'}
+    ],
+    infoHeading: 'MARLUC',
+    infoSubHeading: 'synagogues and congregates',
+    historicalContext: 'Nullam id bibendum ligula. Vivamus posuere tortor lorem, a hendrerit ipsum luctus sit amet. Etiam lectus tortor, posuere eu tortor non, blandit vehicula lacus. Mauris urna quam, semper ut ex quis, pharetra vulputate velit. Integer et augue ut arcu convallis ultricies. Vestibulum fermentum ornare nisi, vel lacinia eros convallis vel. Proin tristique metus id nisl convallis, lobortis accumsan sem vehicula. Ut varius massa at ligula ullamcorper, ut fringilla leo egestas.',
+    cartographicContext: 'Nullam id bibendum ligula. Vivamus posuere tortor lorem, a hendrerit ipsum luctus sit amet. Etiam lectus tortor, posuere eu tortor non, blandit vehicula lacus. Mauris urna quam, semper ut ex quis, pharetra vulputate velit. Integer et augue ut arcu convallis ultricies. Vestibulum fermentum ornare nisi, vel lacinia eros convallis vel. Proin tristique metus id nisl convallis, lobortis accumsan sem vehicula. Ut varius massa at ligula ullamcorper, ut fringilla leo egestas.',
+    label: 'marluc',
+    originLatLng: [39,23],
+    originZoom: 6,
   },
 }
 

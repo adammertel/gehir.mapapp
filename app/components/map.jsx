@@ -242,7 +242,7 @@ export default class MapContainer extends React.Component {
       // temples
       const templeOptions = Object.assign(isisOptions, {
         maxDist: appState.controlOptions.isis.templeDistance,
-        noSteps:  parseInt(appState.controlOptions.isis.templeDistance / 20000) + 1,
+        noSteps: parseInt(appState.controlOptions.isis.templeDistance / 20000) + 1,
       })
       const temples = L.carouselMarkerGroup(templeOptions)
       const templesJson = L.geoJSON(data.isis_temples)
@@ -426,7 +426,7 @@ export default class MapContainer extends React.Component {
                 "domain": [1, 20],
                 "range": [5, 15]
             },
-            "fillOpacity": .7,
+            "fillOpacity": MapStyles.marluc.synagogueOpacity,
             "weight": 1,
             "color": "black",
             "fillColor": {
@@ -446,7 +446,7 @@ export default class MapContainer extends React.Component {
                 "scale": "size",
                 "range": MapStyles.marluc.congregateColors
             },
-            "fillOpacity": 0.35,
+            "fillOpacity": MapStyles.marluc.congregateOpacity,
             "weight": 1,
             "color": 'white'
         },

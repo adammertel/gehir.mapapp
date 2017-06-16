@@ -170,7 +170,7 @@ var Styles = {
   },
   'INFO_LEGEND': () => {
     return {
-      margin: '35px 20px 0px 10px',
+      margin: '25px 20px 0px 10px',
       width: '50%'
     }
   },

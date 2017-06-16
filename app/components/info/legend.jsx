@@ -21,7 +21,7 @@ export default class InfoLegend extends React.Component {
     }
 
     _update () {
-      this.canvas.height = StyleVariables['INFO_HEIGHT'] - 100
+      this.canvas.height = StyleVariables['INFO_HEIGHT'] - 80
       this.canvas.width = window.innerWidth / 2 - 80
       
       this.h = this.canvas.height
@@ -110,7 +110,7 @@ export default class InfoLegend extends React.Component {
       
       // circles
       const noCirclesA = parseInt(appState.controlOptions.isis.templeDistance / 20000) + 1
-      this.ctx.globalAlpha = 1 / noCirclesA
+      this.ctx.globalAlpha = Math.pow(1 / noCirclesA, appState.controlOptions.isis.opacityDecrease)
       for (let i = 0; i !== noCirclesA; i++ ) {
         this.ctx.beginPath()
         this.ctx.arc(250, 80, appState.controlOptions.isis.templeDistance * i / 10000, 0, Math.PI * 2, true)
@@ -118,7 +118,7 @@ export default class InfoLegend extends React.Component {
       }
 
       const noCirclesT = parseInt(appState.controlOptions.isis.artefactDistance / 20000) + 1
-      this.ctx.globalAlpha = 1 / noCirclesT
+      this.ctx.globalAlpha = Math.pow(1 / noCirclesT, appState.controlOptions.isis.opacityDecrease)
       for (let i = 0; i !== noCirclesT; i++ ) {
         this.ctx.beginPath()
         this.ctx.arc(350, 80, appState.controlOptions.isis.artefactDistance * i / 10000, 0, Math.PI * 2, true)
@@ -135,6 +135,79 @@ export default class InfoLegend extends React.Component {
     }
 
     _visualiseMarluc () {
+      const colorsS = MapStyles.marluc.synagogueColors.slice()
+      const colorsC = MapStyles.marluc.congregateColors.slice()
+
+      const hy = 15
+      this._textHead('jewish synagogues', 30, hy)
+
+      this.ctx.globalAlpha = MapStyles.marluc.synagogueOpacity * 1.2
+      const x = 70
+      // number of synagogues
+      const ny = 65
+      this._textBold('number of synagogues in cell', 30, ny - 30)
+      this.ctx.beginPath()
+      this.ctx.arc(x, ny, 10, 0, Math.PI * 2, true)
+      this.ctx.fill()
+      this.ctx.stroke()
+      this.ctx.beginPath()
+      this.ctx.arc(x + 30, ny, 15, 0, Math.PI * 2, true)
+      this.ctx.fill()
+      this.ctx.stroke()
+      this.ctx.beginPath()
+      this.ctx.arc(x + 70, ny, 20, 0, Math.PI * 2, true)
+      this.ctx.fill()
+      this.ctx.stroke()
+
+      // number of synagogues
+      const ty = 135
+      this._textBold('the oldest synagogue in cell', 30, ty - 20)
+      this.ctx.beginPath()
+      this.ctx.arc(x + 5, ty, 13, 0, Math.PI * 2, true)
+      this.ctx.fillStyle = colorsS[0]
+      this.ctx.fill()
+      this.ctx.stroke()
+      this.ctx.beginPath()
+      this.ctx.arc(x + 35, ty, 13, 0, Math.PI * 2, true)
+      this.ctx.fillStyle = colorsS[1]
+      this.ctx.fill()
+      this.ctx.stroke()
+      this.ctx.beginPath()
+      this.ctx.arc(x + 65, ty, 13, 0, Math.PI * 2, true)
+      this.ctx.fillStyle = colorsS[2]
+      this.ctx.fill()
+      this.ctx.stroke()
+
+      this.ctx.globalAlpha = 1
+      this.ctx.fillStyle = 'black'
+      this._text('200BC', x - 45, ty + 20)
+      this._text('400AD', x + 75, ty + 20)
+      this._text('few', x - 20, ny + 30)
+      this._text('lot', x + 80, ny + 30)
+
+
+      // congregates
+
+      this.ctx.globalAlpha = MapStyles.marluc.congregateOpacity * 1.2
+      const xc = 300
+      this.ctx.strokeStyle = 'white'
+      this.ctx.fillStyle = colorsC[0]
+      this.ctx.fillRect(xc + 10, hy + 30, 40, 40)
+      this.ctx.strokeRect(xc + 10, hy + 30, 40, 40)
+      this.ctx.fillStyle = colorsC[1]
+      this.ctx.fillRect(xc + 70, hy + 30, 40, 40)
+      this.ctx.strokeRect(xc + 70, hy + 30, 40, 40)
+      this.ctx.fillStyle = colorsC[2]
+      this.ctx.fillRect(xc + 130, hy + 30, 40, 40)
+      this.ctx.strokeRect(xc + 130, hy + 30, 40, 40)
+
+
+      this.ctx.globalAlpha = 1
+      this.ctx.fillStyle = 'black'
+      this._textHead('christian congregates', xc, hy)
+      this._textBold('number of congregates in cell', xc, ny - 30)
+      this._text('few', xc -20, ny)
+      this._text('lot', xc + 180, ny)
 
     }
 
