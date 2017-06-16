@@ -17,7 +17,7 @@ window['newwRefreshMap'] = false
 window['appState'] = {
   infoOpen: false,
   activeBaseLayer: 'awmc',
-  activeMapTopic: MapTopics.MARLUC.label,
+  activeMapTopic: MapTopics.CHRISTROME.label,
   mapCenter: [40,25],
   mapZoom: 5,
   modal: 'welcome',
@@ -34,7 +34,7 @@ window['appState'] = {
     },
     christrome: {
       churchRadius: 80,
-      mode: 'radii'
+      mode: 'regions'
     },
     mithorig: {
       gridSize: 5000,

@@ -130,6 +130,7 @@ export default class MapContainer extends React.Component {
               <GeoJSON 
                 data={mapOverlay.json.ne_50m}
                 key={mapIndex}
+                interactive={false}
                 style={
                   {
                     fill: false,
