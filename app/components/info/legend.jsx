@@ -115,7 +115,7 @@ export default class InfoLegend extends React.Component {
       this._textHead('pertinence to cult', ox - 10, oy - 25)
       this._text('isis', ox - 10, oy - 5)
       this._text('sarapis', w + ox - 10, oy - 5)
-      this._text('other cults', w/2 + ox - 25, h + oy + 10)
+      this._text('other deities', w/2 + ox - 25, h + oy + 10)
 
       
       // circles
@@ -146,11 +146,11 @@ export default class InfoLegend extends React.Component {
       this._text('temple/artefact', 450, 130)
       this._circleStroke(470, 125, 1, 'black', 'black')
       this._text('more temples/artefacts', 450, 150)
-      this._circleStroke(470, 145, 5, 'white', 'black')
-      this._circleStroke(470, 145, 2, 'black', 'black')
-
+      this._circleStroke(470, 145, 4, 'white', 'black')
+      this._circleStroke(470, 145, 1.5, 'black', 'black')
+      this._circleStroke(485, 145, 7, 'white', 'black')
+      this._circleStroke(485, 145, 4, 'black', 'black')
     }
-
     
 
     _visualiseMarluc () {
@@ -185,24 +185,24 @@ export default class InfoLegend extends React.Component {
 
       // congregates
       this.ctx.globalAlpha = 0.8
-      const xc = 300
+      const xc = 250
       this.ctx.strokeStyle = 'grey'
       this.ctx.fillStyle = colorsC[0]
-      this.ctx.fillRect(xc + 10, hy + 30, 40, 40)
-      this.ctx.strokeRect(xc + 10, hy + 30, 40, 40)
+      this.ctx.fillRect(xc + 10, hy + 30, 30, 30)
+      this.ctx.strokeRect(xc + 10, hy + 30, 30, 30)
       this.ctx.fillStyle = colorsC[1]
-      this.ctx.fillRect(xc + 70, hy + 30, 40, 40)
-      this.ctx.strokeRect(xc + 70, hy + 30, 40, 40)
+      this.ctx.fillRect(xc + 50, hy + 30, 30, 30)
+      this.ctx.strokeRect(xc + 50, hy + 30, 30, 30)
       this.ctx.fillStyle = colorsC[3]
-      this.ctx.fillRect(xc + 130, hy + 30, 40, 40)
-      this.ctx.strokeRect(xc + 130, hy + 30, 40, 40)
+      this.ctx.fillRect(xc + 90, hy + 30, 30, 30)
+      this.ctx.strokeRect(xc + 90, hy + 30, 30, 30)
 
       this.ctx.globalAlpha = 1
       this.ctx.fillStyle = 'black'
       this._textHead('christian congregates', xc, hy)
       this._textBold('number of congregates in cell', xc, ny - 30)
-      this._text('few', xc -20, ny)
-      this._text('lot', xc + 180, ny)
+      this._text('few', xc - 20, ny)
+      this._text('lot', xc + 130, ny)
       this._textBold('the oldest synagogue in cell', 30, ty - 20)
       this._textBold('number of synagogues in cell', 30, ny - 30)
 
@@ -308,7 +308,7 @@ export default class InfoLegend extends React.Component {
 
       // forts
       const colorsF = MapStyles.mithorig.fortColors
-      const x2 = 300
+      const x2 = 250
       const yf = 60
 
       const hex = (x, y, size) => {
@@ -323,13 +323,13 @@ export default class InfoLegend extends React.Component {
 
       this.ctx.globalAlpha = MapStyles.mithorig.fortOpacity * 1.2
       this.ctx.fillStyle = colorsF[0]
-      hex(x2 + 20, yf, 20)
+      hex(x2 + 20, yf, 18)
       this.ctx.fillStyle = colorsF[1]
-      hex(x2 + 65, yf, 20)
+      hex(x2 + 60, yf, 18)
       this.ctx.fillStyle = colorsF[2]
-      hex(x2 + 110, yf, 20)
+      hex(x2 + 100, yf, 18)
       this.ctx.fillStyle = colorsF[3]
-      hex(x2 + 155, yf, 20)
+      hex(x2 + 140, yf, 18)
 
 
       this.ctx.globalAlpha = 1
@@ -341,8 +341,8 @@ export default class InfoLegend extends React.Component {
       this._textBold('confidence level', x1, cy - 20)
       this._text('few', x1 - 10, sy + 20)
       this._text('lot', x1 + 135, sy + 20)
-      this._text('few', x2 - 20, yf + 20)
-      this._text('lot', x2 + 180, yf + 20)
+      this._text('few', x2, yf + 30)
+      this._text('lot', x2 + 145, yf + 30)
       this._text('dubious', x1 - 10, cy + 20)
       this._text('definitive', x1 + 145, cy + 20)
 

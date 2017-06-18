@@ -11,9 +11,6 @@ export default class InfoHeading extends React.Component {
           <div style={Styles['INFO_HEADING_H1']()}>
             {topic.infoHeading}
           </div>
-          <div style={Styles['INFO_HEADING_H2']()}>
-            {topic.infoSubHeading}
-          </div>
         </div>
       );
     }
