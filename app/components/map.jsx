@@ -435,7 +435,7 @@ export default class MapContainer extends React.Component {
                 "method": "min",
                 "attribute": "date",
                 "scale": "size",
-                "domain": [-200, 400],
+                "domain": [-250, 400],
                 "range": MapStyles.marluc.synagogueColors
             },
         }
@@ -475,7 +475,7 @@ export default class MapContainer extends React.Component {
 
       const synagoguePoints = data.synagogues.features.filter(synagogue => {
         const date = synagogue.properties.date
-        return appState.controlOptions.marluc.synagogueDateBefore > date && appState.controlOptions.marluc.synagogueDateAfter < date
+        return appState.controlOptions.marluc.synagogueDateBefore > date
       }).map( synagogue => {
         return {
           marker: 
@@ -489,7 +489,9 @@ export default class MapContainer extends React.Component {
         }
       })
 
-      const congregatesPoints = data.congregates.features.map(congregate => {
+      const congregatesPoints = data.congregates.features.filter( congregate => {
+        return parseInt(congregate.properties.t, 10) <= parseInt(appState.controlOptions.marluc.congregatesYear, 10)
+      }).map(congregate => {
         return {
           marker: 
             L.circleMarker(

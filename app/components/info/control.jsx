@@ -119,21 +119,9 @@ export default class InfoLegend extends React.Component {
       return (
         <div>
           <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
-            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
-              {'synagogues build after year: '}<b>{this._getActualOptionValue('marluc', 'synagogueDateAfter')}</b>
-            </div>
-            <Slider 
-              min={-200} max={400} step={10} 
-              value={appState.controlOptions.marluc.synagogueDateAfter}
-              style={Styles['INFO_CONTROL_INPUT']()} 
-              onChange={this.handleChange.bind(this, 'marluc', 'synagogueDateAfter')}
-              onDragStop={this.handleRunChange.bind(this)}
-            />
-          </div>
-          <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
-            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
+            <div style={Styles['INFO_CONTROL_INPUT_LABEL']()}>
               {'synagogues build before year: '}<b>{this._getActualOptionValue('marluc', 'synagogueDateBefore')}</b>
-          </div>
+            </div>
             <Slider 
               min={-200} max={400} step={10} 
               value={appState.controlOptions.marluc.synagogueDateBefore}
@@ -142,6 +130,28 @@ export default class InfoLegend extends React.Component {
               onDragStop={this.handleRunChange.bind(this)}
             />
           </div>
+
+          <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
+              {'christrian congregates: '}<b></b>
+          </div>
+          <RadioButtonGroup 
+            style={Styles["INFO_CONTROL_RADIO_WRAPPER"]()} name="congregatesYear" 
+            valueSelected={this._getActualOptionValue('marluc', 'congregatesYear')}
+            onChange={this.handleChangeAndRun.bind(this, 'marluc', 'congregatesYear')}
+          >
+            <RadioButton
+              value="100"
+              label="before year 100"
+            />
+            <RadioButton
+              value="200"
+              label="before year 200"
+            />
+            <RadioButton
+              value="304"
+              label="before year 304"
+            />
+          </RadioButtonGroup>
         </div>
       )
     }
