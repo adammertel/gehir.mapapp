@@ -16,7 +16,6 @@ module.exports = {
                 var activeMapTopic = Base.getMapTopicById(data.newTopic)
                 changes.mapZoom = activeMapTopic.originZoom
                 changes.mapCenter = activeMapTopic.originLatLng
-                changes.infoOpen = false
                 break
 
             case Actions['MAP_BASE_LAYER_CHANGE']:

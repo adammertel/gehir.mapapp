@@ -115,7 +115,7 @@ export default class InfoLegend extends React.Component {
       this._textHead('pertinence to cult', ox - 10, oy - 25)
       this._text('isis', ox - 10, oy - 5)
       this._text('sarapis', w + ox - 10, oy - 5)
-      this._text('other deities', w/2 + ox - 25, h + oy + 10)
+      this._text('other deities', w/2 + ox - 25, h + oy + 12)
 
       
       // circles
@@ -142,14 +142,16 @@ export default class InfoLegend extends React.Component {
       this._text('artefact', 350, oy)
 
       // isis symbols
+      const xl = 325
+      const yl = 140
       this.ctx.textAlign='right' 
-      this._text('temple/artefact', 450, 130)
-      this._circleStroke(470, 125, 1, 'black', 'black')
-      this._text('more temples/artefacts', 450, 150)
-      this._circleStroke(470, 145, 4, 'white', 'black')
-      this._circleStroke(470, 145, 1.5, 'black', 'black')
-      this._circleStroke(485, 145, 7, 'white', 'black')
-      this._circleStroke(485, 145, 4, 'black', 'black')
+      this._text('temple/artefact', xl, yl)
+      this._circleStroke(xl + 20, yl - 5, 1, 'black', 'black')
+      this._text('more temples/artefacts', xl, yl + 20)
+      this._circleStroke(xl + 20, yl + 15, 4, 'white', 'black')
+      this._circleStroke(xl + 20, yl + 15, 1.5, 'black', 'black')
+      this._circleStroke(xl + 35, yl + 15, 7, 'white', 'black')
+      this._circleStroke(xl + 35, yl + 15, 4, 'black', 'black')
     }
     
 

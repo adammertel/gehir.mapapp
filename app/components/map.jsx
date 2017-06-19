@@ -74,12 +74,12 @@ export default class MapContainer extends React.Component {
 
     moveEndHandle () {
       var centerLL = this.lEl.getCenter();
-      dispatcher.dispatch(Actions['MAP_CHANGE_CENTER'], {newMapCenter: centerLL})
+      //dispatcher.dispatch(Actions['MAP_CHANGE_CENTER'], {newMapCenter: centerLL})
     }
 
     zoomEndHandle () {
       var zoom = this.lEl.getZoom();
-      dispatcher.dispatch(Actions['MAP_CHANGE_ZOOM'], {newMapZoom: zoom})
+      //dispatcher.dispatch(Actions['MAP_CHANGE_ZOOM'], {newMapZoom: zoom})
     }
 
     renderBaseLayers () {
@@ -235,7 +235,7 @@ export default class MapContainer extends React.Component {
     visualiseIsis () {
 
       const isisOptions = {
-        circleSegmentAngle: 20,
+        circleSegmentAngle: 40,
         colors: MapStyles.isis.deitiesColors,
         propertyName: 'deities',
         opacityDecrease: appState.controlOptions.isis.opacityDecrease
@@ -295,6 +295,7 @@ export default class MapContainer extends React.Component {
 
       this.dataLayers.push(L.featureGroup(isisAuxSigns))
       this.dataLayers.push(L.featureGroup(isisSigns))
+      
     }
 
 
