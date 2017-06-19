@@ -123,7 +123,7 @@ export default class InfoLegend extends React.Component {
               {'synagogues build before year: '}<b>{this._getActualOptionValue('marluc', 'synagogueDateBefore')}</b>
             </div>
             <Slider 
-              min={-200} max={400} step={10} 
+              min={-250} max={400} step={10} 
               value={appState.controlOptions.marluc.synagogueDateBefore}
               style={Styles['INFO_CONTROL_INPUT']()} 
               onChange={this.handleChange.bind(this, 'marluc', 'synagogueDateBefore')}

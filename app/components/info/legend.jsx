@@ -200,7 +200,7 @@ export default class InfoLegend extends React.Component {
       this.ctx.globalAlpha = 1
       this.ctx.fillStyle = 'black'
       this._textHead('christian congregates', xc, hy)
-      this._textBold('number of congregates in cell', xc, ny - 30)
+      this._textBold('number of congregates', xc, ny - 30)
       this._text('few', xc - 20, ny)
       this._text('lot', xc + 130, ny)
       this._textBold('the oldest synagogue in cell', 30, ty - 20)

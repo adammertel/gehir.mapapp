@@ -31,7 +31,7 @@ export default class ModalContainer extends React.Component {
           <h4 style={Styles['HEADER4']()}>Cartographic context</h4>
           {topic.cartographicContext}
           <h4 style={Styles['HEADER4']()}>Bibliography and data sources</h4>
-          {topic.bibliography}
+          {topic.bibliography.map(bibl => (<p>- {bibl}</p>))}
         </div>
       )
     }
