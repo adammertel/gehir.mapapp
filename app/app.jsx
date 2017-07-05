@@ -49,7 +49,7 @@ export default class App extends React.Component {
             appState.modal ? (<ModalContainer />) : null
           }
           <PanelContainer />
-          <InfoContainer />
+          <InfoContainer appState={appState}/>
           <MapContainer />
           <ReactTooltip place="right" type="dark" effect="solid"/>
         </div>

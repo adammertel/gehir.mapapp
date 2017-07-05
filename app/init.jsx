@@ -14,7 +14,7 @@ window['data'] = {}
 window['map'] = false
 window['newwRefreshMap'] = false
 
-const initTopic = MapTopics.CHRISTROME
+const initTopic = MapTopics.MITHORIG
 
 window['appState'] = {
   infoOpen: false,

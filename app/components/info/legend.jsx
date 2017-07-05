@@ -27,8 +27,7 @@ export default class InfoLegend extends React.Component {
       this.h = this.canvas.height
       this.w = this.canvas.width
 
-      console.log('update legend')
-      const topic = appState.activeMapTopic
+      const topic = this.props.appState.activeMapTopic
       
       switch (topic) {
         case MapTopics['ISIS'].label:
@@ -352,7 +351,7 @@ export default class InfoLegend extends React.Component {
       // symbols
       if (map) {
         if (map.getZoom() > 6) {
-          this.ctx.textAlign='right' 
+          this.ctx.textAlign = 'right' 
           this._text('fort', 350, 120)
           this._circleStroke(370, 115, 2, '#54278f', '#54278f')
           this._text('mithraic place', 350, 140)

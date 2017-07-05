@@ -74,12 +74,12 @@ export default class MapContainer extends React.Component {
 
     moveEndHandle () {
       var centerLL = this.lEl.getCenter();
-      //dispatcher.dispatch(Actions['MAP_CHANGE_CENTER'], {newMapCenter: centerLL})
+      dispatcher.dispatch(Actions['MAP_CHANGE_CENTER'], {newMapCenter: centerLL})
     }
 
     zoomEndHandle () {
       var zoom = this.lEl.getZoom();
-      //dispatcher.dispatch(Actions['MAP_CHANGE_ZOOM'], {newMapZoom: zoom})
+      dispatcher.dispatch(Actions['MAP_CHANGE_ZOOM'], {newMapZoom: zoom})
     }
 
     renderBaseLayers () {
@@ -155,7 +155,7 @@ export default class MapContainer extends React.Component {
             ref="map" 
             minZoom={2}
             maxBounds={[[10, -30], [60, 60]]}
-            maxZoom={7} 
+            maxZoom={8} 
             center={appState.mapCenter}
             style={Styles['MAP']()}
             zoom={appState.mapZoom}
@@ -587,7 +587,10 @@ export default class MapContainer extends React.Component {
           marker: 
             L.circleMarker(
               fort.cs, 
-              {radius: 1.2 + fort.items.length * 0.2, className: 'map-forts'}
+              {
+                radius: fort.items.length > 1 ? 5 : 3, 
+                className: 'map-forts'
+              }
             ).bindTooltip(fort.items.map(item => 'fort <b>' + item.n + '</b>').join('<br/ >')),
           properties: {}
         }

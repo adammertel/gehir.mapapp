@@ -17,6 +17,7 @@ export default class InfoContainer extends React.Component {
       dispatcher.dispatch(Actions['MODAL_OPEN'], {})
     }
 
+
     render () {
       const open = appState.infoOpen
       const activeTopic = Base.getActiveMapTopic()
@@ -30,8 +31,8 @@ export default class InfoContainer extends React.Component {
           </div>
 
           <div style={Styles['INFO_CONTENT']()}>
-            <InfoControl topic={activeTopic} />
-            <InfoLegend topic={activeTopic} />
+            <InfoControl topic={activeTopic} appState={this.props.appState} />
+            <InfoLegend topic={activeTopic} appState={this.props.appState} />
           </div>
         </div>
       )
