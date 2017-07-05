@@ -39,7 +39,7 @@ window['appState'] = {
       mode: 'regions'
     },
     mithorig: {
-      gridSize: 5000,
+      gridSize: 7000,
       dubious: true,
       definitive: true,
       probable: true
