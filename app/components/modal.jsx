@@ -17,7 +17,9 @@ export default class ModalContainer extends React.Component {
     _welcomeContent() {
       return (
         <div style={Styles['MODAL_WELCOMETEXT']()} >
-          Welcome to the map application dedicated to the <a style={Styles['LINK']()} target="_blank" href="http://gehir.phil.muni.cz">gehir project</a>
+          <p key="1">Welcome to the map application dedicated to the <a style={Styles['LINK']()} target="_blank" href="http://gehir.phil.muni.cz">gehir project</a></p>
+          <p key="2">The application is developed and tested for chrome browser. We highly recommend to use the newest version of this browser</p>
+
         </div>
       )
     }

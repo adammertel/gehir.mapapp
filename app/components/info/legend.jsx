@@ -113,8 +113,8 @@ export default class InfoLegend extends React.Component {
       this.ctx.save()
       
       this._textHead('pertinence to cult', ox - 10, oy - 25)
-      this._text('isis', ox - 10, oy - 5)
-      this._text('sarapis', w + ox - 10, oy - 5)
+      this._text('Isis', ox - 10, oy - 5)
+      this._text('Sarapis', w + ox - 10, oy - 5)
       this._text('other deities', w/2 + ox - 25, h + oy + 12)
 
       
