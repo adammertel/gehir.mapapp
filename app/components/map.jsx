@@ -13,7 +13,7 @@ import MapBaseLayers from '../enums/mapbaselayers.js'
 import MapOverlays from '../enums/mapoverlays.js'
 import MapStyles from '../enums/mapstyles.js'
 import 'leaflet-semicircle'
-import 'leaflet-carousel'
+import 'leaflet-segment-charts'
 import 'leaflet-regular-grid-cluster'
 
 
@@ -74,7 +74,7 @@ export default class MapContainer extends React.Component {
 
     moveEndHandle () {
       var centerLL = this.lEl.getCenter();
-      dispatcher.dispatch(Actions['MAP_CHANGE_CENTER'], {newMapCenter: centerLL})
+      //dispatcher.dispatch(Actions['MAP_CHANGE_CENTER'], {newMapCenter: centerLL})
     }
 
     zoomEndHandle () {
@@ -234,19 +234,21 @@ export default class MapContainer extends React.Component {
     */
     visualiseIsis () {
 
+      const options = Object.assign(appState.controlOptions.isis, {});
       const isisOptions = {
         circleSegmentAngle: 40,
         colors: MapStyles.isis.deitiesColors,
         propertyName: 'deities',
-        opacityDecrease: appState.controlOptions.isis.opacityDecrease
+        opacityDecrease: appState.controlOptions.isis.opacityDecrease,
+        maxOpacity: 0.3,
       }
 
       // temples
       const templeOptions = Object.assign(isisOptions, {
-        maxDist: appState.controlOptions.isis.templeDistance,
-        noSteps: parseInt(appState.controlOptions.isis.templeDistance / 20000) + 1,
+        maxDist: options.templeDistance,
+        noSteps: parseInt(options.templeDistance / options.circleStep) + 1,
       })
-      const temples = L.carouselMarkerGroup(templeOptions)
+      const temples = L.segmentMarkerGroup(templeOptions)
       const templesJson = L.geoJSON(data.isis_temples)
       const templeLayers = templesJson.getLayers()
 
@@ -254,10 +256,10 @@ export default class MapContainer extends React.Component {
 
       // artefacts
       const artefactsOptions = Object.assign(isisOptions, {
-        maxDist: appState.controlOptions.isis.artefactDistance,
-        noSteps: parseInt(appState.controlOptions.isis.artefactDistance / 20000) + 1,
+        maxDist: options.artefactDistance,
+        noSteps: parseInt(options.artefactDistance / options.circleStep) + 1,
       })
-      const artefacts = L.carouselMarkerGroup(artefactsOptions)
+      const artefacts = L.segmentMarkerGroup(artefactsOptions)
       const artefactsJson = L.geoJSON(data.isis_artefacts)
       const artefactLayers = artefactsJson.getLayers()
 

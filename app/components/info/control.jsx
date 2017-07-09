@@ -104,7 +104,7 @@ export default class InfoLegend extends React.Component {
               {'opacity-decrease coefficient: '}<b>{this._getActualOptionValue('isis', 'opacityDecrease')}</b>{}
             </div>
             <Slider 
-              min={0.5} max={1.5} step={0.1} 
+              min={-0.5} max={1} step={0.05} 
               value={appState.controlOptions.isis.opacityDecrease}
               style={Styles['INFO_CONTROL_INPUT']()} 
               onChange={this.handleChange.bind(this, 'isis', 'opacityDecrease')}

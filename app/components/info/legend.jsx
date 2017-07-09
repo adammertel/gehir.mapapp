@@ -77,7 +77,7 @@ export default class InfoLegend extends React.Component {
     }
 
     _visualiseIsis () {
-
+      const options = Object.assign(appState.controlOptions.isis, {});
       // triangle
       const ox = 50
       const oy = 50
@@ -121,19 +121,19 @@ export default class InfoLegend extends React.Component {
 
       
       // circles
-      const noCirclesA = parseInt(appState.controlOptions.isis.templeDistance / 20000) + 1
-      this.ctx.globalAlpha = Math.pow(1 / noCirclesA, appState.controlOptions.isis.opacityDecrease)
+      const noCirclesA = parseInt(options.templeDistance / options.circleStep) + 1
+      this.ctx.globalAlpha = 0.6 / noCirclesA;
       for (let i = 0; i !== noCirclesA; i++ ) {
         this.ctx.beginPath()
-        this.ctx.arc(250, 90, appState.controlOptions.isis.templeDistance * i / 15000, 0, Math.PI * 2, true)
+        this.ctx.arc(250, 90, options.templeDistance * i / 20000, 0, Math.PI * 2, true)
         this.ctx.fill()
       }
 
-      const noCirclesT = parseInt(appState.controlOptions.isis.artefactDistance / 20000) + 1
-      this.ctx.globalAlpha = Math.pow(1 / noCirclesT, appState.controlOptions.isis.opacityDecrease)
+      const noCirclesT = parseInt(options.artefactDistance / options.circleStep) + 1
+      this.ctx.globalAlpha = 0.6 / noCirclesT;
       for (let i = 0; i !== noCirclesT; i++ ) {
         this.ctx.beginPath()
-        this.ctx.arc(350, 90, appState.controlOptions.isis.artefactDistance * i / 15000, 0, Math.PI * 2, true)
+        this.ctx.arc(350, 90, options.artefactDistance * i / 20000, 0, Math.PI * 2, true)
         this.ctx.fill()
       }
       this.ctx.globalAlpha = 1
