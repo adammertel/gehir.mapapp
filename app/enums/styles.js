@@ -230,6 +230,7 @@ var Styles = {
   },
   'MODAL': () => {
     return {
+      overflowY: 'scroll'
     }
   },
   
@@ -238,7 +239,6 @@ var Styles = {
       paddingTop: 10
     }
   },
-
 
   'LINK': () => {
     return {

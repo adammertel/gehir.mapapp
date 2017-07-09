@@ -288,77 +288,85 @@ export default class InfoLegend extends React.Component {
     }
 
     _visualiseMithorig () {
+      const colorsF = MapStyles.mithorig.fortColors
+      const colorsC = MapStyles.mithorig.mithraicColors
       const hy = 15
       // mithraic places
       const x1 = 20
-
-      // sizes
-      const sy = 65
-      this.ctx.globalAlpha = MapStyles.mithorig.placeOpacity * 1.2
-      this._circleStroke(x1 + 50, sy, 3, 'grey', 'black')
-      this._circleStroke(x1 + 75, sy, 7, 'grey', 'black')
-      this._circleStroke(x1 + 105, sy, 10, 'grey', 'black')
-
-      // confidence
-      const colorsC = MapStyles.mithorig.mithraicColors
-      const cy = 130
-      this._circleStroke(x1 + 45, cy, 10, colorsC[0], 'black')
-      this._circleStroke(x1 + 75, cy, 10, colorsC[1], 'black')
-      this._circleStroke(x1 + 105, cy, 10, colorsC[2], 'black')
-      this._circleStroke(x1 + 135, cy, 10, colorsC[3], 'black')
-
-      // forts
-      const colorsF = MapStyles.mithorig.fortColors
       const x2 = 250
-      const yf = 60
 
-      const hex = (x, y, size) => {
-        this.ctx.beginPath()
-        this.ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
-        for (let side = 0; side < 7; side++) {
-          this.ctx.lineTo(x + size * Math.sin(side * 2 * Math.PI / 6), y + size * Math.cos(side * 2 * Math.PI / 6));
-        }
-        
-        this.ctx.fill()
-      }
-
-      this.ctx.globalAlpha = MapStyles.mithorig.fortOpacity * 1.2
-      this.ctx.fillStyle = colorsF[0]
-      hex(x2 + 20, yf, 18)
-      this.ctx.fillStyle = colorsF[1]
-      hex(x2 + 60, yf, 18)
-      this.ctx.fillStyle = colorsF[2]
-      hex(x2 + 100, yf, 18)
-      this.ctx.fillStyle = colorsF[3]
-      hex(x2 + 140, yf, 18)
-
-
-      this.ctx.globalAlpha = 1
-      this.ctx.fillStyle = 'black'
       this._textHead('mithraic places', x1, hy)
       this._textHead('forts', x2, hy)
-      this._textBold('number of mithraic places', x1, sy - 30)
-      this._textBold('number of forts', x2, sy - 30)
-      this._textBold('confidence level', x1, cy - 20)
-      this._text('few', x1 - 10, sy + 20)
-      this._text('lot', x1 + 135, sy + 20)
-      this._text('few', x2, yf + 30)
-      this._text('lot', x2 + 145, yf + 30)
-      this._text('dubious', x1 - 10, cy + 20)
-      this._text('definitive', x1 + 145, cy + 20)
 
 
-      // symbols
       if (map) {
         if (map.getZoom() > 6) {
+
+          // symbols 
           this.ctx.textAlign = 'right' 
-          this._text('fort', 350, 120)
-          this._circleStroke(370, 115, 2, '#54278f', '#54278f')
-          this._text('mithraic place', 350, 140)
-          this._circleStroke(370, 135, 5, colorsC[0], 'white')
-          this._circleStroke(380, 135, 5, colorsC[1], 'white')
-          this._circleStroke(390, 135, 5, colorsC[2], 'white')
-          this._circleStroke(400, 135, 5, colorsC[3], 'white')
+          this._text('one fort', 350, 120)
+          this._text('more forts', 350, 140)
+          this._circleStroke(370, 115, 3, '#54278f', '#54278f')
+          this._circleStroke(370, 135, 5, '#54278f', '#54278f')
+          this._text('mithraic place', 350, 160)
+          this._circleStroke(370, 155, 5, colorsC[0], 'white')
+          this._circleStroke(380, 155, 5, colorsC[1], 'white')
+          this._circleStroke(390, 155, 5, colorsC[2], 'white')
+          this._circleStroke(400, 155, 5, colorsC[3], 'white')
+        } else {
+
+          // grid
+
+          // sizes
+          const sy = 65
+          this.ctx.globalAlpha = MapStyles.mithorig.placeOpacity * 1.2
+          this._circleStroke(x1 + 50, sy, 3, 'grey', 'black')
+          this._circleStroke(x1 + 75, sy, 7, 'grey', 'black')
+          this._circleStroke(x1 + 105, sy, 10, 'grey', 'black')
+
+          // confidence
+          const cy = 130
+          this._circleStroke(x1 + 45, cy, 10, colorsC[0], 'black')
+          this._circleStroke(x1 + 75, cy, 10, colorsC[1], 'black')
+          this._circleStroke(x1 + 105, cy, 10, colorsC[2], 'black')
+          this._circleStroke(x1 + 135, cy, 10, colorsC[3], 'black')
+
+          // forts
+          
+          const yf = 60
+
+          const hex = (x, y, size) => {
+            this.ctx.beginPath()
+            this.ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
+            for (let side = 0; side < 7; side++) {
+              this.ctx.lineTo(x + size * Math.sin(side * 2 * Math.PI / 6), y + size * Math.cos(side * 2 * Math.PI / 6));
+            }
+            
+            this.ctx.fill()
+          }
+
+          this.ctx.globalAlpha = MapStyles.mithorig.fortOpacity * 1.2
+          this.ctx.fillStyle = colorsF[0]
+          hex(x2 + 20, yf, 18)
+          this.ctx.fillStyle = colorsF[1]
+          hex(x2 + 60, yf, 18)
+          this.ctx.fillStyle = colorsF[2]
+          hex(x2 + 100, yf, 18)
+          this.ctx.fillStyle = colorsF[3]
+          hex(x2 + 140, yf, 18)
+
+
+          this.ctx.globalAlpha = 1
+          this.ctx.fillStyle = 'black'
+          this._textBold('number of mithraic places', x1, sy - 30)
+          this._textBold('number of forts', x2, sy - 30)
+          this._textBold('confidence level', x1, cy - 20)
+          this._text('few', x1 - 10, sy + 20)
+          this._text('lot', x1 + 135, sy + 20)
+          this._text('few', x2, yf + 30)
+          this._text('lot', x2 + 145, yf + 30)
+          this._text('dubious', x1 - 10, cy + 20)
+          this._text('definitive', x1 + 145, cy + 20)
         }
       }
         

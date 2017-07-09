@@ -33,7 +33,7 @@ export default class ModalContainer extends React.Component {
           <h4 style={Styles['HEADER4']()}>Cartographic context</h4>
           {topic.cartographicContext}
           <h4 style={Styles['HEADER4']()}>Bibliography and data sources</h4>
-          {topic.bibliography.map(bibl => (<p>- {bibl}</p>))}
+          {topic.bibliography.map((bibl, bi) => (<p key={bi} style={{marginTop: 0, marginBottom: 5}}>- {bibl}</p>))}
         </div>
       )
     }
@@ -80,7 +80,7 @@ export default class ModalContainer extends React.Component {
             open={appState.model !== false}
             onRequestClose={this._handleClose}
             titleStyle={Styles['MODAL_TITLE']()}
-            style={Styles['MODAL']()}
+            bodyStyle={Styles['MODAL']()}
           >
           {
             content
