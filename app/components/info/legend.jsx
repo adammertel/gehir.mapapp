@@ -50,16 +50,19 @@ export default class InfoLegend extends React.Component {
 
     _text (text, x, y) {
       this.ctx.font = '12px Roboto, sans-serif'
+      this.ctx.fillStyle = 'rgb(66, 66, 66)'
       this.ctx.fillText(text, x, y)
     }
 
     _textBold (text, x, y) {
       this.ctx.font = 'bold 13px Roboto, sans-serif'
+      this.ctx.fillStyle = 'rgb(66, 66, 66)'
       this.ctx.fillText(text, x, y)
     }
 
     _textHead (text, x, y) {
       this.ctx.font = 'bold 16px Roboto, sans-serif'
+      this.ctx.fillStyle = 'rgb(66, 66, 66)'
       this.ctx.fillText(text, x, y)
     }
 
@@ -77,10 +80,10 @@ export default class InfoLegend extends React.Component {
 
       // triangle
       const ox = 50
-      const oy = 40
+      const oy = 50
       const w = this.h / 1.5
       const h = 0.866 * w
-      const composition = 'overlay'
+      const composition = 'darken'
 
       const colors = Object.assign({}, MapStyles.isis.deitiesColors)
 
@@ -114,7 +117,7 @@ export default class InfoLegend extends React.Component {
       this._textHead('pertinence to cult', ox - 10, oy - 25)
       this._text('Isis', ox - 10, oy - 5)
       this._text('Sarapis', w + ox - 10, oy - 5)
-      this._text('other deities', w/2 + ox - 25, h + oy + 12)
+      this._text('other deities', w/2 + ox - 31, h + oy + 13)
 
       
       // circles
@@ -122,7 +125,7 @@ export default class InfoLegend extends React.Component {
       this.ctx.globalAlpha = Math.pow(1 / noCirclesA, appState.controlOptions.isis.opacityDecrease)
       for (let i = 0; i !== noCirclesA; i++ ) {
         this.ctx.beginPath()
-        this.ctx.arc(250, 80, appState.controlOptions.isis.templeDistance * i / 10000, 0, Math.PI * 2, true)
+        this.ctx.arc(250, 90, appState.controlOptions.isis.templeDistance * i / 15000, 0, Math.PI * 2, true)
         this.ctx.fill()
       }
 
@@ -130,15 +133,15 @@ export default class InfoLegend extends React.Component {
       this.ctx.globalAlpha = Math.pow(1 / noCirclesT, appState.controlOptions.isis.opacityDecrease)
       for (let i = 0; i !== noCirclesT; i++ ) {
         this.ctx.beginPath()
-        this.ctx.arc(350, 80, appState.controlOptions.isis.artefactDistance * i / 10000, 0, Math.PI * 2, true)
+        this.ctx.arc(350, 90, appState.controlOptions.isis.artefactDistance * i / 15000, 0, Math.PI * 2, true)
         this.ctx.fill()
       }
       this.ctx.globalAlpha = 1
 
       this.ctx.textAlign='center' 
       this._textHead('cult infulence', 300, oy - 25)
-      this._text('temple', 250, oy)
-      this._text('artefact', 350, oy)
+      this._text('temple', 250, oy - 5)
+      this._text('artefact', 350, oy - 5)
 
       // isis symbols
       const xl = 325
@@ -146,11 +149,9 @@ export default class InfoLegend extends React.Component {
       this.ctx.textAlign='right' 
       this._text('temple/artefact', xl, yl)
       this._circleStroke(xl + 20, yl - 5, 1, 'black', 'black')
-      this._text('more temples/artefacts', xl, yl + 20)
+      this._text('more temples / artefacts', xl, yl + 20)
       this._circleStroke(xl + 20, yl + 15, 4, 'white', 'black')
       this._circleStroke(xl + 20, yl + 15, 1.5, 'black', 'black')
-      this._circleStroke(xl + 35, yl + 15, 7, 'white', 'black')
-      this._circleStroke(xl + 35, yl + 15, 4, 'black', 'black')
     }
     
 

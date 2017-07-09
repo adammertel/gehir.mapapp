@@ -32,7 +32,7 @@ button {
 
 .carousel-sequence {
   stroke-width: 0;
-  mix-blend-mode: saturation;
+  mix-blend-mode: hue;
 }
 
 .map-isis{

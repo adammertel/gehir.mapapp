@@ -279,20 +279,22 @@ export default class MapContainer extends React.Component {
         isThere ? isThere.items.push(item) : uniqueIsis.push({ items: [item], cs: temple.geometry.coordinates})
       })
 
+
       const isisSigns = uniqueIsis.map(point => {
-        return L.circleMarker([point.cs[1], point.cs[0]], {radius: 1 + point.items.length * 0.1, className: 'map-isis'})
-          .bindTooltip(point.items.map( item => {
+        return L.circleMarker([point.cs[1], point.cs[0]], {
+          radius: 1, 
+          className: 'map-isis'
+        }).bindTooltip(point.items.map( item => {
             return item.type + 
               ' <b>' + item.label + '</b>' + 
-              ' (' + item.deities.join() + ')'
+              ' (deities: ' + item.deities.join() + ')'
           }).join('<br/ >'))
       })
 
       // aux circles
       const isisAuxSigns = uniqueIsis.filter(i => i.items.length > 1)
-        .map( i =>  L.circleMarker([i.cs[1], i.cs[0]], {radius: 2.2 +  i.items.length * 0.1, className: 'map-aux'})
+        .map( i =>  L.circleMarker([i.cs[1], i.cs[0]], {radius: 3, className: 'map-aux'})
       )  
-
       this.dataLayers.push(L.featureGroup(isisAuxSigns))
       this.dataLayers.push(L.featureGroup(isisSigns))
       

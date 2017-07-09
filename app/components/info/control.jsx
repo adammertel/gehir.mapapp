@@ -78,7 +78,7 @@ export default class InfoLegend extends React.Component {
               {'temples range: '}<b>{this._getActualOptionValue('isis', 'templeDistance')/1000}</b>{'km'}
             </div>
             <Slider 
-              min={0} max={100000} step={10000} 
+              min={0} max={150000} step={10000} 
               value={appState.controlOptions.isis.templeDistance}
               style={Styles['INFO_CONTROL_INPUT']()} 
               onChange={this.handleChange.bind(this, 'isis', 'templeDistance')}
@@ -91,7 +91,7 @@ export default class InfoLegend extends React.Component {
               {'artefacts range: '}<b>{this._getActualOptionValue('isis', 'artefactDistance')/1000}</b>{'km'}
             </div>
             <Slider 
-              min={0} max={100000} step={10000} 
+              min={0} max={150000} step={10000} 
               value={appState.controlOptions.isis.artefactDistance} 
               style={Styles['INFO_CONTROL_INPUT']()} 
               onChange={this.handleChange.bind(this, 'isis', 'artefactDistance')}

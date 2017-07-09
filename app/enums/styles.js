@@ -148,8 +148,7 @@ var Styles = {
   'INFO_HEADING_H1': () => {
     return {
       fontSize: 28,
-      fontWeight: 700,
-      textDecoration: 'underline'
+      fontWeight: 700
     }
   },
   'INFO_HEADING_H2': () => {
@@ -230,7 +229,7 @@ var Styles = {
   },
   'MODAL': () => {
     return {
-      overflowY: 'scroll'
+      overflowY: 'auto'
     }
   },
   

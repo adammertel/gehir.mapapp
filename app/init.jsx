@@ -14,7 +14,7 @@ window['data'] = {}
 window['map'] = false
 window['newwRefreshMap'] = false
 
-const initTopic = MapTopics.MITHORIG
+const initTopic = MapTopics.ISIS
 
 window['appState'] = {
   infoOpen: false,
@@ -26,8 +26,8 @@ window['appState'] = {
   activeOverlays: [],
   controlOptions: {
     isis: {
-      artefactDistance: 40000,
-      templeDistance: 80000,
+      artefactDistance: 60000,
+      templeDistance: 100000,
       opacityDecrease: 1
     },
     marluc: {
