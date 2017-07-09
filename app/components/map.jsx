@@ -551,7 +551,7 @@ export default class MapContainer extends React.Component {
               "method": "mean",
               "attribute": "p",
               "scale": "size",
-              "domain": [-0.1, 1.1],
+              "domain": [0, 1],
               "range": mithraicColors
           }
         }

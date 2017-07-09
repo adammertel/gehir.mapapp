@@ -48,7 +48,7 @@ var MapStyles = {
         synagogueOpacity: 0.7,
     },
     mithorig: {
-        mithraicColors: ['#d7191c','#fdae61','#a6d96a','#1a9641'],
+        mithraicColors: ['#d7191c','#fdae61','#1a9641'],
         fortColors: ['#cbc9e2','#9e9ac8','#756bb1','#54278f'],
         placeOpacity: 0.7,
         fortOpacity: 0.35,

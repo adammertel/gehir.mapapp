@@ -188,7 +188,7 @@ export default class InfoLegend extends React.Component {
       // congregates
       this.ctx.globalAlpha = 0.8
       const xc = 250
-      this.ctx.strokeStyle = 'grey'
+      this.ctx.strokeStyle = 'black'
       this.ctx.fillStyle = colorsC[0]
       this.ctx.fillRect(xc + 10, hy + 30, 30, 30)
       this.ctx.strokeRect(xc + 10, hy + 30, 30, 30)
@@ -303,17 +303,24 @@ export default class InfoLegend extends React.Component {
       if (map) {
         if (map.getZoom() > 6) {
 
-          // symbols 
           this.ctx.textAlign = 'right' 
-          this._text('one fort', 350, 120)
-          this._text('more forts', 350, 140)
-          this._circleStroke(370, 115, 3, '#54278f', '#54278f')
-          this._circleStroke(370, 135, 5, '#54278f', '#54278f')
-          this._text('mithraic place', 350, 160)
-          this._circleStroke(370, 155, 5, colorsC[0], 'white')
-          this._circleStroke(380, 155, 5, colorsC[1], 'white')
-          this._circleStroke(390, 155, 5, colorsC[2], 'white')
-          this._circleStroke(400, 155, 5, colorsC[3], 'white')
+          // symbols 
+          const sxm = 70
+          const sym = 35 
+          this._text('precise', sxm, sym)
+          this._text('probable', sxm, sym + 15)
+          this._text('dubious', sxm, sym + 30)
+          this._circleStroke(sxm + 20, sym - 3, 5, colorsC[0], 'white')
+          this._circleStroke(sxm + 20, sym + 15 - 3, 5, colorsC[1], 'white')
+          this._circleStroke(sxm + 20, sym + 30 - 3, 5, colorsC[2], 'white')
+
+          const sxf = 300
+          const syf = 35
+          this._text('one fort', sxf, syf)
+          this._text('more forts', sxf, syf + 15)
+          this._circleStroke(sxf + 20, syf - 5, 3, '#54278f', '#54278f')
+          this._circleStroke(sxf + 20, syf + 12, 5, '#54278f', '#54278f')
+
         } else {
 
           // grid
@@ -330,7 +337,6 @@ export default class InfoLegend extends React.Component {
           this._circleStroke(x1 + 45, cy, 10, colorsC[0], 'black')
           this._circleStroke(x1 + 75, cy, 10, colorsC[1], 'black')
           this._circleStroke(x1 + 105, cy, 10, colorsC[2], 'black')
-          this._circleStroke(x1 + 135, cy, 10, colorsC[3], 'black')
 
           // forts
           
@@ -346,7 +352,7 @@ export default class InfoLegend extends React.Component {
             this.ctx.fill()
           }
 
-          this.ctx.globalAlpha = MapStyles.mithorig.fortOpacity * 1.2
+          this.ctx.globalAlpha = MapStyles.mithorig.fortOpacity * 1.5
           this.ctx.fillStyle = colorsF[0]
           hex(x2 + 20, yf, 18)
           this.ctx.fillStyle = colorsF[1]
@@ -362,12 +368,12 @@ export default class InfoLegend extends React.Component {
           this._textBold('number of mithraic places', x1, sy - 30)
           this._textBold('number of forts', x2, sy - 30)
           this._textBold('confidence level', x1, cy - 20)
-          this._text('few', x1 - 10, sy + 20)
-          this._text('lot', x1 + 135, sy + 20)
+          this._text('few', x1 + 10, sy + 20)
+          this._text('lot', x1 + 125, sy + 20)
           this._text('few', x2, yf + 30)
           this._text('lot', x2 + 145, yf + 30)
           this._text('dubious', x1 - 10, cy + 20)
-          this._text('definitive', x1 + 145, cy + 20)
+          this._text('definitive', x1 + 125, cy + 20)
         }
       }
         
