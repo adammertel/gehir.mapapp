@@ -83,7 +83,7 @@ export default class InfoLegend extends React.Component {
       const oy = 50
       const w = this.h / 1.5
       const h = 0.866 * w
-      const composition = 'darken'
+      const composition = 'multiply'
 
       const colors = Object.assign({}, MapStyles.isis.deitiesColors)
 
@@ -156,69 +156,74 @@ export default class InfoLegend extends React.Component {
     
 
     _visualiseMarluc () {
-      const colorsS = MapStyles.marluc.synagogueColors.slice()
-      const colorsC = MapStyles.marluc.congregationColors.slice()
 
-      this.ctx.globalAlpha = 1
-      // congregations
-      const xc = 30
-      // number of congregations
-      const ycn = 65
-      const xcnd = 60
-      this._circleStroke(xc + xcnd, ycn, 5, 'grey', 'black')
-      this._circleStroke(xc + xcnd + 25, ycn, 10, 'grey', 'black')
-      this._circleStroke(xc + xcnd + 60, ycn, 15, 'grey', 'black')
+      this._textHead('christian congregations', 30, 15)
+      this._textHead('jewish synagogues', 250, 15)
 
-      // mean age of congregations
-      const yca = 135
-      const xcad = 75
-      this._circleStroke(xc + xcad, yca, 7, colorsC[0], 'black')
-      this._circleStroke(xc + xcad + 25, yca, 7, colorsC[2], 'black')
-      this._circleStroke(xc + xcad + 50, yca, 7, colorsC[4], 'black')
-
-
-      // synagogues
-      const xs = 250
-      const xsd = 40
-      const ys = 15
-      this.ctx.strokeStyle = 'black'
-      this.ctx.fillStyle = colorsS[0]
-    
-      this.ctx.fillRect(xs + xsd, ys + 30, 30, 30)
-      this.ctx.strokeRect(xs + xsd, ys + 30, 30, 30)
-      this.ctx.fillStyle = colorsS[2]
-      this.ctx.fillRect(xs + xsd + 40, ys + 30, 30, 30)
-      this.ctx.strokeRect(xs + xsd + 40, ys + 30, 30, 30)
-      this.ctx.fillStyle = colorsS[4]
-      this.ctx.fillRect(xs + xsd + 80, ys + 30, 30, 30)
-      this.ctx.strokeRect(xs + xsd + 80, ys + 30, 30, 30)
-
-      this.ctx.fillStyle = 'black'
-      
-      // synagogues aux text
-      this._text('few', xs + 10, ycn)
-      this._text('lot', xs + 160, ycn)
-
-      // congregations aux text
-      this._text('100AD', xc + 20, yca + 5)
-      this._text('304AD', xc + 150, yca + 5)
-      this._text('few', xc + 30, ycn + 5)
-      this._text('lot', xc + 150, ycn + 5)
-
-      this._textHead('christian congregations', xc, ys)
-      this._textBold('number of congregations', xc, ycn - 30)
-      this._textBold('average year of origins', xc, yca - 20)
-      this._textHead('jewish synagogues', xs, ys)
-      this._textBold('number of synagogues in cell', xs, ycn - 30)
-
-      // symbols
       if (map) {
+        // symbols
         if (map.getZoom() > 6) {
           this.ctx.textAlign='right' 
-          this._text('synagogue', 350, 120)
-          this._circleStroke(370, 115, 5, '#bd0026', '#bd0026')
-          this._text('christian congregations', 350, 140)
-          this._circleStroke(370, 135, 3, '#016c59', '#016c59')
+          this._text('christian congregations', 155, 30 + 5)
+          this._circleStroke(175, 30, 3, '#016c59', '#016c59')
+          this._text('synagogue', 310, 30 + 5)
+          this._circleStroke(330, 30, 5, '#bd0026', '#bd0026')
+        } else {
+
+          // grid
+          const colorsS = MapStyles.marluc.synagogueColors.slice()
+          const colorsC = MapStyles.marluc.congregationColors.slice()
+
+          this.ctx.globalAlpha = 1
+          // congregations
+          const xc = 30
+          // number of congregations
+          const ycn = 65
+          const xcnd = 60
+          this._circleStroke(xc + xcnd, ycn, 5, 'grey', 'black')
+          this._circleStroke(xc + xcnd + 25, ycn, 10, 'grey', 'black')
+          this._circleStroke(xc + xcnd + 60, ycn, 15, 'grey', 'black')
+
+          // mean age of congregations
+          const yca = 135
+          const xcad = 75
+          this._circleStroke(xc + xcad, yca, 7, colorsC[0], 'black')
+          this._circleStroke(xc + xcad + 25, yca, 7, colorsC[2], 'black')
+          this._circleStroke(xc + xcad + 50, yca, 7, colorsC[4], 'black')
+
+
+          // synagogues
+          const xs = 250
+          const xsd = 40
+          const ys = 15
+          this.ctx.strokeStyle = 'black'
+          this.ctx.fillStyle = colorsS[0]
+        
+          this.ctx.fillRect(xs + xsd, ys + 30, 30, 30)
+          this.ctx.strokeRect(xs + xsd, ys + 30, 30, 30)
+          this.ctx.fillStyle = colorsS[2]
+          this.ctx.fillRect(xs + xsd + 40, ys + 30, 30, 30)
+          this.ctx.strokeRect(xs + xsd + 40, ys + 30, 30, 30)
+          this.ctx.fillStyle = colorsS[4]
+          this.ctx.fillRect(xs + xsd + 80, ys + 30, 30, 30)
+          this.ctx.strokeRect(xs + xsd + 80, ys + 30, 30, 30)
+
+          this.ctx.fillStyle = 'black'
+          
+          // synagogues aux text
+          this._text('few', xs + 10, ycn)
+          this._text('lot', xs + 160, ycn)
+
+          // congregations aux text
+          this._text('100AD', xc + 20, yca + 5)
+          this._text('304AD', xc + 150, yca + 5)
+          this._text('few', xc + 30, ycn + 5)
+          this._text('lot', xc + 150, ycn + 5)
+
+          this._textBold('number of congregations', xc, ycn - 30)
+          this._textBold('average year of origins', xc, yca - 20)
+          this._textBold('number of synagogues in cell', xs, ycn - 30)
+
         }
       }
     }
