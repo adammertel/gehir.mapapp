@@ -237,13 +237,13 @@ export default class InfoLegend extends React.Component {
         const xr = xi + 115
         const yr = yi -15
         this.ctx.strokeStyle = MapStyles.christrome.contourColor
-        this.ctx.fillStyle = colors[1]
+        this.ctx.fillStyle = colors[3]
         this.ctx.fillRect(xr, yr + 1 * line, 40, 20)
         this.ctx.strokeRect(xr, yr + 1 * line, 40, 20)
         this.ctx.fillStyle = colors[2]
         this.ctx.fillRect(xr, yr + 2 * line, 40, 20)
         this.ctx.strokeRect(xr, yr + 2 * line, 40, 20)
-        this.ctx.fillStyle = colors[3]
+        this.ctx.fillStyle = colors[1]
         this.ctx.fillRect(xr, yr + 3 * line, 40, 20)
         this.ctx.strokeRect(xr, yr + 3 * line, 40, 20)
         this.ctx.fillStyle = colors[0]

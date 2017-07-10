@@ -116,6 +116,12 @@ export default class InfoLegend extends React.Component {
     }
 
     visualiseMarluc() {
+
+      let synagoguesDate = this._getActualOptionValue('marluc', 'synagogueDateBefore')
+      synagoguesDate = synagoguesDate < 0 ? 
+        Math.abs(synagoguesDate) + ' BC' :
+        Math.abs(synagoguesDate) + ' AD'
+
       return (
         <div>
           <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
@@ -128,22 +134,22 @@ export default class InfoLegend extends React.Component {
           >
             <RadioButton
               value="100"
-              label="before year 100"
+              label="before 100 AD"
             />
             <RadioButton
               value="200"
-              label="before year 200"
+              label="before 200 AD"
             />
             <RadioButton
               value="304"
-              label="before year 304"
+              label="before 304 AD"
             />
           </RadioButtonGroup>
           <p />
           <br />
           <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
             <div style={Styles['INFO_CONTROL_INPUT_LABEL']()}>
-              {'synagogues build before year: '}<b>{this._getActualOptionValue('marluc', 'synagogueDateBefore')}</b>
+              {'synagogues build before year: '}<b>{synagoguesDate}</b>
             </div>
             <Slider 
               min={-250} max={400} step={10} 

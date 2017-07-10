@@ -14,7 +14,7 @@ window['data'] = {}
 window['map'] = false
 window['newwRefreshMap'] = false
 
-const initTopic = MapTopics.MARLUC
+const initTopic = MapTopics.CHRISTROME
 
 window['appState'] = {
   infoOpen: false,
