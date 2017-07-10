@@ -32,7 +32,7 @@ window['appState'] = {
       opacityDecrease: 0
     },
     marluc: {
-      synagogueDateBefore: 400,
+      synagogueDateBefore: 200,
       congregationsYear: '200'
     },
     christrome: {
@@ -47,6 +47,7 @@ window['appState'] = {
     }
   }
 }
+
 
 Object.keys(MapTopics).map( mapTopicKey => {
   const mapTopic = MapTopics[mapTopicKey]

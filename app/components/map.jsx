@@ -425,37 +425,38 @@ export default class MapContainer extends React.Component {
     */
     visualiseMarluc() {
       const synagogueRules = {
-        markers: {
-            "radius": {
-                "method": "count",
-                "attribute": "",
-                "scale": "continuous",
-                "domain": [1, 20],
-                "range": [5, 15]
-            },
-            "fillOpacity": MapStyles.marluc.synagogueOpacity,
-            "weight": 1,
-            "color": "black",
-            "fillColor": {
-                "method": "min",
-                "attribute": "date",
-                "scale": "size",
-                "domain": [-250, 400],
-                "range": MapStyles.marluc.synagogueColors
-            },
-        }
-      }
-      const congregationsRules = {
         cells: {
             "fillColor": {
                 "method": "count",
                 "attribute": "",
                 "scale": "size",
-                "range": MapStyles.marluc.congregationColors
+                "domain": [0, 30],
+                "range": MapStyles.marluc.synagogueColors
+            },
+            "fillOpacity": MapStyles.marluc.synagogueOpacity,
+            "weight": 1,
+            "color": "black"
+        }
+      }
+      const congregationsRules = {
+        markers: {
+            "radius": {
+              "method": "count",
+              "attribute": "",
+              "scale": "continuous",
+              "domain": [0, 40],
+              "range": [3, 10]
+            },
+            "fillColor": {
+              "method": "mean",
+              "attribute": "t",
+              "scale": "size",
+              "domain": [100, 305],
+              "range": MapStyles.marluc.congregationColors
             },
             "fillOpacity": MapStyles.marluc.congregationOpacity,
             "weight": 1,
-            "color": 'grey'
+            "color": 'black'
         },
       }
 
@@ -466,16 +467,16 @@ export default class MapContainer extends React.Component {
           showCells: false,
           zoomShowElements: 7,
           gridOrigin: {lat: 20, lng: -10},
-          zoomHideGrid: 8,
+          zoomHideGrid: 7,
           zoneSize: 6000,
       }
 
       const congregationsGrid = L.regularGridCluster( 
-        Object.assign(marlucOptions, {showCells: true, rules: congregationsRules})
+        Object.assign(marlucOptions, {showMarkers: true, rules: congregationsRules})
       );
 
       const synagogueGrid = L.regularGridCluster( 
-        Object.assign(marlucOptions, {showMarkers: true, rules: synagogueRules})
+        Object.assign(marlucOptions, {showCells: true, rules: synagogueRules})
       );
 
       const synagoguePoints = data.synagogues.features.filter(synagogue => {
@@ -505,7 +506,7 @@ export default class MapContainer extends React.Component {
             ).bindTooltip(
               'christian congregation <b>' + congregation.properties.n + '</b>'
             ),
-          properties: {}
+          properties: congregation.properties
         }
       })
 

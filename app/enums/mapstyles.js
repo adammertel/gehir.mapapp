@@ -42,10 +42,10 @@ var MapStyles = {
         } 
     },
     marluc: {
-        synagogueColors: ['#feb24c','#fd8d3c','#f03b20','#bd0026'],
-        congregationColors: ['#ffffcc','#c2e699','#78c679','#238443'],
-        congregationOpacity: 0.35,
-        synagogueOpacity: 0.7,
+        synagogueColors: ['#edf8e9','#bae4b3','#74c476','#31a354','#006d2c'],
+        congregationColors: ['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026'],
+        congregationOpacity: 0.7,
+        synagogueOpacity: 0.6,
     },
     mithorig: {
         mithraicColors: ['#d7191c','#fdae61','#1a9641'],
@@ -54,5 +54,7 @@ var MapStyles = {
         fortOpacity: 0.35,
     }
 }
+
+MapStyles.marluc.congregationColors.reverse()
 
 module.exports = MapStyles
