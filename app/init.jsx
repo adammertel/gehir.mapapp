@@ -14,7 +14,7 @@ window['data'] = {}
 window['map'] = false
 window['newwRefreshMap'] = false
 
-const initTopic = MapTopics.ISIS
+const initTopic = MapTopics.MARLUC
 
 window['appState'] = {
   infoOpen: false,
@@ -33,7 +33,7 @@ window['appState'] = {
     },
     marluc: {
       synagogueDateBefore: 400,
-      congregatesYear: '200'
+      congregationsYear: '200'
     },
     christrome: {
       churchRadius: 80,

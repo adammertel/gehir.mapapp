@@ -445,15 +445,15 @@ export default class MapContainer extends React.Component {
             },
         }
       }
-      const congregatesRules = {
+      const congregationsRules = {
         cells: {
             "fillColor": {
                 "method": "count",
                 "attribute": "",
                 "scale": "size",
-                "range": MapStyles.marluc.congregateColors
+                "range": MapStyles.marluc.congregationColors
             },
-            "fillOpacity": MapStyles.marluc.congregateOpacity,
+            "fillOpacity": MapStyles.marluc.congregationOpacity,
             "weight": 1,
             "color": 'grey'
         },
@@ -470,8 +470,8 @@ export default class MapContainer extends React.Component {
           zoneSize: 6000,
       }
 
-      const congregatesGrid = L.regularGridCluster( 
-        Object.assign(marlucOptions, {showCells: true, rules: congregatesRules})
+      const congregationsGrid = L.regularGridCluster( 
+        Object.assign(marlucOptions, {showCells: true, rules: congregationsRules})
       );
 
       const synagogueGrid = L.regularGridCluster( 
@@ -494,25 +494,25 @@ export default class MapContainer extends React.Component {
         }
       })
 
-      const congregatesPoints = data.congregates.features.filter( congregate => {
-        return parseInt(congregate.properties.t, 10) <= parseInt(appState.controlOptions.marluc.congregatesYear, 10)
-      }).map(congregate => {
+      const congregationsPoints = data.congregations.features.filter( congregation => {
+        return parseInt(congregation.properties.t, 10) <= parseInt(appState.controlOptions.marluc.congregationsYear, 10)
+      }).map(congregation => {
         return {
           marker: 
             L.circleMarker(
-              turf.flip(congregate.geometry).coordinates, 
-              {radius: 3, className: 'map-congregates'}
+              turf.flip(congregation.geometry).coordinates, 
+              {radius: 3, className: 'map-congregations'}
             ).bindTooltip(
-              'christian congregation <b>' + congregate.properties.n + '</b>'
+              'christian congregation <b>' + congregation.properties.n + '</b>'
             ),
           properties: {}
         }
       })
 
-      congregatesGrid.addLayers(congregatesPoints)
+      congregationsGrid.addLayers(congregationsPoints)
       synagogueGrid.addLayers(synagoguePoints)
       this.dataLayers.push(synagogueGrid)
-      this.dataLayers.push(congregatesGrid)
+      this.dataLayers.push(congregationsGrid)
     }
 
 

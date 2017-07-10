@@ -157,7 +157,7 @@ export default class InfoLegend extends React.Component {
 
     _visualiseMarluc () {
       const colorsS = MapStyles.marluc.synagogueColors.slice()
-      const colorsC = MapStyles.marluc.congregateColors.slice()
+      const colorsC = MapStyles.marluc.congregationColors.slice()
 
       const hy = 15
       this._textHead('jewish synagogues', 30, hy)
@@ -185,7 +185,7 @@ export default class InfoLegend extends React.Component {
       this._text('few', x - 20, ny + 30)
       this._text('lot', x + 80, ny + 30)
 
-      // congregates
+      // congregations
       this.ctx.globalAlpha = 0.8
       const xc = 250
       this.ctx.strokeStyle = 'black'
@@ -201,8 +201,8 @@ export default class InfoLegend extends React.Component {
 
       this.ctx.globalAlpha = 1
       this.ctx.fillStyle = 'black'
-      this._textHead('christian congregates', xc, hy)
-      this._textBold('number of congregates', xc, ny - 30)
+      this._textHead('christian congregations', xc, hy)
+      this._textBold('number of congregations', xc, ny - 30)
       this._text('few', xc - 20, ny)
       this._text('lot', xc + 130, ny)
       this._textBold('the oldest synagogue in cell', 30, ty - 20)
@@ -214,7 +214,7 @@ export default class InfoLegend extends React.Component {
           this.ctx.textAlign='right' 
           this._text('synagogue', 350, 120)
           this._circleStroke(370, 115, 5, '#bd0026', '#bd0026')
-          this._text('christian congregate', 350, 140)
+          this._text('christian congregations', 350, 140)
           this._circleStroke(370, 135, 3, '#016c59', '#016c59')
         }
       }

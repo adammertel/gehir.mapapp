@@ -132,12 +132,12 @@ export default class InfoLegend extends React.Component {
           </div>
 
           <div style={Styles['INFO_CONTROL_INPUT_LABEL']()} >
-              {'christrian congregates: '}<b></b>
+              {'christrian congregations: '}<b></b>
           </div>
           <RadioButtonGroup 
-            style={Styles["INFO_CONTROL_RADIO_WRAPPER"]()} name="congregatesYear" 
-            valueSelected={this._getActualOptionValue('marluc', 'congregatesYear')}
-            onChange={this.handleChangeAndRun.bind(this, 'marluc', 'congregatesYear')}
+            style={Styles["INFO_CONTROL_RADIO_WRAPPER"]()} name="congregationsYear" 
+            valueSelected={this._getActualOptionValue('marluc', 'congregationsYear')}
+            onChange={this.handleChangeAndRun.bind(this, 'marluc', 'congregationsYear')}
           >
             <RadioButton
               value="100"

@@ -58,17 +58,17 @@ var MapTopics = {
   'MARLUC': {
     dataFiles: [
       {path: 'synagogues', type: 'geojson', name: 'synagogues'},
-      {path: 'congregates', type: 'geojson', name: 'congregates'}
+      {path: 'congregations', type: 'geojson', name: 'congregations'}
     ],
-    infoHeading: 'Early christian congregates and jewish synagogues',
-    infoSubHeading: 'Early christian congregates and jewish synagogues',
+    infoHeading: 'Early christian congregations and jewish synagogues',
+    infoSubHeading: 'Early christian congregations and jewish synagogues',
     historicalContext: 'Nullam id bibendum ligula. Vivamus posuere tortor lorem, a hendrerit ipsum luctus sit amet. Etiam lectus tortor, posuere eu tortor non, blandit vehicula lacus. Mauris urna quam, semper ut ex quis, pharetra vulputate velit. Integer et augue ut arcu convallis ultricies. Vestibulum fermentum ornare nisi, vel lacinia eros convallis vel. Proin tristique metus id nisl convallis, lobortis accumsan sem vehicula. Ut varius massa at ligula ullamcorper, ut fringilla leo egestas.',
     bibliography: [
       'Van der Meer, Frederik, and Christine Mohrmann. Atlas of the Early Christian World. Nelson, 1958.', 
       'Runesson, Anders, Donald D. Binder, and Birger Olsson, eds. The ancient synagogue from its origins to 200 CE: a source book. Vol. 72. Brill, 2008.'
     ],
     cartographicContext: 'Nullam id bibendum ligula. Vivamus posuere tortor lorem, a hendrerit ipsum luctus sit amet. Etiam lectus tortor, posuere eu tortor non, blandit vehicula lacus. Mauris urna quam, semper ut ex quis, pharetra vulputate velit. Integer et augue ut arcu convallis ultricies. Vestibulum fermentum ornare nisi, vel lacinia eros convallis vel. Proin tristique metus id nisl convallis, lobortis accumsan sem vehicula. Ut varius massa at ligula ullamcorper, ut fringilla leo egestas.',
-    label: 'Christian congregates',
+    label: 'Christian congregations',
     originLatLng: [32,25],
     originZoom: 5,
   },
