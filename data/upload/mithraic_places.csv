@@ -1,0 +1,484 @@
+Details,subtype,ancient-find-spot,modern-find-sport,province-or-italic-region,modern-country,DARE-no.,GPSX,GPSY,relevance
+Ach-Place-001 Andros,town,Andros,"Palaiopolis, Andros",Achaia,Greece,39550,24.82693,37.81579,4
+Ach-Place-002 Athenai,city,"Athenae, Athenai","AthĂ­na, Athens",Achaia,Greece,10975,23.72646,37.97169,2
+Ach-Place-003 Eleusis,city,Eleusis,Elefsina,Achaia,Greece,21987,23.53772,38.04098,0
+Ach-Place-004 Patrae,city,"Patrae, Patra",Patras,Achaia,Greece,21942,21.73852,38.24327,2
+Aeg-Place-001 Alexandria,city,Alexandria,Alexandria,Aegyptus,Egypt,15898,29.90413,31.19537,4
+Aeg-Place-002 Memphis,city,Memphis,Mit Rahina,Aegyptus,Egypt,21137,31.25428,29.84967,4
+Aeg-Place-003 Oxyrhynchus,city,"Oxyrhynchus, Oxyrynchopolis, Iustinopolis, Nea Ioustinou Polis, Pemje",El Bahnasa,Aegyptus,Egypt,22142,30.65172,28.54257,1
+AfrPro-Place-001 Carthago,city,Carthago,Carthago,Africa Proconsularis,Tunisia,15897,10.32306,36.85306,1
+AfrPro-Place-002 Leptis Magna,city,"Lepcis Magna, Neapolis","Leptis Magna, Khoms",Africa Proconsularis,Libya,21127,14.29056,32.63917,2
+AfrPro-Place-003 Sabratha,city,"Sabratha, Abrotonum",Sabratha,Africa Proconsularis,Lybia,21128,12.48364,32.80471,1
+AfrPro-Place-004 Tiddis,town,"Tiddis, Castellum Tidditanorum",Tiddis,Africa Proconsularis,Algeria,22630,6.48321,36.46273,2
+AfrPro-Place-005 Cirta,city,"Cirta, Constantina",Constantine,Africa Proconsularis,Algeria,21642,6.61256,36.36819,4
+AfrPro-Place-006 Diana Veteranorum,city,Diana Veteranorum,AĂŻn Zana,Africa Proconsularis,Algeria,22111,6.0803,35.77969,1
+AfrPro-Place-007 Lambaesis,fortress,Lambaesis,"LambĂ¨se, Tazoult",Africa Proconsularis,Algeria,21644,6.25472,35.49011,5
+AfrPro-Place-008 Mascula,city,Mascula Tiberia,Khenchela,Africa Proconsularis,Algeria,22110,7.15003,35.43334,1
+AfrPro-Place-009 Rusicade,city,"Rusicade, Thapsus","Skikda,",Africa Proconsularis,Algeria,21627,6.90496,36.87964,4
+AfrPro-Place-010 Sidi Okba,,,Sidi Okba,Africa Proconsularis,Algeria,,5.904163,34.75175,4
+AfrPro-Place-011 Thamugadi,city,Thamugadi,Timgad,Africa Proconsularis,Algeria,21651,6.46864,35.48517,1
+Aqu-Place-001 Burdigala,city,Burdigala,Bordeaux,Aquitania,France,147,-0.57918,44.83779,4
+Aqu-Place-002 Elusa,civitas,Elusa,Eauze,Aquitania,France,401,0.1032,43.8611,2
+Aqu-Place-003 Lezoux,town,,Lezoux,Aquitania,France,12333,3.37804,45.82699,2
+Aqu-Place-004 St. Aubin,villa,,Saint Aubin,Aquitania,France,19413,0.3754,48.49761,1
+As-Place-001 Colophon,city,Colophon,DeÄźirmendere,Asia,Turkey,21170,27.14222,38.11556,1
+Bae-Place-001 Igabrum,city,Igabrum,Cabra,Baetica,Spain,16844,-4.44755,37.47115,1
+Bae-Place-002 Italica,city,Italica,Santiponce,Baetica,Spain,16834,-6.04344,37.44141,1
+Bae-Place-003 Malaca,city,Malaca,MĂˇlaga,Baetica,Spain,16832,-4.42002,36.71965,2
+Bae-Place-004 Munda,town,Munda,Cerro de las Camorras,Baetica,Spain,31292,-5.19621,37.37622,1
+Bae-Place-005 Carmo,town,Carmo,Carmona,Baetica,Spain,22229,-5.63322,37.47267,0
+Bel-Place-001 Augusta Treverorum,city,Augusta Treverorum,Trier,Belgica,Germany,2,6.64376,49.75623,4
+Bel-Place-002 Champlieu,temple,,Champlieu,Belgica,France,13002,2.85374,49.30994,1
+Bel-Place-003 Donobriga,,Donobriga,Deneuvre,Belgica,France,,6.7372,48.4442,1
+Bel-Place-004 Pons Saravi,town,Pons Saravi,"Sarrebourg, Saarburg",Belgica,France,2008,7.05148,48.7348,4
+Bel-Place-005 SaarbrĂĽcken,town,,SaarbrĂĽcken,Belgica,Germany,1980,7.02418,49.22383,2
+Bel-Place-006 St. Wendel,,,St. Wendel,Belgica,Germany,,7.163959,49.469502,1
+Bel-Place-007 Geminiacum,town,Geminiacum?,"Les Bons Villers, Liberchies",Belgica,Belgium,2067,4.44349,50.51455,1
+Bri-Place-001 Alauna,fort,"Alauna, Alione",Maryport,Britannia,Great Britain,23702,-3.49391,54.72089,0
+Bri-Place-002 Bremenium,fort,Bremenium,High Rochester,Britannia,Great Britain,22985,-2.26602,55.28124,4
+Bri-Place-003 Brocolitia,fort,Brocolitia,Carrawburgh,Britannia,Great Britain,23091,-2.22254,55.03385,4
+Bri-Place-004 Camulodunum,city,Camulodunum,Colchester,Britannia,Great Britain,20678,0.90068,51.89083,0
+Bri-Place-005 Deva,fortress,Deva,Chester,Britannia,Great Britain,20684,-2.89194,53.18955,2
+Bri-Place-006 Eboracum,city,"Eburacum, Eboracum",York,Britannia,Great Britain,20679,-1.08711,53.95702,2
+Bri-Place-007 Isca,fortress,"Isca, Isca Silurum",Caerleon,Britannia,Great Britain,20687,-2.95524,51.61034,2
+Bri-Place-008 Londinium,city,Londinium,London,Britannia,Great Britain,1888,-0.09918,51.51251,4
+Bri-Place-009 Longovicium,fort,Longovicium,Lanchester,Britannia,Great Britain,22984,-1.75338,54.81659,1
+Bri-Place-010 Luguvalium,city,Luguvalium,Carlisle,Britannia,Great Britain,20692,-2.94175,54.89698,2
+Bri-Place-011 Segontium,fort,"Segontium, Seguntium","Caernarfon, Caernarvon",Britannia,Great Britain,22972,-4.26589,53.13724,4
+Bri-Place-012 Uxelodunum,fort,"Uxelodunum,Uxelodum, Petrianum",Stanwix,Britannia,Great Britain,22976,-2.9344,54.90507,2
+Bri-Place-013 Vercovicium,fort,Vercovicium,Housesteads,Britannia,Great Britain,22951,-2.33027,55.01332,4
+Bri-Place-014 Verulamium,city,Verulamium,St Alban,Britannia,Great Britain,20699,-0.35858,51.75292,2
+Bri-Place-015 Vindovala,fort,Vindovala,Rudchester,Britannia,Great Britain,23089,-1.8256,55.00235,4
+Bri-Place-016 Epiakon,fort,"Epiakon, Epiacum",Whitley Castle,Britannia,Great Britain,23082,-2.47661,54.83196,2
+Bri-Place-017 Inveresk,fort,"Coritiotar, Coria",Inveresk,Britannia,Great Britain,25318,-3.05487,55.93653,4
+Cap-Place-001 Caesarea,city,"Caesarea, Kaisareia, Mazaka, Eusebeia",Kayseri,Capadocia,Turkey,21242,35.48355,38.73325,1
+Cap-Place-002 Tyana,city,"Tyana, Colonia Aurelia Antoniniana",Kemerhisar,Capadocia,Turkey,21243,34.56838,37.81732,1
+Cil-Place-001 Anazarbos,city,"Anazarbos, Anazarva, Caesarea ad Anazarbum, Ioustinianoupolis, Ioustinoupolis","Anavarza, Dilekkaya",Cilicia,Turkey,21496,35.89835,37.25564,1
+CyrCre-Place-001 Cyrene,city,Cyrene,Shahhat,Cyrenaica et Creta,Libya,21126,21.85617,32.81874,2
+Dac-Place-001 AlsĂłbajom,,,"AlsĂłbajom, Boian",Dacia,Romania,,24.228326,46.201652,1
+Dac-Place-002 Apulum,City,Apulum,Alba Julia,Dacia,Romania,21776,23.57232,46.0667,5
+Dac-Place-003 Aquae,station,Aquae,"Cioroiul Nou, CioroiaĹźi",Dacia,Romania,,23.433215,44.064031,2
+Dac-Place-004 BotoČ™eČ™ti Paia,,,BotoČ™eČ™ti Paia,Dacia,Romania,,23.258611,44.404371,2
+Dac-Place-005 BumbeČ™ti-Jiu,,,BumbeČ™ti-Jiu,Dacia,Romania,,23.380945,45.179205,2
+Dac-Place-006 Ceanu Mic,,,Ceanu Mic,Dacia,Romania,,23.709224,46.642595,1
+Dac-Place-007 CinĂ§sor,,,CinĂ§sor,Dacia,Romania,,24.833534,45.837721,3
+Dac-Place-008 Decea MureĹźului,,,Decea MureĹźului,Dacia,Romania,,23.762935,46.38322,4
+Dac-Place-009 Dierna,,Dierna,OrČ™ova,Dacia,Romania,21387,22.40764,44.73826,2
+Dac-Place-010 Dragu,town,,Dragu,Dacia,Romania,33462,23.3917,47.0382,1
+Dac-Place-011 Drobeta,city,Drobeta,Drobeta-Turnu Severin,Dacia,Romania,21375,22.65398,44.62296,2
+Dac-Place-012 Micia,fort,Micia,VeĹŁel,Dacia,Romania,21317,22.81631,45.91313,4
+Dac-Place-013 Napoca,city,Napoca,Cluj-Napoca,Dacia,Romania,21777,23.5884,46.76966,2
+Dac-Place-014 Oarda de Sus,,,Oarda de Sus,Dacia,Romania,,23.590419,46.021722,2
+Dac-Place-015 Ocna Sibiului,fort,,Ocna Sibiului,Dacia,Romania,45609,24.0535,45.88003,1
+Dac-Place-016 Ozd,,,Ozd,Dacia,Romania,,24.117191,46.357828,2
+Dac-Place-017 Pojejena,fort,,"Pojejena, ĹžitarniĹŁa",Dacia,Romania,34854,21.57,44.77335,3
+Dac-Place-018 Potaissa,city,Potaissa,Turda,Dacia,Romania,21775,23.77273,46.57054,3
+Dac-Place-019 Romula,city,"Romula, Malva","ReĹźca, Dobrosloveni",Dacia,Romania,22993,24.39383,44.1724,3
+Dac-Place-020 SÄcÄdate,,,SÄcÄdate,Dacia,Romania,,24.3886,45.760219,1
+Dac-Place-021 Sacidava,station,"Sacidava, Acidava",DoĹźtat,Dacia,Romania,36505,23.84211,45.97117,4
+Dac-Place-022 Sarmizegetusa,city,"Sarmizgetusa, Ulpia Traiana Sarmizegetusa",Sarmizegetusa,Dacia,Romania,19910,22.7888,45.51343,5
+Dac-Place-023 SfinČ›eČ™ti,,,SfinČ›eČ™ti,Dacia,Romania,,25.099289,44.190149,1
+Dac-Place-024 SlÄveni,fort,,SlÄveni,Dacia,Romania,34228,24.52917,44.08196,4
+Dac-Place-025 Sucidava,,Sucidava,"Celei, Corabia",Dacia,Romania,23732,24.4591,43.7644,3
+Dac-Place-026 Tibiscum,city,Tibiscum,"Jupa, Obreja",Dacia,Romania,22618,22.18701,45.47604,1
+Dal-Place-001 Aequum,city,Aequum,"ÄŚitluk, Sinj",Dalmatia,Croatia,13913,16.656,43.739,2
+Dal-Place-002 Arba,town,Arba,Rab,Dalmatia,Croatia,13856,14.76193,44.75412,1
+Dal-Place-003 Arupium,town,Arupium,Prozor,Dalmatia,Croatia,13859,15.269,44.849,5
+Dal-Place-004 Banjevac,,,Banjevac,Dalmatia,Serbia,,19.400524,44.348924,1
+Dal-Place-005 BihaÄ‡,,,BihaÄ‡,Dalmatia,Bosnia and Herzegovina,,15.870082,44.814013,1
+Dal-Place-006 Bioska,,,Bioska,Dalmatia,Serbia,,19.664299,43.85569,1
+Dal-Place-007 Boka Kotorska,,,Boka Kotorska,Dalmatia,Montenegro,,18.643704,42.538808,1
+Dal-Place-008 Brattia,island,Brattia,BraÄ‡,Dalmatia,Croatia,41391,16.63559,43.32709,2
+Dal-Place-009 Burnum,city,Burnum,"Plavno Polje/IvoĹˇevci, Kistanje",Dalmatia,Croatia,13907,16.02562,44.01891,2
+Dal-Place-010 Crikvine,,Clissa,"Crikvine, Klis",Dalmatia,Croatia,,16.552254,43.578546,4
+Dal-Place-011 Epidaurum,city,Epidaurum,"Cavtat, Konavle",Dalmatia,Croatia,13933,18.21887,42.58103,1
+Dal-Place-012 Iader,city,Iader,Zadar,Dalmatia,Croatia,13857,15.22453,44.11554,1
+Dal-Place-013 Sapua,station,Sapua,Jajce,Dalmatia,Bosnia and Herzegovina,13891,17.407,44.301,4
+Dal-Place-014 Jezerine,,,Jezerine,Dalmatia,Bosnia and Herzegovina,,18.416036,42.891435,1
+Dal-Place-015 Juraj,,,Juraj,Dalmatia,Croatia,,18.236281,42.579626,4
+Dal-Place-016 Konjic,,,Konjic,Dalmatia,Bosnia and Herzegovina,,17.95933,43.653836,4
+Dal-Place-017 MoÄŤiÄ‡i,,,MoÄŤiÄ‡i,Dalmatia,Croatia,,18.24851,42.56147,4
+Dal-Place-018 Narona,city,Narona,"Vid, MetkoviÄ‡",Dalmatia,Croatia,13927,17.62805,43.08035,2
+Dal-Place-019 Lever Tara,,,Lever Tara,Dalmatia,Monte Negro,,19.2483,43.1811,4
+Dal-Place-020 Potoci,,,"Potoci, Mostar",Dalmatia,Bosnia and Herzegovina,,17.874789,43.410808,2
+Dal-Place-021 Pritoka,,,"Pritoka, BihaÄ‡",Dalmatia,Bosnia and Herzegovina,,15.92511,44.793043,2
+Dal-Place-022 Raetinium,,Raetinium,"GolubiÄ‡, BihaÄ‡",Dalmatia,Bosnia and Herzegovina,13872,15.92372,44.78595,2
+Dal-Place-023 Rider,city,Rider,Danilo,Dalmatia,Croatia,13904,16.05906,43.70335,1
+Dal-Place-024 Rogatica,city,Ris(...),Rogatica,Dalmatia,Bosnia and Herzegovina,22954,19.00428,43.80166,1
+Dal-Place-025 Salona,city,Salona,Solin,Dalmatia,Croatia,10939,16.48365,43.53814,3
+Dal-Place-026 Senia,city,Senia,Senj,Dalmatia,Croatia,10946,14.90088,44.99056,4
+Dal-Place-027 SinaÄ‡,,,SinaÄ‡,Dalmatia,Croatia,,15.331505,44.829344,1
+Dal-Place-028 Malvesia,city,"Malvesia, Malvesa",Skelani,Dalmatia,Bosnia and Herzegovina,23361,19.53333,43.96667,1
+Dal-Place-029 Staro Selo,,,Staro Selo,Dalmatia,Bosnia and Herzegovina,,17.321143,44.237946,2
+Dal-Place-030 Aufustianis,station,Aufustianis,"Tkanice,Tihaljina",Dalmatia,Bosnia and Herzegovina,13926,17.362,43.322,1
+Dal-Place-031 LiĹˇiÄŤiÄ‡i,,,LiĹˇiÄŤiÄ‡i,Dalmatia,Bosnia and Herzegovina,,17.883776,43.697938,2
+Dal-Place-032 Donje Mile,,,Donje Mile,Dalmatia,Bosnia and Herzegovina,,17.229664,44.351448,1
+Dal-Place-033 Dardagan,,,"Dardagan, Zvornik",Dalmatia,Bosnia and Herzegovina,,19.087153,44.431703,1
+Lug-Place-001 Alesia,iron age oppidum,Alesia,Alise-Sainte-Reine,Gallia Lugdunensis,France,18691,4.50388,47.53662,2
+Lug-Place-002 Dyo,,,"Dyo, Saint-Germain-en-Brionnais",Gallia Lugdunensis,France,,4.275977,46.360659,2
+Lug-Place-003 Intaranum,station,Intaranum,Entrains-sur-Nohain,Gallia Lugdunensis,France,2245,3.2564,47.4637,4
+Lug-Place-004 Iuliobona,town,Iuliobona,Lillebonne,Gallia Lugdunensis,France,2051,0.53606,49.51786,4
+Lug-Place-005 Les Bolards,town,,"Les Bolards, Nuits-Saint-Georges",Gallia Lugdunensis,France,2223,4.95943,47.12384,4
+Lug-Place-006 Lugudunum,city,Lugudunum,Lyon,Gallia Lugdunensis,France,105,4.81983,45.75968,2
+Lug-Place-007 Septeuil,temple,,Septeuil,Gallia Lugdunensis,France,16270,1.67122,48.89779,4
+Lug-Place-008 Angers,town,"Iuliomagus, Andecavis",Angers,Gallia Lugdunensis,France,123,-0.55495,47.47057,4
+GaN-Place-001 Apta Iulia,civitas,Apta Iulia,Apt,Gallia Narbonensis,France,174,5.39717,43.87614,3
+GaN-Place-002 Arelate,city,"Arelate, Theline, Constantina",Arles,Gallia Narbonensis,France,173,4.62266,43.67586,2
+GaN-Place-003 Bourg St. AndĂ©ol,town,Bourg Saint AndĂ©ol,Bergoiata,Gallia Narbonensis,France,11120,4.64664,44.37113,4
+GaN-Place-004 Genava,civitas,Genava,GenĂ¨ve,Gallia Narbonensis,Switzerland,22,6.14851,46.20112,1
+GaN-Place-005 La Lagaste,oppidum,,"La Lagaste, Pomas",Gallia Narbonensis,France,20131,2.27207,43.11255,1
+GaN-Place-006 Lucey,,,Lucey,Gallia Narbonensis,France,,5.7875,45.7528,1
+GaN-Place-007 Mons Seleucus,town,Mons Seleucus,La BĂ˘tie-MontsalĂ©on,Gallia Narbonensis,France,8048,5.75141,44.45743,2
+GaN-Place-008 Valentia,city,Valentia,Valence,Gallia Narbonensis,France,191,4.88953,44.93163,2
+GaN-Place-009 Vasio,civitas,Vasio,Vaison-la-Romaine,Gallia Narbonensis,France,168,5.07464,44.23824,1
+GaN-Place-010 Venetonimagus,town,Venetonimagus,"Vieu, Vieu-en-Val-Romey",Gallia Narbonensis,France,17309,5.68279,45.89768,4
+GaN-Place-011 Vienna,city,Vienna,Vienne,Gallia Narbonensis,France,106,4.87325,45.5242,4
+GaN-Place-012 Mandelieu-la-Napoule,villa,,Mandelieu-la-Napoule,Gallia Narbonensis,France,18088,6.93831,43.54623,4
+GeI-Place-001 Bandorf,,,Bandorf,Germania Inferior,Germany,,7.197057,50.609032,1
+GeI-Place-002 Bonna,fortress,Bonna,Bonn,Germania Inferior,Germany,527,7.09938,50.7448,4
+GeI-Place-003 Burginatium,fort,Burginatium,Altkalkar,Germania Inferior,Germany,11070,6.31889,51.71389,2
+GeI-Place-004 Colonia Agrippinensium,city,"Colonia Claudia Ara Agrippinensium, Ara Ubiorum",KĂ¶ln,Germania Inferior,Germany,299,6.95816,50.94134,5
+GeI-Place-005 Durnomagus,fort,Durnomagus,Dormagen,Germania Inferior,Germany,2072,6.84056,51.0925,4
+GeI-Place-006 Gelduba,fort,Gelduba,Gellep-Stratum,Germania Inferior,Germany,2074,6.6825,51.33319,4
+GeI-Place-007 Juslenville,,Tecta,Juslenville,Germania Inferior,Belgium,,5.810944,50.544869,2
+GeI-Place-008 Rheder,,,Rheder,Germania Inferior,Germany,,6.798156,50.622653,2
+GeI-Place-009 Vetera,fortress,"Vetera, Castra Vetera",Birten,Germania Inferior,Germany,898,6.46999,51.64639,2
+GeI-Place-010 Bornheim-Sechtem,,,Bornheim-Sechtem,Germania Inferior,Germany,,6.956638,50.789579,4
+GeI-Place-011 Tienen,town,,Tienen,Germania Inferior,Belgium,4153,4.93943,50.8056,4
+GeS-Place-001 Aquae Helveticae,bath,Aquae Helveticae,Baden,Germania Superior,Switzerland,1938,8.31345,47.48132,1
+GeS-Place-002 Aquae Mattiacorum,civitas,Aquae Mattiacorum,Wiesbaden,Germania Superior,Germany,1981,8.23879,50.08434,4
+GeS-Place-003 Argentorate,fortress,"Argentorate, Stratoburgo",Strasbourg,Germania Superior,France,17,7.75108,48.58272,2
+GeS-Place-004 Augusta Rauricorum,city,"Augusta Rauricorum, Colonia Augusta Raurica",Augst,Germania Superior,Switzerland,19,7.72231,47.53323,2
+GeS-Place-005 Bodobrica,fort,"Bodobrica, Baudobriga",Boppard,Germania Superior,Germany,1385,7.59173,50.23103,1
+GeS-Place-006 Besigheim,villa,,Besigheim,Germania Superior,Germany,8074,9.11814,48.98596,1
+GeS-Place-007 Argentovaria,town,Argentovaria,"Biesheim,Ĺ’denbourg",Germania Superior,France,18938,7.54637,48.06394,4
+GeS-Place-008 BingerbrĂĽck,,,BingerbrĂĽck,Germania Superior,Germany,,7.887969,49.96611,1
+GeS-Place-009 Bingium,town,Bingium,Bingen am Rhein,Germania Superior,Germany,520,7.89189,49.96682,4
+GeS-Place-010 BĂ¶ckingen,fort,,BĂ¶ckingen,Germania Superior,Germany,3788,9.19932,49.14661,1
+GeS-Place-011 Brocomagus,civitas,Brocomagus,Brumath,Germania Superior,France,377,7.71118,48.73002,2
+GeS-Place-012 Dieburg,civitas,"Med(...),Civitas Auderiensium",Dieburg,Germania Superior,Germany,2207,8.84571,49.89933,4
+GeS-Place-013 Echzell,fort,,Echzell,Germania Superior,Germany,2162,8.88318,50.39309,1
+GeS-Place-014 Epamanduodurum,town,Epamanduodurum,Mandeure,Germania Superior,France,902,6.79622,47.44901,1
+GeS-Place-015 Ettlingen,town,,Ettlingen,Germania Superior,Germany,1952,8.4093,48.943,1
+GeS-Place-016 Fellbach,villa,,Fellbach,Germania Superior,Germany,40954,9.26759,48.8111,2
+GeS-Place-017 Gimmeldingen,villa,,Gimmeldingen,Germania Superior,Germany,18864,8.15414,49.37615,4
+GeS-Place-018 GroĂźkrotzenburg,fort,,GroĂźkrotzenburg,Germania Superior,Germany,2167,8.98041,50.08034,4
+GeS-Place-019 Neuenheim,fort,,"Neuenheim, Heidelberg",Germania Superior,Germany,2210,8.6805,49.41348,4
+GeS-Place-020 HĂ¶lzern,,,"HĂ¶lzern, Eberstadt",Germania Superior,Germany,,9.34612,49.178882,1
+GeS-Place-021 Ittenwiller,production,,Ittenwiller,Germania Superior,France,44888,7.45371,48.38467,1
+GeS-Place-022 Kindenheim,,,Kindenheim,Germania Superior,Germany,,8.162189,49.610651,1
+GeS-Place-023 Koenigshoffen,,Argentorate,"Koenigshoffen, Strasbourg",Germania Superior,France,,7.712414,48.578856,4
+GeS-Place-024 Langenhain,fort,,Langenhain,Germania Superior,Germany,16051,8.64479,50.3651,1
+GeS-Place-025 Lengfeld,,,"Lengfeld, Odenwald",Germania Superior,Germany,,8.901667,49.835556,2
+GeS-Place-026 Lopodunum,civitas,"Lopodunum, Civitas Ulpia Sueborum Nicrensium",Ladenburg,Germania Superior,Germany,541,8.61109,49.47176,1
+GeS-Place-027 Mackwiller,temple,,Mackwiller,Germania Superior,France,4663,7.17889,48.92402,4
+GeS-Place-028 Mogontiacum,city,Mogontiacum,Mainz,Germania Superior,Germany,3,8.27387,49.99891,4
+GeS-Place-029 MĂ¶ttlingen,,,MĂ¶ttlingen,Germania Superior,Germany,,8.799768,48.762985,1
+GeS-Place-030 Mundelsheim,villa,,Mundelsheim,Germania Superior,Germany,40627,9.21262,49.00956,1
+GeS-Place-031 Murrhardt,fort,,Murrhadt,Germania Superior,Germany,1395,9.58236,48.97705,4
+GeS-Place-032 Nida,civitas,"Nida, Civitas Taunensium","Heddernheim, Frankfurt am Main",Germania Superior,Germany,2000,8.63774,50.15411,6
+GeS-Place-033 Niederbieber,fort,,"Niederbieber, Niederbieber-Segendorf",Germania Superior,Germany,2177,7.47195,50.46703,2
+GeS-Place-034 Noviodunum,civitas,Noviodunum,Nyon,Germania Superior,Switzerland,21,6.23883,46.38252,4
+GeS-Place-035 Noviomagus,civitas,"Noviomagus, Nemetae, Civitas Nemetum, Spira",Speyer,Germania Superior,Germany,5,8.44245,49.31723,2
+GeS-Place-036 Ober-Florstadt,fort,,Ober-Florstadt,Germania Superior,Germany,2163,8.87677,50.3238,4
+GeS-Place-037 Obernburg,fort,,Obernburg am Main,Germania Superior,Germany,12883,9.14659,49.84111,2
+GeS-Place-038 Osterburken,fort,,Osterburken,Germania Superior,Germany,1268,9.42365,49.42752,4
+GeS-Place-039 Riegel,fort,,Riegel am Kaiserstuhl,Germania Superior,Germany,1954,7.74974,48.15208,4
+GeS-Place-040 Rockenhausen,,,Rockenhausen,Germania Superior,Germany,,7.818609,49.630844,4
+GeS-Place-041 RĂĽckingen,fort,,RĂĽckingen,Germania Superior,Germany,2166,8.98134,50.15473,3
+GeS-Place-042 RĂĽsselheim-HaĂźloch,fortlet/tower,,RĂĽsselheim-HaĂźloch,Germania Superior,Germany,821,8.46523,49.98571,1
+GeS-Place-043 Schwarzerden,fortlet/tower,,Schwarzerden,Germania Superior,Germany,45004,7.28417,49.53389,4
+GeS-Place-044 Sindelfingen,town,,Sindelfingen,Germania Superior,Germany,8072,9.01016,48.70326,1
+GeS-Place-045 Stockstadt,fort,,Stockstadt am Main,Germania Superior,Germany,7969,9.06737,49.97739,5
+GeS-Place-046 Sumelocenna,civitas,"Sumelocenna, Civitas Sumelocennensis",Rottenburg am Neckar,Germania Superior,Germany,8080,8.9365,48.4784,1
+GeS-Place-047 Tabernae,town,Tabernae,Rheinzabern,Germania Superior,Germany,1070,8.2781,49.1193,2
+GeS-Place-048 Friedberg,fort,,Friedberg,Germania Superior,Germany,12979,8.7535,50.34167,4
+GeS-Place-049 Vicus Altiaiensium,fort,Vicus Altiaiensium,Alzey,Germania Superior,Germany,952,8.11749,49.74283,2
+GeS-Place-050 Vicus Nediensis,town,"Vicus Nediensis, Vicus Nediensium",Spechbach,Germania Superior,Germany,40811,8.87847,49.35583,2
+GeS-Place-051 Walheim,fort,,Walheim,Germania Superior,Germany,2149,9.15444,49.01072,1
+GeS-Place-052 Zasenhausen,,,Zasenhousen,Germania Superior,Germany,,8.814986,49.108041,1
+GeS-Place-053 Biesheim,town,Argentovaria,"Biesheim, Ĺ’denbourg",Germania Superior,France,18938,7.54637,48.06394,4
+GeS-Place-054 GroĂź-Gerau,fort,,GroĂź-Gerau,Germania Superior,Germany,26356,8.48024,49.90337,4
+GeS-Place-055 GĂĽglingen,town,,GĂĽglingen,Germania Superior,Germany,19887,9.0052,49.06144,5
+GeS-Place-056 Grinario,fort,Grinario,KĂ¶ngen,Germania Superior,Germany,1913,9.36007,48.67729,1
+GeS-Place-057 BoscĂ©az,villa,,"BoscĂ©az, Orbe",Germania Superior,Switzerland,20238,6.53707,46.74432,4
+GeS-Place-058 Welzheim,fort,,Welzheim,Germania Superior,Germany,,9.63245,48.87227,1
+GeS-Place-059 Wiesloch,town,,Wiesloch,Germania Superior,Germany,542,8.69907,49.29359,4
+Tar-Place-001 Aquae Calidae,town,Aquae Calidae,Cuntis,Tarraconensis,Spain,27991,-8.56343,42.63265,1
+Tar-Place-002 Colonia Barcino,city,Colonia Barcino,Barcelona,Tarraconensis,Spain,6534,2.17542,41.38411,1
+Tar-Place-003 BenifayĂł,town,unknown,BenifayĂł,Tarraconensis,Spain,,-0.427551,39.285703,1
+Tar-Place-004 Cabrea de Mar,temple,,"Carbrera de Mar, Can Modolell",Tarraconensis,Spain,37170,2.38931,41.53453,2
+Tar-Place-005 La Isla,temple,,"La Isla, Colunga",Tarraconensis,Spain,45698,-5.22677,43.47948,1
+Tar-Place-006 Assegonia,station,Assegonia,Santiago de Compostela,Tarraconensis,Spain,36185,-8.54637,42.88036,1
+Tar-Place-007 Tarraco,city,Tarraco,Tarragona,Tarraconensis,Spain,6535,1.25806,41.1192,1
+Tar-Place-008 Els Munts,villa,,"Els Munts, Altafulla",Tarraconensis,Spain,22476,1.38581,41.1367,4
+Tar-Place-009 Lucus Augusti,city,Lucus Augusti,Lugo,Tarraconensis,Spain,13697,-7.55819,43.00915,4
+Tar-Place-010 Saguntum,city,Saguntum,Sagunto,Tarraconensis,Spain,18310,-0.27589,39.67622,1
+regi-place-001_aenaria,island,"Aenaria Insula, Pithekoussai Insula",Isola d&#039;Ischia,"Italia, Regio I Latium et Campania",Ita,42338,13.8986,40.71667,1
+RegI-Place-002 Albano,town,Castra Albana,Albano Laziale,"Italia, Regio I Latium et Campania",Italy,22201,12.65757,41.73071,1
+RegI-Place-003 Antium,city,Antium,Anzio,"Italia, Regio I Latium et Campania",Italy,16711,12.6286,41.45519,2
+RegI-Place-004 Cales,city,Cales,Calvi Risorta,"Italia, Regio I Latium et Campania",Italy,21765,14.13207,41.19999,2
+RegI-Place-005 Caprae,island,Caprae Insula,Isola di Capri,"Italia, Regio I Latium et Campania",Italy,41781,14.23333,40.55314,1
+RegI-Place-006 Capua,city,Capua,Santa Maria Capua Vetere,"Italia, Regio I Latium et Campania",Italy,21762,14.25006,41.08594,4
+RegI-Place-007 Castel Gandolfo,town,,Castel Gandolfo,"Italia, Regio I Latium et Campania",Italy,21325,12.65048,41.74645,1
+RegI-Place-008 Corniculum,town,Corniculum,"Montecelio, Guidonia Montecelio","Italia, Regio I Latium et Campania",Italy,22207,12.74281,42.02348,1
+RegI-Place-009 Fiano Romano,,,Fiano Romano,"Italia, Regio I Latium et Campania",Italy,,12.590176,42.168331,1
+RegI-Place-010 Formiae,city,Formiae,Formia,"Italia, Regio I Latium et Campania",Italy,16716,13.60591,41.25635,2
+RegI-Place-011 Labicum,town,Labicum,Monte Compatri,"Italia, Regio I Latium et Campania",Italy,22202,12.73767,41.80934,1
+RegI-Place-012 Lanuvium,city,Lanuvium,Lanuvio,"Italia, Regio I Latium et Campania",Italy,21331,12.6974,41.67439,1
+RegI-Place-013 Lavinium,city,Lavinium,"Pratica di Mare, Pomezia","Italia, Regio I Latium et Campania",Italy,21330,12.4802,41.66394,1
+RegI-Place-014 Marino,town,Castromoenium,Marino,"Italia, Regio I Latium et Campania",Italy,33637,12.66022,41.76983,4
+RegI-Place-015 Neapolis,city,"Neapolis, Parthenope",Napoli,"Italia, Regio I Latium et Campania",Italy,1524,14.25287,40.8405,4
+RegI-Place-016 Nomentum,town,Nomentum,Mentana,"Italia, Regio I Latium et Campania",Italy,1471,12.63764,42.03398,2
+RegI-Place-017 Ostia,city,Ostia,Ostia Antica,"Italia, Regio I Latium et Campania",Italy,15960,12.28766,41.75485,6
+RegI-Place-018 Pontiae,town,Pontiae,Ponza,"Italia, Regio I Latium et Campania",Italy,29154,12.96702,40.89488,4
+RegI-Place-019 Praeneste,city,Praeneste,Palestrina,"Italia, Regio I Latium et Campania",Italy,16776,12.89207,41.83906,1
+RegI-Place-020 Puteoli,city,Puteoli,Pozzuoli,"Italia, Regio I Latium et Campania",Italy,16721,14.12187,40.82796,2
+RegI-Place-021 Aguzzano,,,"Aguzzano, Agurzano","Italia, Regio I Latium et Campania",Italy,,12.565294,41.93668,1
+RegI-Place-022 Tibur,city,Tibur,Tivoli,"Italia, Regio I Latium et Campania",Italy,16777,12.7971,41.96566,2
+RegI-Place-023 Velitrae,city,Velitrae,Velletri,"Italia, Regio I Latium et Campania",Italy,16130,12.77721,41.68743,2
+RegI-Place-024 Stabiae,town,Stabiae,Castellammare di Stabia,"Italia, Regio I Latium et Campania",Italy,16722,14.49263,40.69977,1
+RegI-Place-025 Roma,city,Roma,Roma,"Italia, Regio I Latium et Campania",Italy,1438,12.48435,41.89262,6
+RegII-Place-001 Venusia,city,Venusia,Venosa,"Italia, Regio II Apulia et Calabria",Italy,1525,15.82741,40.96906,1
+RegIII-Place-001 Gerace Marino,,,Gerace Marino,"Italia, Regio III Bruttium et Lucania",Italy,,16.219084,38.272259,1
+RegIII-Place-002 Grumentum,city,Grumentum,"Spineta, Grumento Nova","Italia, Regio III Bruttium et Lucania",Italy,16741,15.90717,40.28549,1
+RegIII-Place-003 Paestum,city,"Paestum, Poseidonia","Paestum, Capaccio","Italia, Regio III Bruttium et Lucania",Italy,16726,15.0051,40.42138,1
+RegIV-Place-001 Aesernia,city,Aesernia,Isernia,"Italia, Regio IV Samnium",Italy,1517,14.2267,41.58991,1
+RegIV-Place-002 Alba Fucens,city,Alba Fucens,"Albe, Massa d&#039;Albe","Italia, Regio IV Samnium",Italy,22285,13.41135,42.07984,1
+RegIV-Place-003 Aveia,city,Aveia,Fossa,"Italia, Regio IV Samnium",Italy,16781,13.48826,42.29278,4
+RegIV-Place-004 Amiternum,city,Amiternum,Poggo San Vittorino Amiterno,"Italia, Regio IV Samnium",Italy,16028,13.30884,42.402,1
+RegIX-Place-001 Dertona,city,Dertona,Tortona,"Italia, Regio IX Liguria",Italy,1520,8.8655,44.8972,1
+RegV-Place-001 Macerata,city,Helvia Ricina,"Villa Potenza, Macerata","Italia, Regio V Picenum",Italy,22588,13.42402,43.32794,2
+RegVI-Place-001 Carsulae,city,Carsulae,"San Damiano, Terni","Italia, Regio VI Umbria et Ager Gallicus",Italy,17237,12.55681,42.6398,4
+RegVI-Place-002 Interamna Nahars,city,Interamna Nahars,Terni,"Italia, Regio VI Umbria et Ager Gallicus",Italy,16793,12.64332,42.56044,1
+RegVI-Place-003 Montoro,,,Montoro,"Italia, Regio VI Umbria et Ager Gallicus",Italy,,12.467417,42.506927,4
+RegVI-Place-006 Narnia,city,"Narnia, Nequinum",Narni,"Italia, Regio VI Umbria et Ager Gallicus",Italy,16792,12.51563,42.5176,1
+RegVI-Place-005 Sentinum,city,Sentinum,Sassoferrato,"Italia, Regio VI Umbria et Ager Gallicus",Italy,17230,12.85297,43.42179,2
+RegVI-Place-006 Spoletium,city,Spoletium,Spoleto,"Italia, Regio VI Umbria et Ager Gallicus",Italy,1455,12.74032,42.73528,4
+RegVII-Place-001 Arretium,city,Arretium,Arezzo,"Italia, Regio VII Etruria",Italy,5064,11.88344,43.46707,1
+RegVII-Place-002 Asciano,town,,Asciano,"Italia, Regio VII Etruria",Italy,18716,11.56092,43.23435,1
+RegVII-Place-004 Florentia,city,Florentia,Firenze,"Italia, Regio VII Etruria",Italy,1453,11.2569,43.7687,2
+RegVII-Place-005 Aequiculi,city,"Aequiculi, Nersae","Civitella di Nesce, Pescorocchiano","Italia, Regio VII Etruria",Italy,22565,13.17791,42.20835,4
+RegVII-Place-006 Pisae,city,Pisae,Pisa,"Italia, Regio VII Etruria",Italy,10595,10.40011,43.71942,1
+RegVII-Place-007 Rusellae,city,Rusellae,"Roselle, Grosseto","Italia, Regio VII Etruria",Italy,16694,11.15964,42.82756,1
+RegVII-Place-008 Soriano,,,Soriano nel Cimino,"Italia, Regio VII Etruria",Italy,,12.235197,42.419761,1
+RegVII-Place-009 Sutrium,city,Sutrium,Sutri,"Italia, Regio VII Etruria",Italy,14073,12.22632,42.24125,1
+RegVII-Place-010 Manliana,town,Manliana,Torrita di Siena,"Italia, Regio VII Etruria",Italy,18717,11.77182,43.16684,2
+RegVII-Place-011 Vicus Matrini,town,Vicus Matrini,"Vico Matrino, Capranica","Italia, Regio VII Etruria",Italy,22210,12.12955,42.27714,2
+RegVII-Place-012 Volsinii,city,Volsinii,Bolsena,"Italia, Regio VII Etruria",Italy,16696,11.99015,42.65026,4
+RegVII-Place-013 Vulci,city,Vulci,"Vulci, Montalto di Castro","Italia, Regio VII Etruria",Italy,21589,11.63167,42.41889,4
+RegVIII-Place-001 Bononia,city,"Bononia, Felsina",Bologna,"Italia, Regio VIII Aemilia",Italy,1449,11.34182,44.49463,1
+RegVIII-Place-002 Caesena,town,Caesena,Cesena,"Italia, Regio VIII Aemilia",Italy,10561,12.24293,44.13909,1
+RegVIII-Place-003 Ganaceto,,,Ganaceto,"Italia, Regio VIII Aemilia",Italy,,10.899449,44.709516,1
+RegVIII-Place-004 Mutina,city,Mutina,Modena,"Italia, Regio VIII Aemilia",Italy,2720,10.9252,44.6471,2
+RegX-Place-001 Aquileia,city,Aquileia,Aquileia,"Italia, Regio X Venetia et Histria",Italy,1468,13.37095,45.76963,4
+RegX-Place-002 Sale Marasino,,,Sale Marasino,"Italia, Regio X Venetia et Histria",Italy,,10.113069,45.715349,1
+RegX-Place-003 Cavedine,,,Cavedine,"Italia, Regio X Ventia et Histria",Italy,,10.973705,45.993918,1
+RegX-Place-004 Concordia Sagittaria,city,Iulia Concordia,Concordia Sagittaria,"Italia, Regio X Ventia et Histria",Italy,10645,12.84547,45.75594,2
+RegX-Place-005 Iulium Carnicum,town,Iulium Carnicum,Zuglio,"Italia, Regio X Ventia et Histria",Italy,10651,13.02478,46.46276,1
+RegX-Place-006 Meclo,,,"Meclo, Mechel","Italia, Regio X Ventia et Histria",Italy,,11.02012,46.34953,1
+RegX-Place-007 Patavium,city,Patavium,Padova,"Italia, Regio X Ventia et Histria",Italy,10647,11.8766,45.4096,1
+RegX-Place-008 Pola,city,Pola,Pula,"Italia, Regio X Ventia et Histria",Croatia,10942,13.84553,44.87025,2
+RegX-Place-009 Rovereto,,,Rovereto,"Italia, Regio X Ventia et Histria",Italy,,11.03863,45.891863,2
+RegX-Place-010 S. Ambrogio di Valpolicella,,,S. Ambrogio di Valpolicella,"Italia, Regio X Ventia et Histria",Italy,,10.834944,45.521141,1
+RegX-Place-012 Torcello,town,,Torcello,"Italia, Regio X Ventia et Histria",Italy,15980,12.4193,45.4982,1
+RegX-Place-013 Sanzeno,town,,Sanzeno,"Italia, Regio X Ventia et Histria",Italy,17156,11.07532,46.36549,2
+RegX-Place-014 Chiusa,town,Sublavione,Chiusa,"Italia, Regio X Ventia et Histria",Italy,10724,11.56655,46.63974,1
+RegX-Place-015 Fons Timavi,town,Fons Timavi,"San Giovanni, Duino-Aurisina","Italia, Regio X Ventia et Histria",Italy,17990,13.59281,45.78815,4
+RegX-Place-016 Trentum,city,"Tridentum, Tridentium",Trento,"Italia, Regio X Ventia et Histria",Italy,1522,11.12154,46.06692,2
+RegX-Place-017 Tuenno,,,Tuenno,"Italia, Regio X Ventia et Histria",Italy,,11.022307,46.326625,2
+RegX-Place-018 Vabriga,,,Vabriga,"Italia, Regio X Ventia et Histria",Croatia,,13.615417,45.293459,1
+RegX-Place-019 Cittanova,town,"Eraclia, Heraclia","Cittanova, Eraclea","Italia, Regio X Ventia et Histria",Italy,15983,12.6573,45.6378,1
+RegX-Place-020 Venezia,town,,Venezia,"Italia, Regio X Venetia et Histria",Italy,1469,12.33878,45.43434,1
+RegXI-Place-001 Angera,town,Sebuinus vicus,Angera,"Italia, Regio XI Transpadana",Italy,16523,8.57757,45.77398,2
+RegXI-Place-002 Novaria,city,Novaria,Novara,"Italia, Regio XI Transpadana",Italy,5537,8.61974,45.44566,1
+RegXI-Place-003 Augusta Taurinorum,city,Augusta Taurinorum,Torino,"Italia, Regio XI Transpadana",Italy,1467,7.68543,45.07336,2
+RegXI-Place-004 Bergomum,city,Bergomum,Bergamo,"Italia, Regio XI Transpadana",Italy,1465,9.6687,45.6947,1
+RegXI-Place-005 Industria,town,"Industria, Bodincomagum ?",Monteu da Po,"Italia, Regio XI Transpadana",Italy,17173,8.01788,45.15897,1
+RegXI-Place-006 Introbio,,,Introbio,"Italia, Regio XI Transpadana",Italy,,9.450151,45.974228,1
+RegXI-Place-007 Mediolanum,city,"Mediolanum, Mediolanium",Milano,"Italia, Regio XI Transpadana",Italy,1445,9.1881,45.4637,4
+RegXI-Place-008 Vercellae,city,Vercellae,Vercelli,"Italia, Regio XI Transpadana",Italy,1521,8.4263,45.321,1
+RegXI-Place-009 Augusta Praetoria,city,Augusta Praetoria,Aosta,"Italia, Regio XI Transpadana",Italy,104,7.31785,45.7381,4
+Jud-Place-001 Caesarea,city,"Caesarea Maritima, Stratonos Pyrgos",Caesarea,Judea,Izrael,21149,34.89127,32.49878,4
+Lus-Place-001 Emerita Augusta,city,Emerita Augusta,MĂ©rida,Lusitania,Spain,14305,-6.34561,38.91586,5
+Lus-Place-002 Caetobriga,town,Caetobriga,SetĂşbal,Lusitania,Portugal,18347,-8.88873,38.52311,1
+LycPam-Place-001 Perge,city,Perge,Aksu,Lycia et Pamphylia,Turkey,21450,30.85427,36.96141,1
+Mac-Place-001 Philippi,city,"Philippi, Krenides, Colonia Augusta Iulia Philippensis",Krenides,Macedonia,Greece,21892,24.28409,41.01316,2
+Mac-Place-002 Prilep,,,"Markovi Kuli, Prilep",Macedonia,Macedonia,,21.539653,41.361055,4
+Mac-Place-003 Charitomeni,town,,Charitomeni,Macedonia,Greece,32341,23.85033,41.16631,1
+MaC-Place-001 Ain Toukria,fort,,Ain Toukria,Mauretania Caesariensis,Algeria,34090,1.96667,35.66666,1
+MaC-Place-002 Iol Caesarea,city,Iol Caesarea,Cherchell,Mauretania Caesariensis,Algeria,21630,2.18683,36.60728,1
+MaC-Place-003 El Gahra,fort,,El Gahra,Mauretania Caesariensis,Algeria,34699,4.42109,34.88479,1
+MaC-Place-004 Icosium,city,Icosium,"MadÄ«nat al-DschazÄ&#039;ir, Alger",Mauretania Caesariensis,Algeria,22131,3.04973,36.76603,1
+MaC-Place-005 Sitifis,city,Sitifis,SĂ©tif,Mauretania Caesariensis,Algeria,22117,5.41265,36.19575,2
+MaC-Place-006 Lucu,fort,Lucu,Timziouine,Mauretania Caesariensis,Algeria,34097,-0.10418,34.95065,1
+MaT-Place-001 Volubilis,city,Volubilis,Ksar Pharaoun,Mauretania Tingitana,Morocco,21769,-5.5544,34.07294,2
+MoI-Place-001 Acbunar,,,"Acbunar, Mircea VodÇŽ",Moesia Inferior,Romania,,28.177675,44.28296,4
+MoI-Place-002 Axiopolis,fort,Axiopolis,"Hinog, CernavodÄ",Moesia Inferior,Romania,22383,28.02059,44.33434,2
+MoI-Place-003 Baykal,,,"Baykal, Bajkal",Moesia Inferior,Bulgaria,,24.426709,43.710124,2
+MoI-Place-004 Callatis,city,"Callatis,Kallatis, Kallantis",Mangalia,Moesia Inferior,Romania,21391,28.58516,43.81307,1
+MoI-Place-005 Carsium,fort,Carsium,HĂ˘rĹźova,Moesia Inferior,Romania,22297,27.95184,44.68173,1
+MoI-Place-006 Durostorum,city,Durostorum,Silistra,Moesia Inferior,Bulgaria,18988,27.25947,44.12118,2
+MoI-Place-007 Histria,city,"Histria, Histropolis, Istros,Istropolis",Istria,Moesia Inferior,Romania,21423,28.7748,44.5476,4
+MoI-Place-008 Iatrus,fort,Iatrus,Krivina,Moesia Inferior,Bulgaria,20013,25.57935,43.62303,2
+MoI-Place-009 Marcianopolis,city,Marcianopolis,"Devnjy, Devnya",Moesia Inferior,Bulgaria,18989,27.585,43.225,2
+MoI-Place-010 Kreta,,,Kreta,Moesia Inferior,Bulgaria,,23.698653,43.125197,4
+MoI-Place-011 Nalbant,,,Nalbant,Moesia Inferior,Romania,,28.616455,45.0471,1
+MoI-Place-012 Nicopolis ad Istrum,city,Nicopolis ad Istrum,"Stari-Nikup, Nikyup",Moesia Inferior,Bulgaria,21382,25.61223,43.21793,2
+MoI-Place-013 Novae,city,Novae,"SviĹˇtov, Svishtov",Moesia Inferior,Bulgaria,21377,25.3938,43.61279,4
+MoI-Place-014 Odessus,city,Odessus,Varna,Moesia Inferior,Bulgaria,21393,27.91835,43.20025,2
+MoI-Place-015 Oescus,city,Oescus,"Gigen, Pleven",Moesia Inferior,Bulgaria,21378,24.46548,43.71051,3
+MoI-Place-016 Pleven,Station,Storgosia,Pleven,Moesia Inferior,Bulgaria,21385,24.62893,43.38301,1
+MoI-Place-017 Sexaginta Prista,fort,Sexaginta Prista,Ruse,Moesia Inferior,Bulgaria,22302,25.94536,43.8465,1
+MoI-Place-018 Suhindol,,,Suhindol,Moesia Inferior,Bulgaria,,25.164768,43.185556,1
+MoI-Place-019 Staroselci,,,Staroselci,Moesia Inferior,Bulgaria,,24.28128,43.538721,1
+MoI-Place-020 TĂ®rguĹźor,,,TĂ®rguĹźor,Moesia Inferior,Romania,,22.165257,47.388327,4
+MoI-Place-021 Tomis,city,Tomis,ConstanČ›a,Moesia Inferior,Romania,21389,28.66118,44.17249,3
+MoI-Place-022 Troesmis,city,Troesmis,"IgliĹŁa, Turcoaia",Moesia Inferior,Romania,21390,28.1951,45.1432,2
+MoI-Place-023 Tropaeum Traiani,city,Tropaeum Traiani,Adamclisi,Moesia Inferior,Romania,21388,27.94423,44.09199,1
+MoI-Place-024 Ulmetum,town,"Ulmetum, Vicus Ulmetensium",Pantelimon,Moesia Inferior,Romania,21788,28.34161,44.54759,2
+MoI-Place-025 Utus,fort,Utus,Utum,Moesia Inferior,Bulgaria,23318,24.73093,43.65457,1
+MoS-Place-001 Almus,fort,Almus,Lom,Moesia Superior,Bulgaria,34709,23.23833,43.81784,2
+MoS-Place-002 Begunovci,,,"Begunovci, Begunovtzi",Moesia Superior,Bulgaria,,22.832521,42.692537,2
+MoS-Place-003 Biljanovce,,,"Biljanovce, Biljanovtse",Moesia Superior,Macedonia,,21.732744,42.109006,4
+MoS-Place-004 Kladovo,,,"Kladovo, Drobeta-Turnu Severin",Moesia Superior,Serbia,,22.614454,44.605669,1
+MoS-Place-005 DraĹľinoviÄ‡i,,,DraĹľinoviÄ‡i,Moesia Superior,Serbia,,20.009372,43.954917,1
+MoS-Place-006 Dupljane,,,Dupljane,Moesia Superior,Serbia,,22.457598,44.304353,1
+MoS-Place-007 Egeta,fort,Egeta,Brza Palanka,Moesia Superior,Serbia,23256,22.44515,44.47073,1
+MoS-Place-008 Guberevac,,,Guberevac,Moesia Superior,Serbia,,20.463159,44.542845,4
+MoS-Place-009 IlinjaÄŤa,,,"IlinjaÄŤa, Dragovo",Moesia Superior,Serbia,,21.089722,43.790833,4
+MoS-Place-010 Janjevo,Late-Roman oppidum,,"Janjevo, Veletin",Moesia Superior,Kosovo,44499,21.23727,42.5835,2
+MoS-Place-011 Kadin-Most,,,"Kadin-Most, Nevestino",Moesia Superior,Bulgari,,22.853643,42.256208,1
+MoS-Place-012 Kumanovo,,,"Kumanovo, Lopate",Moesia Superior,Macedonia,,21.662743,42.147182,4
+MoS-Place-013 Mezdra,fort,,Mezdra,Moesia Superior,Bulgaria,22299,23.70377,43.13974,1
+MoS-Place-014 Montana,city,Montana,Montana,Moesia Superior,Bulgaria,21386,23.22573,43.40852,1
+MoS-Place-015 Municipium,station,Municipium,"KaliĹˇte, Malo CrniÄ‡e",Moesia Superior,Serbia,23263,21.32073,44.51423,1
+MoS-Place-016 ParaÄ‡in,,,ParaÄ‡in,Moesia Superior,Serbia,,21.412631,43.860385,1
+MoS-Place-017 RagodeĹˇ,,,RagodeĹˇ,Moesia Superior,Serbia,,22.499106,43.272381,1
+MoS-Place-018 Ratiaria,city,Ratiaria,"ArÄŤar, Archar",Moesia Superior,Serbia,10897,22.90486,43.8174,3
+MoS-Place-019 Cametas,station,Cametas,RaĹľanj,Moesia Superior,Serbia,36465,21.54862,43.67302,2
+MoS-Place-020 Romuliana,fort,Romuliana,"Gamzigrad, ZajeÄŤar",Moesia Superior,Serbia,20000,22.18575,43.89921,1
+MoS-Place-021 Rasnica,,,Rasnica,Moesia Superior,Serbia,,22.534132,43.114883,1
+MoS-Place-022 Singidunum,city,Singidunum,Beograd,Moesia Superior,Serbia,10878,20.4503,44.8236,4
+MoS-Place-023 Stojnik,town,,Stojnik,Moesia Superior,Serbia,26417,20.49925,44.50756,1
+MoS-Place-024 Timacum Minus,fort,Timacum Minus,Ravna,Moesia Superior,Serbia,22691,22.26536,43.64114,1
+MoS-Place-025 Transdierna,fort,Transdierna,Tekija,Moesia Superior,Serbia,34873,22.41091,44.68525,1
+MoS-Place-026 Veles,town,Bylazora ?,Veles,Moesia Superior,Makedonia,32090,21.77991,41.71494,1
+MoS-Place-027 Viminacium,city,"Viminacium, Viminatium",Stari Kostolac,Moesia Superior,Serbia,10877,21.21612,44.73678,4
+Nor-Place-001 Aguntum,city,"Aguntum, Municipium Claudium Aguntum",DĂ¶lsach,Noricum,Austria,10779,12.82303,46.82772,1
+Nor-Place-002 Atrans,station,Atrans,Trojane,Noricum,Slovenia,10765,14.88302,46.18808,1
+Nor-Place-003 Bedaium,town,Bedaium,Seebruck,Noricum,Germany,1966,12.47721,47.93322,1
+Nor-Place-004 Camporosso,station,,"Camporosso, Tarvisio",Noricum,Italy,12936,13.53252,46.51119,1
+Nor-Place-005 Celeia,city,Celeia,Celje,Noricum,Slovenia,10718,15.26029,46.23102,1
+Nor-Place-006 Erl,,,Erl,Noricum,Austria,,12.181005,47.681662,1
+Nor-Place-007 Spodnja HoÄŤe,,,Spodnja HoÄŤe,Noricum,Slovenia,,15.643722,46.498727,1
+Nor-Place-008 Immurium,station,"Immurium, In Murio",Moosham,Noricum,Austria,10709,13.70105,47.10164,4
+Nor-Place-009 Statio Escensis,statio,Statio Escensis,Bad Ischl,Noricum,Austria,10766,13.62382,47.71154,1
+Nor-Place-010 Lauriacum,fortress,Lauriacum,"Lorch, Enns",Noricum,Austria,16,14.47462,48.21984,2
+Nor-Place-011 Lentia,fort,Lentia,Linz,Noricum,Austria,7140,14.29056,48.30306,4
+Nor-Place-012 Mauterndorf,"fortlet, tower",,Mauterndorf,Noricum,Austria,42561,13.67833,47.1375,1
+Nor-Place-013 ModriÄŤ,,,"ModriÄŤ, Modrica",Noricum,Slovenia,,15.210086,46.143942,3
+Nor-Place-014 Paternion,Late-Roman oppidum,,"Paternion, Duel",Noricum,Austria,13963,13.64833,46.69861,1
+Nor-Place-015 PoljÄŤane,,,PoljÄŤane,Noricum,Slovenia,,15.578418,46.314187,1
+Nor-Place-016 Pons Aeni,town,"Pons Aeni, Ad Enum",Pfaffenhofen am Inn,Noricum,Germany,782,12.12555,47.89132,4
+Nor-Place-017 RuĹˇe,,,RuĹˇe,Noricum,Slovenia,,15.508255,46.540654,2
+Nor-Place-018 Sarling-SĂ¤usenstein,"fortlet, tower",,"Sarling-SĂ¤usenstein, Ybbs an der Donau",Noricum,Austria,26520,15.11695,48.1706,2
+Nor-Place-019 Schachadorf,temple,,"Schachadorf, Ried",Noricum,Austria,26361,14.03806,47.99556,4
+Nor-Place-020 Schlatten,,,Schlatten,Noricum,Austria,,14.037838,46.540243,1
+Nor-Place-021 Ĺ martno,,,Ĺ martno na Pohorju,Noricum,Slovenia,,15.539132,46.445335:,2
+Nor-Place-022 Greifenstein,"fortlet, tower",,"Greifenstein, Sankt AndrĂ¤-WĂ¶rdern",Noricum,Austria,42042,16.24748,48.34763,4
+Nor-Place-023 Ĺ entjanĹľ,,,Ĺ entjanĹľ pri Dravogradu,Noricum,Austria,,15.03724,46.563133,1
+Nor-Place-024 Sankt Leonhard,,,Sankt Leonhard am Forst,Noricum,Austria,,15.285449,48.142665,1
+Nor-Place-025 Sankt Thomas,,,Sankt Thomas am Zeiselberg,Noricum,Austria,,14.400267,46.66434,1
+Nor-Place-026 Sankt Urban,,,Sankt Urban,Noricum,Austria,,14.169047,46.751176,4
+Nor-Place-027 Sankt Veit,,,Sankt Veit am Vogau,Noricum,Austria,,15.56872,46.76897,1
+Nor-Place-028 Teurnia,city,"Teurnia, Tiburnia","Sankt Peter in Holz, Lendorf",Noricum,Austria,10670,13.44374,46.82323,1
+Nor-Place-029 TĂ¶schling,,,TĂ¶schling,Noricum,Austria,,14.112639,46.634519,1
+Nor-Place-030 Virunum,city,Virunum,"Zollfeld, Maria Saal",Noricum,Austria,10710,14.36698,46.69789,5
+Nor-Place-031 Waggendorf,,,Waggendorf,Noricum,Austria,,14.286595,46.763305,1
+Nor-Place-032 MĂĽhltal am Inn,town,Statio Enensis,"MĂĽhltal am Inn, Prutting",Noricum,Germany,17674,12.1446,47.89236,2
+Nor-Place-033 Strmca,,,Strmca (near Celje),Noricum,Slovenia,,15.221237,46.15056,1
+Nor-Place-034 Camporosso in Valcanale,statio,Statio Bilachiniensis,"Camporosso, Tarvisio, Seifnitz",Noricum,Italy,12936,13.53252,46.51119,4
+PaI-Place-001 AlcsĂştdoboz,,,AlcsĂştdoboz,Pannonia Inferior,Hungary,,18.602655,47.425917,1
+PaI-Place-002 Aquincum fortress,fortress,Aquincum castra,"Budapest, Ă“buda",Pannonia Inferior,Hungary,26359,19.0416,47.54201,4
+PaI-Place-003 Aquincum,city,Aquincum,"Budapest, Ă“buda",Pannonia Inferior,Hungary,10898,19.04948,47.56414,6
+PaI-Place-004 BesnyĂ¶ puszta,,,BesnyĂ¶ puszta,Pannonia Inferior,Hungary,,18.794669,47.189981,1
+PaI-Place-005 Campona,fort,Campona,"NagytĂ©tĂ©ny, Budapest",Pannonia Inferior,Hungary,10906,18.98538,47.39092,4
+PaI-Place-006 Cusum,fort,Cusum,Petrovaradin,Pannonia Inferior,Serbia,10915,19.86217,45.25216,1
+PaI-Place-007 Intercisa,fort,Intercisa,"DunaĂşjvĂˇros,Ă–reg-hegy",Pannonia Inferior,Hungary,10848,18.93682,46.9755,4
+PaI-Place-008 Mursa,city,Mursa,Osijek,Pannonia Inferior,Croatia,10770,18.67588,45.56,2
+PaI-Place-009 NagykovĂˇcsi,town,,NagykovĂˇcsi,Pannonia Inferior,Hungary,13764,18.878,47.576,1
+PaI-Place-010 NagyvĂˇszony,,,NagyvĂˇszony,Pannonia Inferior,Hungary,,17.696469,46.981694,1
+PaI-Place-011 Lussonium,fort,Lussonium,"Paksâ€“DunakĂ¶mlĹ‘d, SĂˇnc-hegy",Pannonia Inferior,Hungary,13793,18.8818,46.6558,1
+PaI-Place-012 RĂˇcalmĂˇs,fort,,RĂˇcalmĂˇs,Pannonia Inferior,Hungary,13771,18.94,47.025,1
+PaI-Place-013 Rittium,fort,Rittium,Surduk,Pannonia Inferior,Serbia,10918,20.32164,45.06641,2
+PaI-Place-014 SĂˇrkeszi,,,SĂˇrkeszi,Pannonia Inferior,Hungary,,18.286298,47.15889,4
+PaI-Place-015 Sopinae,city,"Sopianae, Sopianis",PĂ©cs,Pannonia Inferior,Hungary,10854,18.23314,46.07132,1
+PaI-Place-016 SzĂ©kesfehĂ©rvĂˇr,,,SzĂ©kesfehĂ©rvĂˇr,Pannonia Inferior,Hungary,,18.413229,47.192498,1
+PaI-Place-017 Teutoburgium,fort,Teutoburgium,Dalj,Pannonia Inferior,Croatia,10866,18.98806,45.48379,1
+PaI-Place-018 Ulcisia Castra,fort,,Szentendre,Pannonia Inferior,Hungary,10851,19.07371,47.66461,2
+PaI-Place-019 Vindonianus Vicus,town,Vindonianus Vicus,"BĂ©kĂˇsmegyer, Budapest",Pannonia Inferior,Hungary,13770,19.05,47.6,2
+PaI-Place-020 ZsĂˇmbĂ©k,,,ZsĂˇmbĂ©k,Pannonia Inferior,Hungary,,18.720231,47.550659,2
+PaS-Place-001 Zgornja Pohanca,,,Zgornja Pohanca,Pannonia Superior,Slovenia,,15.558933,45.978374,4
+PaS-Place-002 Aequinoctium,fort,Aequinoctium,Fischamend,Pannonia Superior,Austria,10870,16.61667,48.11667,2
+PaS-Place-003 Brigetio,fortress,Brigetio,KomĂˇrom-SzĹ‘ny,Pannonia Superior,Hungary,10899,18.19342,47.73146,4
+PaS-Place-004 Carnuntum fortress,fortress,Carnuntum,Bad Deutsch-Altenburg,Pannonia Superior,Austria,10871,16.90385,48.13982,4
+PaS-Place-005 Carnuntum city,city,Colonia Carnuntum,Petronell-Carnuntum,Pannonia Superior,Austria,10720,16.86168,48.1132,5
+PaS-Place-006 Eisenstadt,,,Eisenstadt,Pannonia Superior,Austria,,16.522958,47.846288,1
+PaS-Place-007 Emona,city,Emona,Ljubljana,Pannonia Superior,Slovenia,10717,14.5011,46.04736,1
+PaS-Place-008 FertĹ‘rĂˇkos,temple,,FertĹ‘rĂˇkos,Pannonia Superior,Hungary,26673,16.65674,47.74142,4
+PaS-Place-009 Ilmitz,,,Ilmitz,Pannonia Superior,Austria,,16.802873,47.760871,2
+PaS-Place-010 KĂ¶rnye,,,KĂ¶rnye,Pannonia Superior,Hungary,,18.333995,47.542275,1
+PaS-Place-011 Mosca,,,"Mosca,TĂ¶mĂ¶rdpuszta",Pannonia Superior,Austria,,18.193354,47.646786,1
+PaS-Place-012 Neviodunum,city,Neviodunum,"Drnovo, KrĹˇko",Pannonia Superior,Slovenia,10734,15.48881,45.91745,1
+PaS-Place-013 Poetovio,city,Poetovio,Ptuj,Pannonia Superior,Slovenia,10719,15.86998,46.41999,6
+PaS-Place-014 Potz-Neusiedl,,,Potz-Neusiedl,Pannonia Superior,Austria,,16.948177,48.044824,2
+PaS-Place-015 Praetorium Latobicorum,town,Praetorium Latobicorum,"Pristava, Trebnje",Pannonia Superior,Slovenia,13783,14.9987,45.90858,2
+PaS-Place-016 Pregrada,,,pregrada,Pannonia Superior,Croatia,,15.751915,46.164029,2
+PaS-Place-017 Siscia,city,"Siscia, Segestica",Sisak,Pannonia Superior,Croatia,10771,16.37264,45.4843,4
+PaS-Place-018 Stix-Neusiedl,,,Stix-Neusiedl,Pannonia Superior,Austria,,16.67557,48.04509,4
+PaS-Place-019 Topusko,,,Topusko,Pannonia Superior,Croatia,,15.976275,45.296619,1
+PaS-Place-020 Vindobonna fortress,fortress,Vindobona,Wien,Pannonia Superior,Austria,26674,16.37097,48.21141,2
+PaS-Place-021 Acervo,station,Acervo,"Stari trg, ViĹˇnja Gora",Pannonia Superior,Slovenia,13846,14.758,45.956,1
+PaS-Place-022 Winzendorf,,,Winzendorf,Pannonia Superior,Austria,,16.11211,47.809784,4
+PaS-Place-023 ZalakoppĂˇny,,,"ZalakoppĂˇny, ZalaszentgrĂłt",Pannonia Superior,Hungary,,17.070665,46.886917,1
+PaS-Place-024 Savaria,city,"Savaria,Colonia Claudia Savaria",Szombathely,Pannonia Superior,Hungary,5560,16.61674,47.23191,4
+PaS-Place-025 ViÄŤava,,,"ViÄŤava, Ptuj",Pannonia Superior,Slovenia,,15.859486,46.426088,2
+Rae-Place-001 Brigantium,town,Brigantium,Bregenz,Raetia,Austria,350,9.74073,47.4979,1
+Rae-Place-002 Guntia,town,Guntia,GĂĽnzburg,Raetia,Germany,1922,10.27038,48.45585,1
+Rae-Place-003 Mauls,,,"Mauls, Mules",Raetia,Italy,,11.520367,46.852937,1
+Rae-Place-004 Stein am Rhein,,,Stein am Rhein,Raetia,Switzerland,,8.857613,47.663827,1
+Rae-Place-005 Wachstein,temple,,Wachstein,Raetia,Germany,39139,10.8322,49.07336,4
+Rae-Place-006 KĂ¶nisbrunn,temple,,KĂ¶nisbrunn,Raetia,Germany,39147,10.87458,48.27406,4
+Rae-Place-007 Quintana,fort,Quintana,KĂĽnzing,Raetia,Germany,3401,13.08154,48.66855,4
+Mac-Place-001 Chersonesos,city,Chersonesos,Cherson,Regnum Bospori,Crimean region annexed by Russian Federation in 2014,16458,33.49229,44.61091,1
+RBos-Place-002 Isiakon Limen,town,Isiakon Limen,Odessa,Regnum Bospori,Crimean region annexed by Russian Federation in 2014,27917,30.77814,46.53098,2
+RBo-Place-003 Charax,town,Charax,AĂŻ-Todor,Regnum Bospori,Crimean region annexed by Russian Federation in 2014,22022,34.12825,44.43073,4
+RBos-Place-004 Pantikapaion,city,"Pantikapaion, Bosphorus, Bosporus","KerÄŤ, Kerch",Regnum Bospori,Crimean region annexed by Russian Federation in 2014,22010,36.46855,45.35098,2
+Sic-Place-001 Catina,city,"Catina, Katane",Catania,Sicilia,Italy,16884,15.08783,37.50248,1
+Sic-Place-002 Panhormus,city,"Panhormus, Panormus",Palermo,Sicilia,Italy,16879,13.36141,38.11564,2
+Sic-Place-003 Syracusae,city,"Syracusae, Syrakousai",Siracusa,Sicilia,Italy,16570,15.29382,37.05963,4
+Syr-Place-001 Arsha-Wa-Quibar,,,Arsha-Wa-Qibar,Syria,Syria,,36.889484,36.506606,1
+Syr-Place-002 Beroia,city,"Beroia, Beroea",Aleppo,Syria,Syria,21814,37.16203,36.19947,1
+Syr-Place-003 Bostra,city,"Bostra, Colonia Nova Traiana Alexandriana",Busra ash-Sham,Syria,Syria,21117,36.48333,32.51667,1
+Syr-Place-004 Dura Europos,city,"Dura Europos, Doura, Dura",Qal&#039;at es-Salihiye,Syria,Syria,21510,40.73059,34.74792,4
+Syr-Place-005 SĂ®,,,"SĂ®, Jabal Al-Druze",Syria,Syria,,36.733186,32.667174,2
+Syr-Place-005 Sidon,city,"Sidon, Colonia Aurelia Pia",Saida,Syria,Lebanon,21115,35.37121,33.56024,4
+Syr-Place-006 Hawarte,town,,"Hawarte, Huarte",Syria,Syria,33201,36.44289,35.57643,4
+Syr-Place-008 Ĺ aâ€Ära,,,Ĺ aâ€Ära,Syria,Syria,,36.318959,33.092588,4
+Syr-Place-009 Dolichos,city,"Dolichs, Doliche",DĂĽlĂĽk,Syria,Turkey,21833,37.35953,37.1518,4
+Thr-Place-001 Bessapara,town,Bessapara,Pazardzhik,Thracia,Bulgaria,27848,24.33357,42.19277,3
+Thr-Place-002 Debeli Lag,,,Debeli Lag,Thracia,Bulgaria,,22.87038,42.462174,2
+Thr-Place-003 Dolna Malina,,,Dolna Malina,Thracia,Bulgaria,,23.66968,42.679522,1
+Thr-Place-004 Dolni Vadin,,,Dolni Vadin,Thracia,Bulgaria,,24.270687,43.688205,2
+Thr-Place-005 Gaganica,,,"Gaganica, Gaganitza",Thracia,Bulgaria,,23.108307,43.330679,1
+Thr-Place-008 Iarlovci,,,"Iarlovci, Iarlovtzi",Thracia,Bulgaria,,22.553952,42.806496,1
+Thr-Place-007 Kabyle,,"Kabyle, Diospolis",Yambol,Thracia,Bulgaria,21380,26.48417,42.55056,1
+Thr-Place-008 Kurtovo Konare,,,Kurtovo Konare,Thracia,Bulgaria,,24.504645,42.096073,1
+Thr-Place-009 Pautalia,city,"Pautalia, Ulpia Pautalius, Velebusdus",Kyustendil,Thracia,Bulgaria,22370,22.69027,42.28257,2
+Thr-Place-010 Philippopolis,city,"Philippopolis,Trimontium",Plovdiv,Thracia,Bulgaria,21408,24.74911,42.14744,2
+Thr-Place-011 Radomir,,,Radomir,Thracia,Bulgaria,,22.962576,42.54459,1
+Thr-Place-012 Serdica,city,Serdica,Sofia,Thracia,Bulgaria,10880,23.32215,42.69765,4
+Thr-Place-013 Tavalicevo,,,Tavalicevo,Thracia,Bulgaria,,22.851938,42.314988,1
+Thr-Place-014 Thermes,,,Thermes,Thracia,Greece,,24.9922,41.351202,4
+Thr-Place-015 Virovsko,,,Virovsko,Thracia,Bulgaria,,23.794717,43.298496,1

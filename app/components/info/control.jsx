@@ -56,10 +56,6 @@ export default class InfoLegend extends React.Component {
           return this.visualiseIsis()
           break
 
-        case MapTopics['MARLUC'].label:
-          return this.visualiseMarluc()
-          break
-
         case MapTopics['CHRISTROME'].label:
           return this.visualiseChristrome()
           break

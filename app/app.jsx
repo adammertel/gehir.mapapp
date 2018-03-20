@@ -1,59 +1,57 @@
-import React from 'react'
+import React from 'react';
 
-import MapContainer from './components/map'
-import PanelContainer from './components/panel'
-import InfoContainer from './components/info'
-import ModalContainer from './components/modal'
+import MapContainer from './components/map';
+import PanelContainer from './components/panel';
+import InfoContainer from './components/info';
+import ModalContainer from './components/modal';
 
-import MapTopics from './enums/maptopics'
-import MapBaseLayers from './enums/mapbaselayers'
+import MapTopics from './enums/maptopics';
+import MapBaseLayers from './enums/mapbaselayers';
 
-import ReactTooltip from 'react-tooltip'
+import ReactTooltip from 'react-tooltip';
 
-require('./App.css')
+require('./app.css');
 
-import {red700, grey800} from 'material-ui/styles/colors'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import { red700, grey800 } from 'material-ui/styles/colors';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 const muiTheme = getMuiTheme({
   palette: {
     textColor: grey800,
-    primary1Color: red700,
+    primary1Color: red700
   },
   appBar: {
-    height: 50,
+    height: 50
   }
-})
+});
 
 export default class App extends React.Component {
   constructor(props) {
-    super(props)
-    window['appUpdate'] = this.updateState.bind(this)
+    super(props);
+    window['appUpdate'] = this.updateState.bind(this);
   }
 
-  componentWillMount () {
-    appUpdate()
+  componentWillMount() {
+    appUpdate();
   }
 
-  updateState () {
-    console.log('newstate', (appState))
-    this.setState(appState)
+  updateState() {
+    console.log('newstate', appState);
+    this.setState(appState);
   }
 
-  render () {
+  render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-          {
-            appState.modal ? (<ModalContainer />) : null
-          }
+          {appState.modal ? <ModalContainer /> : null}
           <PanelContainer />
-          <InfoContainer appState={appState}/>
+          <InfoContainer appState={appState} />
           <MapContainer />
-          <ReactTooltip place="right" type="dark" effect="solid"/>
+          <ReactTooltip place="right" type="dark" effect="solid" />
         </div>
       </MuiThemeProvider>
-    )
+    );
   }
 }
