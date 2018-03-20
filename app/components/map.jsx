@@ -4,6 +4,7 @@ import turf from 'turf';
 import dissolve from '@turf/dissolve';
 import {
   Map,
+  Pane,
   ZoomControl,
   ScaleControl,
   LayerGroup,
@@ -59,7 +60,7 @@ export default class MapContainer extends React.Component {
   refreshMapTiles() {
     let that = this;
 
-    Object.keys(appState.MapBaseLayers).map(function(mapTileKey) {
+    Object.keys(appState.MapBaseLayers).map(mapTileKey => {
       let mapTile = that.props.appState.MapBaseLayers[mapTileKey];
       if (mapTile.active) {
         mapTile.layer.addTo(that.map);
@@ -89,24 +90,24 @@ export default class MapContainer extends React.Component {
   }
 
   renderBaseLayers() {
-    let baseLayers = [];
-
-    Object.keys(MapBaseLayers).map(function(mapTileKey, mapIndex) {
-      let mapTile = MapBaseLayers[mapTileKey];
-
-      if (mapTile.id === appState.activeBaseLayer) {
-        baseLayers.push(
-          <TileLayer
-            key={mapIndex}
-            url={mapTile.url}
-            zIndex={1}
-            opacity={mapTile.opacity}
-            className={mapTile.className}
-          />
-        );
+    const activeBaseLayerId = Object.keys(MapBaseLayers).find(
+      (mapTileKey, mapIndex) => {
+        const mapTile = MapBaseLayers[mapTileKey];
+        return mapTile.id === appState.activeBaseLayer;
       }
-    });
-    return baseLayers;
+    );
+
+    const activeBaseLayer = MapBaseLayers[activeBaseLayerId];
+
+    return (
+      <TileLayer
+        key="base layer"
+        url={activeBaseLayer.url}
+        zIndex={1}
+        opacity={activeBaseLayer.opacity}
+        className={activeBaseLayer.className}
+      />
+    );
   }
 
   renderOverlays() {
@@ -116,7 +117,7 @@ export default class MapContainer extends React.Component {
       let mapOverlay = MapOverlays[mapOverlayKey];
 
       if (appState.activeOverlays.indexOf(mapOverlay.id) != -1) {
-        if (mapOverlay.type == 'wms') {
+        if (mapOverlay.type === 'wms') {
           overlayLayers.push(
             <WMSTileLayer
               url={mapOverlay.url}
@@ -130,7 +131,7 @@ export default class MapContainer extends React.Component {
             />
           );
         }
-        if (mapOverlay.type == 'geojson') {
+        if (mapOverlay.type === 'geojson') {
           overlayLayers.push(
             <GeoJSON
               data={mapOverlay.json.ne_50m}
@@ -146,18 +147,25 @@ export default class MapContainer extends React.Component {
         }
       }
     });
+
     return overlayLayers;
   }
 
   render() {
     var that = this;
 
+    this.emptyCells = {
+      weight: 0.2,
+      fillColor: 'none',
+      color: 'black'
+    };
+
     return (
       <div className="map-wrapper" style={Styles['MAP_WRAPPER']()}>
         <Map
           ref="map"
-          minZoom={2}
-          maxBounds={[[10, -30], [60, 60]]}
+          minZoom={5}
+          maxBounds={[[0, -30], [70, 90]]}
           maxZoom={8}
           center={appState.mapCenter}
           style={Styles['MAP']()}
@@ -166,8 +174,8 @@ export default class MapContainer extends React.Component {
           onZoomEnd={this.zoomEndHandle.bind(this)}
         >
           <ScaleControl />
-          <LayerGroup>{this.renderBaseLayers()}</LayerGroup>
-          <LayerGroup>{this.renderOverlays()}</LayerGroup>
+          {this.renderBaseLayers()}
+          <Pane name="overlays">{this.renderOverlays()}</Pane>
         </Map>
       </div>
     );
@@ -230,7 +238,7 @@ export default class MapContainer extends React.Component {
       circleSegmentAngle: 40,
       colors: MapStyles.isis.deitiesColors,
       propertyName: 'deities',
-      opacityDecrease: appState.controlOptions.isis.opacityDecrease,
+      opacityDecrease: 0.2,
       maxOpacity: 0.3
     };
 
@@ -387,7 +395,7 @@ export default class MapContainer extends React.Component {
             'kilometers'
           )
         ),
-        0.1
+        0.05
       );
       group.buffer.features.map(
         buffer => (buffer.bounds = L.geoJSON(buffer).getBounds())
@@ -474,7 +482,7 @@ export default class MapContainer extends React.Component {
       .filter(ch => ch.items.length > 1)
       .map(ch =>
         L.circleMarker([ch.cs[1], ch.cs[0]], {
-          radius: 2.5 + ch.items.length * 0.1,
+          radius: 3 + ch.items.length * 0.1,
           className: 'map-aux'
         })
       );
@@ -498,7 +506,7 @@ export default class MapContainer extends React.Component {
           range: MapStyles.mithorig.fortColors
         },
         fillOpacity: MapStyles.mithorig.fortOpacity,
-        weight: 0
+        weight: 0.5
       }
     };
 
@@ -527,10 +535,13 @@ export default class MapContainer extends React.Component {
     const gridOptions = {
       gridMode: 'hexagon',
       showTexts: false,
+      emptyCellOptions: this.emptyCells,
       showMarkers: false,
       showCells: false,
+      showEmptyCells: true,
       zoomShowElements: 7,
-      gridOrigin: { lat: 20, lng: -10 },
+      gridOrigin: { lat: 25, lng: -5 },
+      gridEnd: { lat: 55, lng: 35 },
       zoomHideGrid: 7,
       zoneSize: appState.controlOptions.mithorig.gridSize
     };

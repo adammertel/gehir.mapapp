@@ -2,6 +2,43 @@ import StyleVariables from './stylevariables';
 import Base from '../base';
 
 var Styles = {
+  SCREEN_MODES: {
+    SM: [0, 700],
+    M: [700, 1000],
+    L: [1000, 3000]
+  },
+
+  GET_SCREEN_MODE: () => {
+    const w = appState.windowWidth;
+    const modes = Styles.SCREEN_MODES;
+    return Object.keys(modes).find(size => {
+      return modes[size][0] < w && modes[size][1] > w;
+    });
+  },
+
+  TEXT_SIZES: {
+    small: {
+      SM: 9,
+      M: 11,
+      L: 13
+    },
+    normal: {
+      SM: 12,
+      M: 14,
+      L: 16
+    },
+    heading: {
+      SM: 16,
+      M: 24,
+      L: 30
+    }
+  },
+
+  GET_TEXT_SIZE: textSize => {
+    const mode = Styles.GET_SCREEN_MODE();
+    return Styles['TEXT_SIZES'][textSize][mode] + 'px';
+  },
+
   PANEL_WRAPPER: () => {
     return {
       position: 'absolute',
@@ -11,7 +48,8 @@ var Styles = {
       top: StyleVariables['PANEL_GAP'],
       overflow: 'hidden',
       backgroundColor: StyleVariables['COLOR_WHITE'],
-      zIndex: 1500
+      zIndex: 1500,
+      fontSize: Styles.GET_TEXT_SIZE('normal')
     };
   },
 
@@ -68,7 +106,8 @@ var Styles = {
   },
   PANEL_BUTTON_CELL: () => {
     return {
-      display: 'table-cell'
+      display: 'table-cell',
+      width: Styles.GET_TEXT_SIZE('normal')
     };
   },
 
@@ -146,15 +185,8 @@ var Styles = {
   },
   INFO_HEADING_H1: () => {
     return {
-      fontSize: 28,
+      fontSize: Styles.GET_TEXT_SIZE('heading'),
       fontWeight: 700
-    };
-  },
-  INFO_HEADING_H2: () => {
-    return {
-      fontSize: 23,
-      margin: '4px 8px',
-      fontWeight: 500
     };
   },
 
