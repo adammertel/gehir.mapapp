@@ -13,9 +13,12 @@ window['data'] = {};
 window['map'] = false;
 window['newwRefreshMap'] = false;
 
+window['windowWidth'] = 0;
+
 const initTopic = MapTopics.CHRISTROME;
 
 window['appState'] = {
+  windowWidth: 500,
   infoOpen: false,
   activeBaseLayer: 'awmc',
   activeMapTopic: initTopic.label,
@@ -43,6 +46,14 @@ window['appState'] = {
   }
 };
 
+window.onresize = function(event) {
+  checkWidnowWidth();
+};
+
+var checkWidnowWidth = () => {
+  dispatcher.dispatch(Actions['WIDTH_CHANGE'], { newWidth: window.innerWidth });
+};
+
 Object.keys(MapTopics).map(mapTopicKey => {
   const mapTopic = MapTopics[mapTopicKey];
   mapTopic.dataFiles.map(dataFile => {
@@ -50,6 +61,7 @@ Object.keys(MapTopics).map(mapTopicKey => {
       dataFile.path + '.' + dataFile.type
     );
   });
+  checkWidnowWidth();
 });
 
 ReactDOM.render(
