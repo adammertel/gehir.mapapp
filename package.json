@@ -16,6 +16,7 @@
     "leaflet": "^1.2.0",
     "react": "15.x",
     "react-dom": "15.x",
+    "react-tap-event-plugin": "^2.0.1",
     "turf": "^3.0.14"
   },
   "devDependencies": {

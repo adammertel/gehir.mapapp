@@ -5,6 +5,8 @@ import MapTopics from './enums/maptopics';
 import dispatcher from './dispatcher';
 import Base from './base';
 import Actions from './enums/actions.js';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 // initial app state
 window['dispatcher'] = dispatcher;
@@ -15,7 +17,7 @@ window['newwRefreshMap'] = false;
 
 window['windowWidth'] = 0;
 
-const initTopic = MapTopics.CHRISTROME;
+const initTopic = MapTopics.MITHORIG;
 
 window['appState'] = {
   windowWidth: 500,
@@ -30,8 +32,7 @@ window['appState'] = {
     isis: {
       artefactDistance: 60000,
       templeDistance: 100000,
-      circleStep: 30000,
-      opacityDecrease: 0
+      circleStep: 30000
     },
     christrome: {
       churchRadius: 80,
