@@ -44,19 +44,21 @@ export default class InfoLegend extends React.Component {
   }
 
   _text(text, x, y) {
-    this.ctx.font = '12px Roboto, sans-serif';
+    this.ctx.font = Styles.GET_TEXT_SIZE('small') + ' Roboto, sans-serif';
     this.ctx.fillStyle = 'rgb(66, 66, 66)';
     this.ctx.fillText(text, x, y);
   }
 
   _textBold(text, x, y) {
-    this.ctx.font = 'bold 13px Roboto, sans-serif';
+    this.ctx.font =
+      ' ' + Styles.GET_TEXT_SIZE('normal') + ' Roboto, sans-serif';
     this.ctx.fillStyle = 'rgb(66, 66, 66)';
     this.ctx.fillText(text, x, y);
   }
 
   _textHead(text, x, y) {
-    this.ctx.font = 'bold 16px Roboto, sans-serif';
+    this.ctx.font =
+      'bold ' + Styles.GET_TEXT_SIZE('normal') + ' Roboto, sans-serif';
     this.ctx.fillStyle = 'rgb(66, 66, 66)';
     this.ctx.fillText(text, x, y);
   }
@@ -163,75 +165,6 @@ export default class InfoLegend extends React.Component {
     this._text('more temples / artefacts', xl, yl + 20);
     this._circleStroke(xl + 20, yl + 15, 4, 'white', 'black');
     this._circleStroke(xl + 20, yl + 15, 1.5, 'black', 'black');
-  }
-
-  _visualiseMarluc() {
-    this._textHead('christian congregations', 30, 15);
-    this._textHead('jewish synagogues', 250, 15);
-
-    if (map) {
-      // symbols
-      if (map.getZoom() > 6) {
-        this.ctx.textAlign = 'right';
-        this._text('christian congregations', 155, 30 + 5);
-        this._circleStroke(175, 30, 3, '#016c59', '#016c59');
-        this._text('synagogue', 310, 30 + 5);
-        this._circleStroke(330, 30, 5, '#bd0026', '#bd0026');
-      } else {
-        // grid
-        const colorsS = MapStyles.marluc.synagogueColors.slice();
-        const colorsC = MapStyles.marluc.congregationColors.slice();
-
-        this.ctx.globalAlpha = 1;
-        // congregations
-        const xc = 30;
-        // number of congregations
-        const ycn = 65;
-        const xcnd = 60;
-        this._circleStroke(xc + xcnd, ycn, 5, 'grey', 'black');
-        this._circleStroke(xc + xcnd + 25, ycn, 10, 'grey', 'black');
-        this._circleStroke(xc + xcnd + 60, ycn, 15, 'grey', 'black');
-
-        // mean age of congregations
-        const yca = 135;
-        const xcad = 75;
-        this._circleStroke(xc + xcad, yca, 7, colorsC[0], 'black');
-        this._circleStroke(xc + xcad + 25, yca, 7, colorsC[2], 'black');
-        this._circleStroke(xc + xcad + 50, yca, 7, colorsC[4], 'black');
-
-        // synagogues
-        const xs = 250;
-        const xsd = 40;
-        const ys = 15;
-        this.ctx.strokeStyle = 'black';
-        this.ctx.fillStyle = colorsS[0];
-
-        this.ctx.fillRect(xs + xsd, ys + 30, 30, 30);
-        this.ctx.strokeRect(xs + xsd, ys + 30, 30, 30);
-        this.ctx.fillStyle = colorsS[2];
-        this.ctx.fillRect(xs + xsd + 40, ys + 30, 30, 30);
-        this.ctx.strokeRect(xs + xsd + 40, ys + 30, 30, 30);
-        this.ctx.fillStyle = colorsS[4];
-        this.ctx.fillRect(xs + xsd + 80, ys + 30, 30, 30);
-        this.ctx.strokeRect(xs + xsd + 80, ys + 30, 30, 30);
-
-        this.ctx.fillStyle = 'black';
-
-        // synagogues aux text
-        this._text('few', xs + 10, ycn);
-        this._text('lot', xs + 160, ycn);
-
-        // congregations aux text
-        this._text('100AD', xc + 20, yca + 5);
-        this._text('304AD', xc + 150, yca + 5);
-        this._text('few', xc + 30, ycn + 5);
-        this._text('lot', xc + 150, ycn + 5);
-
-        this._textBold('number of congregations', xc, ycn - 30);
-        this._textBold('average year of origins', xc, yca - 20);
-        this._textBold('number of synagogues in cell', xs, ycn - 30);
-      }
-    }
   }
 
   _visualiseChristrome() {
@@ -384,6 +317,10 @@ export default class InfoLegend extends React.Component {
         this._text('definitive', x1 + 125, cy + 20);
       }
     }
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return true;
   }
 
   render() {

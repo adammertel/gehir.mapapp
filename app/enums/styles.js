@@ -23,7 +23,7 @@ var Styles = {
       L: 13
     },
     normal: {
-      SM: 12,
+      SM: 13,
       M: 14,
       L: 16
     },
@@ -34,9 +34,9 @@ var Styles = {
     }
   },
 
-  GET_TEXT_SIZE: textSize => {
+  GET_TEXT_SIZE: (textSize, division = 1) => {
     const mode = Styles.GET_SCREEN_MODE();
-    return Styles['TEXT_SIZES'][textSize][mode] + 'px';
+    return Styles['TEXT_SIZES'][textSize][mode] / division + 'px';
   },
 
   PANEL_WRAPPER: () => {
@@ -106,8 +106,7 @@ var Styles = {
   },
   PANEL_BUTTON_CELL: () => {
     return {
-      display: 'table-cell',
-      width: Styles.GET_TEXT_SIZE('normal')
+      display: 'table-cell'
     };
   },
 
@@ -116,6 +115,12 @@ var Styles = {
       width: '100%',
       marginLeft: -8,
       marginTop: 1.5
+    };
+  },
+  PANEL_BUTTON_CELL_ICON: () => {
+    return {
+      height: 18,
+      marginTop: 2
     };
   },
 
@@ -161,7 +166,7 @@ var Styles = {
   },
   INFO_TOGGLE_BUTTON_LABEL: () => {
     return {
-      fontSize: 11
+      fontSize: Styles.GET_TEXT_SIZE('normal')
     };
   },
   INFO_TOGGLE_BUTTON_ICON: () => {
@@ -207,7 +212,8 @@ var Styles = {
   INFO_CONTROL: () => {
     return {
       margin: '35px 20px 0px 10px',
-      width: '50%'
+      width: '50%',
+      fontSize: Styles.GET_TEXT_SIZE('normal')
     };
   },
 
@@ -239,6 +245,14 @@ var Styles = {
     return {
       position: 'relative',
       top: 5
+    };
+  },
+
+  INFO_CONTROL_CHECKBOX_ICON: () => {
+    return {
+      height: 18,
+      marginTop: 1,
+      marginRight: 2
     };
   },
 
