@@ -10,8 +10,6 @@ import MapBaseLayers from './enums/mapbaselayers';
 
 import ReactTooltip from 'react-tooltip';
 
-require('./app.css');
-
 import { red700, grey800 } from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';

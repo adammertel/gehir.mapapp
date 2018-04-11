@@ -6,6 +6,9 @@ import dispatcher from './dispatcher';
 import Base from './base';
 import Actions from './enums/actions.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
+import 'leaflet/dist/leaflet.css';
+require('./app.css');
 injectTapEventPlugin();
 
 // initial app state
@@ -58,8 +61,9 @@ var checkWidnowWidth = () => {
 Object.keys(MapTopics).map(mapTopicKey => {
   const mapTopic = MapTopics[mapTopicKey];
   mapTopic.dataFiles.map(dataFile => {
-    window['data'][dataFile.name] = Base.requestDataFile(
-      dataFile.path + '.' + dataFile.type
+    Base.requestDataFile(
+      dataFile.path + '.' + dataFile.type,
+      data => (window['data'][dataFile.name] = data)
     );
   });
   checkWidnowWidth();

@@ -35,7 +35,9 @@ export default class MapContainer extends React.Component {
     this.dataLayers = [];
 
     this.afterRender();
-    this.topicChanged();
+    if (data.isis_temples) {
+      this.topicChanged();
+    }
   }
 
   componentDidUpdate() {

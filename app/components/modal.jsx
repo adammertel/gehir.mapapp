@@ -109,9 +109,9 @@ export default class ModalContainer extends React.Component {
     return Base.getActiveMapTopic().infoHeading;
   }
 
-  _handleClose = () => {
+  _handleClose() {
     dispatcher.dispatch(Actions['MODAL_CLOSE'], {});
-  };
+  }
 
   render() {
     const actions = [
