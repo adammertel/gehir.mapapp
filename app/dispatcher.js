@@ -20,6 +20,10 @@ module.exports = {
         changes.activeBaseLayer = data.newBaseLayer;
         break;
 
+      case Actions['MAP_CAN_BE_LOADED']:
+        changes.loaded = true;
+        break;
+
       case Actions['MAP_OVERLAY_TOGGLE']:
         changes.activeOverlays = appState.activeOverlays.slice();
         let overlayIndex = changes.activeOverlays.indexOf(data.overlayToToggle);

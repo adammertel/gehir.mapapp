@@ -24,6 +24,7 @@ const initTopic = MapTopics.MITHORIG;
 
 window['appState'] = {
   windowWidth: 500,
+  loaded: false,
   infoOpen: false,
   activeBaseLayer: 'awmc',
   activeMapTopic: initTopic.label,
@@ -58,18 +59,45 @@ var checkWidnowWidth = () => {
   dispatcher.dispatch(Actions['WIDTH_CHANGE'], { newWidth: window.innerWidth });
 };
 
+let noDataFiles = 0;
+Object.keys(MapTopics).forEach(mapTopicKey => {
+  const mapTopic = MapTopics[mapTopicKey];
+  noDataFiles += mapTopic.dataFiles.length;
+});
+
+let processedDataFiles = 0;
+
 Object.keys(MapTopics).map(mapTopicKey => {
   const mapTopic = MapTopics[mapTopicKey];
+
   mapTopic.dataFiles.map(dataFile => {
-    Base.requestDataFile(
-      dataFile.path + '.' + dataFile.type,
-      data => (window['data'][dataFile.name] = data)
-    );
+    Base.requestDataFile(dataFile.path + '.' + dataFile.type, data => {
+      window['data'][dataFile.name] = data;
+      processedDataFiles += 1;
+      if (processedDataFiles === noDataFiles) {
+        dispatcher.dispatch(Actions['MAP_CAN_BE_LOADED'], {});
+      }
+    });
   });
   checkWidnowWidth();
 });
 
-ReactDOM.render(
-  <App />,
-  document.body.appendChild(document.createElement('div'))
-);
+var checkLoaded = () => {
+  setTimeout(() => {
+    if (appState.loaded) {
+      loadApp();
+    } else {
+      checkLoaded();
+    }
+  }),
+    100;
+};
+
+checkLoaded();
+
+var loadApp = () => {
+  ReactDOM.render(
+    <App />,
+    document.body.appendChild(document.createElement('div'))
+  );
+};

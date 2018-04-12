@@ -7,7 +7,8 @@ var Actions = {
   CONTROL_CHANGE: 'controlChange',
   MODAL_CLOSE: 'closeModal',
   MODAL_OPEN: 'openModal',
-  WIDTH_CHANGE: 'widthChange'
+  WIDTH_CHANGE: 'widthChange',
+  MAP_CAN_BE_LOADED: 'mapCanBeLoaded'
 };
 
 module.exports = Actions;
