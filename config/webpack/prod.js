@@ -12,5 +12,10 @@ module.exports = merge(commonConfig, {
     path: resolve(__dirname, '../../dist'),
     publicPath: '/map'
   },
-  plugins: [new CopyWebpackPlugin([{ from: 'data', to: 'app/data' }])]
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: 'data', to: 'app/data' },
+      { from: '../favicon.ico', to: 'favicon.ico' }
+    ])
+  ]
 });

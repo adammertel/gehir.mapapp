@@ -8,9 +8,9 @@ Map Application dedicated to the GEHIR project (gehir.phil.muni.cz) that brings 
 
 Three case studies were chosen based on the focus of the GEHIR project:
 
-* **Mithraism** - ancient misterious religion (1st- 3rd century CE) with unknown origins that was strongly tied with Roman army
+* **Mithraism and army forts** - ancient misterious religion (1st- 3rd century CE) with unknown origins that was strongly tied with Roman army
 * **Isiac cults** - Egyptian cults that spreaded to the whole Medditeranean through the Ptolemaic era (305 - 167 BCE)
-* **Christianity** - the goal of this case study is to discover the spread of Christianity based on the evidence of church buildings
+* **Christian buildings** - the goal of this case study is to discover the spread of Christianity based on the evidence of church buildings
 
 ## Technologies
 
