@@ -42,8 +42,8 @@ var MapStyles = {
     }
   },
   mithorig: {
-    mithraicColors: ['#d7191c', '#fdae61', '#1a9641'],
-    fortColors: ['#cbc9e2', '#9e9ac8', '#756bb1', '#54278f'],
+    mithraicColors: ['#d7191c', '#ffffbf', '#2c7bb6'],
+    fortColors: ['#c2e699', '#78c679', '#31a354', '#006837'],
     placeOpacity: 0.7,
     fortOpacity: 0.35
   }
