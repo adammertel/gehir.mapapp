@@ -10,7 +10,7 @@ module.exports = merge(commonConfig, {
   output: {
     filename: 'js/bundle.min.js',
     path: resolve(__dirname, '../../dist'),
-    publicPath: '/map2'
+    publicPath: '/map'
   },
-  plugins: [new CopyWebpackPlugin([{ from: 'data', to: 'data' }])]
+  plugins: [new CopyWebpackPlugin([{ from: 'data', to: 'app/data' }])]
 });

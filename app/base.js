@@ -21,8 +21,7 @@ var Base = {
   },
 
   requestDataFile(dataName, next) {
-    const dataPath = './data/' + dataName;
-    this.doRequest(dataPath, data => next(data));
+    this.doRequest('data/' + dataName, data => next(data));
   },
 
   getActiveMapTopic() {
