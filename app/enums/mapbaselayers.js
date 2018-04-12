@@ -1,28 +1,28 @@
-import L from 'leaflet'
+import L from 'leaflet';
 
 let defaultBounds = [[0, -30], [60, 60]];
 let defaultKeppBuffer = 20;
 
 var MapBaseLayers = {
-
-  'AWMC': {
+  AWMC: {
     url: 'http://a.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png',
     className: 'map-base-layer map-base-layer-awmc',
     attribution: 'awmc',
     id: 'awmc',
     minZoom: 2,
     maxZoom: 15,
-    opacity: .7,
+    opacity: 0.7,
     bounds: defaultBounds,
     keepBuffer: defaultKeppBuffer,
     name: 'AWMC',
-    info: 'Ancient World Mapping Center',
+    info: 'Ancient World Mapping Center'
   },
 
-  'OSM': {
+  OSM: {
     url: 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',
     className: 'map-base-layer map-base-layer-osm',
-    attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    attribution:
+      '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
     minZoom: 2,
     id: 'osm',
     maxZoom: 15,
@@ -30,13 +30,14 @@ var MapBaseLayers = {
     bounds: defaultBounds,
     keepBuffer: defaultKeppBuffer,
     name: 'Open Street Maps',
-    info: 'http://openstreetmap.org',
+    info: 'http://openstreetmap.org'
   },
-  
-  'IMPERIUM': {
+
+  IMPERIUM: {
     url: 'http://pelagios.org/tilesets/imperium/{z}/{x}/{y}.png',
     className: 'map-base-layer map-base-layer-imperium',
-    attribution: '<a href="http://dare.ht.lu.se/">Digital Atlas of the Roman Empire (DARE)</a>',
+    attribution:
+      '<a href="http://dare.ht.lu.se/">Digital Atlas of the Roman Empire (DARE)</a>',
     minZoom: 2,
     id: 'imperium',
     maxZoom: 11,
@@ -44,19 +45,20 @@ var MapBaseLayers = {
     bounds: defaultBounds,
     keepBuffer: defaultKeppBuffer,
     name: 'Imperium',
-    info: 'http://dare.ht.lu.se/',
+    info: 'http://dare.ht.lu.se/'
   },
 
-  'ESRIWORLD': {
-    url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  ESRIWORLD: {
+    url:
+      'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
     className: 'map-base-layer map-base-layer-esri',
-	  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+    attribution:
+      'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
     id: 'esri',
     opacity: 0.9,
     name: 'WorldImagery ESRI',
-    info: 'WorldImagery ESRI ArcGIS Online WMS',
+    info: 'WorldImagery ESRI ArcGIS Online WMS'
   }
+};
 
-}
-
-module.exports = MapBaseLayers
+module.exports = MapBaseLayers;

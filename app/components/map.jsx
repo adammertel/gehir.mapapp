@@ -100,14 +100,14 @@ export default class MapContainer extends React.Component {
     );
 
     const activeBaseLayer = MapBaseLayers[activeBaseLayerId];
-
     return (
       <TileLayer
-        key="base layer"
+        key={activeBaseLayerId}
         url={activeBaseLayer.url}
         zIndex={1}
         opacity={activeBaseLayer.opacity}
         className={activeBaseLayer.className}
+        attribution={activeBaseLayer.attribution}
       />
     );
   }
