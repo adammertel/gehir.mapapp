@@ -27,8 +27,8 @@ var MapTopics = {
     originZoom: 5,
     uploadedData: [
       {
-        label: 'mitraic_places.csv',
-        url: 'http://gehir.phil.muni.cz/data/mitraic_places.csv'
+        label: 'mithraic places.csv',
+        url: 'http://gehir.phil.muni.cz/data/mithraicplaces.csv'
       }
     ]
   },
@@ -53,12 +53,12 @@ var MapTopics = {
     originZoom: 6,
     uploadedData: [
       {
-        label: 'isis_artefacts.csv',
-        url: 'http://gehir.phil.muni.cz/data/isis_artefacts.csv'
+        label: 'isis artefacts.csv',
+        url: 'http://gehir.phil.muni.cz/data/isisartefacts.csv'
       },
       {
-        label: 'isis_temples.csv',
-        url: 'http://gehir.phil.muni.cz/data/isis_temples.csv'
+        label: 'isis temples.csv',
+        url: 'http://gehir.phil.muni.cz/data/isistemples.csv'
       }
     ]
   },

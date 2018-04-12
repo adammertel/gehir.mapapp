@@ -33,7 +33,7 @@ export default class ModalContainer extends React.Component {
           analysis at the same time.
         </p>
         <p key="3">
-          The content is organised according to four research case studies of
+          The content is organised according to three research case studies of
           three ancient mediterranean religious traditions: Christianity,
           Mithraism and cults of Egyptian Gods during the Ptolemaic era. Each
           case study in the application is a macrohistorical map of selected
