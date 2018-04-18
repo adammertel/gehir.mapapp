@@ -109,23 +109,6 @@ export default class InfoLegend extends React.Component {
             onDragStop={this.handleRunChange.bind(this)}
           />
         </div>
-
-        <div style={Styles['INFO_CONTROL_INPUT_WRAPPER']()}>
-          <div style={Styles['INFO_CONTROL_INPUT_LABEL']()}>
-            {'opacity-decrease coefficient: '}
-            <b>{this._getActualOptionValue('isis', 'opacityDecrease')}</b>
-            {}
-          </div>
-          <Slider
-            min={-0.5}
-            max={1}
-            step={0.05}
-            value={appState.controlOptions.isis.opacityDecrease}
-            style={Styles['INFO_CONTROL_INPUT']()}
-            onChange={this.handleChange.bind(this, 'isis', 'opacityDecrease')}
-            onDragStop={this.handleRunChange.bind(this)}
-          />
-        </div>
       </div>
     );
   }
