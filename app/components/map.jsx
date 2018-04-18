@@ -166,7 +166,7 @@ export default class MapContainer extends React.Component {
       <div className="map-wrapper" style={Styles['MAP_WRAPPER']()}>
         <Map
           ref="map"
-          minZoom={5}
+          minZoom={4}
           maxBounds={[[0, -30], [70, 90]]}
           maxZoom={8}
           center={appState.mapCenter}
