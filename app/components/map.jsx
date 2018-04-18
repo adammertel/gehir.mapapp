@@ -175,7 +175,7 @@ export default class MapContainer extends React.Component {
           onMoveEnd={this.moveEndHandle.bind(this)}
           onZoomEnd={this.zoomEndHandle.bind(this)}
         >
-          <ScaleControl />
+          <ScaleControl imperial={false} />
           {this.renderBaseLayers()}
           <Pane name="overlays">{this.renderOverlays()}</Pane>
         </Map>
@@ -543,7 +543,7 @@ export default class MapContainer extends React.Component {
       showEmptyCells: true,
       zoomShowElements: 7,
       gridOrigin: { lat: 25, lng: -5 },
-      gridEnd: { lat: 55, lng: 35 },
+      gridEnd: { lat: 55, lng: 45 },
       zoomHideGrid: 7,
       zoneSize: appState.controlOptions.mithorig.gridSize
     };
