@@ -27,7 +27,7 @@ export default class PanelOverlaysList extends React.Component {
           style={Styles['PANEL_HEADER_ROW']()}
           onClick={this._handleExpand.bind(this)}
         >
-          <h4 style={Styles['PANEL_HEADER_TITLE']()}>Thematic Layers:</h4>
+          <h4 style={Styles['PANEL_HEADER_TITLE']()}>Auxiliary Layers:</h4>
           <FontIcon
             style={Styles['PANEL_EXPAND_BUTTON']()}
             className="material-icons md-48"

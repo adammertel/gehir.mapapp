@@ -136,6 +136,7 @@ export default class MapContainer extends React.Component {
         if (mapOverlay.type === 'geojson') {
           overlayLayers.push(
             <GeoJSON
+              attribution={mapOverlay.attribution}
               data={mapOverlay.json.ne_50m}
               key={mapIndex}
               interactive={false}
