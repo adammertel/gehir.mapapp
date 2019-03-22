@@ -76,7 +76,7 @@ export default class InfoLegend extends React.Component {
       <div>
         <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
           <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
-            {"temples range: "}
+            {"Temples range: "}
             <b>{this._getActualOptionValue("isis", "templeDistance") / 1000}</b>
             {"km"}
           </div>
@@ -93,7 +93,7 @@ export default class InfoLegend extends React.Component {
 
         <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
           <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
-            {"artefacts range: "}
+            {"Artefacts range: "}
             <b>
               {this._getActualOptionValue("isis", "artefactDistance") / 1000}
             </b>
@@ -118,7 +118,7 @@ export default class InfoLegend extends React.Component {
       <div>
         <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
           <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
-            {"church radius: "}
+            {"Church radius: "}
             <b>{this._getActualOptionValue("christrome", "churchRadius")}</b>
             {"km"}
           </div>
@@ -138,7 +138,7 @@ export default class InfoLegend extends React.Component {
         </div>
 
         <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
-          {"church influence mode: "}
+          {"Church influence mode: "}
           <b />
         </div>
         <RadioButtonGroup
@@ -159,7 +159,7 @@ export default class InfoLegend extends React.Component {
       <div>
         <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
           <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
-            {"grid cell size: "}
+            {"Grid cell size: "}
             <b>{this._getActualOptionValue("mithorig", "gridSize")}</b>
             {"km"}
           </div>
@@ -175,10 +175,10 @@ export default class InfoLegend extends React.Component {
         </div>
 
         <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
-          {"confidence categories of mithraeic places: "}
+          {"Confidence categories of mithraeic places: "}
         </div>
         <Checkbox
-          label="Dubious"
+          label="dubious"
           checked={appState.controlOptions.mithorig.dubious}
           labelPosition="right"
           style={Styles["INFO_CONTROL_CHECKBOX"]()}
@@ -186,7 +186,7 @@ export default class InfoLegend extends React.Component {
           onCheck={this.handleChangeAndRun.bind(this, "mithorig", "dubious")}
         />
         <Checkbox
-          label="Probable"
+          label="probable"
           labelPosition="right"
           style={Styles["INFO_CONTROL_CHECKBOX"]()}
           iconStyle={Styles["INFO_CONTROL_CHECKBOX_ICON"]()}
@@ -194,7 +194,7 @@ export default class InfoLegend extends React.Component {
           onCheck={this.handleChangeAndRun.bind(this, "mithorig", "probable")}
         />
         <Checkbox
-          label="Definitive"
+          label="definitive"
           labelPosition="right"
           style={Styles["INFO_CONTROL_CHECKBOX"]()}
           iconStyle={Styles["INFO_CONTROL_CHECKBOX_ICON"]()}

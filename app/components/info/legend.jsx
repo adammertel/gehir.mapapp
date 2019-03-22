@@ -1,13 +1,13 @@
-import React from 'react';
-import Styles from '../../enums/styles';
-import MapTopics from '../../enums/maptopics';
-import StyleVariables from '../../enums/stylevariables';
-import MapStyles from '../../enums/mapstyles';
+import React from "react";
+import Styles from "../../enums/styles";
+import MapTopics from "../../enums/maptopics";
+import StyleVariables from "../../enums/stylevariables";
+import MapStyles from "../../enums/mapstyles";
 
 export default class InfoLegend extends React.Component {
   componentDidMount() {
-    this.canvas = document.getElementById('canvas-legend');
-    this.ctx = this.canvas.getContext('2d');
+    this.canvas = document.getElementById("canvas-legend");
+    this.ctx = this.canvas.getContext("2d");
     this._update();
   }
 
@@ -20,7 +20,7 @@ export default class InfoLegend extends React.Component {
   }
 
   _update() {
-    this.canvas.height = StyleVariables['INFO_HEIGHT'] - 80;
+    this.canvas.height = StyleVariables["INFO_HEIGHT"] - 80;
     this.canvas.width = window.innerWidth / 2 - 80;
 
     this.h = this.canvas.height;
@@ -29,37 +29,37 @@ export default class InfoLegend extends React.Component {
     const topic = this.props.appState.activeMapTopic;
 
     switch (topic) {
-      case MapTopics['ISIS'].label:
+      case MapTopics["ISIS"].label:
         this._visualiseIsis();
         break;
 
-      case MapTopics['CHRISTROME'].label:
+      case MapTopics["CHRISTROME"].label:
         this._visualiseChristrome();
         break;
 
-      case MapTopics['MITHORIG'].label:
+      case MapTopics["MITHORIG"].label:
         this._visualiseMithorig();
         break;
     }
   }
 
   _text(text, x, y) {
-    this.ctx.font = Styles.GET_TEXT_SIZE('small') + ' Roboto, sans-serif';
-    this.ctx.fillStyle = 'rgb(66, 66, 66)';
+    this.ctx.font = Styles.GET_TEXT_SIZE("small") + " Roboto, sans-serif";
+    this.ctx.fillStyle = "rgb(66, 66, 66)";
     this.ctx.fillText(text, x, y);
   }
 
   _textBold(text, x, y) {
     this.ctx.font =
-      ' ' + Styles.GET_TEXT_SIZE('normal') + ' Roboto, sans-serif';
-    this.ctx.fillStyle = 'rgb(66, 66, 66)';
+      " " + Styles.GET_TEXT_SIZE("normal") + " Roboto, sans-serif";
+    this.ctx.fillStyle = "rgb(66, 66, 66)";
     this.ctx.fillText(text, x, y);
   }
 
   _textHead(text, x, y) {
     this.ctx.font =
-      'bold ' + Styles.GET_TEXT_SIZE('normal') + ' Roboto, sans-serif';
-    this.ctx.fillStyle = 'rgb(66, 66, 66)';
+      "bold " + Styles.GET_TEXT_SIZE("normal") + " Roboto, sans-serif";
+    this.ctx.fillStyle = "rgb(66, 66, 66)";
     this.ctx.fillText(text, x, y);
   }
 
@@ -70,7 +70,7 @@ export default class InfoLegend extends React.Component {
     this.ctx.strokeStyle = strokeColor;
     this.ctx.fill();
     this.ctx.stroke();
-    this.ctx.fillStyle = 'black';
+    this.ctx.fillStyle = "black";
   }
 
   _visualiseIsis() {
@@ -80,13 +80,13 @@ export default class InfoLegend extends React.Component {
     const oy = 50;
     const w = this.h / 1.5;
     const h = 0.866 * w;
-    const composition = 'multiply';
+    const composition = "multiply";
 
     const colors = Object.assign({}, MapStyles.isis.deitiesColors);
 
     const dColor = 255;
     const defaultColor =
-      'rgba(' + dColor + ', ' + dColor + ', ' + dColor + ', 0)';
+      "rgba(" + dColor + ", " + dColor + ", " + dColor + ", 0)";
 
     this.ctx.save();
     this.ctx.beginPath();
@@ -105,17 +105,17 @@ export default class InfoLegend extends React.Component {
       this.ctx.fillRect(ox, oy, ox + w, oy + h);
     };
 
-    gradient(ox, oy, colors['Isis']);
-    gradient(w + ox, oy, colors['Sarapis']);
-    gradient(w / 2 + ox, h + oy, colors['Apis']);
+    gradient(ox, oy, colors["Isis"]);
+    gradient(w + ox, oy, colors["Sarapis"]);
+    gradient(w / 2 + ox, h + oy, colors["Apis"]);
 
     this.ctx.restore();
     this.ctx.save();
 
-    this._textHead('pertinence to cult', ox - 10, oy - 25);
-    this._text('Isis', ox - 10, oy - 5);
-    this._text('Sarapis', w + ox - 10, oy - 5);
-    this._text('other deities', w / 2 + ox - 31, h + oy + 13);
+    this._textHead("Pertinence to cult", ox - 10, oy - 25);
+    this._text("Isis", ox - 10, oy - 5);
+    this._text("Sarapis", w + ox - 10, oy - 5);
+    this._text("other deities", w / 2 + ox - 31, h + oy + 13);
 
     // circles
     const noCirclesA =
@@ -126,7 +126,7 @@ export default class InfoLegend extends React.Component {
       this.ctx.arc(
         250,
         90,
-        options.templeDistance * i / 20000,
+        (options.templeDistance * i) / 20000,
         0,
         Math.PI * 2,
         true
@@ -142,7 +142,7 @@ export default class InfoLegend extends React.Component {
       this.ctx.arc(
         350,
         90,
-        options.artefactDistance * i / 20000,
+        (options.artefactDistance * i) / 20000,
         0,
         Math.PI * 2,
         true
@@ -151,20 +151,20 @@ export default class InfoLegend extends React.Component {
     }
     this.ctx.globalAlpha = 1;
 
-    this.ctx.textAlign = 'center';
-    this._textHead('cult infulence', 300, oy - 25);
-    this._text('temple', 250, oy - 5);
-    this._text('artefact', 350, oy - 5);
+    this.ctx.textAlign = "center";
+    this._textHead("Cult infulence", 300, oy - 25);
+    this._text("temple", 250, oy - 5);
+    this._text("artefact", 350, oy - 5);
 
     // isis symbols
     const xl = 325;
     const yl = 140;
-    this.ctx.textAlign = 'right';
-    this._text('temple/artefact', xl, yl);
-    this._circleStroke(xl + 20, yl - 5, 1, 'black', 'black');
-    this._text('more temples / artefacts', xl, yl + 20);
-    this._circleStroke(xl + 20, yl + 15, 4, 'white', 'black');
-    this._circleStroke(xl + 20, yl + 15, 1.5, 'black', 'black');
+    this.ctx.textAlign = "right";
+    this._text("temple/artefact", xl, yl);
+    this._circleStroke(xl + 20, yl - 5, 1, "black", "black");
+    this._text("more temples / artefacts", xl, yl + 20);
+    this._circleStroke(xl + 20, yl + 15, 4, "white", "black");
+    this._circleStroke(xl + 20, yl + 15, 1.5, "black", "black");
   }
 
   _visualiseChristrome() {
@@ -173,9 +173,9 @@ export default class InfoLegend extends React.Component {
     const line = 30;
     const colors = MapStyles.christrome.colors;
 
-    if (appState.controlOptions.christrome.mode === 'regions') {
+    if (appState.controlOptions.christrome.mode === "regions") {
       // regions
-      this._textHead('regions under the church influence', xi, yi);
+      this._textHead("Regions under the church influence", xi, yi);
 
       this.ctx.globalAlpha = MapStyles.christrome.regionOpacity * 1.2;
       const xr = xi + 115;
@@ -195,7 +195,7 @@ export default class InfoLegend extends React.Component {
       this.ctx.strokeRect(xr, yr + 4 * line, 40, 20);
     } else {
       // radii
-      this._textHead('areas under the church influence', xi, yi);
+      this._textHead("areas under the church influence", xi, yi);
 
       this.ctx.globalAlpha = MapStyles.christrome.radiusOpacity * 1.5;
       const xr = xi + 125;
@@ -212,23 +212,23 @@ export default class InfoLegend extends React.Component {
     }
 
     this.ctx.globalAlpha = 1;
-    this.ctx.fillStyle = 'black';
-    this.ctx.textAlign = 'right';
-    this._text('before 313AD', xi + 100, yi + 1 * line);
-    this._text('before 350AD', xi + 100, yi + 2 * line);
-    this._text('after 350AD', xi + 100, yi + 3 * line);
-    if (appState.controlOptions.christrome.mode === 'regions') {
-      this._text('without influence', xi + 100, yi + 4 * line);
+    this.ctx.fillStyle = "black";
+    this.ctx.textAlign = "right";
+    this._text("before 313AD", xi + 100, yi + 1 * line);
+    this._text("before 350AD", xi + 100, yi + 2 * line);
+    this._text("after 350AD", xi + 100, yi + 3 * line);
+    if (appState.controlOptions.christrome.mode === "regions") {
+      this._text("without influence", xi + 100, yi + 4 * line);
     }
 
     // church symbols
-    this._text('church', 350, 100);
-    this._circleStroke(370, 95, 1, 'black', 'black');
-    this._text('more churches', 350, 120);
-    this._circleStroke(370, 115, 4, 'white', 'black');
-    this._circleStroke(370, 115, 1.5, 'black', 'black');
-    this._circleStroke(390, 115, 7, 'white', 'black');
-    this._circleStroke(390, 115, 3, 'black', 'black');
+    this._text("church", 350, 100);
+    this._circleStroke(370, 95, 1, "black", "black");
+    this._text("more churches", 350, 120);
+    this._circleStroke(370, 115, 4, "white", "black");
+    this._circleStroke(370, 115, 1.5, "black", "black");
+    this._circleStroke(390, 115, 7, "white", "black");
+    this._circleStroke(390, 115, 3, "black", "black");
   }
 
   _visualiseMithorig() {
@@ -239,43 +239,43 @@ export default class InfoLegend extends React.Component {
     const x1 = 20;
     const x2 = 250;
 
-    this._textHead('mithraic places', x1, hy);
-    this._textHead('forts', x2, hy);
+    this._textHead("Mithraic places", x1, hy);
+    this._textHead("Forts", x2, hy);
 
     if (map) {
       if (map.getZoom() > 6) {
-        this.ctx.textAlign = 'right';
+        this.ctx.textAlign = "right";
         // symbols
         const sxm = 70;
         const sym = 35;
-        this._text('precise', sxm, sym);
-        this._text('probable', sxm, sym + 15);
-        this._text('dubious', sxm, sym + 30);
-        this._circleStroke(sxm + 20, sym - 3, 5, colorsC[0], 'white');
-        this._circleStroke(sxm + 20, sym + 15 - 3, 5, colorsC[1], 'white');
-        this._circleStroke(sxm + 20, sym + 30 - 3, 5, colorsC[2], 'white');
+        this._text("dubious", sxm, sym);
+        this._text("probable", sxm, sym + 15);
+        this._text("definitive", sxm, sym + 30);
+        this._circleStroke(sxm + 20, sym - 3, 5, colorsC[0], "white");
+        this._circleStroke(sxm + 20, sym + 15 - 3, 5, colorsC[1], "white");
+        this._circleStroke(sxm + 20, sym + 30 - 3, 5, colorsC[2], "white");
 
         const sxf = 300;
         const syf = 35;
-        this._text('one fort', sxf, syf);
-        this._text('more forts', sxf, syf + 15);
-        this._circleStroke(sxf + 20, syf - 5, 3, '#54278f', '#54278f');
-        this._circleStroke(sxf + 20, syf + 12, 5, '#54278f', '#54278f');
+        this._text("one fort", sxf, syf);
+        this._text("more forts", sxf, syf + 15);
+        this._circleStroke(sxf + 20, syf - 5, 3, "#54278f", "#54278f");
+        this._circleStroke(sxf + 20, syf + 12, 5, "#54278f", "#54278f");
       } else {
         // grid
 
         // sizes
         const sy = 65;
         this.ctx.globalAlpha = MapStyles.mithorig.placeOpacity * 1.2;
-        this._circleStroke(x1 + 50, sy, 3, 'grey', 'black');
-        this._circleStroke(x1 + 75, sy, 7, 'grey', 'black');
-        this._circleStroke(x1 + 105, sy, 10, 'grey', 'black');
+        this._circleStroke(x1 + 50, sy, 3, "grey", "black");
+        this._circleStroke(x1 + 75, sy, 7, "grey", "black");
+        this._circleStroke(x1 + 105, sy, 10, "grey", "black");
 
         // confidence
         const cy = 130;
-        this._circleStroke(x1 + 45, cy, 10, colorsC[0], 'black');
-        this._circleStroke(x1 + 75, cy, 10, colorsC[1], 'black');
-        this._circleStroke(x1 + 105, cy, 10, colorsC[2], 'black');
+        this._circleStroke(x1 + 45, cy, 10, colorsC[0], "black");
+        this._circleStroke(x1 + 75, cy, 10, colorsC[1], "black");
+        this._circleStroke(x1 + 105, cy, 10, colorsC[2], "black");
 
         // forts
 
@@ -286,8 +286,8 @@ export default class InfoLegend extends React.Component {
           this.ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
           for (let side = 0; side < 7; side++) {
             this.ctx.lineTo(
-              x + size * Math.sin(side * 2 * Math.PI / 6),
-              y + size * Math.cos(side * 2 * Math.PI / 6)
+              x + size * Math.sin((side * 2 * Math.PI) / 6),
+              y + size * Math.cos((side * 2 * Math.PI) / 6)
             );
           }
 
@@ -305,16 +305,16 @@ export default class InfoLegend extends React.Component {
         hex(x2 + 140, yf, 18);
 
         this.ctx.globalAlpha = 1;
-        this.ctx.fillStyle = 'black';
-        this._textBold('number of mithraic places', x1, sy - 30);
-        this._textBold('number of forts', x2, sy - 30);
-        this._textBold('confidence level', x1, cy - 20);
-        this._text('few', x1 + 10, sy + 20);
-        this._text('lot', x1 + 125, sy + 20);
-        this._text('few', x2, yf + 30);
-        this._text('lot', x2 + 145, yf + 30);
-        this._text('dubious', x1 - 10, cy + 20);
-        this._text('definitive', x1 + 125, cy + 20);
+        this.ctx.fillStyle = "black";
+        this._textBold("Number of mithraic places", x1, sy - 30);
+        this._textBold("Number of forts", x2, sy - 30);
+        this._textBold("Confidence level", x1, cy - 20);
+        this._text("few", x1 + 10, sy + 20);
+        this._text("lot", x1 + 125, sy + 20);
+        this._text("few", x2, yf + 30);
+        this._text("lot", x2 + 145, yf + 30);
+        this._text("dubious", x1 - 10, cy + 20);
+        this._text("definitive", x1 + 125, cy + 20);
       }
     }
   }
@@ -326,7 +326,7 @@ export default class InfoLegend extends React.Component {
   render() {
     var that = this;
     return (
-      <div style={Styles['INFO_LEGEND']()}>
+      <div style={Styles["INFO_LEGEND"]()}>
         <canvas id="canvas-legend" />
       </div>
     );
