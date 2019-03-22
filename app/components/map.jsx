@@ -1,7 +1,7 @@
-import L from 'leaflet';
-import React from 'react';
-import turf from 'turf';
-import dissolve from '@turf/dissolve';
+import L from "leaflet";
+import React from "react";
+import turf from "turf";
+import dissolve from "@turf/dissolve";
 import {
   Map,
   Pane,
@@ -11,25 +11,25 @@ import {
   TileLayer,
   WMSTileLayer,
   GeoJSON
-} from 'react-leaflet';
+} from "react-leaflet";
 
-import Base from '../base';
+import Base from "../base";
 
-import Actions from '../enums/actions';
-import Styles from '../enums/styles';
-import MapTopics from '../enums/maptopics';
-import MapBaseLayers from '../enums/mapbaselayers.js';
-import MapOverlays from '../enums/mapoverlays.js';
-import MapStyles from '../enums/mapstyles.js';
-import 'leaflet-semicircle';
-import 'leaflet-segment-charts';
-import 'leaflet-regular-grid-cluster';
+import Actions from "../enums/actions";
+import Styles from "../enums/styles";
+import MapTopics from "../enums/maptopics";
+import MapBaseLayers from "../enums/mapbaselayers.js";
+import MapOverlays from "../enums/mapoverlays.js";
+import MapStyles from "../enums/mapstyles.js";
+import "leaflet-semicircle";
+import "leaflet-segment-charts";
+import "leaflet-regular-grid-cluster";
 
 export default class MapContainer extends React.Component {
   componentDidMount() {
     this.lEl = this.refs.map.leafletElement;
     this.lastTopic = appState.activeMapTopic;
-    window['map'] = this.lEl;
+    window["map"] = this.lEl;
     L.Util.setOptions(map, { maxBoundsViscosity: 1 });
 
     this.dataLayers = [];
@@ -49,9 +49,9 @@ export default class MapContainer extends React.Component {
       this.lastTopic = appState.activeMapTopic;
       this.topicChanged();
     }
-    if (window['newwRefreshMap']) {
+    if (window["newwRefreshMap"]) {
       this.topicChanged();
-      window['newwRefreshMap'] = false;
+      window["newwRefreshMap"] = false;
     }
   }
 
@@ -88,7 +88,7 @@ export default class MapContainer extends React.Component {
 
   zoomEndHandle() {
     var zoom = this.lEl.getZoom();
-    dispatcher.dispatch(Actions['MAP_CHANGE_ZOOM'], { newMapZoom: zoom });
+    dispatcher.dispatch(Actions["MAP_CHANGE_ZOOM"], { newMapZoom: zoom });
   }
 
   renderBaseLayers() {
@@ -119,7 +119,7 @@ export default class MapContainer extends React.Component {
       let mapOverlay = MapOverlays[mapOverlayKey];
 
       if (appState.activeOverlays.indexOf(mapOverlay.id) != -1) {
-        if (mapOverlay.type === 'wms') {
+        if (mapOverlay.type === "wms") {
           overlayLayers.push(
             <WMSTileLayer
               url={mapOverlay.url}
@@ -133,7 +133,7 @@ export default class MapContainer extends React.Component {
             />
           );
         }
-        if (mapOverlay.type === 'geojson') {
+        if (mapOverlay.type === "geojson") {
           overlayLayers.push(
             <GeoJSON
               attribution={mapOverlay.attribution}
@@ -143,7 +143,7 @@ export default class MapContainer extends React.Component {
               style={{
                 fill: false,
                 weight: 1,
-                color: 'black'
+                color: "black"
               }}
             />
           );
@@ -159,19 +159,19 @@ export default class MapContainer extends React.Component {
 
     this.emptyCells = {
       weight: 0.2,
-      fillColor: 'none',
-      color: 'black'
+      fillColor: "none",
+      color: "black"
     };
 
     return (
-      <div className="map-wrapper" style={Styles['MAP_WRAPPER']()}>
+      <div className="map-wrapper" style={Styles["MAP_WRAPPER"]()}>
         <Map
           ref="map"
           minZoom={4}
           maxBounds={[[0, -30], [70, 90]]}
           maxZoom={8}
           center={appState.mapCenter}
-          style={Styles['MAP']()}
+          style={Styles["MAP"]()}
           zoom={appState.mapZoom}
           onMoveEnd={this.moveEndHandle.bind(this)}
           onZoomEnd={this.zoomEndHandle.bind(this)}
@@ -211,15 +211,15 @@ export default class MapContainer extends React.Component {
     const t1 = Base.now();
 
     switch (topic) {
-      case MapTopics['ISIS'].label:
+      case MapTopics["ISIS"].label:
         this.visualiseIsis();
         break;
 
-      case MapTopics['CHRISTROME'].label:
+      case MapTopics["CHRISTROME"].label:
         this.visualiseChristrome();
         break;
 
-      case MapTopics['MITHORIG'].label:
+      case MapTopics["MITHORIG"].label:
         this.visualiseMithorig();
         break;
     }
@@ -227,9 +227,9 @@ export default class MapContainer extends React.Component {
     this.drawLayers();
 
     // time
-    console.log('');
-    console.log('topic', topic, 'drawn after', Base.now() - t1, 'ms');
-    console.log('');
+    console.log("");
+    console.log("topic", topic, "drawn after", Base.now() - t1, "ms");
+    console.log("");
   }
 
   /*
@@ -240,7 +240,7 @@ export default class MapContainer extends React.Component {
     const isisOptions = {
       circleSegmentAngle: 40,
       colors: MapStyles.isis.deitiesColors,
-      propertyName: 'deities',
+      propertyName: "deities",
       opacityDecrease: 0.2,
       maxOpacity: 0.3
     };
@@ -280,7 +280,7 @@ export default class MapContainer extends React.Component {
           point => point.cs[0] === artefact.geometry.coordinates[0]
         );
         const item = {
-          type: 'artefact',
+          type: "artefact",
           label: artefact.properties.label,
           deities: artefact.properties.deities
         };
@@ -299,7 +299,7 @@ export default class MapContainer extends React.Component {
           point => point.cs[0] === temple.geometry.coordinates[0]
         );
         const item = {
-          type: 'temple',
+          type: "temple",
           label: temple.properties.label,
           deities: temple.properties.deities
         };
@@ -311,21 +311,21 @@ export default class MapContainer extends React.Component {
     const isisSigns = uniqueIsis.map(point => {
       return L.circleMarker([point.cs[1], point.cs[0]], {
         radius: 1,
-        className: 'map-isis'
+        className: "map-isis"
       }).bindTooltip(
         point.items
           .map(item => {
             return (
               item.type +
-              ' <b>' +
+              " <b>" +
               item.label +
-              '</b>' +
-              ' (deities: ' +
+              "</b>" +
+              " (deities: " +
               item.deities.join() +
-              ')'
+              ")"
             );
           })
-          .join('<br/ >')
+          .join("<br/ >")
       );
     });
 
@@ -333,7 +333,7 @@ export default class MapContainer extends React.Component {
     const isisAuxSigns = uniqueIsis
       .filter(i => i.items.length > 1)
       .map(i =>
-        L.circleMarker([i.cs[1], i.cs[0]], { radius: 3, className: 'map-aux' })
+        L.circleMarker([i.cs[1], i.cs[0]], { radius: 3, className: "map-aux" })
       );
     this.dataLayers.push(L.featureGroup(isisAuxSigns));
     this.dataLayers.push(L.featureGroup(isisSigns));
@@ -375,55 +375,61 @@ export default class MapContainer extends React.Component {
       const date = church.properties.date;
       church.properties.time = 0;
       if (date) {
-        churchesGroups.filter(g => g.id !== 0).map(group => {
-          if (group.time > date) {
-            church.properties.time = Math.max(
-              ...[church.properties.time, group.id]
-            );
-            church.geometry ? group.items.push(church) : null;
-          }
-        });
+        churchesGroups
+          .filter(g => g.id !== 0)
+          .map(group => {
+            if (group.time > date) {
+              church.properties.time = Math.max(
+                ...[church.properties.time, group.id]
+              );
+              church.geometry ? group.items.push(church) : null;
+            }
+          });
       }
     });
 
     // buffering groups
-    churchesGroups.filter(g => g.id !== 0).map(group => {
-      const fc = turf.featureCollection(group.items);
+    churchesGroups
+      .filter(g => g.id !== 0)
+      .map(group => {
+        const fc = turf.featureCollection(group.items);
 
-      group.buffer = turf.simplify(
-        dissolve(
-          turf.buffer(
-            fc,
-            appState.controlOptions.christrome.churchRadius,
-            'kilometers'
-          )
-        ),
-        0.05
-      );
-      group.buffer.features.map(
-        buffer => (buffer.bounds = L.geoJSON(buffer).getBounds())
-      );
-    });
+        group.buffer = turf.simplify(
+          dissolve(
+            turf.buffer(
+              fc,
+              appState.controlOptions.christrome.churchRadius,
+              "kilometers"
+            )
+          ),
+          0.05
+        );
+        group.buffer.features.map(
+          buffer => (buffer.bounds = L.geoJSON(buffer).getBounds())
+        );
+      });
 
     // drawing regions
-    if (appState.controlOptions.christrome.mode === 'regions') {
+    if (appState.controlOptions.christrome.mode === "regions") {
       regions.features.map(region => {
         region.properties.time = 0;
         const regionBbox = L.geoJSON(region).getBounds();
 
-        churchesGroups.filter(g => g.id !== 0).map(group => {
-          const intersects = group.buffer.features.find(buffer => {
-            return (
-              buffer.bounds.intersects(regionBbox) &&
-              !!turf.intersect(buffer, region)
-            );
+        churchesGroups
+          .filter(g => g.id !== 0)
+          .map(group => {
+            const intersects = group.buffer.features.find(buffer => {
+              return (
+                buffer.bounds.intersects(regionBbox) &&
+                !!turf.intersect(buffer, region)
+              );
+            });
+            if (intersects) {
+              region.properties.time = Math.max(
+                ...[region.properties.time, group.id]
+              );
+            }
           });
-          if (intersects) {
-            region.properties.time = Math.max(
-              ...[region.properties.time, group.id]
-            );
-          }
-        });
       });
 
       this.dataLayers.push(
@@ -436,15 +442,15 @@ export default class MapContainer extends React.Component {
           }
         }).bindPopup(
           l =>
-            '<div><span>region: <span><b>' +
+            "<div><span>region: <span><b>" +
             l.feature.properties.n +
-            '<b></div>'
+            "<b></div>"
         )
       );
     }
 
     // drawing radii
-    if (appState.controlOptions.christrome.mode === 'radii') {
+    if (appState.controlOptions.christrome.mode === "radii") {
       churchesGroups
         .filter(g => g.id !== 0)
         .reverse()
@@ -472,11 +478,11 @@ export default class MapContainer extends React.Component {
       const radius = 1.2 + church.items.length * 0.1;
       return L.circleMarker([church.cs[1], church.cs[0]], {
         radius: radius,
-        className: 'map-churches'
+        className: "map-churches"
       }).bindTooltip(
         church.items
-          .map(item => 'church <b>' + item.n + '</b> (' + item.date + ')')
-          .join('<br/ >')
+          .map(item => "church <b>" + item.n + "</b> (" + item.date + ")")
+          .join("<br/ >")
       );
     });
 
@@ -486,7 +492,7 @@ export default class MapContainer extends React.Component {
       .map(ch =>
         L.circleMarker([ch.cs[1], ch.cs[0]], {
           radius: 3 + ch.items.length * 0.1,
-          className: 'map-aux'
+          className: "map-aux"
         })
       );
 
@@ -503,9 +509,9 @@ export default class MapContainer extends React.Component {
     const fortRules = {
       cells: {
         fillColor: {
-          method: 'count',
-          attribute: '',
-          scale: 'quantile',
+          method: "count",
+          attribute: "",
+          scale: "quantile",
           range: MapStyles.mithorig.fortColors
         },
         fillOpacity: MapStyles.mithorig.fortOpacity,
@@ -516,19 +522,19 @@ export default class MapContainer extends React.Component {
     const mithreaRules = {
       markers: {
         radius: {
-          method: 'count',
-          attribute: '',
-          scale: 'continuous',
+          method: "count",
+          attribute: "",
+          scale: "continuous",
           range: [3, 8],
           domain: [0, 15]
         },
-        color: 'black',
+        color: "black",
         weight: 1,
         fillOpacity: MapStyles.mithorig.placeOpacity,
         fillColor: {
-          method: 'mean',
-          attribute: 'p',
-          scale: 'size',
+          method: "mean",
+          attribute: "p",
+          scale: "size",
           domain: [0, 1],
           range: mithraicColors
         }
@@ -536,7 +542,7 @@ export default class MapContainer extends React.Component {
     };
 
     const gridOptions = {
-      gridMode: 'hexagon',
+      gridMode: "hexagon",
       showTexts: false,
       emptyCellOptions: this.emptyCells,
       showMarkers: false,
@@ -557,26 +563,28 @@ export default class MapContainer extends React.Component {
     const uniqueForts = [];
     const fortDistanceThreshold = 10000;
 
-    data.forts.features.filter(f => f.geometry).map(fort => {
-      const cs = L.latLng(
-        fort.geometry.coordinates[1],
-        fort.geometry.coordinates[0]
-      );
-      const isThere = uniqueForts.find(
-        uf => uf.cs.distanceTo(cs) < fortDistanceThreshold
-      );
-      isThere
-        ? isThere.items.push(fort.properties)
-        : uniqueForts.push({ cs: cs, items: [fort.properties] });
-    });
+    data.forts.features
+      .filter(f => f.geometry)
+      .map(fort => {
+        const cs = L.latLng(
+          fort.geometry.coordinates[1],
+          fort.geometry.coordinates[0]
+        );
+        const isThere = uniqueForts.find(
+          uf => uf.cs.distanceTo(cs) < fortDistanceThreshold
+        );
+        isThere
+          ? isThere.items.push(fort.properties)
+          : uniqueForts.push({ cs: cs, items: [fort.properties] });
+      });
 
     const fortPoints = uniqueForts.map(fort => {
       return {
         marker: L.circleMarker(fort.cs, {
           radius: fort.items.length > 1 ? 5 : 3,
-          className: 'map-forts'
+          className: "map-forts"
         }).bindTooltip(
-          fort.items.map(item => 'fort <b>' + item.n + '</b>').join('<br/ >')
+          fort.items.map(item => "fort <b>" + item.n + "</b>").join("<br/ >")
         ),
         properties: {}
       };
@@ -592,9 +600,9 @@ export default class MapContainer extends React.Component {
 
     const weightProbability = probabilities => {
       const weights = probabilities.map(pr => {
-        if (pr === 'definitive') return 1;
-        else if (pr === 'probable') return 0.5;
-        else if (pr === 'dubious') return 0;
+        if (pr === "definitive") return 1;
+        else if (pr === "probable") return 0.5;
+        else if (pr === "dubious") return 0;
         else return 0;
       });
 
@@ -631,12 +639,12 @@ export default class MapContainer extends React.Component {
       return {
         marker: L.circleMarker(mith.cs, {
           radius: 3 + mith.items.length * 0.3,
-          className: 'map-mithraea',
+          className: "map-mithraea",
           fillColor: colorProbability(mith.items.map(i => i.c))
         }).bindTooltip(
           mith.items
-            .map(i => 'mithraeum <b>' + i.n + '</b> (' + i.c + ')')
-            .join('<br/ >')
+            .map(i => "mithraeum <b>" + i.n + "</b> (" + i.c + ")")
+            .join("<br/ >")
         ),
         properties: { p: weightProbability(mith.items.map(i => i.c)) }
       };
