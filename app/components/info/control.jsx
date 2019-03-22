@@ -1,10 +1,10 @@
-import React from 'react';
-import Styles from '../../enums/styles';
-import MapTopics from '../../enums/maptopics';
-import Actions from '../../enums/actions';
-import Slider from 'material-ui/Slider';
-import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
-import Checkbox from 'material-ui/Checkbox';
+import React from "react";
+import Styles from "../../enums/styles";
+import MapTopics from "../../enums/maptopics";
+import Actions from "../../enums/actions";
+import Slider from "material-ui/Slider";
+import { RadioButton, RadioButtonGroup } from "material-ui/RadioButton";
+import Checkbox from "material-ui/Checkbox";
 
 export default class InfoLegend extends React.Component {
   constructor(props) {
@@ -46,7 +46,7 @@ export default class InfoLegend extends React.Component {
 
   handleRunChange() {
     this.state.postponedChanges.map(change => {
-      dispatcher.dispatch(Actions['CONTROL_CHANGE'], change);
+      dispatcher.dispatch(Actions["CONTROL_CHANGE"], change);
       this.setState({
         postponedChanges: []
       });
@@ -57,15 +57,15 @@ export default class InfoLegend extends React.Component {
     const topic = appState.activeMapTopic;
 
     switch (topic) {
-      case MapTopics['ISIS'].label:
+      case MapTopics["ISIS"].label:
         return this.visualiseIsis();
         break;
 
-      case MapTopics['CHRISTROME'].label:
+      case MapTopics["CHRISTROME"].label:
         return this.visualiseChristrome();
         break;
 
-      case MapTopics['MITHORIG'].label:
+      case MapTopics["MITHORIG"].label:
         return this.visualiseMithorig();
         break;
     }
@@ -74,38 +74,38 @@ export default class InfoLegend extends React.Component {
   visualiseIsis() {
     return (
       <div>
-        <div style={Styles['INFO_CONTROL_INPUT_WRAPPER']()}>
-          <div style={Styles['INFO_CONTROL_INPUT_LABEL']()}>
-            {'temples range: '}
-            <b>{this._getActualOptionValue('isis', 'templeDistance') / 1000}</b>
-            {'km'}
+        <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
+          <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
+            {"temples range: "}
+            <b>{this._getActualOptionValue("isis", "templeDistance") / 1000}</b>
+            {"km"}
           </div>
           <Slider
             min={0}
             max={150000}
             step={10000}
             value={appState.controlOptions.isis.templeDistance}
-            style={Styles['INFO_CONTROL_INPUT']()}
-            onChange={this.handleChange.bind(this, 'isis', 'templeDistance')}
+            style={Styles["INFO_CONTROL_INPUT"]()}
+            onChange={this.handleChange.bind(this, "isis", "templeDistance")}
             onDragStop={this.handleRunChange.bind(this)}
           />
         </div>
 
-        <div style={Styles['INFO_CONTROL_INPUT_WRAPPER']()}>
-          <div style={Styles['INFO_CONTROL_INPUT_LABEL']()}>
-            {'artefacts range: '}
+        <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
+          <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
+            {"artefacts range: "}
             <b>
-              {this._getActualOptionValue('isis', 'artefactDistance') / 1000}
+              {this._getActualOptionValue("isis", "artefactDistance") / 1000}
             </b>
-            {'km'}
+            {"km"}
           </div>
           <Slider
             min={0}
             max={150000}
             step={10000}
             value={appState.controlOptions.isis.artefactDistance}
-            style={Styles['INFO_CONTROL_INPUT']()}
-            onChange={this.handleChange.bind(this, 'isis', 'artefactDistance')}
+            style={Styles["INFO_CONTROL_INPUT"]()}
+            onChange={this.handleChange.bind(this, "isis", "artefactDistance")}
             onDragStop={this.handleRunChange.bind(this)}
           />
         </div>
@@ -116,36 +116,36 @@ export default class InfoLegend extends React.Component {
   visualiseChristrome() {
     return (
       <div>
-        <div style={Styles['INFO_CONTROL_INPUT_WRAPPER']()}>
-          <div style={Styles['INFO_CONTROL_INPUT_LABEL']()}>
-            {'church radius: '}
-            <b>{this._getActualOptionValue('christrome', 'churchRadius')}</b>
-            {'km'}
+        <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
+          <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
+            {"church radius: "}
+            <b>{this._getActualOptionValue("christrome", "churchRadius")}</b>
+            {"km"}
           </div>
           <Slider
-            min={30}
-            max={120}
-            step={10}
+            min={10}
+            max={50}
+            step={5}
             value={appState.controlOptions.christrome.churchRadius}
-            style={Styles['INFO_CONTROL_INPUT']()}
+            style={Styles["INFO_CONTROL_INPUT"]()}
             onChange={this.handleChange.bind(
               this,
-              'christrome',
-              'churchRadius'
+              "christrome",
+              "churchRadius"
             )}
             onDragStop={this.handleRunChange.bind(this)}
           />
         </div>
 
-        <div style={Styles['INFO_CONTROL_INPUT_LABEL']()}>
-          {'church influence mode: '}
+        <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
+          {"church influence mode: "}
           <b />
         </div>
         <RadioButtonGroup
-          style={Styles['INFO_CONTROL_RADIO_WRAPPER']()}
+          style={Styles["INFO_CONTROL_RADIO_WRAPPER"]()}
           name="christromeMode"
-          valueSelected={this._getActualOptionValue('christrome', 'mode')}
-          onChange={this.handleChangeAndRun.bind(this, 'christrome', 'mode')}
+          valueSelected={this._getActualOptionValue("christrome", "mode")}
+          onChange={this.handleChangeAndRun.bind(this, "christrome", "mode")}
         >
           <RadioButton value="regions" label="voronoi polygons" />
           <RadioButton value="radii" label="regular church radii" />
@@ -157,55 +157,55 @@ export default class InfoLegend extends React.Component {
   visualiseMithorig() {
     return (
       <div>
-        <div style={Styles['INFO_CONTROL_INPUT_WRAPPER']()}>
-          <div style={Styles['INFO_CONTROL_INPUT_LABEL']()}>
-            {'grid cell size: '}
-            <b>{this._getActualOptionValue('mithorig', 'gridSize')}</b>
-            {'km'}
+        <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
+          <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
+            {"grid cell size: "}
+            <b>{this._getActualOptionValue("mithorig", "gridSize")}</b>
+            {"km"}
           </div>
           <Slider
             min={3000}
             max={10000}
             step={1000}
             value={appState.controlOptions.mithorig.gridSize}
-            style={Styles['INFO_CONTROL_INPUT']()}
-            onChange={this.handleChange.bind(this, 'mithorig', 'gridSize')}
+            style={Styles["INFO_CONTROL_INPUT"]()}
+            onChange={this.handleChange.bind(this, "mithorig", "gridSize")}
             onDragStop={this.handleRunChange.bind(this)}
           />
         </div>
 
-        <div style={Styles['INFO_CONTROL_INPUT_LABEL']()}>
-          {'confidence categories of mithraeic places: '}
+        <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
+          {"confidence categories of mithraeic places: "}
         </div>
         <Checkbox
           label="Dubious"
           checked={appState.controlOptions.mithorig.dubious}
           labelPosition="right"
-          style={Styles['INFO_CONTROL_CHECKBOX']()}
-          iconStyle={Styles['INFO_CONTROL_CHECKBOX_ICON']()}
-          onCheck={this.handleChangeAndRun.bind(this, 'mithorig', 'dubious')}
+          style={Styles["INFO_CONTROL_CHECKBOX"]()}
+          iconStyle={Styles["INFO_CONTROL_CHECKBOX_ICON"]()}
+          onCheck={this.handleChangeAndRun.bind(this, "mithorig", "dubious")}
         />
         <Checkbox
           label="Probable"
           labelPosition="right"
-          style={Styles['INFO_CONTROL_CHECKBOX']()}
-          iconStyle={Styles['INFO_CONTROL_CHECKBOX_ICON']()}
+          style={Styles["INFO_CONTROL_CHECKBOX"]()}
+          iconStyle={Styles["INFO_CONTROL_CHECKBOX_ICON"]()}
           checked={appState.controlOptions.mithorig.probable}
-          onCheck={this.handleChangeAndRun.bind(this, 'mithorig', 'probable')}
+          onCheck={this.handleChangeAndRun.bind(this, "mithorig", "probable")}
         />
         <Checkbox
           label="Definitive"
           labelPosition="right"
-          style={Styles['INFO_CONTROL_CHECKBOX']()}
-          iconStyle={Styles['INFO_CONTROL_CHECKBOX_ICON']()}
+          style={Styles["INFO_CONTROL_CHECKBOX"]()}
+          iconStyle={Styles["INFO_CONTROL_CHECKBOX_ICON"]()}
           checked={appState.controlOptions.mithorig.definitive}
-          onCheck={this.handleChangeAndRun.bind(this, 'mithorig', 'definitive')}
+          onCheck={this.handleChangeAndRun.bind(this, "mithorig", "definitive")}
         />
       </div>
     );
   }
 
   render() {
-    return <div style={Styles['INFO_CONTROL']()}>{this.renderTopic()}</div>;
+    return <div style={Styles["INFO_CONTROL"]()}>{this.renderTopic()}</div>;
   }
 }
