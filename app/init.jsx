@@ -5,11 +5,9 @@ import MapTopics from "./enums/maptopics";
 import dispatcher from "./dispatcher";
 import Base from "./base";
 import Actions from "./enums/actions.js";
-import injectTapEventPlugin from "react-tap-event-plugin";
 
 import "leaflet/dist/leaflet.css";
 require("./app.css");
-injectTapEventPlugin();
 
 // initial app state
 window["dispatcher"] = dispatcher;

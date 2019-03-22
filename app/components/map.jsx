@@ -492,6 +492,7 @@ export default class MapContainer extends React.Component {
       .map(ch =>
         L.circleMarker([ch.cs[1], ch.cs[0]], {
           radius: 3 + ch.items.length * 0.1,
+          attribution: "ORBIS <http://orbis.stanford.edu/>",
           className: "map-aux"
         })
       );
