@@ -161,7 +161,7 @@ export default class InfoLegend extends React.Component {
           <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
             {"Grid cell area: "}
             <b>{this._getActualOptionValue("mithorig", "gridSize")}</b>
-            {"squared km"}
+            {" squared km"}
           </div>
           <Slider
             min={3000}
