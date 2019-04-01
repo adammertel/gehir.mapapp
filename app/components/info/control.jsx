@@ -76,7 +76,7 @@ export default class InfoLegend extends React.Component {
       <div>
         <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
           <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
-            {"Temples range: "}
+            {"Temples radius: "}
             <b>{this._getActualOptionValue("isis", "templeDistance") / 1000}</b>
             {"km"}
           </div>
@@ -93,7 +93,7 @@ export default class InfoLegend extends React.Component {
 
         <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
           <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
-            {"Artefacts range: "}
+            {"Artefacts radius: "}
             <b>
               {this._getActualOptionValue("isis", "artefactDistance") / 1000}
             </b>
@@ -159,9 +159,9 @@ export default class InfoLegend extends React.Component {
       <div>
         <div style={Styles["INFO_CONTROL_INPUT_WRAPPER"]()}>
           <div style={Styles["INFO_CONTROL_INPUT_LABEL"]()}>
-            {"Grid cell size: "}
+            {"Grid cell area: "}
             <b>{this._getActualOptionValue("mithorig", "gridSize")}</b>
-            {"km"}
+            {"squared km"}
           </div>
           <Slider
             min={3000}
