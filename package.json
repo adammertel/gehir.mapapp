@@ -7,7 +7,9 @@
     "test": "npm run lint",
     "start": "webpack-dev-server --mode development --config config/webpack/dev --open ",
     "build": "npm run clean-dist && webpack --mode production -p --config=config/webpack/prod",
-    "clean-dist": "rm -f -r -d dist"
+    "deploy": "rsync -avz dist/ mertel@seth2.ics.muni.cz:/var/www/gehir/map",
+    "clean-dist": "rm -f -r -d dist",
+    "build-deploy": "npm run build && npm run deploy"
   },
   "dependencies": {
     "@turf/dissolve": "^5.1.5",
