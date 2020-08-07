@@ -1,6 +1,6 @@
 {
-  "name": "react-babel-webpack-boilerplate",
-  "version": "1.2.4",
+  "name": "gehir-map-app",
+  "version": "1.2.5",
   "description": "",
   "main": "app/init.jsx",
   "scripts": {
